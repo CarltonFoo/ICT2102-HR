@@ -1,0 +1,31 @@
+[
+  {
+    "username": "joyng",
+    "employeeName": "Joy Ng",
+    "postion": "UXUI Designer",
+    "password": "joyng",
+    "role": "employee"
+  },
+  {
+    "username": "celinefoo",
+    "employeeName": "Celine Foo",
+    "postion": "Process Manager",
+    "password": "celinefoo",
+    "role": "employee"
+  },
+  {
+    "username": "jennychan",
+    "employeeName": "Jenny Chan",
+    "postion": "Software Engineer",
+    "password": "jennychan",
+    "role": "employee"
+  },
+
+  {
+    "username": "bellesim",
+    "employeeName": "Belle Sim",
+    "postion": "HR Manager",
+    "password": "beierbeier",
+    "role": "manager"
+  }
+]

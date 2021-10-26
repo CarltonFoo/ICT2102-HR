@@ -1,0 +1,35 @@
+[
+  {
+    "transactionID": 1,
+    "name": "Joy Ng",
+    "totalHoursWorked": 184,
+    "basicPay": 5000,
+    "bonus": 3000,
+    "totalOTHours": 9
+  },
+  {
+    "transactionID": 2,
+    "name": "Joy Ng",
+    "totalHoursWorked": 184,
+    "basicPay": 7000,
+    "bonus": 3000,
+    "totalOTHours": 6
+  },
+  {
+    "transactionID": 3,
+    "name": "Joy Ng",
+    "totalHoursWorked": 184,
+    "basicPay": 6000,
+    "bonus": 1500,
+    "totalOTHours": 3
+  },
+
+  {
+    "transactionID": 4,
+    "name": "Joy Ng",
+    "totalHoursWorked": 184,
+    "basicPay": 4500,
+    "bonus": 2000,
+    "totalOTHours": 4
+  }
+]
