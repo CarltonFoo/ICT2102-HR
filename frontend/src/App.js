@@ -1,24 +1,58 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import Home from "./components/Home/Home";
+import Welfare from "./components/Welfare/Welfare";
+import Payslip from "./components/Payslip/Payslip";
+import Availability from "./components/Availability/Availability";
+import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Switch>
+
+            <Route
+              key="home"
+              path="/"
+              exact
+              component={Home}
+            ></Route>
+
+            <Route
+              key="welfare"
+              path="/welfare"
+              exact
+              component={Welfare}
+            ></Route>
+
+            <Route
+              key="payslip"
+              path="/payslip"
+              exact
+              component={Payslip}
+            ></Route>
+
+            <Route
+              key="availability"
+              path="/availability"
+              exact
+              component={Availability}
+            ></Route>
+
+            <Route
+              key="welfarehistory"
+              path="/history"
+              exact
+              component={WelfareHistory}
+            ></Route>
+           
+        </Switch>
+    </Router>
   );
 }
 
