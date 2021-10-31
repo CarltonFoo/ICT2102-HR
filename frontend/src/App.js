@@ -55,6 +55,5 @@ function App() {
     </Router>
   );
 }
-//test push:JK
 
 export default App;
