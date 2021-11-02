@@ -5,16 +5,12 @@ import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
 import { Button } from "antd";
+import Navbar from "../Navbar/Navbar";
 
 const Home = () => {
   const classes = useStyles();
 
-  return (
-    <div class="m-auto">
-      <p class="font-bold text-4xl">Home</p>
-      <Button type="primary">Primary Button</Button>
-    </div>
-  );
+  return <div class="m-auto"></div>;
 };
 
 export default Home;

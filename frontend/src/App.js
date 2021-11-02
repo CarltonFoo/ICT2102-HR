@@ -11,49 +11,47 @@ import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
 import "antd/dist/antd.css";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <Router>
+    <div class="bg-gray-200 h-screen">
+      <Navbar></Navbar>
+
+      <Router>
         <Switch>
+          <Route key="home" path="/" exact component={Home}></Route>
 
-            <Route
-              key="home"
-              path="/"
-              exact
-              component={Home}
-            ></Route>
+          <Route
+            key="welfare"
+            path="/welfare"
+            exact
+            component={Welfare}
+          ></Route>
 
-            <Route
-              key="welfare"
-              path="/welfare"
-              exact
-              component={Welfare}
-            ></Route>
+          <Route
+            key="payslip"
+            path="/payslip"
+            exact
+            component={Payslip}
+          ></Route>
 
-            <Route
-              key="payslip"
-              path="/payslip"
-              exact
-              component={Payslip}
-            ></Route>
+          <Route
+            key="availability"
+            path="/availability"
+            exact
+            component={Availability}
+          ></Route>
 
-            <Route
-              key="availability"
-              path="/availability"
-              exact
-              component={Availability}
-            ></Route>
-
-            <Route
-              key="welfarehistory"
-              path="/history"
-              exact
-              component={WelfareHistory}
-            ></Route>
-           
+          <Route
+            key="welfarehistory"
+            path="/history"
+            exact
+            component={WelfareHistory}
+          ></Route>
         </Switch>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
