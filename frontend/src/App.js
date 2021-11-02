@@ -10,6 +10,7 @@ import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
+import "antd/dist/antd.css";
 
 function App() {
   return (
