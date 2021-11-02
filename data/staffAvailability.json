@@ -1,1 +1,72 @@
-[{}]
+[
+    {
+        "name": "Jenny Chan",
+        "leaveStartDate": "N/A",
+        "leaveEndDate": "N/A",
+        "leaveType": "N/A",
+        "coveringPerson": "N/A"
+      },
+      {
+        "name": "Belle Sim",
+        "leaveStartDate": "N/A",
+        "leaveEndDate": "N/A",
+        "leaveType": "N/A",
+        "coveringPerson": "N/A"
+      },
+      {
+        "name": "Carlton Foo",
+        "leaveStartDate": "N/A",
+        "leaveEndDate": "N/A",
+        "leaveType": "N/A",
+        "coveringPerson": "N/A"
+      },
+      {
+        "name": "Celine Ang",
+        "leaveStartDate": "N/A",
+        "leaveEndDate": "N/A",
+        "leaveType": "N/A",
+        "coveringPerson": "N/A"
+      },
+      {
+        "name": "Mohammad Fauzi",
+        "leaveStartDate": "N/A",
+        "leaveEndDate": "N/A",
+        "leaveType": "N/A",
+        "coveringPerson": "N/A"
+      },
+      {
+        "name": "Celine Foo",
+        "leaveStartDate": "N/A",
+        "leaveEndDate": "N/A",
+        "leaveType": "N/A",
+        "coveringPerson": "N/A"
+      },
+    {
+        "name": "Junkiat",
+        "leaveStartDate": "2021-10-22",
+        "leaveEndDate": "2021-10-28",
+        "leaveType": "Annual",
+        "coveringPerson": "Jenny Chan"
+      },
+      {
+        "name": "Joy Ng",
+        "leaveStartDate": "2021-10-25",
+        "leaveEndDate": "2021-11-01",
+        "leaveType": "Annual",
+        "coveringPerson": "Belle Sim"
+      },
+      {
+        "name": "Savvi Pragi",
+        "leaveStartDate": "2021-10-15",
+        "leaveEndDate": "2021-11-24",
+        "leaveType": "Annual",
+        "coveringPerson": "Celine Ang"
+      },
+      {
+        "name": "Joey Chua",
+        "leaveStartDate": "2021-10-20",
+        "leaveEndDate": "2021-11-01",
+        "leaveType": "Annual",
+        "coveringPerson": "Mohammad Fauzi"
+      }
+]
