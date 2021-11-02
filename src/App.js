@@ -4,6 +4,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+// import "tailwindcss/tailwind.css"
+import 'antd/dist/antd.css';
 
 import Home from "./components/Home/Home";
 import Welfare from "./components/Welfare/Welfare";
