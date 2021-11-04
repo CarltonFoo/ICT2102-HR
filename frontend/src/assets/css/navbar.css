@@ -1,0 +1,8 @@
+.ant-menu-inline {
+    height: 10rem;
+}
+.ant-menu-horizontal {
+    background:none;
+    border:none;
+    color: white;
+}

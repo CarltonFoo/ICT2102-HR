@@ -1,20 +1,18 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import useStyles from "./homeStyle";
+import useStyles from "./payslipStyle";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
-import { Button } from "antd";
 
-const Home = () => {
+const Payslip = () => {
   const classes = useStyles();
 
   return (
-    <div className="md:w-1/2 mx-auto">
-      Home
-      <Button type="primary">AntD Button</Button>;
+    <div>
+        Payslip
     </div>
   );
 };
 
-export default Home;
+export default Payslip;
