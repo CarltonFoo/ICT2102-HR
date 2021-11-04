@@ -52,16 +52,16 @@ const Navbar = () => {
           title="Navigation One"
         >
           <MenuItem key="sub1" icon={<MailOutlined />}>
-            Dashboard
+            <a href="/dashboard"> Dashboard</a>
           </MenuItem>
           <MenuItem key="sub2" icon={<MailOutlined />}>
-            Schedule
+            <a href="/schedule"> Schedule</a>
           </MenuItem>
           <MenuItem key="sub3" icon={<MailOutlined />}>
-            Leaves
+            <a href="/leaves"> Leaves</a>
           </MenuItem>
           <MenuItem key="sub4" icon={<MailOutlined />}>
-            Payslip
+            <a href="/payslip"> Payslip</a>
           </MenuItem>
         </Menu>
       </div>
