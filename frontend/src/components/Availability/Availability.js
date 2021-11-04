@@ -10,7 +10,6 @@ import TopNavbar from "../Navbar/TopNavBar";
 import { Table, Button, Space } from "antd";
 import StaffAvailability from "../../data/staffAvailability.json";
 import Card from "../Shared/Card";
-
 const { Header, Content, Footer, Sider } = Layout;
 const columns = [
   {
@@ -56,6 +55,11 @@ const Availability = () => {
             <p class="text-2xl font-bold p-12">Staff Availability</p>
             <div class="m-auto w-8/12">
               <Card>
+                <Space style={{ marginBottom: 16 }}>
+                  <Button>Sort age</Button>
+                  <Button>Clear filters</Button>
+                  <Button>Clear filters and sorters</Button>
+                </Space>
                 <Table columns={columns} dataSource={StaffAvailability} />
               </Card>
             </div>
