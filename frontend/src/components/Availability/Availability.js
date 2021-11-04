@@ -9,7 +9,6 @@ import Navbar from "../Navbar/Navbar";
 import TopNavbar from "../Navbar/TopNavBar";
 import { Table, Button, Space } from "antd";
 import StaffAvailability from "../../data/staffAvailability.json";
-import Employees from "../../data/employees.json";
 import Card from "../Shared/Card";
 const { Header, Content, Footer, Sider } = Layout;
 const columns = [
