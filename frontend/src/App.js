@@ -12,18 +12,17 @@ import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
+import Login from "./components/Login/login";
+
 import "antd/dist/antd.css";
-import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <div class="bg-gray-200 h-screen">
-      <Navbar></Navbar>
-
+    <div>
       <Router>
         <Switch>
           <Route key="home" path="/" exact component={Home}></Route>
-
+          <Route key="login" path="/login" exact component={Login}></Route>
           <Route
             key="welfare"
             path="/welfare"
