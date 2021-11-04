@@ -2,70 +2,69 @@
   {
     "username": "joyng",
     "employeeName": "Joy Ng",
-    "postion": "HR Manager",
+    "position": "UXUI Designer",
     "password": "joyng",
     "role": "employee"
   },
   {
     "username": "celinefoo",
     "employeeName": "Celine Foo",
-    "postion": "Process Manager",
+    "position": "Process Manager",
     "password": "celinefoo",
     "role": "employee"
   },
   {
     "username": "jennychan",
-    "employeeName": "Jenny Chan",
-    "postion": "Software Engineer",
+    "employeeName": "Product Manager",
     "password": "jennychan",
     "role": "employee"
   },
   {
     "username": "mohammadfauzi",
     "employeeName": "Mohammad Fauzi",
-    "postion": "UXUI Designer",
+    "position": "UXUI Designer",
     "password": "mohammadfauzi",
     "role": "employee"
   },
   {
     "username": "celineang",
     "employeeName": "Celine Ang",
-    "postion": "Process Manager",
+    "position": "Process Manager",
     "password": "celinefoo",
     "role": "employee"
   },
   {
     "username": "savvipragi",
     "employeeName": "Savvi Pragi",
-    "postion": "Process Manager",
+    "position": "Business Process Manager",
     "password": "celinefoo",
     "role": "employee"
   },
   {
     "username": "joeychua",
     "employeeName": "Joey Chua",
-    "postion": "UXUI Designer",
+    "position": "UXUI Designer",
     "password": "joeychua",
     "role": "employee"
   },
   {
     "username": "junkiat",
     "employeeName": "Junkiat",
-    "postion": "Software Engineer",
+    "position": "Software Engineer",
     "password": "junkiat",
     "role": "employee"
   },
   {
     "username": "carltonfoo",
     "employeeName": "Carlton Foo",
-    "postion": "Software Engineer",
+    "position": "Software Engineer",
     "password": "junkiat",
     "role": "employee"
   },
   {
     "username": "bellesim",
     "employeeName": "Belle Sim",
-    "postion": "HR Manager",
+    "position": "HR Manager",
     "password": "beierbeier",
     "role": "manager"
   }

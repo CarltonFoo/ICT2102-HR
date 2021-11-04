@@ -9,12 +9,17 @@ import Navbar from "../Navbar/Navbar";
 import TopNavbar from "../Navbar/TopNavBar";
 import { Table, Button, Space } from "antd";
 import StaffAvailability from "../../data/staffAvailability.json";
+import Employees from "../../data/employees.json";
 import Card from "../Shared/Card";
 const { Header, Content, Footer, Sider } = Layout;
 const columns = [
   {
     title: "Name",
     dataIndex: "name",
+  },
+  {
+    title: "Position",
+    dataIndex: "position",
   },
   {
     title: "Leave Start Date",
@@ -56,9 +61,10 @@ const Availability = () => {
             <div class="m-auto w-8/12">
               <Card>
                 <Space style={{ marginBottom: 16 }}>
-                  <Button>Sort age</Button>
+                  <Button>Sort Name</Button>
+                  <Button>Sort Availabilit</Button>
+                  <Button>Sort Department</Button>
                   <Button>Clear filters</Button>
-                  <Button>Clear filters and sorters</Button>
                 </Space>
                 <Table columns={columns} dataSource={StaffAvailability} />
               </Card>
