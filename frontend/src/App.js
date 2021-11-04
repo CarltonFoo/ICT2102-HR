@@ -11,12 +11,11 @@ import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
 import "antd/dist/antd.css";
-import Navbar from "./components/Navbar/Navbar";
+
 
 function App() {
   return (
     <div>
-      <Navbar></Navbar>
       <Router>
         <Switch>
           <Route key="home" path="/" exact component={Home}></Route>
