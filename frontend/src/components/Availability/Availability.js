@@ -7,8 +7,33 @@ import Modal from 'react-modal';
 import { Layout } from "antd";
 import Navbar from "../Navbar/Navbar";
 import TopNavbar from "../Navbar/TopNavBar";
+import { Table, Button, Space } from "antd";
+import StaffAvailability from "../../data/staffAvailability.json";
+import Card from "../Shared/Card";
 
 const { Header, Content, Footer, Sider } = Layout;
+const columns = [
+  {
+    title: "Name",
+    dataIndex: "name",
+  },
+  {
+    title: "Leave Start Date",
+    dataIndex: "leaveStartDate",
+  },
+  {
+    title: "Leave End Date",
+    dataIndex: "leaveEndDate",
+  },
+  {
+    title: "Leave Type",
+    dataIndex: "leaveType",
+  },
+  {
+    title: "Covering Person",
+    dataIndex: "coveringPerson",
+  },
+];
 
 const Availability = () => {
   const classes = useStyles();
@@ -28,7 +53,12 @@ const Availability = () => {
             <Navbar></Navbar>
           </Sider>
           <Content>
-            <p class="text-2xl font-bold m-88">Staff Availability</p>
+            <p class="text-2xl font-bold p-12">Staff Availability</p>
+            <div class="m-auto w-8/12">
+              <Card>
+                <Table columns={columns} dataSource={StaffAvailability} />
+              </Card>
+            </div>
           </Content>
         </Layout>
         <Footer style={{ textAlign: "center" }}>
