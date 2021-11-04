@@ -15,13 +15,11 @@ import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <div class="bg-gray-200 h-screen">
+    <div>
       <Navbar></Navbar>
-
       <Router>
         <Switch>
           <Route key="home" path="/" exact component={Home}></Route>
-
           <Route
             key="welfare"
             path="/welfare"
