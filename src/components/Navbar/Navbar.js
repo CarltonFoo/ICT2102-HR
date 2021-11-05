@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import useStyles from "./navbarStyle";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { Layout, Menu, Breadcrumb } from "antd";
@@ -14,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import { MenuItem } from "rc-menu";
 
+import useStyles from "./navbarStyle";
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 

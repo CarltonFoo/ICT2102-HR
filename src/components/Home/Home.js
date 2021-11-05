@@ -9,6 +9,8 @@ import Navbar from "../Navbar/Navbar";
 import { Pie } from '@ant-design/charts';
 import { InfoCircleOutlined, EyeFilled } from '@ant-design/icons';
 
+import "../../assets/css/home.css"
+
 var data = [
   {
     type: 'Slice 1',
@@ -69,10 +71,14 @@ const Home = () => {
   return (
     <div>
       <div class="m-auto w-11/12">
-        <p class="text-2xl font-bold my-6">Dashboard
+        <div class="text-2xl font-bold my-6">Dashboard
           {/* Need to add hover styling and tooltip*/}
-          <InfoCircleOutlined />
-        </p>
+          <div data-tip="Quick overview of team availability, salary" class="inline">
+            <InfoCircleOutlined class="inline-block" className={"px-4"} />
+          </div>
+          <ReactTooltip  place="right" effect="solid" />
+          
+        </div>
         <div className="site-card-wrapper">
           <Row gutter={16}>
             <Col span={8}>
@@ -94,7 +100,7 @@ const Home = () => {
             type="inner"
             title="Staff Availability"
           >
-            <a href="/availability">View All Staff Availability ></a>
+            <Link to="/availability">View All Staff Availability</Link>
           </Card>
         </Col>
 
@@ -106,7 +112,7 @@ const Home = () => {
             extra={<EyeFilled />}
           >
             <Pie {...config} />
-            <a href="/payslip">View Full Summary ></a>
+            <Link to="/payslip">View Full Summary</Link>
           </Card>
         </Col>
         </Row>
