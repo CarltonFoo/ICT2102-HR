@@ -5,22 +5,42 @@ import {
   Route,
 } from "react-router-dom";
 
+import Login from './components/Login/login';
+import Navbar from './components/Navbar/Navbar';
 import Home from "./components/Home/Home";
 import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
 
+import "antd/dist/antd.css";
+
 function App() {
   return (
-    <Router>
-        <Switch>
+    <div>
+      <Router>
+        <Navbar>
+          <Switch>
 
-            <Route
-              key="home"
-              path="/"
-              exact
+            <Route 
+              key="login" 
+              path="/login" 
+              exact 
+              component={Login}
+            ></Route>
+
+            <Route 
+              key="home" 
+              path="/" 
+              exact 
               component={Home}
+            ></Route>
+
+            <Route 
+              key="login" 
+              path="/login" 
+              exact 
+              component={Login}
             ></Route>
 
             <Route
@@ -50,9 +70,11 @@ function App() {
               exact
               component={WelfareHistory}
             ></Route>
-           
-        </Switch>
-    </Router>
+
+          </Switch>
+        </Navbar>
+      </Router>
+    </div>
   );
 }
 

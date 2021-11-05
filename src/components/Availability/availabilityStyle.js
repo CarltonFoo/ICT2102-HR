@@ -1,7 +1,7 @@
 const availabilityStyle = () => ({
   
-    root: {
-    
+    table: {
+        
     },
 
 });

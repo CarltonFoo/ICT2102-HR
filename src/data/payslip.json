@@ -1,22 +1,16 @@
 [
   {
-    "earnings": {
       "transactionID": 1,
       "totalHoursWorked": 184,
       "basicPay": 5000,
       "bonus": 3000,
-      "totalOTHours": 9
-    },
-    "claims": {
+      "totalOTHours": 9,
       "claimId": 155,
       "claimType": "Transporation",
       "claimDescription": "Cab Fare ReferenceID TX630",
-      "claimAmt": 25
-    },
-    "Deductions": {
+      "claimAmt": 25,
       "deductationType": "CPF",
       "deductionAmt": 180.4
-    }
   },
 
   {
