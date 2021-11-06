@@ -1,12 +1,8 @@
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Login from './components/Login/login';
-import Navbar from './components/Navbar/Navbar';
+import Login from "./components/Login/login";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
@@ -21,27 +17,11 @@ function App() {
       <Router>
         <Navbar>
           <Switch>
+            <Route key="login" path="/login" exact component={Login}></Route>
 
-            <Route 
-              key="login" 
-              path="/login" 
-              exact 
-              component={Login}
-            ></Route>
+            <Route key="home" path="/" exact component={Home}></Route>
 
-            <Route 
-              key="home" 
-              path="/" 
-              exact 
-              component={Home}
-            ></Route>
-
-            <Route 
-              key="login" 
-              path="/login" 
-              exact 
-              component={Login}
-            ></Route>
+            <Route key="login" path="/login" exact component={Login}></Route>
 
             <Route
               key="welfare"
@@ -70,7 +50,6 @@ function App() {
               exact
               component={WelfareHistory}
             ></Route>
-
           </Switch>
         </Navbar>
       </Router>

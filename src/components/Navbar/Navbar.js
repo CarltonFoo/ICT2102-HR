@@ -46,50 +46,47 @@ const Navbar = (props) => {
             width={250}
             class="h-screen"
           >
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            style={{ height: "100%" }}
-          >
-            <div class="p-6 ">
-              <h2 class="font-bold text-xl">Jenny Chan</h2>
-              <p class="font-semibold text-lg">Software Engineer</p>
-            </div>
-            <MenuItem key="/" icon={<UserOutlined />}>
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              style={{ height: "100%" }}
+            >
+              <div class="p-6 ">
+                <h2 class="font-bold text-xl">Jenny Chan</h2>
+                <p class="font-semibold text-lg">Software Engineer</p>
+              </div>
+              <MenuItem key="/" icon={<UserOutlined />}>
                 Dashboard
-                <Link to='/'/>
+                <Link to="/" />
               </MenuItem>
               <MenuItem key="/welfare" icon={<UserOutlined />}>
                 Welfare
-                <Link to='/welfare'/>
+                <Link to="/welfare" />
               </MenuItem>
               <MenuItem key="/payslip" icon={<UserOutlined />}>
                 Payslip
-                <Link to='/payslip'/>
+                <Link to="/payslip" />
               </MenuItem>
               <MenuItem key="/availability" icon={<UserOutlined />}>
                 Availability
-                <Link to='/availability'/>
+                <Link to="/availability" />
               </MenuItem>
               <MenuItem key="/history" icon={<UserOutlined />}>
                 Welfare History
-                <Link to='/history'/>
+                <Link to="/history" />
               </MenuItem>
-              
-              <MenuItem key="/login" icon={<UserOutlined />}>
+
+              {/* <MenuItem key="/login" icon={<UserOutlined />}>
                 Login (temp)
                 <Link to='/login'/>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
           </Sider>
 
           <Content>
-            <Card>
-              {props.children}
-            </Card>
+            <Card>{props.children}</Card>
           </Content>
-
         </Layout>
         {/* <Footer style={{ textAlign: "center" }}>
           Ant Design ©2018 Created by Ant UED
