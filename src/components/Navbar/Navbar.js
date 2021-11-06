@@ -46,40 +46,46 @@ const Navbar = (props) => {
             width={250}
             class="h-screen"
           >
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            style={{ height: "100%" }}
-          >
-            <div class="p-6 ">
-              <h2 class="font-bold text-xl">Jenny Chan</h2>
-              <p class="font-semibold text-lg">Software Engineer</p>
-            </div>
-            <MenuItem key="/" icon={<UserOutlined />}>
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              style={{ height: "100%" }}
+            >
+              <div class="p-6 ">
+                <h2 class="font-bold text-xl">Jenny Chan</h2>
+                <p class="font-semibold text-lg">Software Engineer</p>
+              </div>
+              <MenuItem key="/" icon={<UserOutlined />}>
                 Dashboard
-                <Link to='/'/>
+                <Link to='/' />
               </MenuItem>
               <MenuItem key="/welfare" icon={<UserOutlined />}>
                 Welfare
-                <Link to='/welfare'/>
+                <Link to='/welfare' />
               </MenuItem>
               <MenuItem key="/payslip" icon={<UserOutlined />}>
                 Payslip
-                <Link to='/payslip'/>
+                <Link to='/payslip' />
               </MenuItem>
               <MenuItem key="/availability" icon={<UserOutlined />}>
                 Availability
-                <Link to='/availability'/>
+                <Link to='/availability' />
               </MenuItem>
               <MenuItem key="/history" icon={<UserOutlined />}>
                 Welfare History
-                <Link to='/history'/>
+                <Link to='/history' />
               </MenuItem>
-              
+              {/* <SubMenu title="Manage">
+                <Menu.Item key="/welfareinventory">Welfare Inventory
+                <Link to='/history' />
+                </Menu.Item>
+                <Menu.Item key="/welfareapproval">Welfare Approval</Menu.Item>
+              </SubMenu> */}
+
               <MenuItem key="/login" icon={<UserOutlined />}>
                 Login (temp)
-                <Link to='/login'/>
+                <Link to='/login' />
               </MenuItem>
             </Menu>
           </Sider>

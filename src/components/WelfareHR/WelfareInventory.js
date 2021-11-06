@@ -4,43 +4,35 @@ import useStyles from "./welfareHistoryStyle";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
-import {Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
-import historydata from "../../data/gifthistory.json";
+import {Tag, Table, Button, Card, Col, Row } from "antd";
+import inventoryData from "../../data/inventory.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
 
 const columns = [
   {
-    title: "Date Requested",
-    dataIndex: "date",
-  },
-  {
-    title: "Recipient",
-    dataIndex: "receiver",
-  },
-  {
-    title: "Department",
-    dataIndex: "department",
+    title: "ID",
+    dataIndex: "id",
   },
   {
     title: "Product Name",
-    dataIndex: "productname",
+    dataIndex: "name",
   },
   {
-    title: "Delivery",
-    dataIndex: "delivery",
+    title: "In Stock",
+    dataIndex: "instock",
   },
   {
-    title: "Status",
+    title: "Quantity",
+    dataIndex: "quantity",
+  },
+  {
+    title: "Stock Status",
     dataIndex: "status",
     key: 'status',
     render: status => (
-      <><Tag color='blue' key={status}>
-        {status.toUpperCase()}
-      </Tag>
-      <Popconfirm title="Sure to delete?">
-      {/* <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}> */}
-          <a>:</a>
-        </Popconfirm></>
+            <Tag color='blue' key={status}>
+              {status.toUpperCase()}
+            </Tag>
     ),
     // render: tags => (
     //   <>
@@ -57,7 +49,7 @@ const columns = [
     //     })}
     //   </>
     // ),
-
+    
   },
 ];
 
@@ -67,12 +59,22 @@ const WelfareHistory = () => {
     // width: '25%',
     textAlign: 'center',
   };
-
+  
   return (
     <div>
+      <div className="site-card-wrapper">
+        <Row gutter={16}>
+          <Col span={8}>
+            <Card bordered={true} style={gridStyle}><b>Most Popular Item</b><br></br>Morning Blues</Card>
+          </Col>
+          <Col span={8}>
+            <Card bordered={true} style={gridStyle}><b>Running out of Items</b><br></br>TGIF!</Card>
+          </Col>
+        </Row>
+      </div>
       <div class="m-auto w-11/12">
-        <p class="text-2xl font-bold my-6">Welfare Gift History</p>
-        <Table columns={columns} dataSource={historydata} />
+        <p class="text-2xl font-bold my-6">Welfare Inventory</p>
+        <Table columns={columns} dataSource={inventoryData}/>
       </div>
     </div>
   );
