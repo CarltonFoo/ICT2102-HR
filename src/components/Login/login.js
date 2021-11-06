@@ -9,7 +9,7 @@ import LoginImg from "../../assets/images/login.png";
 import "../../assets/css/button.css";
 import users from "../../data/employees.json";
 
-export default class FormDataComponent extends Component {
+class FormDataComponent extends Component {
   userData;
 
   constructor(props) {
@@ -42,12 +42,12 @@ export default class FormDataComponent extends Component {
   //Checking with JSON file
   onSubmit(e) {
     e.preventDefault();
-    // this.userData = JSON.parse(localStorage.getItem("user"));
+    this.userData = JSON.parse(localStorage.getItem("user"));
 
     for (let i = 0; i < users.length; i++) {
       if (
-        this.state.username === users[i].username &&
-        this.state.password === users[i].password
+        this.userData.username === users[i].username &&
+        this.userData.password === users[i].password
       ) {
         // Correct user credentials
 
@@ -57,7 +57,6 @@ export default class FormDataComponent extends Component {
         });
         // setHasError(false);
         // setIsAuthenticated(true);
-
         return this.props.history.push("/");
       }
     }
@@ -70,8 +69,8 @@ export default class FormDataComponent extends Component {
   //   password: this.userData.password,
   // });
 
-  // React Life Cycle
-  //Handle network requests
+  // // React Life Cycle
+  // //Handle network requests
   // componentDidMount() {
   //   this.userData = JSON.parse(localStorage.getItem("user"));
 
@@ -88,9 +87,9 @@ export default class FormDataComponent extends Component {
   //   }
   // }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   localStorage.setItem("user", JSON.stringify(nextState));
-  // }
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("user", JSON.stringify(nextState));
+  }
   render() {
     return (
       <div class=" h-screen  ">
@@ -144,3 +143,5 @@ export default class FormDataComponent extends Component {
     );
   }
 }
+
+export default FormDataComponent;

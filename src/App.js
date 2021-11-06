@@ -1,4 +1,6 @@
 import "./App.css";
+import React, { useState } from "react";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Login from "./components/Login/login";
@@ -8,6 +10,7 @@ import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
+import ProtectedRoute from "./components/Login/ProtectedRoute";
 
 import "antd/dist/antd.css";
 
@@ -15,11 +18,21 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar>
-          <Switch>
-            <Route key="login" path="/login" exact component={Login}></Route>
+        <Switch>
+          <ProtectedRoute
+            key="login"
+            path="/login"
+            exact
+            component={Login}
+          ></ProtectedRoute>
 
-            <Route key="home" path="/" exact component={Home}></Route>
+          <Navbar>
+            <ProtectedRoute
+              key="home"
+              path="/"
+              exact
+              component={Home}
+            ></ProtectedRoute>
 
             <Route key="login" path="/login" exact component={Login}></Route>
 
@@ -50,8 +63,8 @@ function App() {
               exact
               component={WelfareHistory}
             ></Route>
-          </Switch>
-        </Navbar>
+          </Navbar>
+        </Switch>
       </Router>
     </div>
   );
