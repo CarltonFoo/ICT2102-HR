@@ -4,9 +4,10 @@ import useStyles from "./welfareHistoryStyle";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
-import {Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
+import { Tooltip, Popover, Tag, Table, Button, Card, Col, Row } from "antd";
 import historydata from "../../data/gifthistory.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
+import { InfoCircleOutlined, EyeFilled } from '@ant-design/icons';
 
 const columns = [
   {
@@ -30,34 +31,58 @@ const columns = [
     dataIndex: "delivery",
   },
   {
-    title: "Status",
+    // title: "Status",
+    title: () => {
+      const text = <><p>"Pending Approval" - Waiting on HR approval</p>
+      <p>“Approved” - HR approved, preparing to send out</p>
+      <p>“Sent out” - Welfare Package had been dispatched</p></> ;
+      return (
+        <>
+      Status
+      <Tooltip placement="top" title={text}>
+        <InfoCircleOutlined style={{fontSize:'16px',position:'relative',left:'3px',bottom:'3px'}}>Top</InfoCircleOutlined>
+
+      </Tooltip>
+        </>
+      )
+    },
     dataIndex: "status",
     key: 'status',
-    render: status => (
-      <><Tag color='blue' key={status}>
-        {status.toUpperCase()}
-      </Tag>
-      <Popconfirm title="Sure to delete?">
-      {/* <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}> */}
-          <a>:</a>
-        </Popconfirm></>
-    ),
-    // render: tags => (
-    //   <>
-    //     {tags.map(tag => {
-    //       let color = tag.length > 5 ? 'geekblue' : 'green';
-    //       if (tag === 'loser') {
-    //         color = 'volcano';
-    //       }
-    //       return (
-    //         <Tag color={color} key={tag}>
-    //           {tag.toUpperCase()}
-    //         </Tag>
-    //       );
-    //     })}
-    //   </>
-    // ),
+    render(status) {
+      let color = "blue";
+      switch(status) {
+        case "Pending Approval":
+          color = "orange"
+          break;
+        case "Approved":
+          color = "green"
+          break;
+        case "Sent out":
+          color = "blue"
+          break;
+        default:
+          color = "blue"
+      }
+      return (
+        <>
+          <Tag color={color} key={status}>
+            {status.toUpperCase()}
+          </Tag>
+          <Popover
+            content={<>
+              <a onClick="">Edit Message</a><br></br>
+              <a onClick="">Change Delivery Date</a><br></br>
+              <a onClick="">View Details</a><br></br>
+              <a onClick="">Cancel Order</a>
+            </>}
+            trigger="click"
+          >
+            <Button type="text">:</Button>
+          </Popover>
+        </>
+      );
 
+    }
   },
 ];
 
@@ -72,7 +97,7 @@ const WelfareHistory = () => {
     <div>
       <div class="m-auto w-11/12">
         <p class="text-2xl font-bold my-6">Welfare Gift History</p>
-        <Table columns={columns} dataSource={historydata} />
+        <Table columns={columns} dataSource={historydata} pagination={{pageSize:5}} />
       </div>
     </div>
   );
