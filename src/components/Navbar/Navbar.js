@@ -76,12 +76,14 @@ const Navbar = (props) => {
                 Welfare History
                 <Link to='/history' />
               </MenuItem>
-              {/* <SubMenu title="Manage">
+              <SubMenu title="Manage(FOR HR VIEW)">
                 <Menu.Item key="/welfareinventory">Welfare Inventory
-                <Link to='/history' />
+                <Link to='/inventory' />
                 </Menu.Item>
-                <Menu.Item key="/welfareapproval">Welfare Approval</Menu.Item>
-              </SubMenu> */}
+                <Menu.Item key="/welfareapproval">Welfare Approval
+                <Link to='/approval' />
+                </Menu.Item>
+              </SubMenu>
 
               <MenuItem key="/login" icon={<UserOutlined />}>
                 Login (temp)

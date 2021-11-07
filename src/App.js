@@ -12,6 +12,11 @@ import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
+/*Temp: HR VIEW UIs */
+import HRinventory from "./components/WelfareHR/WelfareInventory";
+import HRapproval from "./components/WelfareHR/WelfareApproval";
+// import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
+/* - end HR VIEW UIs */
 
 import "antd/dist/antd.css";
 
@@ -70,6 +75,20 @@ function App() {
               exact
               component={WelfareHistory}
             ></Route>
+            <Route
+              key="welfareinventory"
+              path="/inventory"
+              exact
+              component={HRinventory}
+            ></Route>
+            <Route
+              key="welfareapproval"
+              path="/approval"
+              exact
+              component={HRapproval}
+            ></Route>
+            
+            
 
           </Switch>
         </Navbar>
