@@ -76,7 +76,6 @@ const Navbar = (props) => {
                 Welfare History
                 <Link to='/history'/>
               </MenuItem>
-              
               <MenuItem key="/login" icon={<UserOutlined />}>
                 Login (temp)
                 <Link to='/login'/>
