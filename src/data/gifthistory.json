@@ -1,0 +1,51 @@
+[
+    {
+      "date": "22nd Oct 2021",
+      "receiver": "Celine Ang",
+      "department": "Digital Design",
+      "productname": "Morning Blues",
+      "delivery": "22nd Oct 2021",
+      "status": "Pending Approval"
+    },
+    {
+      "date": "18th Oct 2021",
+      "receiver": "Joey Chua",
+      "department": "Human Resource",
+      "productname": "Woozy Wednesday",
+      "delivery": "20th Oct 2021",
+      "status": "Approved"
+    },
+    {
+      "date": "14th Oct 2021",
+      "receiver": "Belle Sim",
+      "department": "Software Engineering",
+      "productname": "TGIF!",
+      "delivery": "15th Oct 2021",
+      "status": "Sent out"
+    },
+    {
+      "date": "22nd Oct 2021",
+      "receiver": "Celine Ang",
+      "department": "Digital Design",
+      "productname": "Morning Blues",
+      "delivery": "22nd Oct 2021",
+      "status": "Pending Approval"
+    },
+    {
+      "date": "18th Oct 2021",
+      "receiver": "Joey Chua",
+      "department": "Human Resource",
+      "productname": "Woozy Wednesday",
+      "delivery": "20th Oct 2021",
+      "status": "Approved"
+    },
+    {
+      "date": "14th Oct 2021",
+      "receiver": "Belle Sim",
+      "department": "Software Engineering",
+      "productname": "TGIF!",
+      "delivery": "15th Oct 2021",
+      "status": "Sent out"
+    }
+  ]
+  
