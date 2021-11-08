@@ -13,7 +13,6 @@ import {
 } from "@ant-design/icons";
 import { MenuItem } from "rc-menu";
 
-import useStyles from "./navbarStyle";
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 
@@ -23,7 +22,6 @@ const { Header, Content, Footer, Sider } = Layout;
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
-  const classes = useStyles();
   const [openKeys, setOpenKeys] = React.useState(["sub1"]);
 
   const onOpenChange = (keys) => {
