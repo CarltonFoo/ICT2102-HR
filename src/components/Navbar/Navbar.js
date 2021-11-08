@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import useStyles from "./navbarStyle";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { Layout, Menu, Breadcrumb } from "antd";
@@ -23,7 +22,6 @@ const { Header, Content, Footer, Sider } = Layout;
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
-  const classes = useStyles();
   const [openKeys, setOpenKeys] = React.useState(["sub1"]);
 
   const onOpenChange = (keys) => {

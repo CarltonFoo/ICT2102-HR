@@ -6,7 +6,6 @@ import Modal from 'react-modal';
 import { Descriptions, Badge, Table, Button, Space } from "antd";
 import { Pie } from '@ant-design/charts';
 
-import useStyles from "./payslipStyle";
 import PayslipData from "../../data/payslip.json";
 const columns = [
     {
@@ -74,7 +73,6 @@ var config = {
 };
 
 const Payslip = () => {
-  const classes = useStyles();
 
   return (
     <div>

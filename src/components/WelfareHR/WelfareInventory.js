@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import useStyles from "./welfareInventoryStyle";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
@@ -61,7 +60,6 @@ const columns = [
 ];
 
 const WelfareInventory = () => {
-  const classes = useStyles();
   const gridStyle = {
     // width: '25%',
     textAlign: 'center',
