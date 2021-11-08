@@ -12,7 +12,11 @@ import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
-import Mood from "./components/Mood/Mood";
+/*Temp: HR VIEW UIs */
+import HRinventory from "./components/WelfareHR/WelfareInventory";
+import HRapproval from "./components/WelfareHR/WelfareApproval";
+// import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
+/* - end HR VIEW UIs */
 
 import "antd/dist/antd.css";
 
@@ -23,24 +27,24 @@ function App() {
         <Navbar>
           <Switch>
 
-            <Route
-              key="login"
-              path="/login"
-              exact
+            <Route 
+              key="login" 
+              path="/login" 
+              exact 
               component={Login}
             ></Route>
 
-            <Route
-              key="home"
-              path="/"
-              exact
+            <Route 
+              key="home" 
+              path="/" 
+              exact 
               component={Home}
             ></Route>
 
-            <Route
-              key="login"
-              path="/login"
-              exact
+            <Route 
+              key="login" 
+              path="/login" 
+              exact 
               component={Login}
             ></Route>
 
@@ -71,13 +75,20 @@ function App() {
               exact
               component={WelfareHistory}
             ></Route>
-
             <Route
-              key="mood"
-              path="/mood"
+              key="welfareinventory"
+              path="/inventory"
               exact
-              component={Mood}
+              component={HRinventory}
             ></Route>
+            <Route
+              key="welfareapproval"
+              path="/approval"
+              exact
+              component={HRapproval}
+            ></Route>
+            
+            
 
           </Switch>
         </Navbar>
