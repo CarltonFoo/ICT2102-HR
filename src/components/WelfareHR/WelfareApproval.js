@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import useStyles from "./welfareApprovalStyle";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';

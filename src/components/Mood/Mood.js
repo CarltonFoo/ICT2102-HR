@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import useStyles from "./moodStyle";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
@@ -9,7 +8,6 @@ import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 
 
 const Mood = () => {
-  const classes = useStyles();
 
   const customIcons = {
     1: <FrownOutlined />,
