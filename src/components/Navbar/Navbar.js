@@ -26,7 +26,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
   const classes = useStyles();
-  const [openKeys, setOpenKeys] = React.useState(["sub1"]);
+  const [openKeys, setOpenKeys] = useState(["sub1"]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -35,10 +35,11 @@ const Navbar = (props) => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-  var user = JSON.parse(localStorage.getItem("user"));
-  const getPosition = (e) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const getPosition = () => {
     for (let i = 0; i < users.length; i++) {
-      if (this.user.username == users[i].username) {
+      if (this.user.username == users.username) {
         return <p>users[i].position </p>;
       }
     }
@@ -64,7 +65,9 @@ const Navbar = (props) => {
             >
               <div class="p-6 ">
                 <h2 class="font-bold text-xl">Welcome, {user.username} </h2>
-                <p class="font-semibold text-lg">I am {getPosition}</p>
+                <p class="font-semibold text-lg">
+                  I am a<div className="user">{getPosition}</div>
+                </p>
               </div>
               <MenuItem key="/" icon={<UserOutlined />}>
                 Dashboard

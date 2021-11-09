@@ -55,6 +55,7 @@ class FormDataComponent extends Component {
           username: users[i].username,
           password: users[i].password,
         });
+
         // setHasError(false);
         // setIsAuthenticated(true);
 
@@ -65,11 +66,12 @@ class FormDataComponent extends Component {
     // setHasError(true);
   }
 
-  // check if user previous logged in
 
+  // check if user previous logged in
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("user", JSON.stringify(nextState));
   }
+  
   render() {
     return (
       <div class=" h-screen  ">
@@ -84,9 +86,21 @@ class FormDataComponent extends Component {
                   Login to Your Account!
                 </h1>
                 <p class="text-2xl font-medium">Your all in one workspace</p>
-                <Form layout="vertical" onSubmit={this.handleSubmit}>
+                <Form
+                  layout="vertical"
+                  scrollToFirstError
+                >
                   <div class="w-8/12 m-auto">
-                    <Form.Item label="Username">
+                    <Form.Item
+                      label="Username"
+                      name="username"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your username!",
+                        },
+                      ]}
+                    >
                       <Input
                         size="large"
                         placeholder="Username"
@@ -95,7 +109,16 @@ class FormDataComponent extends Component {
                         onChange={this.onChangeUsername}
                       />
                     </Form.Item>
-                    <Form.Item label="Password">
+                    <Form.Item
+                      label="Password"
+                      name="password"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your password!",
+                        },
+                      ]}
+                    >
                       <Input.Password
                         placeholder="input password"
                         id="password"
@@ -104,17 +127,23 @@ class FormDataComponent extends Component {
                       />
                     </Form.Item>
                   </div>
+                  <Form.Item>
+                    <div class="text-center ">
+                      <Button
+                        type="primary"
+                        htmlType="submit"
+                         onClick={this.onSubmit}
+                      >
+                        Login
+                      </Button>
+                    </div>
+                  </Form.Item>
                 </Form>
-                <div class="text-center ">
-                  <button onClick={this.onSubmit}>Login</button>
-                </div>
               </div>
 
               <div class="w-8/12">
                 <img src={LoginImg} />
-                <h1 class="text-2xl font-bold text-center text-white mt-20">
-                  {/* Your all in one workspace */}
-                </h1>
+                <h1 class="text-2xl font-bold text-center text-white mt-20"></h1>
               </div>
             </div>
           </Card>
