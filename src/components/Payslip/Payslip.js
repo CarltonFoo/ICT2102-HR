@@ -82,15 +82,17 @@ const Payslip = () => {
       { PayslipJSON && PayslipJSON.length>0 && PayslipJSON.map((data)=>
         <div class="m-auto w-11/12">
           <p class="text-2xl font-bold my-6">Payslip</p>
-          <Descriptions title="">
-            <Descriptions.Item label="Name">{data.user.name}</Descriptions.Item>
-            <Descriptions.Item label="Total Hours Worked">{data.user.totalHoursWorked}</Descriptions.Item>
-            <Descriptions.Item label="Remaining Annual Leave">{data.user.remainingAnnualLeave}</Descriptions.Item>
-            <Descriptions.Item label="Transaction ID">{data.user.transactionID}</Descriptions.Item>
-            <Descriptions.Item label="Total OT Hours">
-              {data.user.totalOTHours}
-            </Descriptions.Item>
-          </Descriptions>
+          <div class="my-8">
+            <Descriptions title="" bordered column={{ xxl: 3, xl: 3, lg: 2, md: 2, sm: 1, xs: 1 }}>
+              <Descriptions.Item label="Name" className="userinfo">{data.user.name}</Descriptions.Item>
+              <Descriptions.Item label="Total Hours Worked" className="userinfo">{data.user.totalHoursWorked}</Descriptions.Item>
+              <Descriptions.Item label="Remaining Annual Leave" className="userinfo">{data.user.remainingAnnualLeave}</Descriptions.Item>
+              <Descriptions.Item label="Transaction ID" className="userinfo">{data.user.transactionID}</Descriptions.Item>
+              <Descriptions.Item label="Total OT Hours" className="userinfo">
+                {data.user.totalOTHours}
+              </Descriptions.Item>
+            </Descriptions>
+          </div>
 
           <div class="flex flex-wrap overflow-hidden border">
           
@@ -120,9 +122,9 @@ const Payslip = () => {
                 <Descriptions.Item label="Deductions" span={3} className="headerrow"></Descriptions.Item>
               </Descriptions>            
               <Descriptions title="" bordered>
-                <Descriptions.Item label="CPF Contribution" span={3} className="alignright">${data.deductions.CPFcontribution.toFixed(2)}</Descriptions.Item>
-                <Descriptions.Item label="Tax Deductions" span={3} className="alignright">${data.deductions.taxDeduction.toFixed(2)}</Descriptions.Item>
-                <Descriptions.Item label="Total" span={3} className="alignright total">${totalDeductions.toFixed(2)}</Descriptions.Item>
+                <Descriptions.Item label="CPF Contribution" span={3} className="alignright">-${data.deductions.CPFcontribution.toFixed(2)}</Descriptions.Item>
+                <Descriptions.Item label="Tax Deductions" span={3} className="alignright">-${data.deductions.taxDeduction.toFixed(2)}</Descriptions.Item>
+                <Descriptions.Item label="Total" span={3} className="alignright total">-${totalDeductions.toFixed(2)}</Descriptions.Item>
               </Descriptions>
             </div>
 

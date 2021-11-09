@@ -12,6 +12,10 @@
     text-align: right;
 }
 
+.ant-descriptions-item-label.userinfo {
+    width: 20%;
+}
+
 .ant-descriptions-item-label.alignright {
     width: 40%;
 }
