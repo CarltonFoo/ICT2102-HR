@@ -66,50 +66,58 @@ const gridStyle = {
 const Home = () => {
   const classes = useStyles();
 
+
   return (
     <div>
       <div class="m-auto w-11/12">
-        <p class="text-2xl font-bold my-6">Dashboard
+        <p class="text-2xl font-bold my-6">
+          Dashboard
           {/* Need to add hover styling and tooltip*/}
           <InfoCircleOutlined />
         </p>
         <div className="site-card-wrapper">
           <Row gutter={16}>
             <Col span={8}>
-              <Card bordered={true}>6<br></br>Welfare Pack Requests</Card>
+              <Card bordered={true}>
+                6<br></br>Welfare Pack Requests
+              </Card>
             </Col>
             <Col span={8}>
-              <Card bordered={true}>10<br></br>Annual Leave Left</Card>
+              <Card bordered={true}>
+                10<br></br>Annual Leave Left
+              </Card>
             </Col>
             <Col span={8}>
-              <Card bordered={true}>5<br></br>Days to Pay Day</Card>
+              <Card bordered={true}>
+                5<br></br>Days to Pay Day
+              </Card>
             </Col>
           </Row>
         </div>
         <div className="site-card-wrapper">
           <Row gutter={16}>
-        <Col span={12}>
-          <Card
-            style={{ marginTop: 16 }}
-            type="inner"
-            title="Staff Availability"
-          >
-            <a href="/availability">View All Staff Availability ></a>
-          </Card>
-        </Col>
+            <Col span={12}>
+              <Card
+                style={{ marginTop: 16 }}
+                type="inner"
+                title="Staff Availability"
+              >
+                <a href="/availability">View All Staff Availability ></a>
+              </Card>
+            </Col>
 
-        <Col span={12}>
-          <Card
-            style={{ marginTop: 16 }}
-            type="inner"
-            title="Salary Breakdown"
-            extra={<EyeFilled />}
-          >
-            <Pie {...config} />
-            <a href="/payslip">View Full Summary ></a>
-          </Card>
-        </Col>
-        </Row>
+            <Col span={12}>
+              <Card
+                style={{ marginTop: 16 }}
+                type="inner"
+                title="Salary Breakdown"
+                extra={<EyeFilled />}
+              >
+                <Pie {...config} />
+                <a href="/payslip">View Full Summary ></a>
+              </Card>
+            </Col>
+          </Row>
         </div>
       </div>
     </div>

@@ -57,6 +57,7 @@ class FormDataComponent extends Component {
         });
         // setHasError(false);
         // setIsAuthenticated(true);
+
         return this.props.history.push("/");
       }
     }
@@ -64,28 +65,7 @@ class FormDataComponent extends Component {
     // setHasError(true);
   }
 
-  // this.setState({
-  //   username: this.userData.username,
-  //   password: this.userData.password,
-  // });
-
-  // // React Life Cycle
-  // //Handle network requests
-  // componentDidMount() {
-  //   this.userData = JSON.parse(localStorage.getItem("user"));
-
-  //   if (localStorage.getItem("user")) {
-  //     this.setState({
-  //       username: this.userData.username,
-  //       password: this.userData.password,
-  //     });
-  //   } else {
-  //     this.setState({
-  //       username: "",
-  //       password: "",
-  //     });
-  //   }
-  // }
+  // check if user previous logged in
 
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("user", JSON.stringify(nextState));

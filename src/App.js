@@ -34,7 +34,7 @@ function App() {
               component={Home}
             ></ProtectedRoute>
 
-            <Route key="login" path="/login" exact component={Login}></Route>
+            {/* <Route key="login" path="/login" exact component={Login}></Route> */}
 
             <Route
               key="welfare"

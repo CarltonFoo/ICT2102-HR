@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from 'react-dom';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import useStyles from "./navbarStyle";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
@@ -11,11 +11,13 @@ import {
   SmileTwoTone,
   NotificationFilled,
   BellFilled,
+  TagsOutlined,
 } from "@ant-design/icons";
 import { MenuItem } from "rc-menu";
 
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
+import users from "../../data/employees.json";
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
@@ -25,7 +27,6 @@ const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
   const classes = useStyles();
   const [openKeys, setOpenKeys] = React.useState(["sub1"]);
-
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -34,6 +35,15 @@ const Navbar = (props) => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+  var user = JSON.parse(localStorage.getItem("user"));
+  const getPosition = (e) => {
+    for (let i = 0; i < users.length; i++) {
+      if (this.user.username == users[i].username) {
+        return <p>users[i].position </p>;
+      }
+    }
+  };
+
   return (
     <div class="h-screen">
       <Layout>
@@ -53,8 +63,8 @@ const Navbar = (props) => {
               style={{ height: "100%" }}
             >
               <div class="p-6 ">
-                <h2 class="font-bold text-xl">Jenny Chan</h2>
-                <p class="font-semibold text-lg">Software Engineer</p>
+                <h2 class="font-bold text-xl">Welcome, {user.username} </h2>
+                <p class="font-semibold text-lg">I am {getPosition}</p>
               </div>
               <MenuItem key="/" icon={<UserOutlined />}>
                 Dashboard
