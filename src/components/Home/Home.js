@@ -102,7 +102,7 @@ const Home = () => {
                 type="inner"
                 title="Staff Availability"
               >
-                <a href="/availability">View All Staff Availability ></a>
+                <a href="/availability">View All Staff Availability </a>
               </Card>
             </Col>
 
@@ -114,7 +114,7 @@ const Home = () => {
                 extra={<EyeFilled />}
               >
                 <Pie {...config} />
-                <a href="/payslip">View Full Summary ></a>
+                <a href="/payslip">View Full Summary </a>
               </Card>
             </Col>
           </Row>
