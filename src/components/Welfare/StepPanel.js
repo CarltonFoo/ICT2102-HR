@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Steps } from "antd";
-import welfareStyle from "./welfareStyle";
 import {
   UserOutlined,
   SolutionOutlined,
@@ -9,7 +8,6 @@ import {
 } from "@ant-design/icons";
 
 const StepPanel = (props) => {
-  const classes = welfareStyle();
   const [activeStep, setActiveStep] = useState(0);
 
   function next() {
@@ -39,10 +37,8 @@ const StepPanel = (props) => {
           <Steps.Step key={item.title} title={item.title} />
         ))}
       </Steps>
-      <div className={classes.stepsContent}>
-        {props.steps[activeStep].content}
-      </div>
-      <div className={classes.stepsAction}>
+      <div>{props.steps[activeStep].content}</div>
+      <div>
         {activeStep > 0 && <Button onClick={() => prev()}>Previous</Button>}
         {activeStep < props.steps.length - 1 && (
           <Button
