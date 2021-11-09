@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import useStyles from "./welfareInventoryStyle";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
@@ -29,32 +28,38 @@ const columns = [
     title: "Stock Status",
     dataIndex: "status",
     key: 'status',
-    render: status => (
-            <Tag color='blue' key={status}>
-              {status.toUpperCase()}
-            </Tag>
-    ),
-    // render: tags => (
-    //   <>
-    //     {tags.map(tag => {
-    //       let color = tag.length > 5 ? 'geekblue' : 'green';
-    //       if (tag === 'loser') {
-    //         color = 'volcano';
-    //       }
-    //       return (
-    //         <Tag color={color} key={tag}>
-    //           {tag.toUpperCase()}
-    //         </Tag>
-    //       );
-    //     })}
-    //   </>
-    // ),
+    render(status) {
+      let color = "blue";
+      switch(status) {
+        case "In Stock":
+          color = "green"
+          break;
+        case "Low Stock":
+          color = "yellow"
+          break;
+        case "Critically Low":
+          color = "orange"
+          break;
+        case "Out of Stock":
+          color = "red"
+          break;
+        default:
+          color = "blue"
+      }
+      return (
+        <>
+          <Tag color={color} key={status}>
+            {status.toUpperCase()}
+          </Tag>
+        </>
+      );
+
+    }
     
   },
 ];
 
-const WelfareHistory = () => {
-  const classes = useStyles();
+const WelfareInventory = () => {
   const gridStyle = {
     // width: '25%',
     textAlign: 'center',
@@ -74,10 +79,10 @@ const WelfareHistory = () => {
       </div>
       <div class="m-auto w-11/12">
         <p class="text-2xl font-bold my-6">Welfare Inventory</p>
-        <Table columns={columns} dataSource={inventoryData}/>
+        <Table columns={columns} dataSource={inventoryData} pagination={{pageSize:5}}/>
       </div>
     </div>
   );
 };
 
-export default WelfareHistory;
+export default WelfareInventory;

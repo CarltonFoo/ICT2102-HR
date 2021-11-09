@@ -14,8 +14,6 @@ import { StepPanel } from "./StepPanel";
 
 const { Step } = Steps;
 const Welfare = () => {
-  const classes = useStyles();
-
   // const { currentStep, finalData } = useContext(multiStepContext);
 
   return (

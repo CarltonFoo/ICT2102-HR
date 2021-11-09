@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import useStyles from "./navbarStyle";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { Layout, Menu, Breadcrumb } from "antd";
@@ -23,7 +22,6 @@ const { Header, Content, Footer, Sider } = Layout;
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
-  const classes = useStyles();
   const [openKeys, setOpenKeys] = React.useState(["sub1"]);
 
   const onOpenChange = (keys) => {
@@ -76,12 +74,14 @@ const Navbar = (props) => {
                 Welfare History
                 <Link to='/history' />
               </MenuItem>
-              {/* <SubMenu title="Manage">
+              <SubMenu title="Manage(FOR HR VIEW)">
                 <Menu.Item key="/welfareinventory">Welfare Inventory
-                <Link to='/history' />
+                <Link to='/inventory' />
                 </Menu.Item>
-                <Menu.Item key="/welfareapproval">Welfare Approval</Menu.Item>
-              </SubMenu> */}
+                <Menu.Item key="/welfareapproval">Welfare Approval
+                <Link to='/approval' />
+                </Menu.Item>
+              </SubMenu>
 
               <MenuItem key="/login" icon={<UserOutlined />}>
                 Login (temp)
