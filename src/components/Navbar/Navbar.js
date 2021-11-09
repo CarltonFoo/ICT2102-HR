@@ -37,10 +37,18 @@ const Navbar = (props) => {
   };
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const getPosition = () => {
-    for (let i = 0; i < users.length; i++) {
-      if (this.user.username == users.username) {
-        return <p>users[i].position </p>;
+  const getName = (usersData) => {
+    for (let i = 0; i < usersData.length; i++) {
+      if (user.username === usersData[i].username) {
+        return <p>{usersData[i].employeeName}</p>;
+      }
+    }
+  };
+
+  const getPosition = (usersData) => {
+    for (let i = 0; i < usersData.length; i++) {
+      if (user.username === usersData[i].username) {
+        return <p>{usersData[i].position}</p>;
       }
     }
   };
@@ -64,9 +72,10 @@ const Navbar = (props) => {
               style={{ height: "100%" }}
             >
               <div class="p-6 ">
-                <h2 class="font-bold text-xl">Welcome, {user.username} </h2>
+                {console.log(user)}
+                <h2 class="font-bold text-xl">Welcome, {getName(users)} </h2>
                 <p class="font-semibold text-lg">
-                  I am a<div className="user">{getPosition}</div>
+                  <div className="user">{getPosition(users)}</div>
                 </p>
               </div>
               <MenuItem key="/" icon={<UserOutlined />}>

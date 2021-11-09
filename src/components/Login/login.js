@@ -76,7 +76,7 @@ class FormDataComponent extends Component {
     return (
       <div class=" h-screen  ">
         <div class="m-auto w-8/12">
-          <p class="text-6xl font-bold p-32 text-center text-blue-700 ">
+          <p class="text-6xl font-bold p-16 text-center text-blue-700 ">
             WorkLarh
           </p>
           <Card>
@@ -142,8 +142,8 @@ class FormDataComponent extends Component {
               </div>
 
               <div class="w-8/12">
-                <img src={LoginImg} />
-                <h1 class="text-2xl font-bold text-center text-white mt-20"></h1>
+                <img src={LoginImg} alt="login img"/>
+                {/* <h1 class="text-2xl font-bold text-center text-white mt-20"></h1> */}
               </div>
             </div>
           </Card>
