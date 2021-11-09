@@ -21,7 +21,7 @@ const StepPanel = (props) => {
   }
 
   return (
-    <>
+    <div>
       <Steps
         type="navigation"
         current={activeStep}
@@ -55,7 +55,7 @@ const StepPanel = (props) => {
           </Button>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

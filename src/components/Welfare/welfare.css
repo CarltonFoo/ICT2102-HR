@@ -1,0 +1,11 @@
+.ant-steps-item-icon {
+    line-height: 29px !important;
+}
+
+.ant-steps-icon {
+    display: inline-flex;
+}
+
+.ant-steps-navigation .ant-steps-item::after {
+    margin-top: -12px !important;
+}

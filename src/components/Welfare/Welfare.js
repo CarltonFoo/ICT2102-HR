@@ -10,6 +10,7 @@ import WelfarePackSelection from "./WelfarePackSelection";
 import WelfareForm from "./WelfarePackForm";
 import WelfarePackConfirmation from "./WelfarePackComfirmation";
 import { StepPanel } from "./StepPanel";
+import "./welfare.css"
 
 const { Step } = Steps;
 const Welfare = () => {
