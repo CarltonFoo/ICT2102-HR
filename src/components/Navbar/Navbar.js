@@ -73,9 +73,9 @@ const Navbar = (props) => {
             >
               <div class="p-6 ">
                 {console.log(user)}
-                <h2 class="font-bold text-xl">Welcome, {getName(users)} </h2>
+                <h2 class="font-bold text-xl">Welcome, </h2>
                 <p class="font-semibold text-lg">
-                  <div className="user">{getPosition(users)}</div>
+                  <div className="user"></div>
                 </p>
               </div>
               <MenuItem key="/" icon={<UserOutlined />}>
