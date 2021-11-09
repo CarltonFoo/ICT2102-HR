@@ -1,14 +1,12 @@
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Login from './components/Login/login';
-import Navbar from './components/Navbar/Navbar';
+import Login from "./components/Login/login";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Welfare from "./components/Welfare/Welfare";
+import WelfareForm from "./components/Welfare/WelfarePackForm";
+import WelfarePackSelection from "./components/Welfare/WelfarePackSelection";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
@@ -26,27 +24,11 @@ function App() {
       <Router>
         <Navbar>
           <Switch>
+            <Route key="login" path="/login" exact component={Login}></Route>
 
-            <Route 
-              key="login" 
-              path="/login" 
-              exact 
-              component={Login}
-            ></Route>
+            <Route key="home" path="/" exact component={Home}></Route>
 
-            <Route 
-              key="home" 
-              path="/" 
-              exact 
-              component={Home}
-            ></Route>
-
-            <Route 
-              key="login" 
-              path="/login" 
-              exact 
-              component={Login}
-            ></Route>
+            <Route key="login" path="/login" exact component={Login}></Route>
 
             <Route
               key="welfare"
@@ -87,9 +69,6 @@ function App() {
               exact
               component={HRapproval}
             ></Route>
-            
-            
-
           </Switch>
         </Navbar>
       </Router>

@@ -10,9 +10,19 @@ import {
   SmileTwoTone,
   NotificationFilled,
   BellFilled,
+  HomeOutlined,
+  UserSwitchOutlined,
+  DollarOutlined,
+  AppstoreOutlined,
+  AppstoreAddOutlined,
+  GiftOutlined,
+  FileDoneOutlined,
+  HistoryOutlined,
+  LoginOutlined,
 } from "@ant-design/icons";
 import { MenuItem } from "rc-menu";
 
+import "./navbar.css"
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 
@@ -32,6 +42,7 @@ const Navbar = (props) => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+  
   return (
     <div class="h-screen">
       <Layout>
@@ -40,53 +51,54 @@ const Navbar = (props) => {
         </Header>
         <Layout class="h-screen">
           <Sider
-            className="site-layout-background"
+            collapsible
+            className="fullh site-layout-background"
             width={250}
             class="h-screen"
           >
             <Menu
               mode="inline"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
+              defaultSelectedKeys={["home"]}
+              defaultOpenKeys={["home"]}
               style={{ height: "100%" }}
             >
-              <div class="p-6 ">
+              <div class="p-6">
                 <h2 class="font-bold text-xl">Jenny Chan</h2>
                 <p class="font-semibold text-lg">Software Engineer</p>
               </div>
-              <MenuItem key="/" icon={<UserOutlined />}>
+              <Menu.Item key="home" icon={<HomeOutlined />}>
                 Dashboard
                 <Link to='/' />
-              </MenuItem>
-              <MenuItem key="/welfare" icon={<UserOutlined />}>
+              </Menu.Item>
+              <Menu.Item key="welfare" icon={<GiftOutlined />}>
                 Welfare
                 <Link to='/welfare' />
-              </MenuItem>
-              <MenuItem key="/payslip" icon={<UserOutlined />}>
+              </Menu.Item>
+              <Menu.Item key="payslip" icon={<DollarOutlined />}>
                 Payslip
-                <Link to='/payslip' />
-              </MenuItem>
-              <MenuItem key="/availability" icon={<UserOutlined />}>
+                <Link to='payslip' />
+              </Menu.Item>
+              <Menu.Item key="availability" icon={<UserSwitchOutlined />}>
                 Availability
                 <Link to='/availability' />
-              </MenuItem>
-              <MenuItem key="/history" icon={<UserOutlined />}>
+              </Menu.Item>
+              <Menu.Item key="history" icon={<HistoryOutlined />}>
                 Welfare History
-                <Link to='/history' />
-              </MenuItem>
-              <SubMenu title="Manage(FOR HR VIEW)">
-                <Menu.Item key="/welfareinventory">Welfare Inventory
+                <Link to='history' />
+              </Menu.Item>
+              <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
+                <Menu.Item key="welfareinventory" icon={<AppstoreAddOutlined />}>Welfare Inventory
                 <Link to='/inventory' />
                 </Menu.Item>
-                <Menu.Item key="/welfareapproval">Welfare Approval
+                <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>Welfare Approval
                 <Link to='/approval' />
                 </Menu.Item>
               </SubMenu>
 
-              <MenuItem key="/login" icon={<UserOutlined />}>
+              <Menu.Item key="login" icon={<LoginOutlined />}>
                 Login (temp)
                 <Link to='/login' />
-              </MenuItem>
+              </Menu.Item>
             </Menu>
           </Sider>
 
