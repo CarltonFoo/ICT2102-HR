@@ -27,6 +27,7 @@ class FormDataComponent extends Component {
     this.state = {
       username: "",
       password: "",
+      
     };
   }
 
@@ -71,7 +72,7 @@ class FormDataComponent extends Component {
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("user", JSON.stringify(nextState));
   }
-  
+
   render() {
     return (
       <div class=" h-screen  ">
@@ -86,10 +87,7 @@ class FormDataComponent extends Component {
                   Login to Your Account!
                 </h1>
                 <p class="text-2xl font-medium">Your all in one workspace</p>
-                <Form
-                  layout="vertical"
-                  scrollToFirstError
-                >
+                <Form layout="vertical" scrollToFirstError>
                   <div class="w-8/12 m-auto">
                     <Form.Item
                       label="Username"
@@ -132,7 +130,7 @@ class FormDataComponent extends Component {
                       <Button
                         type="primary"
                         htmlType="submit"
-                         onClick={this.onSubmit}
+                        onClick={this.onSubmit}
                       >
                         Login
                       </Button>
