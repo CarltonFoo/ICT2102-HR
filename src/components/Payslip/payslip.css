@@ -1,0 +1,21 @@
+.headerrow > span {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.headerrow:empty {
+    display: none;
+}
+
+.ant-descriptions-item-content.alignright > span {
+    display: block;
+    text-align: right;
+}
+
+.ant-descriptions-item-label.alignright {
+    width: 40%;
+}
+
+.total > span {
+    font-weight: bold;
+}

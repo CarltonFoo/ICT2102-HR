@@ -1,37 +1,38 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import useStyles from "./homeStyle";
+import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-import ReactTooltip from 'react-tooltip';
-import Modal from 'react-modal';
+import ReactTooltip from "react-tooltip";
+import Modal from "react-modal";
 import { Button, Card, Col, Row } from "antd";
 import Navbar from "../Navbar/Navbar";
-import { Pie } from '@ant-design/charts';
-import { InfoCircleOutlined, EyeFilled } from '@ant-design/icons';
+import { Pie } from "@ant-design/charts";
+import { InfoCircleOutlined, EyeFilled } from "@ant-design/icons";
+
+import "../../assets/css/home.css";
 
 var data = [
   {
-    type: 'Slice 1',
+    type: "Slice 1",
     value: 27,
   },
   {
-    type: 'Slice 2',
+    type: "Slice 2",
     value: 25,
   },
   {
-    type: 'Slice 3',
+    type: "Slice 3",
     value: 18,
   },
   {
-    type: 'Slice 4',
+    type: "Slice 4",
     value: 15,
   },
   {
-    type: 'Slice 5',
+    type: "Slice 5",
     value: 10,
   },
   {
-    type: 'Slice 6',
+    type: "Slice 6",
     value: 5,
   },
 ];
@@ -39,42 +40,44 @@ var data = [
 var config = {
   appendPadding: 10,
   data: data,
-  angleField: 'value',
-  colorField: 'type',
+  angleField: "value",
+  colorField: "type",
   radius: 0.9,
   label: {
-    type: 'inner',
-    offset: '-30%',
+    type: "inner",
+    offset: "-30%",
     content: function content(_ref) {
       var percent = _ref.percent;
-      return ''.concat((percent * 100).toFixed(0), '%');
+      return "".concat((percent * 100).toFixed(0), "%");
     },
     style: {
       fontSize: 14,
-      textAlign: 'center',
+      textAlign: "center",
     },
   },
-  interactions: [{ type: 'element-active' }],
+  interactions: [{ type: "element-active" }],
 };
 
 const gridStyle = {
-  width: '25%',
-  textAlign: 'center',
+  width: "25%",
+  textAlign: "center",
 };
 
-
 const Home = () => {
-  const classes = useStyles();
-
-
   return (
     <div>
       <div class="m-auto w-11/12">
-        <p class="text-2xl font-bold my-6">
+        <div class="text-2xl font-bold my-6">
           Dashboard
           {/* Need to add hover styling and tooltip*/}
-          <InfoCircleOutlined />
-        </p>
+          <div
+            data-tip="Quick overview of team availability, salary"
+            class="inline"
+          >
+            <InfoCircleOutlined class="inline-block" className={"px-4"} />
+          </div>
+          <ReactTooltip place="right" effect="solid" />
+        </div>
         <div className="site-card-wrapper">
           <Row gutter={16}>
             <Col span={8}>
@@ -102,7 +105,7 @@ const Home = () => {
                 type="inner"
                 title="Staff Availability"
               >
-                <a href="/availability">View All Staff Availability </a>
+                <Link to="/availability">View All Staff Availability</Link>
               </Card>
             </Col>
 
@@ -114,7 +117,7 @@ const Home = () => {
                 extra={<EyeFilled />}
               >
                 <Pie {...config} />
-                <a href="/payslip">View Full Summary </a>
+                <Link to="/payslip">View Full Summary</Link>
               </Card>
             </Col>
           </Row>
@@ -122,8 +125,6 @@ const Home = () => {
       </div>
     </div>
   );
-
-
 };
 
 export default Home;

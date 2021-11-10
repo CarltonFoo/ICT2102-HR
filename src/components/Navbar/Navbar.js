@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import useStyles from "./navbarStyle";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { Layout, Menu, Breadcrumb } from "antd";
@@ -11,10 +10,19 @@ import {
   SmileTwoTone,
   NotificationFilled,
   BellFilled,
-  TagsOutlined,
+  HomeOutlined,
+  UserSwitchOutlined,
+  DollarOutlined,
+  AppstoreOutlined,
+  AppstoreAddOutlined,
+  GiftOutlined,
+  FileDoneOutlined,
+  HistoryOutlined,
+  LoginOutlined,
 } from "@ant-design/icons";
 import { MenuItem } from "rc-menu";
 
+import "./navbar.css";
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 import users from "../../data/employees.json";
@@ -25,7 +33,6 @@ const { Header, Content, Footer, Sider } = Layout;
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
-  const classes = useStyles();
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -61,7 +68,7 @@ const Navbar = (props) => {
         </Header>
         <Layout class="h-screen">
           <Sider
-            className="site-layout-background"
+            className="fullh site-layout-background"
             width={250}
             class="h-screen"
           >
@@ -98,10 +105,19 @@ const Navbar = (props) => {
                 <Link to="/history" />
               </MenuItem>
 
-              {/* <MenuItem key="/login" icon={<UserOutlined />}>
-                Login (temp)
-                <Link to='/login'/>
-              </MenuItem> */}
+              <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
+                <Menu.Item
+                  key="welfareinventory"
+                  icon={<AppstoreAddOutlined />}
+                >
+                  Welfare Inventory
+                  <Link to="/inventory" />
+                </Menu.Item>
+                <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>
+                  Welfare Approval
+                  <Link to="/approval" />
+                </Menu.Item>
+              </SubMenu>
             </Menu>
           </Sider>
 
