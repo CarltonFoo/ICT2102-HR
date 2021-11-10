@@ -80,6 +80,13 @@ class WelfareApproval extends React.Component {
     <div class="m-auto w-11/12">
       <p class="text-2xl font-bold my-6">Welfare Inventory</p>
       <Table rowSelection={rowSelection} columns={columns} dataSource={approvalData} />
+      <Button
+            style={{ margin: "0 8px" }}
+            type="primary"
+            // onClick={() => next()}
+          >
+            Approve
+   </Button>
     </div>
 
     );
