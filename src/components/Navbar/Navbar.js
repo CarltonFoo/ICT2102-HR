@@ -72,11 +72,10 @@ const Navbar = (props) => {
               style={{ height: "100%" }}
             >
               <div class="p-6 ">
-                {console.log(user)}
-                <div className="user">{getName(users)}</div>
-                <p class="font-semibold text-lg">
-                  <div className="user">{getPosition(users)}</div>
-                </p>
+                <div>
+                  <h3 className="font-bold  text-lg">{getName(users)} </h3>
+                  <p class="font-semibold pt-2"> {getPosition(users)}</p>
+                </div>
               </div>
               <MenuItem key="/" icon={<UserOutlined />}>
                 Dashboard
