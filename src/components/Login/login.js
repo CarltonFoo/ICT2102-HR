@@ -8,6 +8,7 @@ import { Form, Input, Button } from "antd";
 import LoginImg from "../../assets/images/login.png";
 import "../../assets/css/button.css";
 import users from "../../data/employees.json";
+import { AuthContext } from "../Context/AuthContext";
 
 class FormDataComponent extends Component {
   userData;
@@ -40,10 +41,14 @@ class FormDataComponent extends Component {
     this.setState({ password: e.target.value });
   }
 
+  setIsAuthenticated(e) {
+    AuthContext.setIsAuthenticated(e);
+  }
+
   //Checking with JSON file
   onSubmit(e) {
     e.preventDefault();
-    this.userData = JSON.parse(localStorage.getItem("user"));
+    this.userData = JSON.parse(sessionStorage.getItem("user"));
 
     for (let i = 0; i < users.length; i++) {
       if (
@@ -58,7 +63,7 @@ class FormDataComponent extends Component {
         });
 
         // setHasError(false);
-        // setIsAuthenticated(true);
+        sessionStorage.setItem("isAuthenticated", true);
 
         return this.props.history.push("/");
       }
@@ -70,7 +75,7 @@ class FormDataComponent extends Component {
 
   // check if user previous logged in
   componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem("user", JSON.stringify(nextState));
+    sessionStorage.setItem("user", JSON.stringify(nextState));
   }
 
   render() {

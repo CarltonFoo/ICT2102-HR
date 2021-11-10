@@ -16,18 +16,19 @@ import HRinventory from "./components/WelfareHR/WelfareInventory";
 import HRapproval from "./components/WelfareHR/WelfareApproval";
 
 import "antd/dist/antd.css";
+import { AuthProvider } from "./components/Context/AuthContext";
 
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <Router>
         <Switch>
-          <ProtectedRoute
+          <Route
             key="login"
             path="/login"
             exact
             component={Login}
-          ></ProtectedRoute>
+          ></Route>
 
           <Navbar>
             <ProtectedRoute
@@ -81,7 +82,7 @@ function App() {
           </Navbar>
         </Switch>
       </Router>
-    </div>
+    </AuthProvider>
   );
 }
 
