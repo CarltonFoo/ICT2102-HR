@@ -38,11 +38,16 @@ const columns = [
   },
 ];
 
+// var linkStyle = {
+//   position: 'relative',
+//   top: 10,
+//   left: 404
+// }
+
 var linkStyle = {
   position: 'absolute',
-  bottom: 0,
-  right: 10,
-  marginBottom: 10
+  bottom: 10,
+  right: 10
 }
 
 var cardStyle = {
@@ -80,19 +85,19 @@ const Home = () => {
             <Row gutter={16}>
               <Col span={8}>
                 <Card style={cardStyle} bordered={true}>
-                <Typography style={{ fontSize: 30, color: '#3b82f6'}}>6</Typography>
+                  <Typography style={{ fontSize: 30, color: '#3b82f6' }}>6</Typography>
                   Welfare Pack Requests</Card>
               </Col>
               <Col span={8}>
                 <Card style={cardStyle} bordered={true}>
-                <Typography style={{ fontSize: 30, color: '#3b82f6'}}>{data.user.remainingAnnualLeave}</Typography>
+                  <Typography style={{ fontSize: 30, color: '#3b82f6' }}>{data.user.remainingAnnualLeave}</Typography>
                   Annual Leave Left</Card>
               </Col>
               <Col span={8}>
                 <Card style={cardStyle} bordered={true}>
                   <div class="countdown">
-                  <Typography style={{ fontSize: 30, color: '#3b82f6'}}>
-                    <CountDownTimer></CountDownTimer>
+                    <Typography style={{ fontSize: 30, color: '#3b82f6' }}>
+                      <CountDownTimer></CountDownTimer>
                     </Typography>
                   </div>
                   Days to Pay Day</Card>
@@ -108,12 +113,15 @@ const Home = () => {
                 type="inner"
                 title="Staff Availability"
               >
-                <Table pagination={false} columns={columns} dataSource={StaffAvailability.slice(5, 10)} />
-                <Link to="/availability" style={linkStyle}>View All Staff Availability &#62;</Link>
+                <Table style={{ marginBottom: 20 }} pagination={false} columns={columns} dataSource={StaffAvailability.slice(5, 10)} />
+                <Row>
+                  <Link to="/availability" style={linkStyle}>View All Staff Availability &#62;</Link>
+                </Row>
               </Card>
+              
             </Col>
             <Col span={8}>
-            <SalaryBreakdown></SalaryBreakdown>
+              <SalaryBreakdown></SalaryBreakdown>
             </Col>
           </Row>
           <Mood></Mood>

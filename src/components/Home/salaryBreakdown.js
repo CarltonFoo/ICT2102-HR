@@ -1,6 +1,6 @@
 // import React from "react";
 import React, { Component } from "react";
-import { Table, Card, Col, Row } from "antd";
+import {Card} from "antd";
 import { Link } from "react-router-dom";
 
 import { EyeFilled, EyeInvisibleOutlined } from '@ant-design/icons';
@@ -9,9 +9,8 @@ import { Pie } from '@ant-design/charts';
 
 var linkStyle = {
     position: 'absolute',
-    bottom: 0,
-    right: 10,
-    marginBottom: 10
+    bottom: 10,
+    right: 10
 }
 
 var totalClaims = 0;
