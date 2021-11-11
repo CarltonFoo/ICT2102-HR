@@ -59,7 +59,7 @@ const WelfareMessage = () => {
         }}
       >
         <Row gutter={3}>
-          <Col style={{ alignItems: "center" }}>
+          <Col>
             <Form.Item
               name="department"
               rules={[

@@ -10,7 +10,8 @@ import WelfarePackSelection from "./WelfarePackSelection";
 import WelfareForm from "./WelfarePackForm";
 import WelfarePackConfirmation from "./WelfarePackComfirmation";
 import { StepPanel } from "./StepPanel";
-import "./welfare.css"
+import "./welfare.css";
+import FinalForm from "./FinalForm";
 
 const { Step } = Steps;
 const Welfare = () => {
@@ -41,7 +42,8 @@ const Welfare = () => {
         welfare packs
       </div>
       <div>
-        <WelfareForm />
+        {/* <WelfareForm /> */}
+        <FinalForm />
       </div>
     </div>
   );
