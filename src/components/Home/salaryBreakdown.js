@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { EyeFilled, EyeInvisibleOutlined } from '@ant-design/icons';
 import PayslipJSON from "../../data/payslip.json";
 import { Pie } from '@ant-design/charts';
+import moment from 'moment';
 
 var linkStyle = {
     position: 'absolute',
@@ -13,42 +14,48 @@ var linkStyle = {
     right: 10
 }
 
-var totalClaims = 0;
-var totalEarnings = PayslipJSON[0].earnings.basicPay + PayslipJSON[0].earnings.bonus + PayslipJSON[0].earnings.OTpay;
-var totalDeductions = PayslipJSON[0].deductions.CPFcontribution + PayslipJSON[0].deductions.taxDeduction;
-
-Object.keys(PayslipJSON[0].claims).map((claim) =>
-    totalClaims += PayslipJSON[0].claims[claim].claimAmt
-)
-
+var month = moment().subtract(1, 'month').format('YYYY-MM')
+var claimsData = []
+var totalClaims = 0
+var totalBasicPay = PayslipJSON[0].months[month].earnings.basicPay
+var totalBonus = PayslipJSON[0].months[month].earnings.bonus
+var totalOTpay = PayslipJSON[0].months[month].earnings.OTpay
+var totalCPF = PayslipJSON[0].months[month].deductions.CPFcontribution
+var totalTax = PayslipJSON[0].months[month].deductions.taxDeduction
+for (var claim in PayslipJSON[0].months[month].claims) {
+    totalClaims += PayslipJSON[0].months[month].claims[claim].claimAmt
+    claimsData.push(PayslipJSON[0].months[month].claims[claim])
+}
+var totalEarnings = totalBasicPay + totalBonus + totalOTpay;
+var totalDeductions = totalCPF + totalTax;
 var totalOverall = totalEarnings + totalClaims - totalDeductions;
 
 var piedata = [
     {
-        type: 'Base Pay',
-        value: PayslipJSON[0].earnings.basicPay,
+      type: 'Base Pay',
+      value: totalBasicPay,
     },
     {
-        type: 'Bonus Pay',
-        value: PayslipJSON[0].earnings.bonus,
+      type: 'Bonus Pay',
+      value: totalBonus,
     },
     {
-        type: 'OT Pay',
-        value: PayslipJSON[0].earnings.OTpay,
+      type: 'OT Pay',
+      value: totalOTpay,
     },
     {
-        type: 'Claims',
-        value: totalClaims,
+      type: 'Claims',
+      value: totalClaims,
     },
     {
-        type: 'CPF',
-        value: PayslipJSON[0].deductions.CPFcontribution,
+      type: 'CPF',
+      value: totalCPF,
     },
     {
-        type: 'Tax',
-        value: PayslipJSON[0].deductions.taxDeduction,
+      type: 'Tax',
+      value: totalTax,
     },
-];
+  ];
 
 var config = {
     data: piedata,
@@ -119,8 +126,6 @@ class salaryBreakdown extends Component {
     handleHide = () => {
         this.setState({ isActive: false });
     };
-
-
 
     render() {
         return (
