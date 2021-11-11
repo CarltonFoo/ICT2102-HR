@@ -11,12 +11,9 @@ import WelfareForm from "./WelfarePackForm";
 import WelfarePackConfirmation from "./WelfarePackComfirmation";
 import { StepPanel } from "./StepPanel";
 import "./welfare.css";
-import FinalForm from "./FinalForm";
 
 const { Step } = Steps;
 const Welfare = () => {
-  // const { currentStep, finalData } = useContext(multiStepContext);
-
   return (
     <div class="m-auto w-11/12">
       <div>
@@ -42,8 +39,7 @@ const Welfare = () => {
         welfare packs
       </div>
       <div>
-        {/* <WelfareForm /> */}
-        <FinalForm />
+        <WelfareForm />
       </div>
     </div>
   );

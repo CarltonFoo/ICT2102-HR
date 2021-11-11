@@ -12,39 +12,78 @@ import WelfarePackMessage from "./WelfarePackMessage";
 import WelfarePackConfirmation from "./WelfarePackComfirmation";
 const { Option } = Select;
 const { TextArea } = Input;
+const { Step } = Steps;
 
 const WelfarePackForm = () => {
-  const [stepForm] = Form.useForm();
-
-  const onFinish = (fieldsValue) => {
-    const formData = stepForm.getFieldsValue(true);
-
-    // POST the data to backend and show Notification
-    console.log(formData);
-  };
-
+  const [fields, setFields] = useState({
+    welfarepack: "",
+    department: "",
+    empolyee: "",
+    message: "",
+  });
+  const [current, setCurrent] = useState(0);
+  const [summary, setSummary] = useState({});
   const steps = [
     {
-      step: 1,
       title: "Pack Selection",
-      content: <WelfarePackSelection />,
     },
     {
-      step: 2,
-      title: "Craft message",
-      content: <WelfarePackMessage />,
+      title: "Craft Message",
     },
     {
-      step: 3,
-      title: "Confirm Details",
-      content: <WelfarePackConfirmation />,
+      title: "Confirmation",
     },
   ];
+
+  function prev() {
+    const newCurrent = current - 1;
+    setCurrent(newCurrent);
+  }
+  function next() {
+    const newCurrent = current + 1;
+    setCurrent(newCurrent);
+  }
+  const handleFormChange = (changedFields) => {
+    setFields({
+      ...fields,
+      ...changedFields,
+    });
+  };
+  const fieldsFlattener = () => {
+    var flattened = {};
+    Object.keys(fields).map(
+      (fieldName) => (flattened[fieldName] = fields[fieldName].value)
+    );
+    setSummary({ ...summary, flattened });
+    next();
+  };
+
   return (
-    <div class="center">
-      <Form form={stepForm} onFinish={onFinish}>
-        <StepPanel steps={steps} />
-      </Form>
+    <div>
+      <Steps current={current} type="navigation">
+        {steps.map((item, index) => (
+          <Step key={index} title={item.title} description={item.description} />
+        ))}
+      </Steps>
+
+      {current === 2 && (
+        <WelfarePackConfirmation summary={summary} prev={prev} />
+      )}
+      {current === 1 && (
+        <WelfarePackMessage
+          {...fields}
+          next={next}
+          prev={prev}
+          onChange={handleFormChange}
+        />
+      )}
+      {current === 0 && (
+        <WelfarePackSelection
+          {...fields}
+          next={next}
+          onChange={handleFormChange}
+        />
+      )}
     </div>
   );
 };

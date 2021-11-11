@@ -7,7 +7,7 @@ import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Button } from "antd";
 import { StepPanel } from "./StepPanel";
 
-const WelfarePackConfirmation = () => {
+const WelfarePackConfirmation = (props) => {
   return <div>Confirmation</div>;
 };
 

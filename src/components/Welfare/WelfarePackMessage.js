@@ -10,32 +10,17 @@ import { multiStepContext } from "./StepPanel";
 const { Option } = Select;
 const { TextArea } = Input;
 
-const WelfareMessage = () => {
+const WelfareMessage = (props) => {
   // const { setStep, userData, setUserData } = useContext(multiStepContext);
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const [form] = Form.useForm();
+
+  const onFinish = (fieldsValue) => {
+    const formData = form.getFieldsValue();
+    console.log(formData);
+    props.next();
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-
-  function onChange(value) {
-    console.log(`selected ${value}`);
-  }
-
-  function onBlur() {
-    console.log("blur");
-  }
-
-  function onFocus() {
-    console.log("focus");
-  }
-
-  function onSearch(val) {
-    console.log("search:", val);
-  }
   return (
     <Form
       name="basic"
@@ -49,7 +34,7 @@ const WelfareMessage = () => {
         remember: true,
       }}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+      form={form}
     >
       <Form.Item
         wrapperCol={{
@@ -74,10 +59,6 @@ const WelfareMessage = () => {
                 style={{ width: 200 }}
                 placeholder="Select a department"
                 optionFilterProp="children"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                onSearch={onSearch}
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -96,7 +77,7 @@ const WelfareMessage = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please select a Department",
+                  message: "Please select am Empolyee",
                 },
               ]}
             >
@@ -105,10 +86,10 @@ const WelfareMessage = () => {
                 style={{ width: 200 }}
                 placeholder="Select an employee"
                 optionFilterProp="children"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                onSearch={onSearch}
+                // onChange={onChange}
+                // onFocus={onFocus}
+                // onBlur={onBlur}
+                // onSearch={onSearch}
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -143,6 +124,17 @@ const WelfareMessage = () => {
           autoSize={{ minRows: 3, maxRows: 5 }}
           style={{ width: 465 }}
         />
+      </Form.Item>
+
+      <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
+        <Button color="primary" onClick={props.prev}>
+          Prev
+        </Button>
       </Form.Item>
 
       <Form.Item
