@@ -14,6 +14,9 @@ const { Option } = Select;
 const { TextArea } = Input;
 const { Step } = Steps;
 
+const onSelectPack = (packName) => {
+  alert("welfare pack name" + packName);
+};
 const WelfarePackForm = () => {
   const [fields, setFields] = useState({
     welfarepack: "",
@@ -82,6 +85,7 @@ const WelfarePackForm = () => {
           {...fields}
           next={next}
           onChange={handleFormChange}
+          onSelectPack={onSelectPack}
         />
       )}
     </div>

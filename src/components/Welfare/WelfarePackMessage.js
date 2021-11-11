@@ -124,27 +124,18 @@ const WelfareMessage = (props) => {
         />
       </Form.Item>
 
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button color="primary" onClick={props.prev}>
-          Prev
-        </Button>
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button color="primary" htmlType="submit">
-          Next
-        </Button>
-      </Form.Item>
+      <div class="flex justify-evenly">
+        <Form.Item class="text-center">
+          <Button type="primary" htmlType="submit" onClick={props.prev}>
+            Back
+          </Button>
+        </Form.Item>
+        <Form.Item class="text-center">
+          <Button type="primary" htmlType="submit" onClick={props.next}>
+            Next
+          </Button>
+        </Form.Item>
+      </div>
     </Form>
   );
 };
