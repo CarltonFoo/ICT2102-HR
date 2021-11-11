@@ -17,25 +17,28 @@ const WelfarePackForm = () => {
   const [stepForm] = Form.useForm();
 
   const onFinish = (fieldsValue) => {
-    const formData = stepForm.getFieldsValue(true);
+    const formData = stepForm.getFieldsValue();
 
     // POST the data to backend and show Notification
     console.log(formData);
   };
 
+  const onSelectPack = (packName) => {
+    // const formData = stepForm.getFieldsValue();
+    alert("Hello from onSelectPack and my pack name is " + packName);
+    // POST the data to backend and show Notification
+  };
+
   const steps = [
     {
-      step: 1,
       title: "Pack Selection",
-      content: <WelfarePackSelection />,
+      content: <WelfarePackSelection onSelectPack={onSelectPack} />,
     },
     {
-      step: 2,
       title: "Craft message",
       content: <WelfarePackMessage />,
     },
     {
-      step: 3,
       title: "Confirm Details",
       content: <WelfarePackConfirmation />,
     },

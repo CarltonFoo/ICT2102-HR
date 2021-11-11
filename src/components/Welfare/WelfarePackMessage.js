@@ -7,12 +7,11 @@ import WelfarePack from "../../data/welfare.json";
 import Card from "../Shared/Card.js";
 import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
 import { multiStepContext } from "./StepPanel";
+import Employees from "../../data/employees.json";
 const { Option } = Select;
 const { TextArea } = Input;
 
 const WelfareMessage = () => {
-  // const { setStep, userData, setUserData } = useContext(multiStepContext);
-
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -83,9 +82,11 @@ const WelfareMessage = () => {
                   0
                 }
               >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
+                {Employees.map((employee) => (
+                  <Option value={employee.department}>
+                    {employee.department}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
           </Col>
@@ -96,7 +97,7 @@ const WelfareMessage = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please select a Department",
+                  message: "Please select a Employee",
                 },
               ]}
             >
@@ -114,9 +115,11 @@ const WelfareMessage = () => {
                   0
                 }
               >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
+                {Employees.map((employee) => (
+                  <Option value={employee.employeeName}>
+                    {employee.employeeName}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
           </Col>
@@ -143,17 +146,6 @@ const WelfareMessage = () => {
           autoSize={{ minRows: 3, maxRows: 5 }}
           style={{ width: 465 }}
         />
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button color="primary" htmlType="submit">
-          Next
-        </Button>
       </Form.Item>
     </Form>
   );

@@ -11,7 +11,7 @@ import WelfareForm from "./WelfarePackForm";
 import WelfarePackConfirmation from "./WelfarePackComfirmation";
 import { StepPanel } from "./StepPanel";
 import "./welfare.css";
-import FinalForm from "./FinalForm";
+import FinalForm from "./WelfarePackForm";
 
 const { Step } = Steps;
 const Welfare = () => {
