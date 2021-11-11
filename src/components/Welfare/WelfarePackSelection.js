@@ -10,9 +10,9 @@ import { StepPanel } from "./StepPanel";
 const WelfarePackSelection = () => {
   //   const { setStep, welfareData, setwelfareData } = useContext(multiStepContext);
   const retrieveData = (e) => {
-    e.preventDefault();
-    console.log(e.target);
-    console.log(e.target.title);
+    // e.preventDefault();
+    // console.log(e.target);
+    console.log(e.target.innerText);
   };
 
   return (
@@ -24,11 +24,24 @@ const WelfarePackSelection = () => {
             <Col span={8} xs={24} xl={8}>
               <Card
                 title={data.welfarePack}
-                value={data.welfarePack}
                 hoverable={true}
                 style={{ textAlign: "center", margin: "5%" }}
                 onClick={retrieveData}
-              ></Card>
+              >
+                <div>
+                  <p class="font-bold text-center text-blue-800">
+                    Package Content{data.packContent}
+                  </p>
+                </div>
+                <p class="font-bold text-center text-blue-800">
+                  {data.dispatchedDay}
+                </p>
+
+                <p class="font-semibold text-center ">{data.credits}</p>
+                {data.packContent.map((items) => (
+                  <p>{items.item1}</p>
+                ))}
+              </Card>
             </Col>
           );
         })}
