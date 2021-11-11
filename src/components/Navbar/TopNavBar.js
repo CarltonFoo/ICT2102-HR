@@ -34,7 +34,7 @@ const TopNavbar = (props) => {
   let history = useHistory();
 
   const handleLogout = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     history.push("/login");
   };
 

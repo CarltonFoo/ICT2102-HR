@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useContext }   from "react";
 import { Route, Redirect } from "react-router-dom";
-const ProtectedRoute = ({ children, ...rest }) => {
+import { AuthContext } from "../Context/AuthContext";
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const [isAuthenticated, setIsAuthenticated] = useContext(AuthContext);
+  
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        localStorage.getItem("user") ? (
-          children
+      render={(props) =>
+        JSON.parse(isAuthenticated) ? (
+          <Component {...props} />
         ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location },
-            }}
-          />
+          <Redirect to="/login"/>
         )
       }
     />

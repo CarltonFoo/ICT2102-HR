@@ -12,7 +12,6 @@ import Filter from "../utils/filter";
 const { Header, Content, Footer, Sider } = Layout;
 
 class Availability extends Component {
-  // const classes = useStyles();
   state = {
     filteredInfo: null,
     sortedInfo: null,

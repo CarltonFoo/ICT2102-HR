@@ -30,17 +30,24 @@ const WelfarePackSelection = () => {
               >
                 <div>
                   <p class="font-bold text-center text-blue-800">
-                    Package Content{data.packContent}
+                    Package Content
                   </p>
+
+                  {data.packContent.map((item) => (
+                    <div class="">
+                      <p>{item.item1}</p>
+                      <p>{item.item2}</p>
+                      <p>{item.item3}</p>
+                    </div>
+                  ))}
                 </div>
                 <p class="font-bold text-center text-blue-800">
                   {data.dispatchedDay}
                 </p>
 
-                <p class="font-semibold text-center ">{data.credits}</p>
-                {data.packContent.map((items) => (
-                  <p>{items.item1}</p>
-                ))}
+                <p class="font-semibold text-center ">
+                  Credits Required {data.credits}
+                </p>
               </Card>
             </Col>
           );

@@ -3,31 +3,36 @@
     "welfarePack": "MONDAY BLUES",
     "credits": 50,
     "dispatchedDay": "Dispatched on Monday",
-    "packContent": {
-      "item1": "1x Energy Bar",
-      "item2": "1x Premium Matcha",
-      "item3": "1x TWG Tea Box (7 Tea 80g Powder Pouches)"
-    }
+    "packContent": [
+      {
+        "item1": "1x Energy Bar",
+        "item2": "1x Premium Matcha",
+        "item3": "1x TWG Tea Box (7 Tea 80g Powder Pouches)"
+      }
+    ]
   },
   {
     "welfarePack": "WOOZY WEDSNEDAY",
     "credits": 100,
     "dispatchedDay": "Dispatched on Wednesday",
-    "packContent": {
-      "item1": "1x Carmens Chocolate Honey Snack Bar",
-      "item2": "1x Starbucks Gift Card",
-      "item3": "1x TWG Tea Box (7 Tea 80g Powder Pouches)"
-    }
+    "packContent": [
+      {
+        "item1": "1x Carmens Chocolate Honey Snack Bar",
+        "item2": "1x Starbucks Gift Card",
+        "item3": "1x TWG Tea Box (7 Tea 80g Powder Pouches)"
+      }
+    ]
   },
   {
     "welfarePack": "TGIF!",
     "credits": 150,
     "dispatchedDay": "Dispatched on Friday",
-    "packContent": {
-      "item1": "1x $20 Grab Voucher",
-
-      "item2": "1x $20 Grab Voucher",
-      "item3": "1x TWG Tea Box (7 Tea 80g Powder Pouches)"
-    }
+    "packContent": [
+      {
+        "item1": "1x $20 Grab Voucher",
+        "item2": "1x $20 Grab Voucher",
+        "item3": "1x TWG Tea Box (7 Tea 80g Powder Pouches)"
+      }
+    ]
   }
 ]

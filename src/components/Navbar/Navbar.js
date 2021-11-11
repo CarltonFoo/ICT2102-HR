@@ -42,11 +42,11 @@ const Navbar = (props) => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
   const getName = (usersData) => {
     for (let i = 0; i < usersData.length; i++) {
-      if (user.username === usersData[i].username) {
+      if (user?.username === usersData[i].username) {
         return <p>{usersData[i].employeeName}</p>;
       }
     }
@@ -54,7 +54,7 @@ const Navbar = (props) => {
 
   const getPosition = (usersData) => {
     for (let i = 0; i < usersData.length; i++) {
-      if (user.username === usersData[i].username) {
+      if (user?.username === usersData[i].username) {
         return <p>{usersData[i].position}</p>;
       }
     }
