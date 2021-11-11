@@ -103,13 +103,10 @@ function getPayslipData(start, end) {
     },
     interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
   };
-  
-  console.log(start, end)
-  console.log("totalOverall", totalOverall)
 
 }
-getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
 
+getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
 
 function disabledDate(current) {
   return current && current > moment().startOf('month');
