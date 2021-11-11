@@ -1,3 +1,7 @@
+.payslipcard {
+    height: 87vh;
+}
+
 .headerrow > span {
     font-weight: bold;
     font-size: 18px;
@@ -13,7 +17,11 @@
 }
 
 .ant-descriptions-item-label.userinfo {
-    width: 20%;
+    width: 10%;
+}
+
+.ant-descriptions-item-content.userinfo {
+    white-space: nowrap;
 }
 
 .ant-descriptions-item-label.alignright {
