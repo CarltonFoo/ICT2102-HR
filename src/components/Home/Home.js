@@ -1,15 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
-import { Table, Card, Col, Row, Typography } from "antd";
+import { Table, Card, Col, Row, Typography, Statistic } from "antd";
 import Mood from "../Mood/Mood";
 import ReactDOM from 'react-dom';
 import { InfoCircleTwoTone, EyeFilled, EyeInvisibleOutlined } from '@ant-design/icons';
-import CountDownTimer from "../CoundownTimer/CountDownTimer";
 import "../../assets/css/home.css";
 import StaffAvailability from "../../data/staffAvailability.json";
 import PayslipJSON from "../../data/payslip.json";
 import SalaryBreakdown from "../Home/salaryBreakdown"
+
+//#region CountdownTimer
+const { Countdown } = Statistic;
+var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+var lastday = function (y, m) {
+  return new Date(y, m + 1, 0).getDate();
+}
+var month = currentDate.getMonth();
+var year = currentDate.getFullYear();
+const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
+//#endregion
 
 const columns = [
   {
@@ -50,7 +60,6 @@ var cardStyle = {
   textAlign: 'center',
   fontWeight: 'bold',
 }
-// END Payslip
 
 const gridStyle = {
   width: '25%',
@@ -86,11 +95,7 @@ const Home = () => {
               </Col>
               <Col span={8}>
                 <Card style={cardStyle} bordered={true}>
-                  <div class="countdown">
-                    <Typography style={{ fontSize: 30, color: '#3b82f6' }}>
-                      <CountDownTimer></CountDownTimer>
-                    </Typography>
-                  </div>
+                  <Countdown valueStyle={{ fontSize: 30, color: '#3b82f6' }} value={deadline} format="D" />
                   Days to Pay Day</Card>
               </Col>
             </Row>
@@ -109,13 +114,11 @@ const Home = () => {
                   <Link to="/availability" style={linkStyle}>View All Staff Availability &#62;</Link>
                 </Row>
               </Card>
-
             </Col>
             <Col span={8}>
               <SalaryBreakdown></SalaryBreakdown>
             </Col>
           </Row>
-
         </div>
       </div>
     </div>
