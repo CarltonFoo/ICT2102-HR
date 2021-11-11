@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import { Card, Col, Row, Image, Button } from "antd";
-import { StepPanel } from "./StepPanel";
+import { Card, Col, Row } from "antd";
 
 const WelfarePackSelection = (props) => {
   return (
