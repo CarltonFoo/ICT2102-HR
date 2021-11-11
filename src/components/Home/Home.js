@@ -38,12 +38,6 @@ const columns = [
   },
 ];
 
-// var linkStyle = {
-//   position: 'relative',
-//   top: 10,
-//   left: 404
-// }
-
 var linkStyle = {
   position: 'absolute',
   bottom: 10,
@@ -66,12 +60,9 @@ const gridStyle = {
 
 
 const Home = () => {
-  const [showResults, setShowResults] = React.useState(false);
-  const onClick = () => setShowResults(true)
-
-
   return (
     <div>
+      <Mood></Mood>
       <div class="m-auto w-11/12">
         <div class="text-2xl font-bold my-6">Dashboard
           {/* Need to add hover styling and tooltip*/}
@@ -118,13 +109,13 @@ const Home = () => {
                   <Link to="/availability" style={linkStyle}>View All Staff Availability &#62;</Link>
                 </Row>
               </Card>
-              
+
             </Col>
             <Col span={8}>
               <SalaryBreakdown></SalaryBreakdown>
             </Col>
           </Row>
-          <Mood></Mood>
+
         </div>
       </div>
     </div>
