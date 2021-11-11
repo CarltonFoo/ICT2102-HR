@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from 'react-dom';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { Layout, Menu, Breadcrumb } from "antd";
@@ -22,9 +22,10 @@ import {
 } from "@ant-design/icons";
 import { MenuItem } from "rc-menu";
 
-import "./navbar.css"
+import "./navbar.css";
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
+import users from "../../data/employees.json";
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
@@ -32,8 +33,7 @@ const { Header, Content, Footer, Sider } = Layout;
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
-  const [openKeys, setOpenKeys] = React.useState(["sub1"]);
-
+  const [openKeys, setOpenKeys] = useState(["sub1"]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -42,7 +42,24 @@ const Navbar = (props) => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-  
+  const user = JSON.parse(sessionStorage.getItem("user"));
+
+  const getName = (usersData) => {
+    for (let i = 0; i < usersData.length; i++) {
+      if (user?.username === usersData[i].username) {
+        return <p>{usersData[i].employeeName}</p>;
+      }
+    }
+  };
+
+  const getPosition = (usersData) => {
+    for (let i = 0; i < usersData.length; i++) {
+      if (user?.username === usersData[i].username) {
+        return <p>{usersData[i].position}</p>;
+      }
+    }
+  };
+
   return (
     <div class="h-screen">
       <Layout>
@@ -51,63 +68,62 @@ const Navbar = (props) => {
         </Header>
         <Layout class="h-screen">
           <Sider
-            collapsible
             className="fullh site-layout-background"
             width={250}
             class="h-screen"
           >
             <Menu
               mode="inline"
-              defaultSelectedKeys={["home"]}
-              defaultOpenKeys={["home"]}
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
               style={{ height: "100%" }}
             >
-              <div class="p-6">
-                <h2 class="font-bold text-xl">Jenny Chan</h2>
-                <p class="font-semibold text-lg">Software Engineer</p>
+              <div class="p-6 ">
+                <div>
+                  <h3 className="font-bold  text-lg">{getName(users)} </h3>
+                  <p class="font-semibold pt-2"> {getPosition(users)}</p>
+                </div>
               </div>
-              <Menu.Item key="home" icon={<HomeOutlined />}>
+              <MenuItem key="/" icon={<UserOutlined />}>
                 Dashboard
-                <Link to='/' />
-              </Menu.Item>
-              <Menu.Item key="welfare" icon={<GiftOutlined />}>
+                <Link to="/" />
+              </MenuItem>
+              <MenuItem key="/welfare" icon={<UserOutlined />}>
                 Welfare
-                <Link to='/welfare' />
-              </Menu.Item>
-              <Menu.Item key="payslip" icon={<DollarOutlined />}>
+                <Link to="/welfare" />
+              </MenuItem>
+              <MenuItem key="/payslip" icon={<UserOutlined />}>
                 Payslip
-                <Link to='payslip' />
-              </Menu.Item>
-              <Menu.Item key="availability" icon={<UserSwitchOutlined />}>
+                <Link to="/payslip" />
+              </MenuItem>
+              <MenuItem key="/availability" icon={<UserOutlined />}>
                 Availability
-                <Link to='/availability' />
-              </Menu.Item>
-              <Menu.Item key="history" icon={<HistoryOutlined />}>
+                <Link to="/availability" />
+              </MenuItem>
+              <MenuItem key="/history" icon={<UserOutlined />}>
                 Welfare History
-                <Link to='history' />
-              </Menu.Item>
+                <Link to="/history" />
+              </MenuItem>
+
               <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
-                <Menu.Item key="welfareinventory" icon={<AppstoreAddOutlined />}>Welfare Inventory
-                <Link to='/inventory' />
+                <Menu.Item
+                  key="welfareinventory"
+                  icon={<AppstoreAddOutlined />}
+                >
+                  Welfare Inventory
+                  <Link to="/inventory" />
                 </Menu.Item>
-                <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>Welfare Approval
-                <Link to='/approval' />
+                <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>
+                  Welfare Approval
+                  <Link to="/approval" />
                 </Menu.Item>
               </SubMenu>
-
-              <Menu.Item key="login" icon={<LoginOutlined />}>
-                Login (temp)
-                <Link to='/login' />
-              </Menu.Item>
             </Menu>
           </Sider>
 
           <Content>
-            <Card>
-              {props.children}
-            </Card>
+            <Card>{props.children}</Card>
           </Content>
-
         </Layout>
         {/* <Footer style={{ textAlign: "center" }}>
           Ant Design ©2018 Created by Ant UED

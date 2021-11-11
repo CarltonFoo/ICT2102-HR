@@ -1,34 +1,44 @@
 import "./App.css";
+import React, { useState } from "react";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Login from "./components/Login/login";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Welfare from "./components/Welfare/Welfare";
-import WelfareForm from "./components/Welfare/WelfarePackForm";
-import WelfarePackSelection from "./components/Welfare/WelfarePackSelection";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
+import ProtectedRoute from "./components/Login/ProtectedRoute";
 /*Temp: HR VIEW UIs */
 import HRinventory from "./components/WelfareHR/WelfareInventory";
 import HRapproval from "./components/WelfareHR/WelfareApproval";
-// import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
-/* - end HR VIEW UIs */
 
 import "antd/dist/antd.css";
+import { AuthProvider } from "./components/Context/AuthContext";
 
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <Router>
-        <Navbar>
-          <Switch>
-            <Route key="login" path="/login" exact component={Login}></Route>
+        <Switch>
+          <Route
+            key="login"
+            path="/login"
+            exact
+            component={Login}
+          ></Route>
 
-            <Route key="home" path="/" exact component={Home}></Route>
+          <Navbar>
+            <ProtectedRoute
+              key="home"
+              path="/"
+              exact
+              component={Home}
+            ></ProtectedRoute>
 
-            <Route key="login" path="/login" exact component={Login}></Route>
+            {/* <Route key="login" path="/login" exact component={Login}></Route> */}
 
             <Route
               key="welfare"
@@ -69,10 +79,10 @@ function App() {
               exact
               component={HRapproval}
             ></Route>
-          </Switch>
-        </Navbar>
+          </Navbar>
+        </Switch>
       </Router>
-    </div>
+    </AuthProvider>
   );
 }
 

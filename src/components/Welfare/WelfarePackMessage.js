@@ -50,7 +50,6 @@ const WelfareMessage = () => {
       }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete="off"
     >
       <Form.Item
         wrapperCol={{
@@ -146,16 +145,16 @@ const WelfareMessage = () => {
         />
       </Form.Item>
 
-      {/* <Form.Item
+      <Form.Item
         wrapperCol={{
           offset: 8,
           span: 16,
         }}
       >
-        <Button variant="contained" color="primary">
+        <Button color="primary" htmlType="submit">
           Next
         </Button>
-      </Form.Item> */}
+      </Form.Item>
     </Form>
   );
 };
