@@ -39,7 +39,7 @@ const columns = [
         <>
       Status
       <Tooltip placement="top" title={text}>
-        <InfoCircleOutlined style={{fontSize:'16px',position:'relative',left:'3px',bottom:'3px'}}>Top</InfoCircleOutlined>
+        <InfoCircleOutlined style={{fontSize:'16px',position:'relative',left:'3px',bottom:''}}>Top</InfoCircleOutlined>
 
       </Tooltip>
         </>
