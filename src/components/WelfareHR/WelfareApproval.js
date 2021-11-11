@@ -3,14 +3,26 @@ import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
-import { Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
+import { Popover,Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
 import approvalData from "../../data/approval.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
+import "./approvalstyle.css";
+import { fixedBase } from "@antv/util";
+
 
 class WelfareApproval extends React.Component {
   tablerecords = [];
   state = {
+    visible: false,
     selectedRowKeys: [], // Check here to configure the default column
+  };
+  hide = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+  handleVisibleChange = visible => {
+    this.setState({ visible });
   };
 
   onSelectChange = selectedRowKeys => {
@@ -62,6 +74,7 @@ class WelfareApproval extends React.Component {
 
   }
   handleDelete = () => {
+    console.log("handle delete");
     const dataSource = [...this.state.dataSource];
     console.log("datasource:", dataSource);
     console.log("selectedRows", this.state.selectedRowKeys);
@@ -72,7 +85,8 @@ class WelfareApproval extends React.Component {
         !this.state.selectedRowKeys.includes(item.key)
       ),
     });
-  }
+    }
+    this.hide()
   };
 
 
@@ -135,25 +149,42 @@ class WelfareApproval extends React.Component {
       ],
     };
 
+    
     return (
       <div class="m-auto w-11/12">
         <p class="text-2xl font-bold my-6">Welfare Approval</p>
         <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource}
         />
-        <Popconfirm        
+        {/* <Popconfirm        
         placement="topRight"
         title={()=> this.getSelectedPackages()}
         okText="Approve"
         cancelText="Back"
-        onConfirm={() => this.handleDelete()}>
+        onConfirm={() => this.handleDelete()}> */}
+        <Popover
+        overlayInnerStyle={{textAlign:"center",whiteSpace: "pre-line",width:'60vw',height:'20vw'}}
+        content={
+        <>
+        <p>{this.getSelectedPackages()}</p>
+        <Button type="primary" onClick={()=>this.hide()} style={{position:"absolute",bottom:"3vw",left:"15vw"}}>Back</Button>
+        <Button type="primary"onClick={()=>this.handleDelete()}  style={{position:"absolute",bottom:"3vw",right:"15vw"}}>Approve</Button>
+        {/* <a onClick={this.handleDelete}>Approve</a> */}
+        </>
+        }
+        title={<b>Confirm Approval:</b>}
+        trigger="click"
+        visible={this.state.visible}
+        onVisibleChange={this.handleVisibleChange}
+       >
         <Button
-          style={{ margin: "0 8px" }}
+          style={{ margin: "0 30vw" }}
           type="primary"
-          // onClick={()=> this.getSelectedPackages()}
+          onClick={()=>this.getSelectedPackages()}
         >
           Approve
         </Button>
-        </Popconfirm>
+        </Popover>
+        {/* </Popconfirm> */}
       </div>
 
     );
