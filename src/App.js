@@ -25,50 +25,13 @@ function App() {
         <Navbar>
           <Switch>
             <Route key="login" path="/login" exact component={Login}></Route>
-
             <Route key="home" path="/" exact component={Home}></Route>
-
-            <Route key="login" path="/login" exact component={Login}></Route>
-
-            <Route
-              key="welfare"
-              path="/welfare"
-              exact
-              component={Welfare}
-            ></Route>
-
-            <Route
-              key="payslip"
-              path="/payslip"
-              exact
-              component={Payslip}
-            ></Route>
-
-            <Route
-              key="availability"
-              path="/availability"
-              exact
-              component={Availability}
-            ></Route>
-
-            <Route
-              key="welfarehistory"
-              path="/history"
-              exact
-              component={WelfareHistory}
-            ></Route>
-            <Route
-              key="welfareinventory"
-              path="/inventory"
-              exact
-              component={HRinventory}
-            ></Route>
-            <Route
-              key="welfareapproval"
-              path="/approval"
-              exact
-              component={HRapproval}
-            ></Route>
+            <Route key="welfare" path="/welfare" exact component={Welfare}></Route>
+            <Route key="payslip" path="/payslip" exact component={Payslip}></Route>
+            <Route key="availability" path="/availability" exact component={Availability}></Route>
+            <Route key="welfarehistory" path="/history" exact component={WelfareHistory}></Route>
+            <Route key="welfareinventory" path="/inventory" exact component={HRinventory}></Route>
+            <Route key="welfareapproval" path="/approval" exact component={HRapproval}></Route>
           </Switch>
         </Navbar>
       </Router>
