@@ -8,6 +8,7 @@ import Card from "../Shared/Card.js";
 import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
 import { multiStepContext } from "./StepPanel";
 import Employees from "../../data/employees.json";
+import StepPanel from "../Welfare/StepPanel";
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -22,14 +23,6 @@ const WelfareMessage = () => {
 
   function onChange(value) {
     console.log(`selected ${value}`);
-  }
-
-  function onBlur() {
-    console.log("blur");
-  }
-
-  function onFocus() {
-    console.log("focus");
   }
 
   function onSearch(val) {
@@ -74,8 +67,6 @@ const WelfareMessage = () => {
                 placeholder="Select a department"
                 optionFilterProp="children"
                 onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
                 onSearch={onSearch}
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
@@ -107,8 +98,6 @@ const WelfareMessage = () => {
                 placeholder="Select an employee"
                 optionFilterProp="children"
                 onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
                 onSearch={onSearch}
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=

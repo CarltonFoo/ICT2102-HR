@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/login";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
-import Welfare from "./components/Welfare/Welfare";
+import Welfare from "./components/Welfare/belleForm";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
