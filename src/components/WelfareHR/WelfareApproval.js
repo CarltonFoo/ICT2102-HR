@@ -70,8 +70,6 @@ class WelfareApproval extends React.Component {
       // if no items selected
     return "Please select items to approve."
     }
-    
-
   }
   handleDelete = () => {
     console.log("handle delete");
