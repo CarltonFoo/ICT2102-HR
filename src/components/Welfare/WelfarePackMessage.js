@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import Card from "../Shared/Card.js";
-import { Col, Row, Form, Select, Button, Input } from "antd";
+import { Col, Row, Form, Select, Button, Input, message } from "antd";
 import Employees from "../../data/employees.json";
 import { _ } from "numeral";
 
@@ -15,8 +15,16 @@ const WelfareMessage = (props) => {
   // const [form] = Form.useForm();
 
   const handleSubmit = (e) => {
+    console.log("hi");
     e.preventDefault();
     console.log("Success:", e.target.value);
+  };
+
+  const handleNext = () => {
+    console.log("handleNext");
+    console.log(welfareData.department);
+    console.log(welfareData.receiverName);
+    console.log(welfareData.message);
   };
 
   const [welfareData, setWelfareData] = useState({
@@ -24,6 +32,14 @@ const WelfareMessage = (props) => {
     receiverName: "",
     message: "",
   });
+
+  const clear = () => {
+    setWelfareData({
+      department: "",
+      receiverName: "",
+      message: "",
+    });
+  };
 
   return (
     <Form
@@ -37,7 +53,7 @@ const WelfareMessage = (props) => {
       initialValues={{
         remember: true,
       }}
-
+      onSubmit={handleSubmit}
       // form={form}
     >
       <Form.Item
@@ -150,17 +166,17 @@ const WelfareMessage = (props) => {
 
       <div class="flex justify-evenly">
         <Form.Item class="text-center">
-          <Button type="primary" htmlType="submit" onClick={props.prev}>
+          <Button type="primary" onClick={props.prev}>
             Back
           </Button>
         </Form.Item>
         <Form.Item class="text-center">
-          <Button type="primary" htmlType="submit" onClick={props.next}>
-            Next
+          <Button type="primary" onClick={props.next}>
+            Clear
           </Button>
         </Form.Item>
         <Form.Item class="text-center">
-          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+          <Button type="primary" onClick={handleNext}>
             Next
           </Button>
         </Form.Item>

@@ -38,10 +38,12 @@ const WelfarePackForm = () => {
     },
   ];
 
+  //go prev step
   function prev() {
     const newCurrent = current - 1;
     setCurrent(newCurrent);
   }
+  //go next setp
   function next() {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
@@ -63,15 +65,22 @@ const WelfarePackForm = () => {
 
   return (
     <div>
+      {/* step panel */}
       <Steps current={current} type="navigation">
         {steps.map((item, index) => (
           <Step key={index} title={item.title} description={item.description} />
         ))}
       </Steps>
 
-      {current === 2 && (
-        <WelfarePackConfirmation summary={summary} prev={prev} />
+      {current === 0 && (
+        <WelfarePackSelection
+          {...fields}
+          next={next}
+          onChange={handleFormChange}
+          onSelectPack={onSelectPack}
+        />
       )}
+
       {current === 1 && (
         <WelfarePackMessage
           {...fields}
@@ -80,13 +89,8 @@ const WelfarePackForm = () => {
           onChange={handleFormChange}
         />
       )}
-      {current === 0 && (
-        <WelfarePackSelection
-          {...fields}
-          next={next}
-          onChange={handleFormChange}
-          onSelectPack={onSelectPack}
-        />
+      {current === 2 && (
+        <WelfarePackConfirmation summary={summary} prev={prev} />
       )}
     </div>
   );
