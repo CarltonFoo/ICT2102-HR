@@ -102,7 +102,7 @@ const Navbar = (props) => {
               </Menu.Item>
               <Menu.Item key="history" icon={<HistoryOutlined />}>
                 Welfare History
-                <Link to="history" />
+                <Link to="/history" />
               </Menu.Item>
               {getPosition(users).props.children === "HR Manager" ? (
                 <SubMenu

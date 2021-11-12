@@ -1,3 +1,4 @@
+
 .ant-steps-item-icon {
     line-height: 29px !important;
 }
@@ -9,3 +10,58 @@
 .ant-steps-navigation .ant-steps-item::after {
     margin-top: -12px !important;
 }
+
+.ant-radio-inner, .ant-radio-inner:after{
+    display: none;
+  }
+  .ant-radio-inner:after{
+    display: none;
+  }
+
+  #monday-blue .ant-radio-input:before{
+    content: icon;
+  }
+
+/* .ant-card-head{
+    background-color: rgb(54, 206, 233) !important;
+}
+.ant-card-body{
+    background-color: rgb(148, 165, 158) !important;
+} */
+
+#mondays-blue .ant-card-head {
+    background-color: rgba(178, 224, 255, 0.65);
+  }
+
+  #mondays-blue .ant-card-body {
+    background-color: rgba(229, 229, 229, 0.65);
+  }
+
+  #wozzy-wednesday .ant-card-head {
+    background-color: rgba(206, 255, 160, 0.65);
+  }
+
+  #wozzy-wednesday .ant-card-body {
+    background-color: rgba(229, 229, 229, 0.65);
+  }
+
+  #tgif .ant-card-head {
+    background-color: rgba(116,82, 53,0.48);
+  }
+
+  #tgif .ant-card-body {
+    background-color: rgba(229, 229, 229, 0.65);
+  }
+  
+  #mondays-blue:focus-within {
+    border: 1px solid;
+    box-shadow: 5px 10px 18px #888888;
+  }
+  #wozzy-wednesday:focus-within, #wozzy-wednesday:active{
+    border: 1px solid;
+    box-shadow: 5px 10px 18px #888888;
+  }
+  #tgif:focus-within {
+    border: 1px solid;
+    box-shadow: 5px 10px 18px #888888;
+  }
