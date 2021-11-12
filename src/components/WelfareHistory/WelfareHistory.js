@@ -94,11 +94,15 @@ class WelfareHistory extends React.Component {
  
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       dataSource: historydata,
       count: historydata.length,
-    };
+      // handleDelete:this.handleDelete(key),
 
+    };
+    
+    
     this.columns = [
       {
         title: "Date Requested",
@@ -140,6 +144,12 @@ class WelfareHistory extends React.Component {
         dataIndex: "status",
         key: 'status',
         
+        // handleDelete(key){
+        //   const dataSource = [...this.state.dataSource];
+        //   this.setState({
+        //     dataSource: dataSource.filter((item) => item.key !== key),
+        //   });
+        // },
         render(status,record) {
           let color = "blue";
           switch(status) {
@@ -166,7 +176,9 @@ class WelfareHistory extends React.Component {
                   <a onClick="">Edit Message</a><br></br>
                   <a onClick="">Change Delivery Date</a><br></br>
                   <a onClick="">View Details</a><br></br>
-                  {/* <a onClick={()=>this.handleDelete(record.key)}>Cancel Order</a> */}
+                  <a onClick="">View Details</a><br></br>
+
+                  {/* <a onClick={()=> props.handleDelete(record.key)}>Cancel Order</a> */}
                   <a onClick="">Cancel Order</a>
     
                 </>}
