@@ -84,25 +84,25 @@ const Navbar = (props) => {
                   <p class="font-semibold pt-2"> {getPosition(users)}</p>
                 </div>
               </div>
-              <MenuItem key="/" icon={<UserOutlined />}>
+              <Menu.Item key="/" icon={<UserOutlined />}>
                 Dashboard
                 <Link to="/" />
-              </MenuItem>
-              <MenuItem key="/welfare" icon={<UserOutlined />}>
+              </Menu.Item>
+              <Menu.Item key="/welfare" icon={<UserOutlined />}>
                 Welfare
                 <Link to="/welfare" />
-              </MenuItem>
-              <MenuItem key="/payslip" icon={<UserOutlined />}>
+              </Menu.Item>
+              <Menu.Item key="/payslip" icon={<UserOutlined />}>
                 Payslip
                 <Link to="/payslip" />
-              </MenuItem>
-              <MenuItem key="/availability" icon={<UserOutlined />}>
+              </Menu.Item>
+              <Menu.Item key="/availability" icon={<UserOutlined />}>
                 Availability
                 <Link to="/availability" />
-              </MenuItem>
-              <MenuItem key="/history" icon={<UserOutlined />}>
+              </Menu.Item>
+              <Menu.Item key="/history" icon={<UserOutlined />}>
                 Welfare History
-                <Link to='/history' />
+                <Link to="/history" />
               </Menu.Item>
               <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
                 <Menu.Item
