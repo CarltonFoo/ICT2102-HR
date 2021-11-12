@@ -26,6 +26,7 @@ import "./navbar.css";
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 import users from "../../data/employees.json";
+
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -59,14 +60,7 @@ const Navbar = (props) => {
     }
   };
 
-  var menu;
-  if (getPosition == "manager") {
-    menu = <EmployeeMenu />;
-  } else {
-    menu = <AdminMenu />;
-  }
-
-  const isManager = this.state.return(
+  return (
     <div class="h-screen">
       <Layout>
         <Header className="header" class="w-screen">
@@ -92,37 +86,44 @@ const Navbar = (props) => {
               </div>
               <Menu.Item key="home" icon={<HomeOutlined />}>
                 Dashboard
-                <Link to='/' />
+                <Link to="/" />
               </Menu.Item>
               <Menu.Item key="welfare" icon={<GiftOutlined />}>
                 Welfare
-                <Link to='/welfare' />
+                <Link to="/welfare" />
               </Menu.Item>
               <Menu.Item key="payslip" icon={<DollarOutlined />}>
                 Payslip
-                <Link to='payslip' />
+                <Link to="payslip" />
               </Menu.Item>
               <Menu.Item key="availability" icon={<UserSwitchOutlined />}>
                 Availability
-                <Link to='/availability' />
+                <Link to="/availability" />
               </Menu.Item>
               <Menu.Item key="history" icon={<HistoryOutlined />}>
                 Welfare History
-                <Link to='history' />
+                <Link to="history" />
               </Menu.Item>
-              { getPosition(users).props.children === "HR Manager"
-              ?
-                <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
-                  <Menu.Item key="welfareinventory" icon={<AppstoreAddOutlined />}>Welfare Inventory
-                  <Link to='/inventory' />
+              {getPosition(users).props.children === "HR Manager" ? (
+                <SubMenu
+                  title="Manage(FOR HR VIEW)"
+                  icon={<AppstoreOutlined />}
+                >
+                  <Menu.Item
+                    key="welfareinventory"
+                    icon={<AppstoreAddOutlined />}
+                  >
+                    Welfare Inventory
+                    <Link to="/inventory" />
                   </Menu.Item>
-                  <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>Welfare Approval
-                  <Link to='/approval' />
+                  <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>
+                    Welfare Approval
+                    <Link to="/approval" />
                   </Menu.Item>
                 </SubMenu>
-              :
-              <div></div>
-              }
+              ) : (
+                <div></div>
+              )}
             </Menu>
           </Sider>
 
