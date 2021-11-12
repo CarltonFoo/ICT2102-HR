@@ -104,14 +104,19 @@ const Navbar = (props) => {
                 Welfare History
                 <Link to='history' />
               </Menu.Item>
-              <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
-                <Menu.Item key="welfareinventory" icon={<AppstoreAddOutlined />}>Welfare Inventory
-                <Link to='/inventory' />
-                </Menu.Item>
-                <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>Welfare Approval
-                <Link to='/approval' />
-                </Menu.Item>
-              </SubMenu>
+              { getPosition(users).props.children === "HR Manager"
+              ?
+                <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
+                  <Menu.Item key="welfareinventory" icon={<AppstoreAddOutlined />}>Welfare Inventory
+                  <Link to='/inventory' />
+                  </Menu.Item>
+                  <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>Welfare Approval
+                  <Link to='/approval' />
+                  </Menu.Item>
+                </SubMenu>
+              :
+              <div></div>
+              }
             </Menu>
           </Sider>
 
