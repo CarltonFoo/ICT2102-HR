@@ -10,6 +10,7 @@ import { InfoCircleOutlined, EyeFilled } from '@ant-design/icons';
 /*Library*/
 const EditableContext = React.createContext(null);
 
+//creation of row 
 const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
   return (
@@ -21,6 +22,7 @@ const EditableRow = ({ index, ...props }) => {
   );
 };
 
+//editable cell 
 const EditableCell = ({
   title,
   editable,

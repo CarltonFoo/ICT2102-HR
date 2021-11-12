@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import Modal from "react-modal";
 import { Layout, Menu, Breadcrumb } from "antd";
 import {
@@ -18,7 +18,7 @@ const { Header, Content, Sider } = Layout;
 
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
-const TopNavbar = () => {
+const TopNavbar = (props) => {
   const [openKeys, setOpenKeys] = React.useState(["sub1"]);
 
   const onOpenChange = (keys) => {
@@ -29,6 +29,15 @@ const TopNavbar = () => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+
+  //Log Out
+  let history = useHistory();
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    history.push("/login");
+  };
+
   return (
     <div>
       <Header className="header">
@@ -41,7 +50,10 @@ const TopNavbar = () => {
               <SmileTwoTone />
             </Menu.Item>
             <Menu.Item key="2">
-              <BellFilled />
+              <div>Notifcations</div>
+            </Menu.Item>
+            <Menu.Item key="3" class="text-white">
+              <button onClick={handleLogout}>Log Out</button>
             </Menu.Item>
           </Menu>
         </div>
