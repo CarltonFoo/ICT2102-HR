@@ -26,6 +26,7 @@ import "./navbar.css";
 import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 import users from "../../data/employees.json";
+
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -59,19 +60,10 @@ const Navbar = (props) => {
     }
   };
 
-  var menu;
-  if (getPosition == "manager") {
-    menu = <EmployeeMenu />;
-  } else {
-    menu = <AdminMenu />;
-  }
-
-  const isManager = this.state.return(
+  return (
     <div class="h-screen">
       <Layout>
-        <Header className="header" class="w-screen">
-          <TopNavbar></TopNavbar>
-        </Header>
+        <Header className="header" class="w-screen"></Header>
         <Layout class="h-screen">
           <Sider
             className="fullh site-layout-background"
