@@ -1,5 +1,3 @@
-import { Typography } from "antd";
-
 const CountDownTimer = () => {
 var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 var lastday = function (y, m) {

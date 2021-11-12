@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import { Table, Card, Col, Row, Typography } from "antd";
 import Mood from "../Mood/Mood";
@@ -58,12 +58,13 @@ const gridStyle = {
   textAlign: "center",
 };
 
-
-
 const Home = () => {
+
   const [showResults, setShowResults] = React.useState(false);
   const onClick = () => setShowResults(true)
-
+  
+  var userSess = JSON.parse(sessionStorage.getItem("user"))
+  var userData = PayslipJSON[0][userSess.username]
 
   return (
     <div>
@@ -77,7 +78,6 @@ const Home = () => {
           <ReactTooltip place="right" effect="solid" />
         </div>
         <div className="site-card-wrapper">
-          {PayslipJSON && PayslipJSON.length > 0 && PayslipJSON.map((data) =>
             <Row gutter={16}>
               <Col span={8}>
                 <Card style={cardStyle} bordered={true}>
@@ -86,7 +86,7 @@ const Home = () => {
               </Col>
               <Col span={8}>
                 <Card style={cardStyle} bordered={true}>
-                <Typography style={{ fontSize: 30, color: '#3b82f6'}}>{data.user.remainingAnnualLeave}</Typography>
+                <Typography style={{ fontSize: 30, color: '#3b82f6'}}>{userData.user.remainingAnnualLeave}</Typography>
                   Annual Leave Left</Card>
               </Col>
               <Col span={8}>
@@ -99,7 +99,6 @@ const Home = () => {
                   Days to Pay Day</Card>
               </Col>
             </Row>
-          )}
         </div>
         <div className="site-card-wrapper">
           <Row gutter={16}>
