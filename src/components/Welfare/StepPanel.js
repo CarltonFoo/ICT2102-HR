@@ -38,7 +38,7 @@ const StepPanel = (props) => {
         ))}
       </Steps>
       <div>{props.steps[activeStep].content}</div>
-      <div>
+      {/* <div>
         {activeStep > 0 && <Button onClick={() => prev()}>Previous</Button>}
         {activeStep < props.steps.length - 1 && (
           <Button
@@ -54,7 +54,7 @@ const StepPanel = (props) => {
             Submit
           </Button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
