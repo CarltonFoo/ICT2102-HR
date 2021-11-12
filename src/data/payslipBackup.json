@@ -1,60 +1,40 @@
 [
   {
-    "earnings": {
+    "user": {
+      "name": "Carlton",
       "transactionID": 1,
       "totalHoursWorked": 184,
-      "basicPay": 5000,
-      "bonus": 3000,
-      "totalOTHours": 9
+      "totalOTHours": 9,
+      "remainingAnnualLeave": 10
     },
-    "claims": {
-      "claimId": 155,
-      "claimType": "Transporation",
-      "claimDescription": "Cab Fare ReferenceID TX630",
-      "claimAmt": 25
-    },
-    "Deductions": {
-      "deductationType": "CPF",
-      "deductionAmt": 180.4
-    }
-  },
-
-  {
     "earnings": {
-      "transactionID": 2,
-      "totalHoursWorked": 184,
-      "basicPay": 7000,
-      "bonus": 3000,
-      "totalOTHours": 6
+      "basicPay": 3000.00,
+      "bonus": 1000.00,
+      "OTpay": 149.80
     },
     "claims": {
-      "claimId": 178,
-      "claimType": "Transporation",
-      "claimDescription": "Cab Fare ReferenceID TX601",
-      "claimAmt": 30
+      "claim1": {
+        "id": "155",
+        "claimType": "Transporation",
+        "claimDescription": "Cab Fare ReferenceID TX630",
+        "claimAmt": 57.30
+      },
+      "claim2": {
+        "id": "156",
+        "claimType": "Transporation",
+        "claimDescription": "Cab Fare ReferenceID TX688",
+        "claimAmt": 82.50
+      },
+      "claim3": {
+        "id": "156",
+        "claimType": "Medical",
+        "claimDescription": "Medical Allowance",
+        "claimAmt": 150.20
+      }
     },
-    "Deductions": {
-      "deductationType": "CPF",
-      "deductionAmt": 167.4
-    }
-  },
-  {
-    "earnings": {
-      "transactionID": 3,
-      "totalHoursWorked": 184,
-      "basicPay": 4500,
-      "bonus": 2000,
-      "totalOTHours": 4
-    },
-    "claims": {
-      "claimId": 45,
-      "claimType": "Transporation",
-      "claimDescription": "Cab Fare ReferenceID TX634",
-      "claimAmt": 15
-    },
-    "Deductions": {
-      "deductationType": "CPF",
-      "deductionAmt": 200.4
+    "deductions": {
+      "CPFcontribution": 367.40,
+      "taxDeduction": 232.6
     }
   }
 ]
