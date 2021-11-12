@@ -14,24 +14,32 @@ const WelfarePackSelection = (props) => {
     // console.log(e.target);
     console.log(e.target.innerText);
   };
+
+  const [value, setValue] = React.useState(0);
   function onChange(e) {
     console.log(`radio checked:${e.target.value}`);
+    setValue(e.target.value);
   }
   const [form] = Form.useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    form.validateFields(["welfarepack"], (err, values) => {
-      if (!err) {
-        props.next();
-      }
-    });
+  //   form.validateFields(["welfarepack"], (err, values) => {
+  //     if (!err) {
+  //       props.next();
+  //     }
+  //   });
+  // };
+  const onFinish = (fieldsValue) => {
+    const formData = form.getFieldsValue();
+    console.log(formData);
+    props.next();
   };
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form onFinish={onFinish} form={form}>
         <Form.Item
           name="welfarepack"
           rules={[
@@ -41,50 +49,56 @@ const WelfarePackSelection = (props) => {
             },
           ]}
         >
-          <Row gutter={16}>
+          <div class="flex">
             {WelfarePack.map((data) => {
               return (
-                <Col span={8} xs={24} xl={8}>
-                  <Card
-                    title={data.welfarePack}
-                    hoverable={true}
-                    style={{ textAlign: "center", margin: "5%" }}
-                    onClick={retrieveData}
-                  >
-                    <div>
-                      <p class="font-bold text-center text-blue-800">
-                        Package Content
-                      </p>
+                <Card
+                  title={data.welfarePack}
+                  hoverable={true}
+                  style={{ textAlign: "center", margin: "5%" }}
+                  // onClick={() => props.onSelectPack(data.welfarePack)}
+                  class="h-72"
+                >
+                  <div>
+                    <Radio.Group onChange={onChange} value={value}>
+                      <Radio
+                        value={data.welfarePack}
+                        // rules={[
+                        //   {
+                        //     required: true,
+                        //     message: "Please select a Welfare Pack",
+                        //   },
+                        // ]}
+                      >
+                        <p class="font-bold text-center text-blue-800">
+                          Package Content
+                        </p>
 
-                      {data.packContent.map((item) => (
-                        <div class="">
-                          <p>{item.item1}</p>
-                          <p>{item.item2}</p>
-                          <p>{item.item3}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <p class="font-bold text-center text-blue-800">
-                      {data.dispatchedDay}
-                    </p>
+                        {data.packContent.map((item) => (
+                          <div>
+                            <p>{item.item1}</p>
+                            <p>{item.item2}</p>
+                            <p>{item.item3}</p>
+                          </div>
+                        ))}
+                        <p class="font-bold text-center text-blue-800">
+                          {data.dispatchedDay}
+                        </p>
 
-                    <p class="font-semibold text-center ">
-                      Credits Required {data.credits}
-                    </p>
-                  </Card>
-                </Col>
+                        <p class="font-semibold text-center ">
+                          Credits Required {data.credits}
+                        </p>
+                      </Radio>
+                    </Radio.Group>
+                  </div>
+                </Card>
               );
             })}
-          </Row>
+          </div>
         </Form.Item>
 
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Button color="primary" htmlType="submit" onClick={props.next}>
+        <Form.Item class="text-center">
+          <Button type="primary" htmlType="submit">
             Next
           </Button>
         </Form.Item>
