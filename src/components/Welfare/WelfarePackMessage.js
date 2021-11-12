@@ -158,7 +158,7 @@ const WelfareMessage = (props) => {
           onChange={(e) =>
             setWelfareData({
               ...welfareData,
-              message: e,
+              message: e.target.value,
             })
           }
         />

@@ -16,7 +16,6 @@ const WelfarePackSelection = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     form.validateFields(["welfarepack"], (err, values) => {
       if (!err) {
         props.next();
@@ -81,7 +80,13 @@ const WelfarePackSelection = (props) => {
           </div>
         </Form.Item>
 
-        <Form.Item class="text-center">
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+          class="text-center"
+        >
           <Button type="primary" htmlType="submit" onClick={props.next}>
             Next
           </Button>

@@ -18,14 +18,16 @@ const onSelectPack = (packName) => {
   alert("welfare pack name" + packName);
 };
 const WelfarePackForm = () => {
-  const [fields, setFields] = useState({
-    welfarepack: "",
-    department: "",
-    empolyee: "",
-    message: "",
-  });
+  const [welfarePack, setWelfarePack] = useState("");
   const [current, setCurrent] = useState(0);
   const [summary, setSummary] = useState({});
+
+  const [welfareData, setWelfareData] = useState({
+     welfarePackName:"",
+     department: "",
+     receiverName: "",
+     message: "",
+   });
   const steps = [
     {
       title: "Pack Selection",
@@ -38,6 +40,11 @@ const WelfarePackForm = () => {
     },
   ];
 
+  const onWelfarePackChange = (e) => {
+    e.preventDefault();
+    console.log(welfarePack);
+    
+  }
   //go prev step
   function prev() {
     const newCurrent = current - 1;
@@ -48,20 +55,20 @@ const WelfarePackForm = () => {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
   }
-  const handleFormChange = (changedFields) => {
-    setFields({
-      ...fields,
-      ...changedFields,
-    });
-  };
-  const fieldsFlattener = () => {
-    var flattened = {};
-    Object.keys(fields).map(
-      (fieldName) => (flattened[fieldName] = fields[fieldName].value)
-    );
-    setSummary({ ...summary, flattened });
-    next();
-  };
+  // const handleFormChange = (changedFields) => {
+  //   setFields({
+  //     ...fields,
+  //     ...changedFields,
+  //   });
+  // };
+  // const fieldsFlattener = () => {
+  //   var flattened = {};
+  //   Object.keys(fields).map(
+  //     (fieldName) => (flattened[fieldName] = fields[fieldName].value)
+  //   );
+  //   setSummary({ ...summary, flattened });
+  //   next();
+  // };
 
   return (
     <div>
@@ -74,19 +81,19 @@ const WelfarePackForm = () => {
 
       {current === 0 && (
         <WelfarePackSelection
-          {...fields}
+          // {...fields}
           next={next}
-          onChange={handleFormChange}
+          // onChange={setWelfarePack(e.target.value)}
           onSelectPack={onSelectPack}
         />
       )}
 
       {current === 1 && (
         <WelfarePackMessage
-          {...fields}
+          // {...fields}
           next={next}
           prev={prev}
-          onChange={handleFormChange}
+          // onChange={handleFormChange}
         />
       )}
       {current === 2 && (
@@ -94,6 +101,6 @@ const WelfarePackForm = () => {
       )}
     </div>
   );
-};
+};;
 
 export default WelfarePackForm;
