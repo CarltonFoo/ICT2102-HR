@@ -6,18 +6,24 @@ import Modal from "react-modal";
 import Card from "../Shared/Card.js";
 import { Col, Row, Form, Select, Button, Input } from "antd";
 import Employees from "../../data/employees.json";
+import { _ } from "numeral";
 
 const { Option } = Select;
 const { TextArea } = Input;
 
 const WelfareMessage = (props) => {
-  const [form] = Form.useForm();
+  // const [form] = Form.useForm();
 
-  const onFinish = (fieldsValue) => {
-    const formData = form.getFieldsValue();
-    console.log(formData);
-    props.next();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Success:", e.target.value);
   };
+
+  const [welfareData, setWelfareData] = useState({
+    department: "",
+    receiverName: "",
+    message: "",
+  });
 
   return (
     <Form
@@ -31,8 +37,8 @@ const WelfareMessage = (props) => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
-      form={form}
+
+      // form={form}
     >
       <Form.Item
         wrapperCol={{
@@ -60,6 +66,12 @@ const WelfareMessage = (props) => {
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
+                }
+                onChange={(e) =>
+                  setWelfareData({
+                    ...welfareData,
+                    department: e,
+                  })
                 }
               >
                 {Employees.map((employee) => (
@@ -89,6 +101,12 @@ const WelfareMessage = (props) => {
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
+                }
+                onChange={(e) =>
+                  setWelfareData({
+                    ...welfareData,
+                    receiverName: e,
+                  })
                 }
               >
                 {Employees.map((employee) => (
@@ -121,6 +139,12 @@ const WelfareMessage = (props) => {
           allowClear
           autoSize={{ minRows: 3, maxRows: 5 }}
           style={{ width: 465 }}
+          onChange={(e) =>
+            setWelfareData({
+              ...welfareData,
+              message: e,
+            })
+          }
         />
       </Form.Item>
 
@@ -132,6 +156,11 @@ const WelfareMessage = (props) => {
         </Form.Item>
         <Form.Item class="text-center">
           <Button type="primary" htmlType="submit" onClick={props.next}>
+            Next
+          </Button>
+        </Form.Item>
+        <Form.Item class="text-center">
+          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
             Next
           </Button>
         </Form.Item>
