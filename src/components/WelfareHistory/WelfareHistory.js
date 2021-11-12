@@ -176,8 +176,6 @@ class WelfareHistory extends React.Component {
                   <a onClick="">Edit Message</a><br></br>
                   <a onClick="">Change Delivery Date</a><br></br>
                   <a onClick="">View Details</a><br></br>
-                  <a onClick="">View Details</a><br></br>
-
                   {/* <a onClick={()=> props.handleDelete(record.key)}>Cancel Order</a> */}
                   <a onClick="">Cancel Order</a>
     
