@@ -62,8 +62,8 @@ var cardStyle = {
 }
 
 const gridStyle = {
-  width: '25%',
-  textAlign: 'center',
+  width: "25%",
+  textAlign: "center",
 };
 
 
@@ -73,7 +73,8 @@ const Home = () => {
     <div>
       <Mood></Mood>
       <div class="m-auto w-11/12">
-        <div class="text-2xl font-bold my-6">Dashboard
+        <div class="text-2xl font-bold my-6">
+          Dashboard
           {/* Need to add hover styling and tooltip*/}
           <div data-tip="Quick overview of team availability, salary" class="inline">
             <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
