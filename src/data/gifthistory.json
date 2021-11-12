@@ -1,5 +1,6 @@
 [
     {
+      "key":0,
       "date": "22nd Oct 2021",
       "receiver": "Celine Ang",
       "department": "Digital Design",
@@ -8,6 +9,7 @@
       "status": "Pending Approval"
     },
     {
+      "key":1,
       "date": "18th Oct 2021",
       "receiver": "Joey Chua",
       "department": "Human Resource",
@@ -16,6 +18,7 @@
       "status": "Approved"
     },
     {
+      "key":2,
       "date": "14th Oct 2021",
       "receiver": "Belle Sim",
       "department": "Software Engineering",
@@ -24,6 +27,7 @@
       "status": "Sent out"
     },
     {
+      "key":3,
       "date": "22nd Oct 2021",
       "receiver": "Celine Ang",
       "department": "Digital Design",
@@ -32,6 +36,7 @@
       "status": "Pending Approval"
     },
     {
+      "key":4,
       "date": "18th Oct 2021",
       "receiver": "Joey Chua",
       "department": "Human Resource",
@@ -40,6 +45,7 @@
       "status": "Approved"
     },
     {
+      "key":5,
       "date": "14th Oct 2021",
       "receiver": "Belle Sim",
       "department": "Software Engineering",

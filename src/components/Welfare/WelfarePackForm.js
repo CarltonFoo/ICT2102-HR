@@ -14,15 +14,20 @@ const { Option } = Select;
 const { TextArea } = Input;
 const { Step } = Steps;
 
+const onSelectPack = (packName) => {
+  alert("welfare pack name" + packName);
+};
 const WelfarePackForm = () => {
-  const [fields, setFields] = useState({
-    welfarepack: "",
-    department: "",
-    empolyee: "",
-    message: "",
-  });
+  const [welfarePack, setWelfarePack] = useState("");
   const [current, setCurrent] = useState(0);
   const [summary, setSummary] = useState({});
+
+  const [welfareData, setWelfareData] = useState({
+    welfarePackName: "",
+    department: "",
+    receiverName: "",
+    message: "",
+  });
   const steps = [
     {
       title: "Pack Selection",
@@ -35,54 +40,63 @@ const WelfarePackForm = () => {
     },
   ];
 
+  const onWelfarePackChange = (e) => {
+    e.preventDefault();
+    console.log(welfarePack);
+  };
+  //go prev step
   function prev() {
     const newCurrent = current - 1;
     setCurrent(newCurrent);
   }
+  //go next setp
   function next() {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
   }
-  const handleFormChange = (changedFields) => {
-    setFields({
-      ...fields,
-      ...changedFields,
-    });
-  };
-  const fieldsFlattener = () => {
-    var flattened = {};
-    Object.keys(fields).map(
-      (fieldName) => (flattened[fieldName] = fields[fieldName].value)
-    );
-    setSummary({ ...summary, flattened });
-    next();
-  };
+  // const handleFormChange = (changedFields) => {
+  //   setFields({
+  //     ...fields,
+  //     ...changedFields,
+  //   });
+  // };
+  // const fieldsFlattener = () => {
+  //   var flattened = {};
+  //   Object.keys(fields).map(
+  //     (fieldName) => (flattened[fieldName] = fields[fieldName].value)
+  //   );
+  //   setSummary({ ...summary, flattened });
+  //   next();
+  // };
 
   return (
     <div>
+      {/* step panel */}
       <Steps current={current} type="navigation">
         {steps.map((item, index) => (
           <Step key={index} title={item.title} description={item.description} />
         ))}
       </Steps>
 
-      {current === 2 && (
-        <WelfarePackConfirmation summary={summary} prev={prev} />
-      )}
-      {current === 1 && (
-        <WelfarePackMessage
-          {...fields}
-          next={next}
-          prev={prev}
-          onChange={handleFormChange}
-        />
-      )}
       {current === 0 && (
         <WelfarePackSelection
-          {...fields}
+          // {...fields}
           next={next}
-          onChange={handleFormChange}
+          // onChange={setWelfarePack(e.target.value)}
+          onSelectPack={onSelectPack}
         />
+      )}
+
+      {current === 1 && (
+        <WelfarePackMessage
+          // {...fields}
+          next={next}
+          prev={prev}
+          // onChange={handleFormChange}
+        />
+      )}
+      {current === 2 && (
+        <WelfarePackConfirmation summary={summary} prev={prev} />
       )}
     </div>
   );

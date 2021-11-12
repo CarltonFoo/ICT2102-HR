@@ -84,39 +84,46 @@ const Navbar = (props) => {
                   <p class="font-semibold pt-2"> {getPosition(users)}</p>
                 </div>
               </div>
-              <Menu.Item key="/" icon={<UserOutlined />}>
+              <Menu.Item key="home" icon={<HomeOutlined />}>
                 Dashboard
                 <Link to="/" />
               </Menu.Item>
-              <Menu.Item key="/welfare" icon={<UserOutlined />}>
+              <Menu.Item key="welfare" icon={<GiftOutlined />}>
                 Welfare
                 <Link to="/welfare" />
               </Menu.Item>
-              <Menu.Item key="/payslip" icon={<UserOutlined />}>
+              <Menu.Item key="payslip" icon={<DollarOutlined />}>
                 Payslip
-                <Link to="/payslip" />
+                <Link to="payslip" />
               </Menu.Item>
-              <Menu.Item key="/availability" icon={<UserOutlined />}>
+              <Menu.Item key="availability" icon={<UserSwitchOutlined />}>
                 Availability
                 <Link to="/availability" />
               </Menu.Item>
-              <Menu.Item key="/history" icon={<UserOutlined />}>
+              <Menu.Item key="history" icon={<HistoryOutlined />}>
                 Welfare History
-                <Link to="/history" />
+                <Link to="history" />
               </Menu.Item>
-              <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
-                <Menu.Item
-                  key="welfareinventory"
-                  icon={<AppstoreAddOutlined />}
+              {getPosition(users).props.children === "HR Manager" ? (
+                <SubMenu
+                  title="Manage(FOR HR VIEW)"
+                  icon={<AppstoreOutlined />}
                 >
-                  Welfare Inventory
-                  <Link to="/inventory" />
-                </Menu.Item>
-                <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>
-                  Welfare Approval
-                  <Link to="/approval" />
-                </Menu.Item>
-              </SubMenu>
+                  <Menu.Item
+                    key="welfareinventory"
+                    icon={<AppstoreAddOutlined />}
+                  >
+                    Welfare Inventory
+                    <Link to="/inventory" />
+                  </Menu.Item>
+                  <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>
+                    Welfare Approval
+                    <Link to="/approval" />
+                  </Menu.Item>
+                </SubMenu>
+              ) : (
+                <div></div>
+              )}
             </Menu>
           </Sider>
 

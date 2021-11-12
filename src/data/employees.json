@@ -4,68 +4,78 @@
     "employeeName": "Joy Ng",
     "position": "UXUI Designer",
     "password": "joyng",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team A"
   },
   {
     "username": "celinefoo",
     "employeeName": "Celine Foo",
     "position": "Process Manager",
     "password": "celinefoo",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team B"
   },
   {
     "username": "jennychan",
     "employeeName": "Product Manager",
     "password": "jennychan",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team C"
   },
   {
     "username": "mohammadfauzi",
     "employeeName": "Mohammad Fauzi",
     "position": "UXUI Designer",
     "password": "mohammadfauzi",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team D"
   },
   {
     "username": "celineang",
     "employeeName": "Celine Ang",
     "position": "Process Manager",
     "password": "celinefoo",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team E"
   },
   {
     "username": "savvipragi",
     "employeeName": "Savvi Pragi",
     "position": "Business Process Manager",
     "password": "celinefoo",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team F"
   },
   {
     "username": "joeychua",
     "employeeName": "Joey Chua",
     "position": "UXUI Designer",
     "password": "joeychua",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team G"
   },
   {
     "username": "junkiat",
     "employeeName": "Junkiat",
     "position": "Software Engineer",
     "password": "junkiat",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team H"
   },
   {
     "username": "carltonfoo",
     "employeeName": "Carlton Foo",
     "position": "Software Engineer",
     "password": "foofoo",
-    "role": "employee"
+    "role": "employee",
+    "department": "Team I"
   },
   {
     "username": "bellesim",
     "employeeName": "Belle Sim",
     "position": "HR Manager",
     "password": "beierbeier",
-    "role": "manager"
+    "role": "manager",
+    "department": "Team J"
   }
 ]

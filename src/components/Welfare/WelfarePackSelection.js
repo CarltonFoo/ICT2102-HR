@@ -6,13 +6,21 @@ import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Button, Form, Select, Radio } from "antd";
 import { StepPanel } from "./StepPanel";
+import SharedCard from "../Shared/Card";
 
 const WelfarePackSelection = (props) => {
-  //   const { setStep, welfareData, setwelfareData } = useContext(multiStepContext);
-  const retrieveData = (e) => {
-    // e.preventDefault();
-    // console.log(e.target);
-    console.log(e.target.innerText);
+  function onChange(e) {
+    console.log(`radio checked:${e.target.value}`);
+  }
+  const [form] = Form.useForm();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    form.validateFields(["welfarepack"], (err, values) => {
+      if (!err) {
+        props.next();
+      }
+    });
   };
 
   const [value, setValue] = React.useState(0);

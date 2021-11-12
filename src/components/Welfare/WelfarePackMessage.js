@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
-import WelfarePack from "../../data/welfare.json";
 import Card from "../Shared/Card.js";
-import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
-import { multiStepContext } from "./StepPanel";
+import { Col, Row, Form, Select, Button, Input, message } from "antd";
+import Employees from "../../data/employees.json";
+import { _ } from "numeral";
+
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -19,6 +20,35 @@ const WelfareMessage = (props) => {
     const formData = form.getFieldsValue();
     console.log(formData);
     props.next();
+  };
+
+  // const [form] = Form.useForm();
+
+  const handleSubmit = (e) => {
+    console.log("hi");
+    e.preventDefault();
+    console.log("Success:", e.target.value);
+  };
+
+  const handleNext = () => {
+    console.log("handleNext");
+    console.log(welfareData.department);
+    console.log(welfareData.receiverName);
+    console.log(welfareData.message);
+  };
+
+  const [welfareData, setWelfareData] = useState({
+    department: "",
+    receiverName: "",
+    message: "",
+  });
+
+  const clear = () => {
+    setWelfareData({
+      department: "",
+      receiverName: "",
+      message: "",
+    });
   };
 
   return (
@@ -35,6 +65,8 @@ const WelfareMessage = (props) => {
       }}
       onFinish={onFinish}
       form={form}
+      onSubmit={handleSubmit}
+      // form={form}
     >
       <Form.Item
         wrapperCol={{
@@ -63,10 +95,18 @@ const WelfareMessage = (props) => {
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
                 }
+                onChange={(e) =>
+                  setWelfareData({
+                    ...welfareData,
+                    department: e,
+                  })
+                }
               >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
+                {Employees.map((employee) => (
+                  <Option value={employee.department}>
+                    {employee.department}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
           </Col>
@@ -86,18 +126,22 @@ const WelfareMessage = (props) => {
                 style={{ width: 200 }}
                 placeholder="Select an employee"
                 optionFilterProp="children"
-                // onChange={onChange}
-                // onFocus={onFocus}
-                // onBlur={onBlur}
-                // onSearch={onSearch}
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
                 }
+                onChange={(e) =>
+                  setWelfareData({
+                    ...welfareData,
+                    receiverName: e,
+                  })
+                }
               >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
+                {Employees.map((employee) => (
+                  <Option value={employee.employeeName}>
+                    {employee.employeeName}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
           </Col>
@@ -123,30 +167,32 @@ const WelfareMessage = (props) => {
           allowClear
           autoSize={{ minRows: 3, maxRows: 5 }}
           style={{ width: 465 }}
+          onChange={(e) =>
+            setWelfareData({
+              ...welfareData,
+              message: e.target.value,
+            })
+          }
         />
       </Form.Item>
 
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button color="primary" onClick={props.prev}>
-          Prev
-        </Button>
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button color="primary" htmlType="submit">
-          Next
-        </Button>
-      </Form.Item>
+      <div class="flex justify-evenly">
+        <Form.Item class="text-center">
+          <Button type="primary" onClick={props.prev}>
+            Back
+          </Button>
+        </Form.Item>
+        <Form.Item class="text-center">
+          <Button type="primary" onClick={props.next}>
+            Clear
+          </Button>
+        </Form.Item>
+        <Form.Item class="text-center">
+          <Button type="primary" onClick={handleNext}>
+            Next
+          </Button>
+        </Form.Item>
+      </div>
     </Form>
   );
 };

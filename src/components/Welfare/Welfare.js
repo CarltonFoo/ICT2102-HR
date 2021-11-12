@@ -6,10 +6,8 @@ import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Tooltip, Button, Steps } from "antd";
 import { InfoCircleTwoTone, SmileTwoTone } from "@ant-design/icons";
-import WelfarePackSelection from "./WelfarePackSelection";
 import WelfareForm from "./WelfarePackForm";
 import WelfarePackConfirmation from "./WelfarePackComfirmation";
-import { StepPanel } from "./StepPanel";
 import "./welfare.css";
 
 const { Step } = Steps;
