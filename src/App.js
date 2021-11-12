@@ -10,12 +10,12 @@ import Welfare from "./components/Welfare/Welfare";
 import Payslip from "./components/Payslip/Payslip";
 import Availability from "./components/Availability/Availability";
 import WelfareHistory from "./components/WelfareHistory/WelfareHistory";
-import ProtectedRoute from "./components/Login/ProtectedRoute";
 /*Temp: HR VIEW UIs */
 import HRinventory from "./components/WelfareHR/WelfareInventory";
 import HRapproval from "./components/WelfareHR/WelfareApproval";
 
 import "antd/dist/antd.css";
+import ProtectedRoute from "./components/Login/ProtectedRoute";
 import { AuthProvider } from "./components/Context/AuthContext";
 
 function App() {
@@ -23,12 +23,6 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
-          <Route
-            key="login"
-            path="/login"
-            exact
-            component={Login}
-          ></Route>
 
           <Navbar>
             <ProtectedRoute
@@ -39,6 +33,13 @@ function App() {
             ></ProtectedRoute>
 
             {/* <Route key="login" path="/login" exact component={Login}></Route> */}
+
+            <Route
+              key="login"
+              path="/login"
+              exact
+              component={Login}
+            ></Route>
 
             <Route
               key="welfare"

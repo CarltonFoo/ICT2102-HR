@@ -15,17 +15,20 @@ var linkStyle = {
     marginBottom: 10
 }
 
+var userSess = JSON.parse(sessionStorage.getItem("user"))
+var userData = PayslipJSON[0][userSess.username]
+
 var month = moment().subtract(1, 'month').format('YYYY-MM')
 var claimsData = []
 var totalClaims = 0
-var totalBasicPay = PayslipJSON[0].months[month].earnings.basicPay
-var totalBonus = PayslipJSON[0].months[month].earnings.bonus
-var totalOTpay = PayslipJSON[0].months[month].earnings.OTpay
-var totalCPF = PayslipJSON[0].months[month].deductions.CPFcontribution
-var totalTax = PayslipJSON[0].months[month].deductions.taxDeduction
-for (var claim in PayslipJSON[0].months[month].claims) {
-    totalClaims += PayslipJSON[0].months[month].claims[claim].claimAmt
-    claimsData.push(PayslipJSON[0].months[month].claims[claim])
+var totalBasicPay = userData.months[month].earnings.basicPay
+var totalBonus = userData.months[month].earnings.bonus
+var totalOTpay = userData.months[month].earnings.OTpay
+var totalCPF = userData.months[month].deductions.CPFcontribution
+var totalTax = userData.months[month].deductions.taxDeduction
+for (var claim in userData.months[month].claims) {
+    totalClaims += userData.months[month].claims[claim].claimAmt
+    claimsData.push(userData.months[month].claims[claim])
 }
 var totalEarnings = totalBasicPay + totalBonus + totalOTpay;
 var totalDeductions = totalCPF + totalTax;
@@ -131,40 +134,37 @@ class salaryBreakdown extends Component {
     render() {
         return (
             <div>
-                {PayslipJSON && PayslipJSON.length > 0 && PayslipJSON.map((data) =>
-                    <div>
-                        {this.state.isActive ? (
-                            <Card
-                                style={{ marginTop: 16, height: 520 }}
-                                type="inner"
-                                title= "Salary Breakdown"
-                                extra={<EyeFilled onClick={this.handleHide} data-tip="Click to hide total salary" style={{ cursor: 'pointer' }} />}
-                            >
-                                <Pie {...config} />
-                                <div class="p-6 font-bold text-center">
-                                    Total: ${totalOverall.toFixed(2)}
-                                </div>
-                                <Link to="/payslip" style={linkStyle}>View Full Summary &#62;</Link>
-                            </Card>
-                        ) : (
-                            <Card
-                                style={{ marginTop: 16, height: 520 }}
-                                type="inner"
-                                title="Salary Breakdown"
-                                extra={<EyeInvisibleOutlined onClick={this.handleShow} data-tip="Click to show total salary" style={{ cursor: 'pointer' }} />}
-                            >
-                                <Pie {...hideConfig} />
-                                <div class="p-6 font-bold text-center">
-                                    Total: $****
-                                </div>
+                <div>
+                    {this.state.isActive ? (
+                        <Card
+                            style={{ marginTop: 16, height: 520 }}
+                            type="inner"
+                            title= "Salary Breakdown"
+                            extra={<EyeFilled onClick={this.handleHide} data-tip="Click to hide total salary" style={{ cursor: 'pointer' }} />}
+                        >
+                            <Pie {...config} />
+                            <div class="p-6 font-bold text-center">
+                                Total: ${totalOverall.toFixed(2)}
+                            </div>
+                            <Link to="/payslip" style={linkStyle}>View Full Summary &#62;</Link>
+                        </Card>
+                    ) : (
+                        <Card
+                            style={{ marginTop: 16, height: 520 }}
+                            type="inner"
+                            title="Salary Breakdown"
+                            extra={<EyeInvisibleOutlined onClick={this.handleShow} data-tip="Click to show total salary" style={{ cursor: 'pointer' }} />}
+                        >
+                            <Pie {...hideConfig} />
+                            <div class="p-6 font-bold text-center">
+                                Total: $****
+                            </div>
 
-                                <Link to="/payslip" style={linkStyle}>View Full Summary &#62;</Link>
-                            </Card>
+                            <Link to="/payslip" style={linkStyle}>View Full Summary &#62;</Link>
+                        </Card>
 
-                        )}
-                    </div>
-
-                )}
+                    )}
+                </div>
             </div>
         )
     }
