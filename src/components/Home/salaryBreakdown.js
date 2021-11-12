@@ -15,51 +15,34 @@ var linkStyle = {
     marginBottom: 10
 }
 
-var userSess = JSON.parse(sessionStorage.getItem("user"))
-var userData = PayslipJSON[0][userSess.username]
-
-var month = moment().subtract(1, 'month').format('YYYY-MM')
-var claimsData = []
-var totalClaims = 0
-var totalBasicPay = userData.months[month].earnings.basicPay
-var totalBonus = userData.months[month].earnings.bonus
-var totalOTpay = userData.months[month].earnings.OTpay
-var totalCPF = userData.months[month].deductions.CPFcontribution
-var totalTax = userData.months[month].deductions.taxDeduction
-for (var claim in userData.months[month].claims) {
-    totalClaims += userData.months[month].claims[claim].claimAmt
-    claimsData.push(userData.months[month].claims[claim])
-}
-var totalEarnings = totalBasicPay + totalBonus + totalOTpay;
-var totalDeductions = totalCPF + totalTax;
-var totalOverall = totalEarnings + totalClaims - totalDeductions;
+var totalOverall = 0;
 
 var piedata = [
     {
-      type: 'Base Pay',
-      value: totalBasicPay,
+    type: 'Base Pay',
+    value: 0,
     },
     {
-      type: 'Bonus Pay',
-      value: totalBonus,
+    type: 'Bonus Pay',
+    value: 0,
     },
     {
-      type: 'OT Pay',
-      value: totalOTpay,
+    type: 'OT Pay',
+    value: 0,
     },
     {
-      type: 'Claims',
-      value: totalClaims,
+    type: 'Claims',
+    value: 0,
     },
     {
-      type: 'CPF',
-      value: totalCPF,
+    type: 'CPF',
+    value: 0,
     },
     {
-      type: 'Tax',
-      value: totalTax,
+    type: 'Tax',
+    value: 0,
     },
-  ];
+];
 
 var config = {
     data: piedata,
@@ -117,10 +100,9 @@ var hideConfig = {
     interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
 };
 
-
 class salaryBreakdown extends Component {
     state = {
-        isActive: false
+        isActive: false,
     };
 
     handleShow = () => {
@@ -130,6 +112,115 @@ class salaryBreakdown extends Component {
     handleHide = () => {
         this.setState({ isActive: false });
     };
+
+    componentDidMount() {
+        var userSess, userData, month, claimsData, totalBasicPay, totalBonus, totalOTpay, totalCPF, totalTax, claim, totalClaims, totalEarnings, totalDeductions;
+
+        userSess = JSON.parse(sessionStorage.getItem("user"))
+        userData = PayslipJSON[0][userSess.username]
+
+        month = moment().subtract(1, 'month').format('YYYY-MM')
+        claimsData = []
+        totalClaims = 0
+        totalBasicPay = userData.months[month].earnings.basicPay
+        totalBonus = userData.months[month].earnings.bonus
+        totalOTpay = userData.months[month].earnings.OTpay
+        totalCPF = userData.months[month].deductions.CPFcontribution
+        totalTax = userData.months[month].deductions.taxDeduction
+        for (claim in userData.months[month].claims) {
+            totalClaims += userData.months[month].claims[claim].claimAmt
+            claimsData.push(userData.months[month].claims[claim])
+        }
+        totalEarnings = totalBasicPay + totalBonus + totalOTpay;
+        totalDeductions = totalCPF + totalTax;
+        totalOverall = totalEarnings + totalClaims - totalDeductions;
+
+        piedata = [
+            {
+            type: 'Base Pay',
+            value: totalBasicPay,
+            },
+            {
+            type: 'Bonus Pay',
+            value: totalBonus,
+            },
+            {
+            type: 'OT Pay',
+            value: totalOTpay,
+            },
+            {
+            type: 'Claims',
+            value: totalClaims,
+            },
+            {
+            type: 'CPF',
+            value: totalCPF,
+            },
+            {
+            type: 'Tax',
+            value: totalTax,
+            },
+        ];
+
+        config = {
+            data: piedata,
+            angleField: 'value',
+            colorField: 'type',
+            radius: 0.5,
+            height: 340,
+            legend: {
+                layout: 'vertical',
+                position: 'bottom',
+                flipPage: false,
+                itemName: {
+                    style: {
+                        fontSize: 16,
+                    }
+                }
+            },
+            label: {
+                type: 'spider',
+                labelHeight: 40,
+                content: '{name}\n${value}',
+                style: {
+                    fontSize: 12,
+                    textAlign: 'center',
+                },
+            },
+            interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
+        };
+
+        hideConfig = {
+            data: piedata,
+            angleField: 'value',
+            colorField: 'type',
+            radius: 0.5,
+            height: 340,
+            legend: {
+                layout: 'vertical',
+                position: 'bottom',
+                flipPage: false,
+                itemName: {
+                    style: {
+                        fontSize: 16,
+                    }
+                }
+            },
+            label: {
+                type: 'spider',
+                labelHeight: 40,
+                content: '{name}',
+                style: {
+                    fontSize: 12,
+                    textAlign: 'center',
+                },
+            },
+            interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
+        };
+
+        // Trigger update
+        this.setState({ foo: !this.state.foo });
+    }
 
     render() {
         return (

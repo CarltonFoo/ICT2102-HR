@@ -107,8 +107,6 @@ function getPayslipData(start, end) {
 
 }
 
-getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
-
 function disabledDate(current) {
   return current && current > moment().startOf('month');
 }
@@ -120,6 +118,8 @@ function useForceUpdate(){
 
 const Payslip = () => {
     
+getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
+
   const onChange = (value, dateString) => {
     rangeStart = value[0]?.format('YYYY-MM')
     rangeEnd = value[1]?.format('YYYY-MM')
@@ -134,7 +134,6 @@ const Payslip = () => {
           <p class="text-2xl font-bold my-6">Payslip</p>
           <div class="my-8">
             <Descriptions title="" bordered column={{ xxl: 3, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}>
-              {/* {console.log("data", data)} */}
               <Descriptions.Item label="Name" className="userinfo">{userData.user.name}</Descriptions.Item>
               <Descriptions.Item label="Total Hours Worked" className="userinfo">{userData.user.totalHoursWorked}</Descriptions.Item>
               <Descriptions.Item label="Remaining Annual Leave" className="userinfo">{userData.user.remainingAnnualLeave}</Descriptions.Item>

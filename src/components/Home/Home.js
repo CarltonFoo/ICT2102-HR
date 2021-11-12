@@ -58,8 +58,6 @@ const gridStyle = {
   textAlign: "center",
 };
 
-
-
 const Home = () => {
 
   const [showResults, setShowResults] = React.useState(false);

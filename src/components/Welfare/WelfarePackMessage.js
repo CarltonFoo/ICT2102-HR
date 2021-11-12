@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import Card from "../Shared/Card.js";
 import { Col, Row, Form, Select, Button, Input, message } from "antd";
 import Employees from "../../data/employees.json";
-import { _ } from "numeral";
+// import { _ } from "numeral";
 
 const { Option } = Select;
 const { TextArea } = Input;
