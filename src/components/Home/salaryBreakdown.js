@@ -156,13 +156,10 @@ class salaryBreakdown extends Component {
                                 <div class="p-6 font-bold text-center">
                                     Total: $****
                                 </div>
-
                                 <Link to="/payslip" style={linkStyle}>View Full Summary &#62;</Link>
                             </Card>
-
                         )}
                     </div>
-
                 )}
             </div>
         )

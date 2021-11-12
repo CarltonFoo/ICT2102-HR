@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip';
 import { Table, Card, Col, Row, Typography, Statistic } from "antd";
 import Mood from "../Mood/Mood";
 import ReactDOM from 'react-dom';
-import { InfoCircleTwoTone, EyeFilled, EyeInvisibleOutlined } from '@ant-design/icons';
+import { InfoCircleTwoTone } from '@ant-design/icons';
 import "../../assets/css/home.css";
 import StaffAvailability from "../../data/staffAvailability.json";
 import PayslipJSON from "../../data/payslip.json";
@@ -60,13 +60,6 @@ var cardStyle = {
   textAlign: 'center',
   fontWeight: 'bold',
 }
-
-const gridStyle = {
-  width: "25%",
-  textAlign: "center",
-};
-
-
 
 const Home = () => {
   return (
