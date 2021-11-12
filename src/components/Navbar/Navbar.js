@@ -102,9 +102,8 @@ const Navbar = (props) => {
               </MenuItem>
               <MenuItem key="/history" icon={<UserOutlined />}>
                 Welfare History
-                <Link to="/history" />
-              </MenuItem>
-
+                <Link to='/history' />
+              </Menu.Item>
               <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />}>
                 <Menu.Item
                   key="welfareinventory"
