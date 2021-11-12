@@ -30,11 +30,20 @@ class WelfareApproval extends React.Component {
     this.setState({ selectedRowKeys });
   };
 
-  removeWelfareApproval = async () => {
+  removeWelfareApproval = async (e) => {
     const res1 = await removeWelfareRequest();
-    console.log(res1);
+    console.log("res1 you are here", res1);
     if (res1.status === 200) {
       console.log("status 200");
+    }
+    console.log("show me what is this", approvalData);
+    // var obj = JSON.stringify(approvalData);
+
+    // var keys = Object.keys(obj);
+
+    for (var i = 0; i < approvalData.length; i++) {
+      console.log("each", approvalData[i]);
+      delete approvalData[i];
     }
   };
 
