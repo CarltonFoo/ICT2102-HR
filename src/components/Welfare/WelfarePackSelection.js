@@ -16,7 +16,6 @@ import {
   Typography,
   Divider,
 } from "antd";
-import { StepPanel } from "./StepPanel";
 import SharedCard from "../Shared/Card";
 import { DollarCircleFilled } from "@ant-design/icons";
 
