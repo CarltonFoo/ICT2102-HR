@@ -1,3 +1,3 @@
 import API from "axios";
 
-export const removeWelfareRequest = () => API.get("/");
+export const removeWelfareRequest = () => API.get("/api/welfareApproval");

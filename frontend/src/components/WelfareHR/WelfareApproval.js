@@ -36,6 +36,7 @@ class WelfareApproval extends React.Component {
     if (res1.status === 200) {
       console.log("status 200");
     }
+    // var data = JSON.parse(fs.readFukle)
     console.log("show me what is this", approvalData);
     // var obj = JSON.stringify(approvalData);
 
