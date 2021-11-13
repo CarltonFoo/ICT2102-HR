@@ -22,28 +22,6 @@ var year = currentDate.getFullYear();
 const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
 //#endregion
 
-//#region CountdownTimer
-const { Countdown } = Statistic;
-var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-var lastday = function (y, m) {
-  return new Date(y, m + 1, 0).getDate();
-};
-var month = currentDate.getMonth();
-var year = currentDate.getFullYear();
-const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
-//#endregion
-
-//#region CountdownTimer
-const { Countdown } = Statistic;
-var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-var lastday = function (y, m) {
-  return new Date(y, m + 1, 0).getDate();
-};
-var month = currentDate.getMonth();
-var year = currentDate.getFullYear();
-const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
-//#endregion
-
 const columns = [
   {
     title: "Name",
