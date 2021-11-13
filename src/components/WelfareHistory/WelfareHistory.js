@@ -106,20 +106,6 @@ class WelfareHistory extends React.Component {
               <Tag color={color} key={status}>
                 {status.toUpperCase()}
               </Tag>
-
-              {/* <Popover
-                content={
-                  <>
-                    <a onClick="">Edit Message</a>
-                    <br></br>
-                    <a onClick="">View Details</a>
-                    <br></br>
-                  </>
-                }
-                trigger="click"
-              >
-                <Button type="text">:</Button>
-              </Popover> */}
             </>
           );
         },
@@ -130,12 +116,6 @@ class WelfareHistory extends React.Component {
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
             <>
-              {/* <Popconfirm
-              title="Sure to delete?"
-              onConfirm={() => this.handleDelete(record.key)}
-            >
-              <a>Delete</a>
-            </Popconfirm> */}
               <Popover
                 content={
                   <>
@@ -186,19 +166,6 @@ class WelfareHistory extends React.Component {
           <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
             Reset
           </Button>
-          {/* <Button
-            type="link"
-            size="small"
-            onClick={() => {
-              confirm({ closeDropdown: false });
-              this.setState({
-                searchText: selectedKeys[0],
-                searchedColumn: dataIndex,
-              });
-            }}
-          >
-            Filter
-          </Button> */}
         </Space>
       </div>
     ),
@@ -224,8 +191,16 @@ class WelfareHistory extends React.Component {
         text
       ),
   });
-  getPackageInfo = () => {
+  getPackageInfo = (dataName) => {
     if (this.state.recordData !== null) {
+
+      if (dataName == "mainInfo"){
+        
+        const recordData = this.state.recordData;
+        return ""+ recordData.productname + " for " + recordData.receiver +
+          " (" + recordData.department + ")" + '\n' ;
+      }
+    
       const recordData = this.state.recordData;
       // console.log(recordData);
       // const dataSource = [...this.state.dataSource];
@@ -233,8 +208,6 @@ class WelfareHistory extends React.Component {
       // console.log(dataSource);
       var giftText = ""
       giftText =
-        recordData.productname + " for " + recordData.receiver +
-        " (" + recordData.department + ")" + '\n' +
         "Date Ordered: " + recordData.date + '\n' +
         "Department : " + recordData.department + '\n' +
         "Date to Deliver: " + recordData.delivery + '\n' +
@@ -298,7 +271,6 @@ class WelfareHistory extends React.Component {
     this.setState({
       recordData: record,
     })
-    // console.log(record);
   }
   showEdit = (record) => {
     this.setState({
@@ -309,7 +281,6 @@ class WelfareHistory extends React.Component {
     this.setState({
       recordData: record,
     })
-    // console.log("message", this.state.recordMsg);
   }
 
   handleVisibleChange = visible => {
@@ -355,6 +326,7 @@ class WelfareHistory extends React.Component {
           }}
           content={
             <>
+              <p class="font-bold text-center text-blue-800">{this.getPackageInfo("mainInfo")}</p>
               <p>{this.getPackageInfo()}</p>
               <Button
                 type="primary"
