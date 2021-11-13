@@ -25,6 +25,6 @@ code {
 
 #root {
   min-height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 

@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
-import { Table, Card, Col, Row, Typography } from "antd";
+import { Table, Card, Col, Row, Typography, Statistic } from "antd";
 import Mood from "../Mood/Mood";
 import ReactDOM from "react-dom";
-import {
-  InfoCircleTwoTone,
-  EyeFilled,
-  EyeInvisibleOutlined,
-} from "@ant-design/icons";
-import CountDownTimer from "../CoundownTimer/CountDownTimer";
+import { InfoCircleTwoTone } from "@ant-design/icons";
 import "../../assets/css/home.css";
 import StaffAvailability from "../../data/staffAvailability.json";
 import PayslipJSON from "../../data/payslip.json";
 import SalaryBreakdown from "../Home/salaryBreakdown";
+
+//#region CountdownTimer
+const { Countdown } = Statistic;
+var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+var lastday = function (y, m) {
+  return new Date(y, m + 1, 0).getDate();
+};
+var month = currentDate.getMonth();
+var year = currentDate.getFullYear();
+const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
+//#endregion
 
 const columns = [
   {
@@ -44,9 +50,8 @@ const columns = [
 
 var linkStyle = {
   position: "absolute",
-  bottom: 0,
+  bottom: 10,
   right: 10,
-  marginBottom: 10,
 };
 
 var cardStyle = {
@@ -71,6 +76,7 @@ const Home = () => {
 
   return (
     <div>
+      <Mood></Mood>
       <div class="m-auto w-11/12">
         <div class="text-2xl font-bold my-6">
           Dashboard
@@ -108,11 +114,11 @@ const Home = () => {
             </Col>
             <Col span={8}>
               <Card style={cardStyle} bordered={true}>
-                <div class="countdown">
-                  <Typography style={{ fontSize: 30, color: "#3b82f6" }}>
-                    <CountDownTimer></CountDownTimer>
-                  </Typography>
-                </div>
+                <Countdown
+                  valueStyle={{ fontSize: 30, color: "#3b82f6" }}
+                  value={deadline}
+                  format="D"
+                />
                 Days to Pay Day
               </Card>
             </Col>
@@ -127,20 +133,22 @@ const Home = () => {
                 title="Staff Availability"
               >
                 <Table
+                  style={{ marginBottom: 20 }}
                   pagination={false}
                   columns={columns}
                   dataSource={StaffAvailability.slice(5, 10)}
                 />
-                <Link to="/availability" style={linkStyle}>
-                  View All Staff Availability &#62;
-                </Link>
+                <Row>
+                  <Link to="/availability" style={linkStyle}>
+                    View All Staff Availability &#62;
+                  </Link>
+                </Row>
               </Card>
             </Col>
             <Col span={8}>
               <SalaryBreakdown></SalaryBreakdown>
             </Col>
           </Row>
-          <Mood></Mood>
         </div>
       </div>
     </div>
