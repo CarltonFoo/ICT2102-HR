@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
-
-import { Table, Card, Col, Row, Typography, Statistic, Countdown } from "antd";
+import { Table, Card, Col, Row, Typography, Statistic } from "antd";
 import Mood from "../Mood/Mood";
 import ReactDOM from "react-dom";
 import { InfoCircleTwoTone } from "@ant-design/icons";
@@ -18,6 +17,17 @@ var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 var lastday = function (y, m) {
   return new Date(y, m + 1, 0).getDate();
 }
+var month = currentDate.getMonth();
+var year = currentDate.getFullYear();
+const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
+//#endregion
+
+//#region CountdownTimer
+const { Countdown } = Statistic;
+var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+var lastday = function (y, m) {
+  return new Date(y, m + 1, 0).getDate();
+};
 var month = currentDate.getMonth();
 var year = currentDate.getFullYear();
 const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
@@ -78,6 +88,9 @@ var cardStyle = {
 const Home = () => {
   var userSess = JSON.parse(sessionStorage.getItem("user"))
   var userData = PayslipJSON[0][userSess.username]
+
+  var userSess = JSON.parse(sessionStorage.getItem("user"));
+  var userData = PayslipJSON[0][userSess.username];
 
   var userSess = JSON.parse(sessionStorage.getItem("user"));
   var userData = PayslipJSON[0][userSess.username];
