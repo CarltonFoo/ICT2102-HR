@@ -4,12 +4,23 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import { Card, Col, Row, Image, Button, Form, Select, Radio } from "antd";
-import { StepPanel } from "./StepPanel";
+import {
+  Card,
+  Col,
+  Row,
+  Image,
+  Button,
+  Form,
+  Select,
+  Radio,
+  Typography,
+  Divider,
+} from "antd";
 import SharedCard from "../Shared/Card";
+import { DollarCircleFilled } from "@ant-design/icons";
 
+const { Title } = Typography;
 const WelfarePackSelection = (props) => {
-
   const [form] = Form.useForm();
   const [value, setValue] = React.useState(0);
 
@@ -22,7 +33,7 @@ const WelfarePackSelection = (props) => {
   //     }
   //   });
   // };
-  
+
   const onFinish = (fieldsValue) => {
     const formData = form.getFieldsValue();
     console.log(formData);
@@ -35,7 +46,11 @@ const WelfarePackSelection = (props) => {
     props.onChange({
       ...props.welfarepack,
       welfarepack: e.target.value,
-    })
+    });
+    props.onChange({
+      ...props.credits,
+      welfarepack: e.target.value,
+    });
   }
 
   return (
@@ -50,58 +65,58 @@ const WelfarePackSelection = (props) => {
             },
           ]}
         >
-          <div class="flex">
+          <div
+            id="welfarecard"
+            class="flex rounded shadow-md  place-content-center"
+          >
             {WelfarePack.map((data) => {
               return (
-                <Card
-                  title={data.welfarePack}
-                  hoverable={true}
-                  style={{ textAlign: "center", margin: "5%" }}
-                  
-                  class="h-72"
-                >
-                  <div>
-                    <Radio.Group 
-                    onChange={onChange} 
-                    value={value}
-                    // onClick={() => 
-                    // props.onChange({
-                    //   ...props.welfarepack,
-                    //   welfarepack: {value},
-                    // })}
-                    // clicking more than once will add letters to fields object as seperate arrays lol, will take a look again after styling
-                  >
-                      <Radio
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please select a Welfare Pack",
-                          },
-                        ]}
-                        value={data.welfarePack}
+                <div class="p-8">
+                  <Radio.Group onChange={onChange} value={value} class="">
+                    <Radio.Button value={data.welfarePack} class="h-72">
+                      <Card
+                        bordered={false}
+                        id={data.id}
+                        title={
+                          <Title level={2} class="cardtitle">
+                            {data.welfarePack}
+                          </Title>
+                        }
+                        hoverable={true}
+                        style={{ textAlign: "center", margin: "5%" }}
+                        // onClick={() => props.onSelectPack(data.welfarePack)}
+                        class="h-72 bg-transparent "
                       >
-                        <p class="font-bold text-center text-blue-800">
-                          Package Content
-                        </p>
-
-                        {data.packContent.map((item) => (
-                          <div>
-                            <p>{item.item1}</p>
-                            <p>{item.item2}</p>
-                            <p>{item.item3}</p>
+                        <div>
+                          <div class="h-10">
+                            <p class="font-bold text-center text-blue-800">
+                              Package Content
+                            </p>
                           </div>
-                        ))}
-                        <p class="font-bold text-center text-blue-800">
-                          {data.dispatchedDay}
-                        </p>
 
-                        <p class="font-semibold text-center ">
-                          Credits Required {data.credits}
-                        </p>
-                      </Radio>  
-                    </Radio.Group>
-                  </div>
-                </Card>
+                          {data.packContent.map((item) => (
+                            <div class="h-33  font-sans text-xs ">
+                              <p class="h-11 m-1 py-1 ">{item.item1}</p>
+                              <p class="h-11 m-1 py-1 ">{item.item2}</p>
+                              <p class="h-11 m-1 py-1 ">{item.item3}</p>
+                            </div>
+                          ))}
+
+                          <Divider />
+
+                          <p class="font-bold text-center text-blue-800">
+                            {data.dispatchedDay}
+                          </p>
+                          <Divider />
+                          <p class="font-semibold text-center  ">
+                            <DollarCircleFilled class="inline-flex text-xl text-yellow-500" />{" "}
+                            {data.credits} Credits
+                          </p>
+                        </div>
+                      </Card>
+                    </Radio.Button>
+                  </Radio.Group>
+                </div>
               );
             })}
           </div>
