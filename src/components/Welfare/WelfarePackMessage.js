@@ -12,28 +12,14 @@ const { Option } = Select;
 const { TextArea } = Input;
 
 const WelfareMessage = (props) => {
-  // const [form] = Form.useForm();
-  console.log("props", props)
-
-  // const handleSubmit = (e) => {
-  //   console.log("hi");
-  //   e.preventDefault();
-  //   console.log("Success:", e.target.value);
-  // };
-
-  // const handleNext = () => {
-  //   console.log("handleNext");
-  //   console.log(welfareData.department);
-  //   console.log(welfareData.receiverName);
-  //   console.log(welfareData.message);
-  // };
-
-  // const [welfareData, setWelfareData] = useState({
-  //   department: "",
-  //   receiverName: "",
-  //   message: "",
-  // });
-
+  
+  const handleNext = () => {
+    console.log("handleNext");
+    if (props.department && props.receiver && props.message) {
+      props.next();
+    }
+  };
+  
   return (
     <Form
       name="basic"
@@ -46,8 +32,6 @@ const WelfareMessage = (props) => {
       initialValues={{
         remember: true,
       }}
-      // onSubmit={handleSubmit}
-      // form={form}
     >
       <Form.Item
         wrapperCol={{
@@ -170,7 +154,7 @@ const WelfareMessage = (props) => {
           </Button>
         </Form.Item>
         <Form.Item class="text-center">
-          <Button type="primary" onClick={props.next}>
+          <Button type="primary" onClick={handleNext}>
             Next
           </Button>
         </Form.Item>
