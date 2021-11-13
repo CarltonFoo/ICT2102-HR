@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import Card from "../Shared/Card.js";
 import { Col, Row, Form, Select, Button, Input, message } from "antd";
 import Employees from "../../data/employees.json";
-import { _ } from "numeral";
+// import { _ } from "numeral";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -23,19 +23,20 @@ const WelfareMessage = (props) => {
   };
 
   // const [form] = Form.useForm();
+  console.log("props", props);
 
-  const handleSubmit = (e) => {
-    console.log("hi");
-    e.preventDefault();
-    console.log("Success:", e.target.value);
-  };
+  // const handleSubmit = (e) => {
+  //   console.log("hi");
+  //   e.preventDefault();
+  //   console.log("Success:", e.target.value);
+  // };
 
-  const handleNext = () => {
-    console.log("handleNext");
-    console.log(welfareData.department);
-    console.log(welfareData.receiverName);
-    console.log(welfareData.message);
-  };
+  // const handleNext = () => {
+  //   console.log("handleNext");
+  //   console.log(welfareData.department);
+  //   console.log(welfareData.receiverName);
+  //   console.log(welfareData.message);
+  // };
 
   const [welfareData, setWelfareData] = useState({
     department: "",
@@ -43,21 +44,22 @@ const WelfareMessage = (props) => {
     message: "",
   });
 
-  const clear = () => {
-    setWelfareData({
-      department: "",
-      receiverName: "",
-      message: "",
-    });
-  };
-
   return (
-    <div class="my-8">
-      <Form
-        name="basic"
-        labelCol={{
-          span: 8,
-        }}
+    <Form
+      name="basic"
+      labelCol={{
+        span: 8,
+      }}
+      wrapperCol={{
+        span: 16,
+      }}
+      initialValues={{
+        remember: true,
+      }}
+      // onSubmit={handleSubmit}
+      form={form}
+    >
+      <Form.Item
         wrapperCol={{
           span: 16,
         }}
@@ -66,10 +68,10 @@ const WelfareMessage = (props) => {
         }}
         onFinish={onFinish}
         form={form}
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         // form={form}
       >
-        <div class="grid grid-rows-1 grid-cols-2 gap-y-10 w-30 align-middle ">
+        <Row class="grid grid-rows-1 grid-cols-2 gap-y-10 w-30 align-middle ">
           <Col>
             <Form.Item
               name="department"
@@ -91,8 +93,8 @@ const WelfareMessage = (props) => {
                   0
                 }
                 onChange={(e) =>
-                  setWelfareData({
-                    ...welfareData,
+                  props.onChange({
+                    ...props.department,
                     department: e,
                   })
                 }
@@ -126,9 +128,9 @@ const WelfareMessage = (props) => {
                   0
                 }
                 onChange={(e) =>
-                  setWelfareData({
-                    ...welfareData,
-                    receiverName: e,
+                  props.onChange({
+                    ...props.receiver,
+                    receiver: e,
                   })
                 }
               >
@@ -140,55 +142,75 @@ const WelfareMessage = (props) => {
               </Select>
             </Form.Item>
           </Col>
-        </div>
+        </Row>
+      </Form.Item>
 
-        <Form.Item
-          name="message"
-          wrapperCol={{
-            offset: 7,
-            span: 16,
-            alignItems: "center",
-          }}
-          rules={[
-            {
-              required: true,
-              message: "Please enter a message",
-            },
-          ]}
-        >
-          <TextArea
-            placeholder="Enter Message"
-            allowClear
-            autoSize={{ minRows: 3, maxRows: 5 }}
-            style={{ width: 465 }}
-            onChange={(e) =>
-              setWelfareData({
-                ...welfareData,
-                message: e.target.value,
-              })
-            }
-          />
-        </Form.Item>
+      <Form.Item
+        name="message"
+        wrapperCol={{
+          offset: 7,
+          span: 16,
+          alignItems: "center",
+        }}
+        rules={[
+          {
+            required: true,
+            message: "Please enter a message",
+          },
+        ]}
+      >
+        <TextArea
+          placeholder="Enter Message"
+          allowClear
+          autoSize={{ minRows: 3, maxRows: 5 }}
+          style={{ width: 465 }}
+          onChange={(e) =>
+            props.onChange({
+              ...props.message,
+              message: e.target,
+            })
+          }
+        />
+      </Form.Item>
 
-        <div class="flex justify-evenly">
-          <Form.Item class="text-center">
-            <Button type="primary" onClick={props.prev}>
-              Back
-            </Button>
-          </Form.Item>
-          <Form.Item class="text-center">
-            <Button type="primary" onClick={props.next}>
-              Clear
-            </Button>
-          </Form.Item>
-          <Form.Item class="text-center">
-            <Button type="primary" onClick={handleNext}>
-              Next
-            </Button>
-          </Form.Item>
-        </div>
-      </Form>
-    </div>
+      <Form.Item
+        name="message"
+        wrapperCol={{
+          offset: 7,
+          span: 16,
+          alignItems: "center",
+        }}
+        rules={[
+          {
+            required: true,
+            message: "Please enter a message",
+          },
+        ]}
+      >
+        <TextArea
+          placeholder="Enter Message"
+          allowClear
+          autoSize={{ minRows: 3, maxRows: 5 }}
+          style={{ width: 465 }}
+          onChange={(e) =>
+            setWelfareData({
+              ...welfareData,
+              message: e.target.value,
+            })
+          }
+        />
+      </Form.Item>
+      <Form.Item class="text-center">
+        <Button type="primary" onClick={props.next}>
+          Clear
+        </Button>
+      </Form.Item>
+      <Form.Item class="text-center">
+        <Button type="primary" onClick={props.next}>
+          Next
+        </Button>
+      </Form.Item>
+    </Form>
   );
 };
 

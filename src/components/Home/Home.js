@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import { Table, Card, Col, Row, Typography } from "antd";
 import Mood from "../Mood/Mood";
@@ -66,6 +66,9 @@ const Home = () => {
   const [showResults, setShowResults] = React.useState(false);
   const onClick = () => setShowResults(true);
 
+  var userSess = JSON.parse(sessionStorage.getItem("user"));
+  var userData = PayslipJSON[0][userSess.username];
+
   return (
     <div>
       <div class="m-auto w-11/12">
@@ -86,38 +89,34 @@ const Home = () => {
           <ReactTooltip place="right" effect="solid" />
         </div>
         <div className="site-card-wrapper">
-          {PayslipJSON &&
-            PayslipJSON.length > 0 &&
-            PayslipJSON.map((data) => (
-              <Row gutter={16}>
-                <Col span={8}>
-                  <Card style={cardStyle} bordered={true}>
-                    <Typography style={{ fontSize: 30, color: "#3b82f6" }}>
-                      6
-                    </Typography>
-                    Welfare Pack Requests
-                  </Card>
-                </Col>
-                <Col span={8}>
-                  <Card style={cardStyle} bordered={true}>
-                    <Typography style={{ fontSize: 30, color: "#3b82f6" }}>
-                      {data.user.remainingAnnualLeave}
-                    </Typography>
-                    Annual Leave Left
-                  </Card>
-                </Col>
-                <Col span={8}>
-                  <Card style={cardStyle} bordered={true}>
-                    <div class="countdown">
-                      <Typography style={{ fontSize: 30, color: "#3b82f6" }}>
-                        <CountDownTimer></CountDownTimer>
-                      </Typography>
-                    </div>
-                    Days to Pay Day
-                  </Card>
-                </Col>
-              </Row>
-            ))}
+          <Row gutter={16}>
+            <Col span={8}>
+              <Card style={cardStyle} bordered={true}>
+                <Typography style={{ fontSize: 30, color: "#3b82f6" }}>
+                  6
+                </Typography>
+                Welfare Pack Requests
+              </Card>
+            </Col>
+            <Col span={8}>
+              <Card style={cardStyle} bordered={true}>
+                <Typography style={{ fontSize: 30, color: "#3b82f6" }}>
+                  {userData.user.remainingAnnualLeave}
+                </Typography>
+                Annual Leave Left
+              </Card>
+            </Col>
+            <Col span={8}>
+              <Card style={cardStyle} bordered={true}>
+                <div class="countdown">
+                  <Typography style={{ fontSize: 30, color: "#3b82f6" }}>
+                    <CountDownTimer></CountDownTimer>
+                  </Typography>
+                </div>
+                Days to Pay Day
+              </Card>
+            </Col>
+          </Row>
         </div>
         <div className="site-card-wrapper">
           <Row gutter={16}>

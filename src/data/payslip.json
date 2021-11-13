@@ -1,320 +1,3202 @@
 [
   {
-    "user": {
-      "name": "Carlton",
-      "totalHoursWorked": 184,
-      "totalOTHours": 9,
-      "remainingAnnualLeave": 10
+    "carltonfoo": {
+      "user": {
+        "name": "Carlton Foo",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
+      },
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3010.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        }
+      }
     },
-    "months": {
-      "2021-10": {
-        "earnings": {
-          "basicPay": 3010.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
-          },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
-          },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
-          }
-        },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
-        }
+    "bellesim": {
+      "user": {
+        "name": "Belle Sim",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-09": {
-        "earnings": {
-          "basicPay": 3009.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "joyng": {
+      "user": {
+        "name": "Joy Ng",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-08": {
-        "earnings": {
-          "basicPay": 3008.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "celinefoo": {
+      "user": {
+        "name": "Celine Foo",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-07": {
-        "earnings": {
-          "basicPay": 3007.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "jennychan": {
+      "user": {
+        "name": "Jenny Chan",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-06": {
-        "earnings": {
-          "basicPay": 3006.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "mohammadfauzi": {
+      "user": {
+        "name": "Prof Fauzi",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-05": {
-        "earnings": {
-          "basicPay": 3005.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "celineang": {
+      "user": {
+        "name": "Celine Ang",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-04": {
-        "earnings": {
-          "basicPay": 3004.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "savvipragi": {
+      "user": {
+        "name": "Savvi Pragi",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-03": {
-        "earnings": {
-          "basicPay": 3003.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "joeychua": {
+      "user": {
+        "name": "Joey Chua",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-02": {
-        "earnings": {
-          "basicPay": 3002.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
+      }
+    },
+    "junkiat": {
+      "user": {
+        "name": "Junkiat",
+        "totalHoursWorked": 184,
+        "totalOTHours": 9,
+        "remainingAnnualLeave": 10
       },
-      "2021-01": {
-        "earnings": {
-          "basicPay": 3001.00,
-          "bonus": 1000.00,
-          "OTpay": 149.80
-        },
-        "claims": {
-          "claim1": {
-            "id": "155",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX630",
-            "claimAmt": 57.30
+      "months": {
+        "2021-10": {
+          "earnings": {
+            "basicPay": 3234.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
           },
-          "claim2": {
-            "id": "156",
-            "claimType": "Transporation",
-            "claimDescription": "Cab Fare ReferenceID TX688",
-            "claimAmt": 82.50
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
           },
-          "claim3": {
-            "id": "156",
-            "claimType": "Medical",
-            "claimDescription": "Medical Allowance",
-            "claimAmt": 150.20
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
           }
         },
-        "deductions": {
-          "CPFcontribution": 367.40,
-          "taxDeduction": 232.6
+        "2021-09": {
+          "earnings": {
+            "basicPay": 3009.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-08": {
+          "earnings": {
+            "basicPay": 3008.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-07": {
+          "earnings": {
+            "basicPay": 3007.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-06": {
+          "earnings": {
+            "basicPay": 3006.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-05": {
+          "earnings": {
+            "basicPay": 3005.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-04": {
+          "earnings": {
+            "basicPay": 3004.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-03": {
+          "earnings": {
+            "basicPay": 3003.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-02": {
+          "earnings": {
+            "basicPay": 3002.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
+        },
+        "2021-01": {
+          "earnings": {
+            "basicPay": 3001.00,
+            "bonus": 1000.00,
+            "OTpay": 149.80
+          },
+          "claims": {
+            "claim1": {
+              "id": "155",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX630",
+              "claimAmt": 57.30
+            },
+            "claim2": {
+              "id": "156",
+              "claimType": "Transporation",
+              "claimDescription": "Cab Fare ReferenceID TX688",
+              "claimAmt": 82.50
+            },
+            "claim3": {
+              "id": "156",
+              "claimType": "Medical",
+              "claimDescription": "Medical Allowance",
+              "claimAmt": 150.20
+            }
+          },
+          "deductions": {
+            "CPFcontribution": 367.40,
+            "taxDeduction": 232.6
+          }
         }
       }
     }

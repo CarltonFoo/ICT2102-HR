@@ -36,7 +36,7 @@ const Welfare = () => {
         Hello there! Spread some love to your fellow peers by gifting them
         welfare packs
       </div>
-      <div>
+      <div class="welfareformh">
         <WelfareForm />
       </div>
     </div>

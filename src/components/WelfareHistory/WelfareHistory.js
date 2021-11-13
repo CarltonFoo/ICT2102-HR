@@ -3,94 +3,15 @@ import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
-import { Popconfirm,Form,Input,Tooltip, Popover, Tag, Table, Button, Card, Col, Row } from "antd";
+import { Space,Popconfirm,Form,Input,Tooltip, Popover, Tag, Table, Button, Card, Col, Row } from "antd";
 import historydata from "../../data/gifthistory.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
 import { InfoCircleOutlined, EyeFilled } from '@ant-design/icons';
+import Highlighter from 'react-highlight-words';
+import { SearchOutlined } from '@ant-design/icons';
 /*Library*/
 const EditableContext = React.createContext(null);
 
-// //creation of row 
-// const EditableRow = ({ index, ...props }) => {
-//   const [form] = Form.useForm();
-//   return (
-//     <Form form={form} component={false}>
-//       <EditableContext.Provider value={form}>
-//         <tr {...props} />
-//       </EditableContext.Provider>
-//     </Form>
-//   );
-// };
-
-// //editable cell 
-// const EditableCell = ({
-//   title,
-//   editable,
-//   children,
-//   dataIndex,
-//   record,
-//   handleSave,
-//   ...restProps
-// }) => {
-//   const [editing, setEditing] = useState(false);
-//   const inputRef = useRef(null);
-//   const form = useContext(EditableContext);
-//   useEffect(() => {
-//     if (editing) {
-//       inputRef.current.focus();
-//     }
-//   }, [editing]);
-
-//   const toggleEdit = () => {
-//     setEditing(!editing);
-//     form.setFieldsValue({
-//       [dataIndex]: record[dataIndex],
-//     });
-//   };
-
-//   const save = async () => {
-//     try {
-//       const values = await form.validateFields();
-//       toggleEdit();
-//       handleSave({ ...record, ...values });
-//     } catch (errInfo) {
-//       console.log('Save failed:', errInfo);
-//     }
-//   };
-
-//   let childNode = children;
-
-//   if (editable) {
-//     childNode = editing ? (
-//       <Form.Item
-//         style={{
-//           margin: 0,
-//         }}
-//         name={dataIndex}
-//         rules={[
-//           {
-//             required: true,
-//             message: `${title} is required.`,
-//           },
-//         ]}
-//       >
-//         <Input ref={inputRef} onPressEnter={save} onBlur={save} />
-//       </Form.Item>
-//     ) : (
-//       <div
-//         className="editable-cell-value-wrap"
-//         style={{
-//           paddingRight: 24,
-//         }}
-//         onClick={()=>toggleEdit()}
-//       >
-//         {children}
-//       </div>
-//     );
-//   }
-
-//   return <td {...restProps}>{childNode}</td>;
-// };
 
 class WelfareHistory extends React.Component {
   constructor(props) {
@@ -98,14 +19,15 @@ class WelfareHistory extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       dataSource: historydata,
-      // count: historydata.length,
-      // handleDelete:this.handleDelete(key),
+      searchText: '',
+      searchedColumn: '',
     };
-
+    
     this.columns = [
       {
         title: "Date Requested",
         dataIndex: "date",
+        ...this.getColumnSearchProps('date'),
       },
       {
         title: "Recipient",
@@ -156,12 +78,6 @@ class WelfareHistory extends React.Component {
         dataIndex: "status",
         key: "status",
 
-        // handleDelete(key){
-        //   const dataSource = [...this.state.dataSource];
-        //   this.setState({
-        //     dataSource: dataSource.filter((item) => item.key !== key),
-        //   });
-        // },
         render(status, record) {
           let color = "blue";
           switch (status) {
@@ -188,15 +104,8 @@ class WelfareHistory extends React.Component {
                   <>
                     <a onClick="">Edit Message</a>
                     <br></br>
-                    <a onClick="">Change Delivery Date</a>
-                    <br></br>
                     <a onClick="">View Details</a>
                     <br></br>
-                    <a onClick="" >Delete</a>
-                    <br></br>
-
-                    {/* <a onClick={()=> props.handleDelete(record.key)}>Cancel Order</a> */}
-                    <a onClick="">Cancel Order</a>
                   </>
                 }
                 trigger="click"
@@ -222,7 +131,87 @@ class WelfareHistory extends React.Component {
       },
     ];
   }
+  getColumnSearchProps = dataIndex => ({
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+      <div style={{ padding: 8 }}>
+        <Input
+          ref={node => {
+            this.searchInput = node;
+          }}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+          style={{ marginBottom: 8, display: 'block' }}
+        />
+        <Space>
+          <Button
+            type="primary"
+            onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+            icon={<SearchOutlined style={{
+              // fontSize: "16px",
+              position: "relative",
+              bottom: "3px",
+            }}/>}
+            size="small"
+            style={{ width: 90 }}
+          >
+            Search
+          </Button>
+          <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
+            Reset
+          </Button>
+          {/* <Button
+            type="link"
+            size="small"
+            onClick={() => {
+              confirm({ closeDropdown: false });
+              this.setState({
+                searchText: selectedKeys[0],
+                searchedColumn: dataIndex,
+              });
+            }}
+          >
+            Filter
+          </Button> */}
+        </Space>
+      </div>
+    ),
+    filterIcon: filtered => <SearchOutlined style={{color: filtered ? '#1890ff' : undefined }} />,
+    onFilter: (value, record) =>
+      record[dataIndex]
+        ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
+        : '',
+    onFilterDropdownVisibleChange: visible => {
+      if (visible) {
+        setTimeout(() => this.searchInput.select(), 100);
+      }
+    },
+    render: text =>
+      this.state.searchedColumn === dataIndex ? (
+        <Highlighter
+          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+          searchWords={[this.state.searchText]}
+          autoEscape
+          textToHighlight={text ? text.toString() : ''}
+        />
+      ) : (
+        text
+      ),
+  });
 
+  handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    this.setState({
+      searchText: selectedKeys[0],
+      searchedColumn: dataIndex,
+    });
+  };
+
+  handleReset = clearFilters => {
+    clearFilters();
+    this.setState({ searchText: '' });
+  };
   handleDelete = (key) => {
     const dataSource = [...this.state.dataSource];
     this.setState({

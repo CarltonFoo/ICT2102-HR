@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { withRouter } from 'react-router';
 import { Link, Redirect } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
@@ -46,7 +47,7 @@ class FormDataComponent extends Component {
   }
 
   //Checking with JSON file
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
     this.userData = JSON.parse(sessionStorage.getItem("user"));
 
@@ -56,6 +57,7 @@ class FormDataComponent extends Component {
         this.userData.password === users[i].password
       ) {
         // Correct user credentials
+        console.log("match")
 
         this.setState({
           username: users[i].username,
@@ -64,11 +66,12 @@ class FormDataComponent extends Component {
 
         // setHasError(false);
         sessionStorage.setItem("isAuthenticated", true);
+        sessionStorage.setItem("position", users[i].position);
+        sessionStorage.setItem("name", users[i].employeeName);
 
         return this.props.history.push("/");
       }
     }
-
     // setHasError(true);
   }
 
@@ -156,4 +159,4 @@ class FormDataComponent extends Component {
   }
 }
 
-export default FormDataComponent;
+export default withRouter(FormDataComponent);
