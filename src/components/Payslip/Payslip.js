@@ -10,35 +10,36 @@ import moment from 'moment';
 import "./payslip.css";
 import PayslipJSON from "../../data/payslip.json";
 
-var totalClaims, totalEarnings, totalDeductions, totalOverall, totalBasicPay, totalBonus, totalOTpay, totalCPF, totalTax, piedata, claimsData, rangeStart, rangeEnd, config;
+var totalClaims, totalEarnings, totalDeductions, totalOverall, totalBasicPay, totalBonus, totalOTpay, totalCPF, totalTax, piedata, claimsData, rangeStart, rangeEnd, config, userSess, userData;
 
 function getPayslipData(start, end) {
-  
+  userSess = JSON.parse(sessionStorage.getItem("user"))
+  userData = PayslipJSON[0][userSess.username]
   totalClaims = totalEarnings = totalDeductions = totalOverall = totalBasicPay = totalBonus = totalOTpay = totalCPF = totalTax = 0.00
   claimsData=[]
   piedata=[]
 
   if (start === end) {
-    totalBasicPay = PayslipJSON[0].months[start].earnings.basicPay
-    totalBonus = PayslipJSON[0].months[start].earnings.bonus
-    totalOTpay = PayslipJSON[0].months[start].earnings.OTpay
-    totalCPF = PayslipJSON[0].months[start].deductions.CPFcontribution
-    totalTax = PayslipJSON[0].months[start].deductions.taxDeduction
-    for (var claimstart in PayslipJSON[0].months[start].claims) {
-      totalClaims += PayslipJSON[0].months[start].claims[claimstart].claimAmt
-        claimsData.push(PayslipJSON[0].months[start].claims[claimstart])
+    totalBasicPay = userData.months[start].earnings.basicPay
+    totalBonus = userData.months[start].earnings.bonus
+    totalOTpay = userData.months[start].earnings.OTpay
+    totalCPF = userData.months[start].deductions.CPFcontribution
+    totalTax = userData.months[start].deductions.taxDeduction
+    for (var claimstart in userData.months[start].claims) {
+      totalClaims += userData.months[start].claims[claimstart].claimAmt
+        claimsData.push(userData.months[start].claims[claimstart])
     }
   } else {
-    for (var month in PayslipJSON[0].months) {
+    for (var month in userData.months) {
       if ((start <= month) && (end >= month)) {
-        totalBasicPay += PayslipJSON[0].months[month].earnings.basicPay
-        totalBonus += PayslipJSON[0].months[month].earnings.bonus
-        totalOTpay += PayslipJSON[0].months[month].earnings.OTpay
-        totalCPF += PayslipJSON[0].months[month].deductions.CPFcontribution
-        totalTax += PayslipJSON[0].months[month].deductions.taxDeduction
-        for (var claim in PayslipJSON[0].months[month].claims) {
-          totalClaims += PayslipJSON[0].months[month].claims[claim].claimAmt
-          claimsData.push(PayslipJSON[0].months[start].claims[claim])
+        totalBasicPay += userData.months[month].earnings.basicPay
+        totalBonus += userData.months[month].earnings.bonus
+        totalOTpay += userData.months[month].earnings.OTpay
+        totalCPF += userData.months[month].deductions.CPFcontribution
+        totalTax += userData.months[month].deductions.taxDeduction
+        for (var claim in userData.months[month].claims) {
+          totalClaims += userData.months[month].claims[claim].claimAmt
+          claimsData.push(userData.months[start].claims[claim])
         }
       }
     }
@@ -106,8 +107,6 @@ function getPayslipData(start, end) {
 
 }
 
-getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
-
 function disabledDate(current) {
   return current && current > moment().startOf('month');
 }
@@ -119,6 +118,8 @@ function useForceUpdate(){
 
 const Payslip = () => {
     
+getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
+
   const onChange = (value, dateString) => {
     rangeStart = value[0]?.format('YYYY-MM')
     rangeEnd = value[1]?.format('YYYY-MM')
@@ -129,16 +130,15 @@ const Payslip = () => {
 
   return (
     <div class="payslipcard">
-      {PayslipJSON && PayslipJSON.length>0 && PayslipJSON.map((data)=>
-        <div class="m-auto pb-12 w-11/12">
+      <div class="m-auto pb-12 w-11/12">
           <p class="text-2xl font-bold my-6">Payslip</p>
           <div class="my-8">
             <Descriptions title="" bordered column={{ xxl: 3, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}>
-              <Descriptions.Item label="Name" className="userinfo">{data.user.name}</Descriptions.Item>
-              <Descriptions.Item label="Total Hours Worked" className="userinfo">{data.user.totalHoursWorked}</Descriptions.Item>
-              <Descriptions.Item label="Remaining Annual Leave" className="userinfo">{data.user.remainingAnnualLeave}</Descriptions.Item>
+              <Descriptions.Item label="Name" className="userinfo">{userData.user.name}</Descriptions.Item>
+              <Descriptions.Item label="Total Hours Worked" className="userinfo">{userData.user.totalHoursWorked}</Descriptions.Item>
+              <Descriptions.Item label="Remaining Annual Leave" className="userinfo">{userData.user.remainingAnnualLeave}</Descriptions.Item>
               <Descriptions.Item label="Total OT Hours" className="userinfo">
-                {data.user.totalOTHours}
+                {userData.user.totalOTHours}
               </Descriptions.Item>
 
               <Descriptions.Item label="Month Range" className="userinfo">
@@ -202,7 +202,6 @@ const Payslip = () => {
           </div>
 
         </div>
-       )}
     </div>
   );
 };
