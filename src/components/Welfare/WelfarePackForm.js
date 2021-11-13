@@ -9,17 +9,13 @@ import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
 import { StepPanel } from "./StepPanel";
 import WelfarePackSelection from "./WelfarePackSelection";
 import WelfarePackMessage from "./WelfarePackMessage";
-import WelfarePackConfirmation from "./WelfarePackComfirmation";
+import WelfarePackConfirmation from "./WelfarePackConfirmation";
 const { Option } = Select;
 const { TextArea } = Input;
 const { Step } = Steps;
 
-const onSelectPack = (packName) => {
-  alert("welfare pack name" + packName);
-  this.setFields(this.fields.welfarepack = packName)
-};
+const WelfarePackForm = (props) => {
 
-const WelfarePackForm = () => {
   const [fields, setFields] = useState({
     welfarepack: "",
     department: "",
@@ -28,7 +24,6 @@ const WelfarePackForm = () => {
   });
   
   const [current, setCurrent] = useState(0);
-  // const [summary, setSummary] = useState({});
 
   const steps = [
     {
@@ -41,13 +36,6 @@ const WelfarePackForm = () => {
       title: "Confirmation",
     },
   ];
-
-  // const [welfareData, setWelfareData] = useState({
-  //   department: "",
-  //   receiverName: "",
-  //   message: "",
-  // });
-
 
   //go prev step
   function prev() {
@@ -66,7 +54,13 @@ const WelfarePackForm = () => {
       ...changedFields,
     });
     
+    console.log("changedFields", changedFields)
     console.log("fields", fields)
+  };
+
+  
+  const onSelectPack = (packName) => {
+    alert("welfare pack name" + packName);
   };
 
   return (
@@ -83,6 +77,7 @@ const WelfarePackForm = () => {
           {...fields}
           next={next}
           // onChange={setWelfarePack(e.target.value)}
+          onChange={handleFormChange}
           onSelectPack={onSelectPack}
         />
       )}
@@ -99,7 +94,6 @@ const WelfarePackForm = () => {
       {current === 2 && (
         <WelfarePackConfirmation
           {...fields} 
-          // summary={summary} 
           prev={prev} />
       )}
     </div>

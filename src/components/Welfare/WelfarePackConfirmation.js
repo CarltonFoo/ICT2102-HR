@@ -17,6 +17,8 @@ const WelfarePackConfirmation = (props) => {
     <div>{props.message.value}</div>
     
     <div>{props.department}</div>
+
+    <div>{props.welfarepack}</div>
     
     </div>
   );
