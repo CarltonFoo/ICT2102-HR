@@ -1,6 +1,6 @@
 const { Console } = require("console");
 const fs = require("fs");
-// const WelfareApproval = require("../frontend/src/data/approval.json");
+const WelfareApproval = require("../frontend/src/data/approval.json");
 
 // exports.removeRequest = async (req, res) => {
 //   try {
@@ -26,25 +26,17 @@ const fs = require("fs");
 //   }
 // };
 
-const WelfareApproval = {
-  key: 0,
-  sender: "Joey Chua",
-  receiver: "Belle Sim",
-  gifttype: "Morning Greetings",
-};
-
-exports.removeWelfareRequest = (req, res) => {
+exports.removeWelfareRequest = async (req, res) => {
   try {
     console.log("U R IN CONTROLLER");
     // const data = await ;
-    const data = WelfareApproval;
+    const data = await WelfareApproval;
     console.log(data);
 
-    const approvalJSON = JSON.parse(fs.readFileSync(data));
-    console.log("approvalJSON", approvalJSON);
+    const parsedData = JSON.parse(data);
+    console.log("parsedJSON", parsedData);
     console.log(req.body);
     console.log("params", req.params);
-    // const parsedData = JSON.parse(fs.readFileSync(approvalJSON));
     const updatedData = approvalJSON.filter(
       (item) => (item.key = req.params.id)
     );
