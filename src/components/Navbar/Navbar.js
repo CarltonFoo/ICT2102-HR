@@ -33,7 +33,6 @@ const { Header, Content, Footer, Sider } = Layout;
 // submenu keys of first level
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
-
   const [openKeys, setOpenKeys] = useState(["sub1"]);
 
   const onOpenChange = (keys) => {
@@ -67,43 +66,56 @@ const Navbar = (props) => {
             >
               <div class="p-6 ">
                 <div>
-                  <h3 className="font-bold  text-lg">{sessionStorage.getItem("name")} </h3>
-                  <p class="font-semibold pt-2"> {sessionStorage.getItem("position")}</p>
+                  <h3 className="font-bold  text-lg">
+                    {sessionStorage.getItem("name")}{" "}
+                  </h3>
+                  <p class="font-semibold pt-2">
+                    {" "}
+                    {sessionStorage.getItem("position")}
+                  </p>
                 </div>
               </div>
               <Menu.Item key="home" icon={<HomeOutlined />}>
                 Dashboard
-                <Link to='/' />
+                <Link to="/" />
               </Menu.Item>
               <Menu.Item key="welfare" icon={<GiftOutlined />}>
                 Welfare
-                <Link to='/welfare' />
+                <Link to="/welfare" />
               </Menu.Item>
               <Menu.Item key="payslip" icon={<DollarOutlined />}>
                 Payslip
-                <Link to='payslip' />
+                <Link to="payslip" />
               </Menu.Item>
               <Menu.Item key="availability" icon={<UserSwitchOutlined />}>
                 Availability
-                <Link to='/availability' />
+                <Link to="/availability" />
               </Menu.Item>
               <Menu.Item key="history" icon={<HistoryOutlined />}>
                 Welfare History
-                <Link to='/history' />
+                <Link to="/history" />
               </Menu.Item>
-              { sessionStorage.getItem("position") === "HR Manager"
-              ?
-                <SubMenu title="Manage(FOR HR VIEW)" icon={<AppstoreOutlined />} key="hrmanage">
-                  <Menu.Item key="welfareinventory" icon={<AppstoreAddOutlined />}>Welfare Inventory
-                  <Link to='/inventory' />
+              {sessionStorage.getItem("position") === "HR Manager" ? (
+                <SubMenu
+                  title="Manage(FOR HR VIEW)"
+                  icon={<AppstoreOutlined />}
+                  key="hrmanage"
+                >
+                  <Menu.Item
+                    key="welfareinventory"
+                    icon={<AppstoreAddOutlined />}
+                  >
+                    Welfare Inventory
+                    <Link to="/inventory" />
                   </Menu.Item>
-                  <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>Welfare Approval
-                  <Link to='/approval' />
+                  <Menu.Item key="welfareapproval" icon={<FileDoneOutlined />}>
+                    Welfare Approval
+                    <Link to="/approval" />
                   </Menu.Item>
                 </SubMenu>
-              :
-              <div></div>
-              }
+              ) : (
+                <div></div>
+              )}
             </Menu>
           </Sider>
 

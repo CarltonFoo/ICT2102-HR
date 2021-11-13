@@ -1,3 +1,5 @@
+
+
 .welfareformh {
     height: 67vh;
 }
@@ -13,3 +15,84 @@
 .ant-steps-navigation .ant-steps-item::after {
     margin-top: -12px !important;
 }
+
+
+.ant-radio-button-wrapper:first-child:last-child{
+  border-radius: 10px;
+  height: 100%;
+  width: auto;
+  margin: 5px;
+  padding: 0%;
+  align-items: center;
+  background-color:rgb(218, 225, 232);
+  
+}
+.ant-radio-button-wrapper-checked:not([class*=' ant-radio-button-wrapper-disabled']).ant-radio-button-wrapper:first-child{
+  /* background-color:rgb(135, 196, 253); */
+  /* background-color:rgb(79, 110, 182); */
+  border-color: rgb(100, 148, 252);
+  border-right-color: rgba(100, 148, 252);
+  border-width: 0px;
+  /* background-image: linear-gradient(to bottom right, rgb(194, 37, 37), yellow); */
+  background: linear-gradient(0deg, rgba(244,197,41,1) 2%, rgba(97,232,192,1) 68%);
+  
+
+}
+
+.ant-radio-button-wrapper-checked:not([class*=' ant-radio-button-wrapper-disabled']).ant-radio-button-wrapper:first-child{
+  border-right-color: rgba(105, 217, 187, 0.65);
+}
+/* 
+  .ant-radio-button-wrapper-checked:not([class*=' ant-radio-button-wrapper-disabled']).ant-radio-button-wrapper:first-child{
+   
+  }
+   */
+
+   /* #mondays-blue .ant-card {
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    background: transparent !important;
+} */
+
+   /* #mondays-blue .ant-card-bordered {
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+} */
+
+#mondays-blue .ant-card-head {
+    background-color: rgba(178, 224, 255, 1);
+  }
+
+  #mondays-blue .ant-card-body {
+    background-color: rgba(218, 225, 232, 0.65);
+  }
+
+
+  #wozzy-wednesday .ant-card-head {
+    background-color: rgb(105, 217, 183);
+  }
+
+  #wozzy-wednesday .ant-card-body {
+    background-color: rgba(218, 225, 232, 0.65);
+  }
+
+  #tgif .ant-card-head {
+    background-color: rgb(224,197, 41);
+  }
+
+  #tgif .ant-card-body {
+    background-color: rgba(218, 225, 232, 0.65);
+  }
+  
+  #mondays-blue:focus-within {
+    border: 1px solid;
+    box-shadow: 5px 10px 18px #888888;
+  }
+  #wozzy-wednesday:focus-within, #wozzy-wednesday:active{
+    border: 1px solid;
+    box-shadow: 5px 10px 18px #888888;
+  }
+  #tgif:focus-within {
+    border: 1px solid;
+    box-shadow: 5px 10px 18px #888888;
+  }
