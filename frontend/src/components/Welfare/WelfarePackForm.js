@@ -6,7 +6,6 @@ import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
 import Card from "../Shared/Card.js";
 import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
-import { StepPanel } from "./StepPanel";
 import WelfarePackSelection from "./WelfarePackSelection";
 import WelfarePackMessage from "./WelfarePackMessage";
 import WelfarePackConfirmation from "./WelfarePackConfirmation";
@@ -15,14 +14,14 @@ const { TextArea } = Input;
 const { Step } = Steps;
 
 const WelfarePackForm = (props) => {
-
   const [fields, setFields] = useState({
     welfarepack: "",
     department: "",
     receiver: "",
     message: "",
+    credits: "",
   });
-  
+
   const [current, setCurrent] = useState(0);
 
   const steps = [
@@ -53,12 +52,11 @@ const WelfarePackForm = (props) => {
       ...fields,
       ...changedFields,
     });
-    
-    console.log("changedFields", changedFields)
-    console.log("fields", fields)
+
+    console.log("changedFields", changedFields);
+    console.log("fields", fields);
   };
 
-  
   const onSelectPack = (packName) => {
     alert("welfare pack name" + packName);
   };
@@ -91,13 +89,9 @@ const WelfarePackForm = (props) => {
         />
       )}
 
-      {current === 2 && (
-        <WelfarePackConfirmation
-          {...fields} 
-          prev={prev} />
-      )}
+      {current === 2 && <WelfarePackConfirmation {...fields} prev={prev} />}
     </div>
   );
-};;
+};
 
 export default WelfarePackForm;

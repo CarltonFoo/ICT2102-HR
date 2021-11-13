@@ -1,8 +1,15 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "ict2102-hr",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
   "dependencies": {
+    "concurrently": "^6.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
     "@ant-design/charts": "^1.2.14",
     "@ant-design/pro-card": "^1.17.0",
     "@ant-design/pro-form": "^1.46.0",
@@ -29,35 +36,20 @@
     "underscore": "^1.13.1",
     "web-vitals": "^1.1.2"
   },
-  "main": "index.js",
   "scripts": {
-    "dev": "craco start",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "cd frontend && npm start",
+    "backend": "nodemon -L server.js",
+    "start": "concurrently -n 'backend,frontend' -c 'blue,green' \"npm run backend\" \"npm run frontend\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarltonFoo/ICT2102-HR.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarltonFoo/ICT2102-HR/issues"
   },
-  "devDependencies": {
-    "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
-  }
+  "homepage": "https://github.com/CarltonFoo/ICT2102-HR#readme"
 }

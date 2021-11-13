@@ -12,14 +12,13 @@ const { Option } = Select;
 const { TextArea } = Input;
 
 const WelfareMessage = (props) => {
-  
   const handleNext = () => {
     console.log("handleNext");
     if (props.department && props.receiver && props.message) {
       props.next();
     }
   };
-  
+
   return (
     <Form
       name="basic"
@@ -32,6 +31,7 @@ const WelfareMessage = (props) => {
       initialValues={{
         remember: true,
       }}
+      onFinish={handleNext}
     >
       <Form.Item
         wrapperCol={{
@@ -132,7 +132,6 @@ const WelfareMessage = (props) => {
           allowClear
           autoSize={{ minRows: 3, maxRows: 5 }}
           style={{ width: 465 }}
-          
           onChange={(e) =>
             props.onChange({
               ...props.message,
@@ -154,7 +153,7 @@ const WelfareMessage = (props) => {
           </Button>
         </Form.Item>
         <Form.Item class="text-center">
-          <Button type="primary" onClick={handleNext}>
+          <Button type="primary" htmlType="submit">
             Next
           </Button>
         </Form.Item>

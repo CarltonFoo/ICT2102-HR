@@ -23,12 +23,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
-          <Route
-            key="login"
-            path="/login"
-            exact
-            component={Login}
-          ></Route>
+          <Route key="login" path="/login" exact component={Login}></Route>
 
           <Navbar>
             <ProtectedRoute
