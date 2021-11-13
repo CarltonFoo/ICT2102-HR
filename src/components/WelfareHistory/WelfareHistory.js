@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
-import { Space,Popconfirm,Form,Input,Tooltip, Popover, Tag, Table, Button, Card, Col, Row } from "antd";
+import { Space, Popconfirm, Form, Input, Tooltip, Popover, Tag, Table, Button } from "antd";
 import historydata from "../../data/gifthistory.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
 import { InfoCircleOutlined, EyeFilled } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
+import { thisExpression } from '@babel/types';
+const { TextArea } = Input;
 /*Library*/
 const EditableContext = React.createContext(null);
 
@@ -21,8 +23,13 @@ class WelfareHistory extends React.Component {
       dataSource: historydata,
       searchText: '',
       searchedColumn: '',
+      visible: false,
+      visibleEdit: false,
+      recordData: null,
+      recordMsg: null,
     };
-    
+
+
     this.columns = [
       {
         title: "Date Requested",
@@ -99,7 +106,8 @@ class WelfareHistory extends React.Component {
               <Tag color={color} key={status}>
                 {status.toUpperCase()}
               </Tag>
-              <Popover
+
+              {/* <Popover
                 content={
                   <>
                     <a onClick="">Edit Message</a>
@@ -111,22 +119,39 @@ class WelfareHistory extends React.Component {
                 trigger="click"
               >
                 <Button type="text">:</Button>
-              </Popover>
+              </Popover> */}
             </>
           );
         },
       },
       {
-        title: "operation",
+        title: "Info",
         dataIndex: "operation",
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <Popconfirm
+            <>
+              {/* <Popconfirm
               title="Sure to delete?"
               onConfirm={() => this.handleDelete(record.key)}
             >
               <a>Delete</a>
-            </Popconfirm>
+            </Popconfirm> */}
+              <Popover
+                content={
+                  <>
+                    <a onClick={() => this.handleDelete(record.key)}>Cancel Order</a>
+                    <br></br>
+                    <a onClick={() => this.show(record)}>View Details</a>
+                    <br></br>
+                    <a onClick={() => this.showEdit(record)}>Edit Message</a>
+                    <br></br>
+                  </>
+                }
+                trigger="click"
+              >
+                <a>Manage</a>
+              </Popover>
+            </>
           ) : null,
       },
     ];
@@ -152,7 +177,7 @@ class WelfareHistory extends React.Component {
               // fontSize: "16px",
               position: "relative",
               bottom: "3px",
-            }}/>}
+            }} />}
             size="small"
             style={{ width: 90 }}
           >
@@ -177,7 +202,7 @@ class WelfareHistory extends React.Component {
         </Space>
       </div>
     ),
-    filterIcon: filtered => <SearchOutlined style={{color: filtered ? '#1890ff' : undefined }} />,
+    filterIcon: filtered => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
     onFilter: (value, record) =>
       record[dataIndex]
         ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
@@ -199,6 +224,44 @@ class WelfareHistory extends React.Component {
         text
       ),
   });
+  getPackageInfo = () => {
+    if (this.state.recordData !== null) {
+      const recordData = this.state.recordData;
+      // console.log(recordData);
+      // const dataSource = [...this.state.dataSource];
+      var dataSource = this.state.dataSource;
+      // console.log(dataSource);
+      var giftText = ""
+      giftText =
+        recordData.productname + " for " + recordData.receiver +
+        " (" + recordData.department + ")" + '\n' +
+        "Date Ordered: " + recordData.date + '\n' +
+        "Department : " + recordData.department + '\n' +
+        "Date to Deliver: " + recordData.delivery + '\n' +
+        "Status : " + recordData.status + '\n' +
+        "Message : " + recordData.message + '\n';
+      return giftText;
+    }
+  }
+  handleMessageChange = (event) => {
+    this.setState({ recordMsg: event.target.value })
+  }
+  updateJSONmsg = () => {
+    //update JSON MESSAGE HERE
+    var dataSource = this.state.dataSource;
+    // console.log("handlemsgchange,recMSG", this.state.recordMsg)
+    // console.log("updateJSON recordData \n",this.state.recordData);
+    for (var i = 0; i < dataSource.length; i++) {
+      if(this.state.recordData === dataSource[i]){
+        // console.log("FOUND,gift message:",dataSource[i].message);
+        dataSource[i].message = this.state.recordMsg;
+        this.setState({
+          dataSource: dataSource
+        })
+      }
+      // console.log("updateJSON datasource \n", dataSource[i]);
+    }
+  }
 
   handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -218,34 +281,50 @@ class WelfareHistory extends React.Component {
       dataSource: dataSource.filter((item) => item.key !== key),
     });
   };
-  // handleAdd = () => {
-  //   const { count, dataSource } = this.state;
-  //   const newData = {
-  //     key: count,
-  //     date: "date",
-  //     receiver: "receiver",
-  //     department: "department",
-  //     productname: "name",
-  //     delivery: "delivery",
-  //     status: "Approved",
-  //   };
-  //   this.setState({
-  //     dataSource: [...dataSource, newData],
-  //     count: count + 1,
-  //   });
-  // };
-  // handleSave = (row) => {
-  //   const newData = [...this.state.dataSource];
-  //   const index = newData.findIndex((item) => row.key === item.key);
-  //   const item = newData[index];
-  //   newData.splice(index, 1, { ...item, ...row });
-  //   this.setState({
-  //     dataSource: newData,
-  //   });
-  // };
+  hide = () => {
+    this.setState({
+      visible: false,
+      visibleEdit: false,
+    });
+    // this.setState({
+    //   recordData: null,
+    // })
+  };
+  show = (record) => {
+    this.setState({
+      visible: true,
+      visibleEdit: false,
+    })
+    this.setState({
+      recordData: record,
+    })
+    // console.log(record);
+  }
+  showEdit = (record) => {
+    this.setState({
+      visibleEdit: true,
+      visible: false,
+      recordMsg: record.message,
+    })
+    this.setState({
+      recordData: record,
+    })
+    // console.log("message", this.state.recordMsg);
+  }
+
+  handleVisibleChange = visible => {
+    this.setState({ visible });
+  };
+  handleVisibilityEditChange = visibleEdit => {
+    this.setState({ visibleEdit })
+  }
 
   render() {
     const { dataSource } = this.state;
+    const { visible } = this.state;
+    const { visibleEdit } = this.state;
+    const { recordData } = this.state;
+    const { recordMsg } = this.state;
     const components = {
       // body: {
       //   row: EditableRow,
@@ -256,41 +335,109 @@ class WelfareHistory extends React.Component {
       if (!col.editable) {
         return col;
       }
-
-      // return {
-      //   ...col,
-      //   onCell: (record) => ({
-      //     record,
-      //     editable: col.editable,
-      //     dataIndex: col.dataIndex,
-      //     title: col.title,
-      //     handleSave: this.handleSave,
-      //   }),
-      // };
     });
     return (
-      // <div>
-      //   <Button
-      //     onClick={this.handleAdd}
-      //     type="primary"
-      //     style={{
-      //       marginBottom: 16,
-      //     }}
-      //   >
-      //     Add a row
-      //   </Button>
+      <div class="m-auto w-11/12">
         <Table
           pagination={{ pageSize: 5 }}
           components={components}
-          rowClassName={() => "editable-row"}
+
           bordered
           dataSource={dataSource}
           columns={columns}
         />
-      // </div>
+        <Popover
+          overlayInnerStyle={{
+            textAlign: "center",
+            whiteSpace: "pre-line",
+            width: "40vw",
+            height: "20vw",
+          }}
+          content={
+            <>
+              <p>{this.getPackageInfo()}</p>
+              <Button
+                type="primary"
+                onClick={() => this.hide()}
+                // style={{ top: "3vw" }}
+              >
+                Close
+              </Button>
+            </>
+          }
+          title={<b>Gift Details</b>}
+          trigger="click"
+          visible={this.state.visible}
+          onVisibleChange={this.handleVisibleChange}
+        >
+          <Button
+            style={{ margin: "0 32vw" }}
+            type="primary"
+          >
+          </Button>
+        </Popover>
+
+        <Popover
+          overlayInnerStyle={{
+            textAlign: "center",
+            whiteSpace: "pre-line",
+            width: "40vw",
+            height: "20vw",
+          }}
+          content={
+            <>
+              <p class="font-bold text-center text-blue-800">Delivery Message</p>
+              <Form
+                name="basic"
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={() => this.updateJSONmsg()}
+                // onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <Form.Item>
+                  <TextArea rows={4}
+                    value={this.state.recordMsg}
+                    onChange={(e) => this.handleMessageChange(e)}
+                  > </TextArea>
+                </Form.Item>
+                <Form.Item
+                >
+                  {/* <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button> */}
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    onClick={() => this.hide()}
+                    // style={{ top: "3vw" }}
+                  >
+                    Confirm
+                  </Button>
+                </Form.Item>
+              </Form>
+
+
+            </>
+          }
+          title={<b>Edit Message</b>}
+          trigger="click"
+          visible={this.state.visibleEdit}
+          onVisibleChange={this.handleVisibilityEditChange}
+        >
+          <Button
+            style={{ margin: "0 32vw", position: 'relative', top: '-30px' }}
+            type="primary"
+          >
+
+          </Button>
+        </Popover>
+
+      </div>
+
     );
   }
 }
-
 
 export default WelfareHistory;

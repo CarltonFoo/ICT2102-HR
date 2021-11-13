@@ -22,31 +22,37 @@ import { DollarCircleFilled } from "@ant-design/icons";
 
 const { Title } = Typography;
 const WelfarePackSelection = (props) => {
-  function onChange(e) {
-    console.log(`radio checked:${e.target.value}`);
-  }
   const [form] = Form.useForm();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    form.validateFields(["welfarepack"], (err, values) => {
-      if (!err) {
-        props.next();
-      }
-    });
-  };
-
   const [value, setValue] = React.useState(0);
-  function onChange(e) {
-    console.log(`radio checked:${e.target.value}`);
-    setValue(e.target.value);
-  }
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // console.log(`radio checked: ${JSON.stringify(e)}`);
+  //   form.validateFields(["welfarepack"], (err, values) => {
+  //     if (!err) {
+  //       props.next();
+  //     }
+  //   });
+  // };
 
   const onFinish = (fieldsValue) => {
     const formData = form.getFieldsValue();
     console.log(formData);
     props.next();
   };
+
+  function onChange(e) {
+    console.log(`radio checked:${e.target.value}`);
+    setValue(e.target.value);
+    props.onChange({
+      ...props.welfarepack,
+      welfarepack: e.target.value,
+    });
+    props.onChange({
+      ...props.credits,
+      welfarepack: e.target.value,
+    });
+  }
 
   return (
     <div>
@@ -116,13 +122,18 @@ const WelfarePackSelection = (props) => {
             })}
           </div>
         </Form.Item>
-        <div class="content-start md:content-around">
-          <Form.Item class="text-center">
-            <Button type="primary" htmlType="submit">
-              Next
-            </Button>
-          </Form.Item>
-        </div>
+
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+          class="text-center"
+        >
+          <Button type="primary" htmlType="submit">
+            Next
+          </Button>
+        </Form.Item>
       </Form>
     </div>
   );
