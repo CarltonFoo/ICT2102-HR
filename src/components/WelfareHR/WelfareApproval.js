@@ -50,7 +50,7 @@ class WelfareApproval extends React.Component {
       dataSource: approvalData
     };
   }
-  getSelectedPackages = () =>{
+  getSelectedPackages = (key) =>{
     const dataSource = [...this.state.dataSource];
     var temp = [];
     
@@ -151,14 +151,7 @@ class WelfareApproval extends React.Component {
     return (
       <div class="m-auto w-11/12">
         <p class="text-2xl font-bold my-6">Welfare Approval</p>
-        <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource}
-        />
-        {/* <Popconfirm        
-        placement="topRight"
-        title={()=> this.getSelectedPackages()}
-        okText="Approve"
-        cancelText="Back"
-        onConfirm={() => this.handleDelete()}> */}
+        <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         <Popover
         overlayInnerStyle={{textAlign:"center",whiteSpace: "pre-line",width:'60vw',height:'20vw'}}
         content={
