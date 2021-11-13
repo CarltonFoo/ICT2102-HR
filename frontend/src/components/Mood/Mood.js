@@ -1,34 +1,32 @@
 import React from "react";
-import Tween, { TweenOneGroup } from "rc-tween-one";
-import { message, Button, Tooltip } from "antd";
-import {
-  FrownOutlined,
-  FrownTwoTone,
-  MehOutlined,
-  MehTwoTone,
-  SmileOutlined,
-  SmileTwoTone,
-  CloseOutlined,
-} from "@ant-design/icons";
+import Tween from 'rc-tween-one';
+import { message, Button, Tooltip } from 'antd';
+import { FrownOutlined, FrownFilled, MehOutlined, MehFilled, SmileOutlined, SmileFilled, CloseOutlined } from '@ant-design/icons';
+import ReactTooltip from 'react-tooltip';
+
 
 const customIcons = [
   <FrownOutlined style={{ fontSize: 40 }} />,
   <MehOutlined style={{ fontSize: 40 }} />,
   <SmileOutlined style={{ fontSize: 40 }} />,
-];
+]
 
-const customIconsTwoTone = [
-  <FrownTwoTone style={{ fontSize: 40 }} twoToneColor="#3b82f6" />,
-  <MehTwoTone style={{ fontSize: 40 }} twoToneColor="#3b82f6" />,
-  <SmileTwoTone style={{ fontSize: 40 }} twoToneColor="#3b82f6" />,
-];
+const customIconsFilled = [
+  <FrownFilled style={{ fontSize: 40 }} />,
+  <MehFilled style={{ fontSize: 40 }} />,
+  <SmileFilled style={{ fontSize: 40 }} />,
+]
 
-const customMessage = ["moody~", "so-so.", "happy!"];
+const customMessage = [
+  "moody~",
+  "so-so.",
+  "happy!"
+]
 
 class Mood extends React.Component {
   state = {
     isActive: false,
-    smileyFace: customIcons[2],
+    smileyFace: customIcons[2]
   };
 
   handleShow = () => {
@@ -40,13 +38,16 @@ class Mood extends React.Component {
   };
 
   handleSelect = (i) => {
-    this.setState({ isActive: false, smileyFace: customIconsTwoTone[i] });
+    this.setState({ isActive: false, smileyFace: customIconsFilled[i] });
     message.open({
-      content: "Feeling " + customMessage[i],
+      content: 'Feeling ' + customMessage[i],
       duration: 3,
-      icon: customIconsTwoTone[i],
+      icon: customIcons[i],
+      className: "text-l font-bold my-4",
       style: {
-        marginTop: "20vh",
+        marginTop: '10vh',
+        alignContent: 'center',
+        color: '#f9a825'
       },
     });
   };
@@ -54,86 +55,42 @@ class Mood extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <div data-tip="Close" class="inline">
+          <div>
             {/* // ask what tailwind color */}
-            <button
-              class="bg-yellow-300 hover:bg-yellow-500 text-black text-center rounded-full h-14 w-14 items-center shadow-xl"
-              style={{
-                cursor: "pointer",
-                position: "absolute",
-                bottom: 20,
-                right: 42,
-                zIndex: 1,
-              }}
-              onClick={this.handleHide}
-            >
-              <CloseOutlined style={{ fontSize: 28 }}></CloseOutlined>
-            </button>
+            <button class="bg-yellow-300 hover:bg-yellow-500 text-black text-center rounded-full h-14 w-14 items-center shadow-xl"
+              style={{ cursor: 'pointer', position: 'absolute', bottom: 20, right: 42, zIndex: 1 }}
+              onClick={this.handleHide}  data-tip data-for="close"><CloseOutlined style={{ fontSize: 28 }}></CloseOutlined></button>
           </div>
-        </div>
+          <ReactTooltip class="text-2xl font-bold my-6" id="close" place="top" effect="solid">Close</ReactTooltip>
+
         {this.state.isActive ? (
           <Tween
             animation={{ x: -50 }}
-            style={{
-              opacity: 1,
-              zIndex: 1,
-              position: "absolute",
-              bottom: 20,
-              right: 50,
-            }}
+            style={{ opacity: 1, zIndex: 1, position: 'absolute', bottom: 20, right: 50 }}
           >
-            <div
-              style={{
-                border: "2px solid black",
-                borderRadius: 50,
-                width: 250,
-                height: 60,
-                zIndex: 1,
-                textAlign: "center",
-                backgroundColor: "white",
-              }}
-            >
+            <div style={{ border: '3px solid black', borderRadius: 50, width: 250, height: 60, zIndex: 1, textAlign: 'center', backgroundColor: 'white' }}>
               {customIcons.map((value, index) => {
-                return (
-                  <button
-                    class="bg-white-300 hover:bg-white-500 text-black text-center rounded-full h-14 w-14 items-center shadow-xl"
-                    onClick={() => this.handleSelect(index)}
-                    style={{ marginLeft: 10, padding: 5 }}
-                    onMouseEnter={({ target }) =>
-                      (target.style.color = "#F9C80E")
-                    }
-                    onMouseLeave={({ target }) =>
-                      (target.style.color = "#000000")
-                    }
-                    key={index}
-                  >
-                    {value}
-                  </button>
-                );
+                return <button class="bg-white-300 hover:bg-white-500 text-black text-center rounded-full h-14 w-14 items-center shadow-xl"
+                  onClick={() => this.handleSelect(index)}
+                  style={{ marginLeft: 10, padding: 5, border: '2 solid black' }}
+                  onMouseEnter={({ target }) => target.style.color = '#f9a825'}
+                  onMouseLeave={({ target }) => target.style.color = '#000000'}
+                  key={index}>{value}</button>
               })}
             </div>
           </Tween>
         ) : (
-          <div data-tip="How are you feeling today?" class="inline">
-            <button
-              class="bg-yellow-300 hover:bg-yellow-500 text-black text-center rounded-full h-14 w-14 items-center shadow"
-              style={{
-                cursor: "select",
-                position: "absolute",
-                bottom: 20,
-                right: 42,
-                zIndex: 1,
-                color: "#000000",
-              }}
-              onClick={this.handleShow}
-            >
+          <div >
+            <ReactTooltip class="text-2xl font-bold my-6" id="moodPrompt" place="top" effect="solid">How are you feeling today?</ReactTooltip>
+            <button class="bg-yellow-300 hover:bg-yellow-500 text-black text-center rounded-full h-14 w-14 items-center shadow"
+              style={{ cursor: 'select', position: 'absolute', bottom: 20, right: 42, zIndex: 1, color: '#000000' }}
+              onClick={this.handleShow} data-tip data-for="moodPrompt">
               {this.state.smileyFace}
             </button>
           </div>
+
         )}
-      </div>
-    );
+      </div >);
   }
 }
 
