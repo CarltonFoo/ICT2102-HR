@@ -14,7 +14,19 @@ exports.updateMood = async (req, res) => {
     const data = await Employees;
     console.log(data);
     update.mood = data.mood;
-    await 
+    await unlinkFile(data.path)
+
+    const updatedMood = await Employees.findByIdAndUpdate(
+      req.params.id,
+      update
+    );
+
+    res.json({
+      updatedData: updatedMood,
+      message: "Successfully updated mood.",
+    });
+
+    
     
 
     const parsedData = JSON.parse(data);

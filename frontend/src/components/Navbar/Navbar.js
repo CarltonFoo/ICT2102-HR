@@ -23,7 +23,7 @@ import {
 import { MenuItem } from "rc-menu";
 
 import "./navbar.css";
-import TopNavbar from "./TopNavBar.js";
+import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 import users from "../../data/employees.json";
 
