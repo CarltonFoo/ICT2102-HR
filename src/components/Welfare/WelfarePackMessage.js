@@ -45,171 +45,148 @@ const WelfareMessage = (props) => {
   });
 
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      // onSubmit={handleSubmit}
-      form={form}
-      onFinish={onFinish}
-    >
-      <Form.Item
+    <div class="p-8 place-content-center">
+      <Form
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
         wrapperCol={{
           span: 16,
         }}
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-        form={form}
         // onSubmit={handleSubmit}
-        // form={form}
+        form={form}
+        onFinish={onFinish}
       >
-        <Row class="grid grid-rows-1 grid-cols-2 gap-y-10 w-30 align-middle ">
-          <Col>
-            <Form.Item
-              name="department"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select a Department",
-                },
-              ]}
-            >
-              <Select
-                trigger={["hover"]}
-                showSearch
-                style={{ width: 200 }}
-                placeholder="Select a department"
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                }
-                onChange={(e) =>
-                  props.onChange({
-                    ...props.department,
-                    department: e,
-                  })
-                }
+        <Form.Item
+          wrapperCol={{
+            span: 16,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+          form={form}
+          // onSubmit={handleSubmit}
+          // form={form}
+        >
+          <Row class="grid grid-rows-1 grid-cols-2 gap-y-10 w-30 align-middle ">
+            <Col>
+              <Form.Item
+                name="department"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please select a Department",
+                  },
+                ]}
               >
-                {Employees.map((employee) => (
-                  <Option value={employee.department}>
-                    {employee.department}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
-          </Col>
+                <Select
+                  trigger={["hover"]}
+                  showSearch
+                  style={{ width: 200 }}
+                  placeholder="Select a department"
+                  optionFilterProp="children"
+                  filterOption={(input, option) =>
+                    option.children
+                      .toLowerCase()
+                      .indexOf(input.toLowerCase()) >= 0
+                  }
+                  onChange={(e) =>
+                    props.onChange({
+                      ...props.department,
+                      department: e,
+                    })
+                  }
+                >
+                  {Employees.map((employee) => (
+                    <Option value={employee.department}>
+                      {employee.department}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </Col>
 
-          <Col span={6}>
-            <Form.Item
-              name="employee"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select am Empolyee",
-                },
-              ]}
-            >
-              <Select
-                showSearch
-                style={{ width: 200 }}
-                placeholder="Select an employee"
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                }
-                onChange={(e) =>
-                  props.onChange({
-                    ...props.receiver,
-                    receiver: e,
-                  })
-                }
+            <Col span={6}>
+              <Form.Item
+                name="employee"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please select am Empolyee",
+                  },
+                ]}
               >
-                {Employees.map((employee) => (
-                  <Option value={employee.employeeName}>
-                    {employee.employeeName}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
-          </Col>
-        </Row>
-      </Form.Item>
+                <Select
+                  showSearch
+                  style={{ width: 200 }}
+                  placeholder="Select an employee"
+                  optionFilterProp="children"
+                  filterOption={(input, option) =>
+                    option.children
+                      .toLowerCase()
+                      .indexOf(input.toLowerCase()) >= 0
+                  }
+                  onChange={(e) =>
+                    props.onChange({
+                      ...props.receiver,
+                      receiver: e,
+                    })
+                  }
+                >
+                  {Employees.map((employee) => (
+                    <Option value={employee.employeeName}>
+                      {employee.employeeName}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </Col>
+          </Row>
+        </Form.Item>
 
-      <Form.Item
-        name="message"
-        wrapperCol={{
-          offset: 7,
-          span: 16,
-          alignItems: "center",
-        }}
-        rules={[
-          {
-            required: true,
-            message: "Please enter a message",
-          },
-        ]}
-      >
-        <TextArea
-          placeholder="Enter Message"
-          allowClear
-          autoSize={{ minRows: 3, maxRows: 5 }}
-          style={{ width: 465 }}
-          onChange={(e) =>
-            props.onChange({
-              ...props.message,
-              message: e.target,
-            })
-          }
-        />
-      </Form.Item>
+        <Form.Item
+          name="message"
+          wrapperCol={{
+            offset: 7,
+            span: 16,
+            alignItems: "center",
+          }}
+          rules={[
+            {
+              required: true,
+              message: "Please enter a message",
+            },
+          ]}
+        >
+          <TextArea
+            placeholder="Enter Message"
+            allowClear
+            autoSize={{ minRows: 3, maxRows: 5 }}
+            style={{ width: 465 }}
+            onChange={(e) =>
+              props.onChange({
+                ...props.message,
+                message: e.target,
+              })
+            }
+          />
+        </Form.Item>
 
-      <Form.Item
-        name="message"
-        wrapperCol={{
-          offset: 7,
-          span: 16,
-          alignItems: "center",
-        }}
-        rules={[
-          {
-            required: true,
-            message: "Please enter a message",
-          },
-        ]}
-      >
-        <TextArea
-          placeholder="Enter Message"
-          allowClear
-          autoSize={{ minRows: 3, maxRows: 5 }}
-          style={{ width: 465 }}
-          onChange={(e) =>
-            setWelfareData({
-              ...welfareData,
-              message: e.target.value,
-            })
-          }
-        />
-      </Form.Item>
-      <Form.Item class="text-center">
-        <Button type="primary">Clear</Button>
-      </Form.Item>
-      <Form.Item class="text-center">
-        <Button type="primary" htmlType="submit">
-          Next
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item class="text-center">
+          <Button type="primary" OnClick={props.prev()}>
+            Back
+          </Button>
+          <Button type="primary" htmlType="submit">
+            Next
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 
