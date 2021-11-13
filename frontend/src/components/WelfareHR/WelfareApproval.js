@@ -53,6 +53,7 @@ class WelfareApproval extends React.Component {
       // temp = dataSource.filter((item) =>
       //   this.state.selectedRowKeys.includes(item.key)
       // );
+
       const selectedKey = [...this.state.selectedRowKeys];
 
       console.log("selectedPackagesArr: ", selectedKey);
@@ -65,7 +66,7 @@ class WelfareApproval extends React.Component {
       // if (giftText == "") return "Please select items to approve.";
       // return giftText;
       const res1 = await removeWelfareRequest(selectedKey);
-      console.log(res1);
+      console.log("res1", res1);
       if (res1.status === 200) {
         console.log("status 200");
       }
