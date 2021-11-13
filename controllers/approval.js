@@ -5,37 +5,26 @@ const WelfareApproval = require("../frontend/src/data/approval.json");
 
 exports.removeWelfareRequest = async (req, res) => {
   try {
-    console.log("U R IN CONTROLLER");
+    console.log("-----------------------------------U R IN CONTROLLER");
     // const data = await ;
     const data = await WelfareApproval;
-    // console.log(data);
+    // console.log("controllerdata", data);
 
-    // console.log("body", req.body);
     // const parsedData = JSON.parse(data);
     // console.log("parsedJSON", parsedData);
+    console.log("body", req.body);
+    var reqBody = Object.values(req.body)
+    console.log("body", typeof reqBody);
+    // console.log("params", req.params);
+    const updatedData = data.filter(
+        (e) => (!reqBody.includes(e.key))
+    );
+    
+    console.log("updated data", updatedData);
 
-    // // const bodyKey = req.body[key];
-    // for (var key in req.body) {
-    //   if (req.body.hasOwnProperty(key)) {
-    //     let value = req.body[key];
-    //     console.log(`value for ${key} is ${value}`);
-
-    //    for (const key in req.body) {
-    //      data.filter((item) => item.key !== key);
-    //    }
-    //     console.log("filtered", filtered);
-    //     // const updatedData = data.filter((item) => (item.key = value));
-    //     // console.log("updated data", updatedData);
-    //     // fs.writeFileSync(WelfareApproval, updatedData);
-    //   }
-    // }
-
-    for (const key in req.body) {
-      data.filter((item) => item.key == key);
-      console.log(key);
-    }
-
-    console.log("filtered", data);
+    fs.writeFile('../ICT2102-HR/frontend/src/data/approval.json', JSON.stringify(updatedData), function(err, result) {
+      if(err) console.log('error', err);
+    });
 
     res.status(200);
     return;
