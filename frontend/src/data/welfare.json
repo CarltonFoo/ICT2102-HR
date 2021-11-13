@@ -1,5 +1,6 @@
 [
   {
+    "id": "mondays-blue",
     "welfarePack": "MONDAY BLUES",
     "credits": 50,
     "dispatchedDay": "Dispatched on Monday",
@@ -12,7 +13,8 @@
     ]
   },
   {
-    "welfarePack": "WOOZY WEDSNEDAY",
+    "id": "wozzy-wednesday",
+    "welfarePack": "WOOZY WEDSNESDAY",
     "credits": 100,
     "dispatchedDay": "Dispatched on Wednesday",
     "packContent": [
@@ -24,6 +26,7 @@
     ]
   },
   {
+    "id": "tgif",
     "welfarePack": "TGIF!",
     "credits": 150,
     "dispatchedDay": "Dispatched on Friday",

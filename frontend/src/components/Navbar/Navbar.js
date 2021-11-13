@@ -80,8 +80,13 @@ const Navbar = (props) => {
             >
               <div class="p-6 ">
                 <div>
-                  <h3 className="font-bold  text-lg">{getName(users)} </h3>
-                  <p class="font-semibold pt-2"> {getPosition(users)}</p>
+                  <h3 className="font-bold  text-lg">
+                    {sessionStorage.getItem("name")}{" "}
+                  </h3>
+                  <p class="font-semibold pt-2">
+                    {" "}
+                    {sessionStorage.getItem("position")}
+                  </p>
                 </div>
               </div>
               <Menu.Item key="home" icon={<HomeOutlined />}>
@@ -102,12 +107,13 @@ const Navbar = (props) => {
               </Menu.Item>
               <Menu.Item key="history" icon={<HistoryOutlined />}>
                 Welfare History
-                <Link to="history" />
+                <Link to="/history" />
               </Menu.Item>
-              {getPosition(users).props.children === "HR Manager" ? (
+              {sessionStorage.getItem("position") === "HR Manager" ? (
                 <SubMenu
                   title="Manage(FOR HR VIEW)"
                   icon={<AppstoreOutlined />}
+                  key="hrmanage"
                 >
                   <Menu.Item
                     key="welfareinventory"

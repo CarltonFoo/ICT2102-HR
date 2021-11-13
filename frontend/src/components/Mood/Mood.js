@@ -43,12 +43,11 @@ class Mood extends React.Component {
       content: 'Feeling ' + customMessage[i],
       duration: 3,
       icon: customIcons[i],
-      className: "bg-yellow-300",
+      className: "text-l font-bold my-4",
       style: {
-        position: 'absolute',
-        width: 'fit-content',
-        right: 45,
-        left: 'initial'
+        marginTop: '10vh',
+        alignContent: 'center',
+        color: '#f9a825'
       },
     });
   };
@@ -69,12 +68,12 @@ class Mood extends React.Component {
             animation={{ x: -50 }}
             style={{ opacity: 1, zIndex: 1, position: 'absolute', bottom: 20, right: 50 }}
           >
-            <div style={{ border: '2px solid black', borderRadius: 50, width: 250, height: 60, zIndex: 1, textAlign: 'center', backgroundColor: 'white' }}>
+            <div style={{ border: '3px solid black', borderRadius: 50, width: 250, height: 60, zIndex: 1, textAlign: 'center', backgroundColor: 'white' }}>
               {customIcons.map((value, index) => {
                 return <button class="bg-white-300 hover:bg-white-500 text-black text-center rounded-full h-14 w-14 items-center shadow-xl"
                   onClick={() => this.handleSelect(index)}
                   style={{ marginLeft: 10, padding: 5, border: '2 solid black' }}
-                  onMouseEnter={({ target }) => target.style.color = '#F9C80E'}
+                  onMouseEnter={({ target }) => target.style.color = '#f9a825'}
                   onMouseLeave={({ target }) => target.style.color = '#000000'}
                   key={index}>{value}</button>
               })}

@@ -108,9 +108,6 @@ const Home = () => {
               >
                 <Table style={{ marginBottom: 20 }} pagination={false} columns={columns} dataSource={StaffAvailability.slice(5, 10)} />
                 <Row>
-                  <Availability>
-                    
-                  </Availability>
                   <Link to="/availability" style={linkStyle}>View All Staff Availability &#62;</Link>
                 </Row>
               </Card>

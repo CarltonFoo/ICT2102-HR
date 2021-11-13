@@ -57,12 +57,19 @@ class WelfareApproval extends React.Component {
     //if items are selected 
     if (typeof this.state.selectedRowKeys !== 'undefined'){
       temp = dataSource.filter(item => this.state.selectedRowKeys.includes(item.key));
-      console.log("selectedPackagesArr: ",temp);
+      // console.log("selectedPackagesArr: ",temp);
       var giftText = ""
-      for(var i = 0; i < temp.length ; i++){
-        giftText = giftText + "Gift type no: "+ i + " , "+ temp[i].gifttype + '\n';
+
+      // for(var i = 0; i < temp.length ; i++){
+      //   giftText = giftText + "Gift type no: "+ i + " , "+ temp[i].gifttype + '\n';
+      // }
+      var _ = require('underscore')
+      var countArr = _.countBy(temp, function(temp) { return temp.gifttype });
+
+      for(var giftname in countArr){
+        giftText = giftText + countArr[giftname] + " x " + giftname + "\n";
       }
-      console.log("GIFT TEXT:\n",giftText);
+
       if (giftText == "") return "Please select items to approve."
       return giftText;
     }
@@ -156,13 +163,14 @@ class WelfareApproval extends React.Component {
         overlayInnerStyle={{textAlign:"center",whiteSpace: "pre-line",width:'60vw',height:'20vw'}}
         content={
         <>
+        <p class="font-bold text-center text-blue-800">Selected Gifts to approve</p>
         <p>{this.getSelectedPackages()}</p>
         <Button type="primary" onClick={()=>this.hide()} style={{position:"absolute",bottom:"3vw",left:"15vw"}}>Back</Button>
         <Button type="primary"onClick={()=>this.handleDelete()}  style={{position:"absolute",bottom:"3vw",right:"15vw"}}>Approve</Button>
         {/* <a onClick={this.handleDelete}>Approve</a> */}
         </>
         }
-        title={<b>Confirm Approval:</b>}
+        title={<b>Confirm Approval</b>}
         trigger="click"
         visible={this.state.visible}
         onVisibleChange={this.handleVisibleChange}

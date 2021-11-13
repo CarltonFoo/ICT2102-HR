@@ -5,21 +5,24 @@ import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Button } from "antd";
-import { StepPanel } from "./StepPanel";
 
 const WelfarePackConfirmation = (props) => {
-  console.log("cfm", props)
+  console.log("cfm", props);
   return (
-    <div>Confirmation
-      
-    <div>{props.receiver}</div>
-    
-    <div>{props.message.value}</div>
-    
-    <div>{props.department}</div>
+    <div>
+      <p>Confirmation</p>
+      <div class="grid grid-cols-3 gap-4">
+        <p>You have chosen: </p>
+        <div>{props.welfarepack}</div>
+        <div> Total credits to be deducted: </div>
+        <div> 50 </div>
+        <div> Sending to:</div>
+        <div>{props.receiver}</div>
 
-    <div>{props.welfarepack}</div>
-    
+        <div>{props.message.value}</div>
+        <div>{props.department}</div>
+        <div>{props.credits}</div>
+      </div>
     </div>
   );
 };
