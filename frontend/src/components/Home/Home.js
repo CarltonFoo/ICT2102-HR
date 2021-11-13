@@ -8,7 +8,7 @@ import { InfoCircleTwoTone } from "@ant-design/icons";
 import "../../assets/css/home.css";
 import StaffAvailability from "../../data/staffAvailability.json";
 import PayslipJSON from "../../data/payslip.json";
-import SalaryBreakdown from "../Home/salaryBreakdown";
+import SalaryBreakdown from "./salaryBreakdown";
 
 //#region CountdownTimer
 const { Countdown } = Statistic;
