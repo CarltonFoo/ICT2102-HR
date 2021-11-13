@@ -1,8 +1,8 @@
 // import React from "react";
 import React, { Component } from "react";
-import {Card} from "antd";
+import { Card } from "antd";
 import { Link } from "react-router-dom";
-
+import ReactTooltip from 'react-tooltip';
 import { EyeFilled, EyeInvisibleOutlined } from '@ant-design/icons';
 import PayslipJSON from "../../data/payslip.json";
 import { Pie } from '@ant-design/charts';
@@ -18,28 +18,28 @@ var totalOverall = 0;
 
 var piedata = [
     {
-    type: 'Base Pay',
-    value: 0,
+        type: 'Base Pay',
+        value: 0,
     },
     {
-    type: 'Bonus Pay',
-    value: 0,
+        type: 'Bonus Pay',
+        value: 0,
     },
     {
-    type: 'OT Pay',
-    value: 0,
+        type: 'OT Pay',
+        value: 0,
     },
     {
-    type: 'Claims',
-    value: 0,
+        type: 'Claims',
+        value: 0,
     },
     {
-    type: 'CPF',
-    value: 0,
+        type: 'CPF',
+        value: 0,
     },
     {
-    type: 'Tax',
-    value: 0,
+        type: 'Tax',
+        value: 0,
     },
 ];
 
@@ -136,28 +136,28 @@ class salaryBreakdown extends Component {
 
         piedata = [
             {
-            type: 'Base Pay',
-            value: totalBasicPay,
+                type: 'Base Pay',
+                value: totalBasicPay,
             },
             {
-            type: 'Bonus Pay',
-            value: totalBonus,
+                type: 'Bonus Pay',
+                value: totalBonus,
             },
             {
-            type: 'OT Pay',
-            value: totalOTpay,
+                type: 'OT Pay',
+                value: totalOTpay,
             },
             {
-            type: 'Claims',
-            value: totalClaims,
+                type: 'Claims',
+                value: totalClaims,
             },
             {
-            type: 'CPF',
-            value: totalCPF,
+                type: 'CPF',
+                value: totalCPF,
             },
             {
-            type: 'Tax',
-            value: totalTax,
+                type: 'Tax',
+                value: totalTax,
             },
         ];
 
@@ -229,9 +229,14 @@ class salaryBreakdown extends Component {
                         <Card
                             style={{ marginTop: 16, height: 520 }}
                             type="inner"
-                            title= "Salary Breakdown"
-                            extra={<EyeFilled onClick={this.handleHide} data-tip="Click to hide total salary" style={{ cursor: 'pointer' }} />}
+                            title="Salary Breakdown"
+                            extra={<EyeFilled
+                                onClick={this.handleHide}
+                                data-tip
+                                data-for="clickToHideSalary"
+                                style={{ cursor: 'pointer' }} />}
                         >
+                            <ReactTooltip class="text-2xl font-bold my-6" id="clickToHideSalary" place="top" effect="solid">Click to hide total salary</ReactTooltip>
                             <Pie {...config} />
                             <div class="p-6 font-bold text-center">
                                 Total: ${totalOverall.toFixed(2)}
@@ -243,8 +248,14 @@ class salaryBreakdown extends Component {
                             style={{ marginTop: 16, height: 520 }}
                             type="inner"
                             title="Salary Breakdown"
-                            extra={<EyeInvisibleOutlined onClick={this.handleShow} data-tip="Click to show total salary" style={{ cursor: 'pointer' }} />}
+                            extra={<EyeInvisibleOutlined 
+                                onClick={this.handleShow} 
+                                data-tip
+                                data-for="clickToShowSalary" 
+                                style={{ cursor: 'pointer' }} />}
                         >
+                            <ReactTooltip class="text-2xl font-bold my-6" id="clickToShowSalary" place="top" effect="solid">Click to show total salary</ReactTooltip>
+
                             <Pie {...hideConfig} />
                             <div class="p-6 font-bold text-center">
                                 Total: $****

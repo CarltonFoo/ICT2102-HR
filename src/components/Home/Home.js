@@ -9,6 +9,7 @@ import "../../assets/css/home.css";
 import StaffAvailability from "../../data/staffAvailability.json";
 import PayslipJSON from "../../data/payslip.json";
 import SalaryBreakdown from "../Home/salaryBreakdown"
+import Availability from "../Availability/Availability";
 
 //#region CountdownTimer
 const { Countdown } = Statistic;
@@ -62,16 +63,7 @@ var cardStyle = {
 }
 // END Payslip
 
-const gridStyle = {
-  width: "25%",
-  textAlign: "center",
-};
-
 const Home = () => {
-
-  const [showResults, setShowResults] = React.useState(false);
-  const onClick = () => setShowResults(true)
-  
   var userSess = JSON.parse(sessionStorage.getItem("user"))
   var userData = PayslipJSON[0][userSess.username]
 
@@ -116,6 +108,9 @@ const Home = () => {
               >
                 <Table style={{ marginBottom: 20 }} pagination={false} columns={columns} dataSource={StaffAvailability.slice(5, 10)} />
                 <Row>
+                  <Availability>
+                    
+                  </Availability>
                   <Link to="/availability" style={linkStyle}>View All Staff Availability &#62;</Link>
                 </Row>
               </Card>

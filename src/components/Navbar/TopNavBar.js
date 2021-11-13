@@ -44,17 +44,12 @@ const TopNavbar = (props) => {
     <div>
       <Header className="header">
         <div class="flex justify-between">
-          <div>
-            <SmileTwoTone style={{ fontSize: "40px", color: "#08c" }} />
-          </div>
+          <div></div>
           <Menu theme="dark" mode="horizontal">
             <Menu.Item key="1">
-              <SmileTwoTone />
-            </Menu.Item>
-            <Menu.Item key="2">
               <div>Notifcations</div>
             </Menu.Item>
-            <Menu.Item key="3" class="text-white">
+            <Menu.Item key="2" class="text-white">
               <button onClick={handleLogout}>Log Out</button>
             </Menu.Item>
           </Menu>
