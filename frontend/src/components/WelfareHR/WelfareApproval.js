@@ -16,36 +16,10 @@ class WelfareApproval extends React.Component {
     visible: false,
     selectedRowKeys: [], // Check here to configure the default column
   };
-  hide = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-  handleVisibleChange = (visible) => {
-    this.setState({ visible });
-  };
 
   onSelectChange = (selectedRowKeys) => {
     console.log("selectedRowKeys changed: ", selectedRowKeys);
     this.setState({ selectedRowKeys });
-  };
-
-  removeWelfareApproval = async (e) => {
-    const res1 = await removeWelfareRequest();
-    console.log("res1 you are here", res1);
-    if (res1.status === 200) {
-      console.log("status 200");
-    }
-    // var data = JSON.parse(fs.readFukle)
-    console.log("show me what is this", approvalData);
-    // var obj = JSON.stringify(approvalData);
-
-    // var keys = Object.keys(obj);
-
-    for (var i = 0; i < approvalData.length; i++) {
-      console.log("each", approvalData[i]);
-      delete approvalData[i];
-    }
   };
 
   constructor(props) {
@@ -68,43 +42,37 @@ class WelfareApproval extends React.Component {
       dataSource: approvalData,
     };
   }
-  getSelectedPackages = () => {
-    const dataSource = [...this.state.dataSource];
+  getSelectedPackages = async () => {
+    //get all the data
+    // const dataSource = [...this.state.dataSource];
+    //creation of empty array
     var temp = [];
 
-    //if items are selected
+    //pass selected key
     if (typeof this.state.selectedRowKeys !== "undefined") {
-      temp = dataSource.filter((item) =>
-        this.state.selectedRowKeys.includes(item.key)
-      );
-      console.log("selectedPackagesArr: ", temp);
-      var giftText = "";
-      for (var i = 0; i < temp.length; i++) {
-        giftText =
-          giftText + "Gift type no: " + i + " , " + temp[i].gifttype + "\n";
+      // temp = dataSource.filter((item) =>
+      //   this.state.selectedRowKeys.includes(item.key)
+      // );
+      const selectedKey = [...this.state.selectedRowKeys];
+
+      console.log("selectedPackagesArr: ", selectedKey);
+      // var giftText = "";
+      // for (var i = 0; i < temp.length; i++) {
+      //   giftText =
+      //     giftText + "Gift type no: " + i + " , " + temp[i].gifttype + "\n";
+      // }
+      // console.log("GIFT TEXT:\n", giftText);
+      // if (giftText == "") return "Please select items to approve.";
+      // return giftText;
+      const res1 = await removeWelfareRequest(selectedKey);
+      console.log(res1);
+      if (res1.status === 200) {
+        console.log("status 200");
       }
-      console.log("GIFT TEXT:\n", giftText);
-      if (giftText == "") return "Please select items to approve.";
-      return giftText;
     } else {
       // if no items selected
       return "Please select items to approve.";
     }
-  };
-  handleDelete = () => {
-    console.log("handle delete");
-    const dataSource = [...this.state.dataSource];
-    console.log("datasource:", dataSource);
-    console.log("selectedRows", this.state.selectedRowKeys);
-    //error check ensure selectedkeys initialized
-    if (typeof this.state.selectedRowKeys !== "undefined") {
-      this.setState({
-        dataSource: dataSource.filter(
-          (item) => !this.state.selectedRowKeys.includes(item.key)
-        ),
-      });
-    }
-    this.hide();
   };
 
   render() {
@@ -115,23 +83,22 @@ class WelfareApproval extends React.Component {
         return col;
       }
 
-      return {
-        ...col,
-        onCell: (record) => ({
-          record,
-          editable: col.editable,
-          dataIndex: col.dataIndex,
-          title: col.title,
-          handleSave: this.handleSave,
-        }),
-      };
+      // return {
+      //   ...col,
+      //   onCell: (record) => ({
+      //     record,
+      //     editable: col.editable,
+      //     dataIndex: col.dataIndex,
+      //     title: col.title,
+      //     handleSave: this.handleSave,
+      //   }),
+      // };
     });
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
       selections: [
         Table.SELECTION_ALL,
-        // Table.SELECTION_INVERT,
         Table.SELECTION_NONE,
         {
           key: "odd",
@@ -174,52 +141,14 @@ class WelfareApproval extends React.Component {
           columns={columns}
           dataSource={dataSource}
         />
-        {/* <Popconfirm        
-        placement="topRight"
-        title={()=> this.getSelectedPackages()}
-        okText="Approve"
-        cancelText="Back"
-        onConfirm={() => this.handleDelete()}> */}
-        <Popover
-          overlayInnerStyle={{
-            textAlign: "center",
-            whiteSpace: "pre-line",
-            width: "60vw",
-            height: "20vw",
-          }}
-          content={
-            <>
-              <p>{this.getSelectedPackages()}</p>
-              <Button
-                type="primary"
-                onClick={() => this.hide()}
-                style={{ position: "absolute", bottom: "3vw", left: "15vw" }}
-              >
-                Back
-              </Button>
-              <Button
-                type="primary"
-                onClick={() => this.removeWelfareApproval()}
-                style={{ position: "absolute", bottom: "3vw", right: "15vw" }}
-              >
-                Approve
-              </Button>
-              {/* <a onClick={this.handleDelete}>Approve</a> */}
-            </>
-          }
-          title={<b>Confirm Approval:</b>}
-          trigger="click"
-          visible={this.state.visible}
-          onVisibleChange={this.handleVisibleChange}
+
+        <Button
+          style={{ margin: "0 30vw" }}
+          type="primary"
+          onClick={() => this.getSelectedPackages()}
         >
-          <Button
-            style={{ margin: "0 30vw" }}
-            type="primary"
-            onClick={() => this.getSelectedPackages()}
-          >
-            Approve
-          </Button>
-        </Popover>
+          Approve
+        </Button>
         {/* </Popconfirm> */}
       </div>
     );
