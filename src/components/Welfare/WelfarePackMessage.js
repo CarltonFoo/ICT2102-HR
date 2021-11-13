@@ -52,29 +52,24 @@ const WelfareMessage = (props) => {
   };
 
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      form={form}
-      onSubmit={handleSubmit}
-      // form={form}
-    >
-      <Form.Item
+    <div class="my-8">
+      <Form
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
         wrapperCol={{
-          offset: 7,
           span: 16,
         }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        form={form}
+        onSubmit={handleSubmit}
+        // form={form}
       >
-        <Row gutter={3}>
+        <div class="grid grid-rows-1 grid-cols-2 gap-y-10 w-30 align-middle ">
           <Col>
             <Form.Item
               name="department"
@@ -145,55 +140,55 @@ const WelfareMessage = (props) => {
               </Select>
             </Form.Item>
           </Col>
-        </Row>
-      </Form.Item>
+        </div>
 
-      <Form.Item
-        name="message"
-        wrapperCol={{
-          offset: 7,
-          span: 16,
-          alignItems: "center",
-        }}
-        rules={[
-          {
-            required: true,
-            message: "Please enter a message",
-          },
-        ]}
-      >
-        <TextArea
-          placeholder="Enter Message"
-          allowClear
-          autoSize={{ minRows: 3, maxRows: 5 }}
-          style={{ width: 465 }}
-          onChange={(e) =>
-            setWelfareData({
-              ...welfareData,
-              message: e.target.value,
-            })
-          }
-        />
-      </Form.Item>
+        <Form.Item
+          name="message"
+          wrapperCol={{
+            offset: 7,
+            span: 16,
+            alignItems: "center",
+          }}
+          rules={[
+            {
+              required: true,
+              message: "Please enter a message",
+            },
+          ]}
+        >
+          <TextArea
+            placeholder="Enter Message"
+            allowClear
+            autoSize={{ minRows: 3, maxRows: 5 }}
+            style={{ width: 465 }}
+            onChange={(e) =>
+              setWelfareData({
+                ...welfareData,
+                message: e.target.value,
+              })
+            }
+          />
+        </Form.Item>
 
-      <div class="flex justify-evenly">
-        <Form.Item class="text-center">
-          <Button type="primary" onClick={props.prev}>
-            Back
-          </Button>
-        </Form.Item>
-        <Form.Item class="text-center">
-          <Button type="primary" onClick={props.next}>
-            Clear
-          </Button>
-        </Form.Item>
-        <Form.Item class="text-center">
-          <Button type="primary" onClick={handleNext}>
-            Next
-          </Button>
-        </Form.Item>
-      </div>
-    </Form>
+        <div class="flex justify-evenly">
+          <Form.Item class="text-center">
+            <Button type="primary" onClick={props.prev}>
+              Back
+            </Button>
+          </Form.Item>
+          <Form.Item class="text-center">
+            <Button type="primary" onClick={props.next}>
+              Clear
+            </Button>
+          </Form.Item>
+          <Form.Item class="text-center">
+            <Button type="primary" onClick={handleNext}>
+              Next
+            </Button>
+          </Form.Item>
+        </div>
+      </Form>
+    </div>
   );
 };
 
