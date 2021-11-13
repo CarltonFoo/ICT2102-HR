@@ -9,23 +9,38 @@ import { StepPanel } from "./StepPanel";
 import SharedCard from "../Shared/Card";
 
 const WelfarePackSelection = (props) => {
+
+  const [form] = Form.useForm();
+  const [value, setValue] = React.useState(0);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // console.log(`radio checked: ${JSON.stringify(e)}`);
+  //   form.validateFields(["welfarepack"], (err, values) => {
+  //     if (!err) {
+  //       props.next();
+  //     }
+  //   });
+  // };
+  
+  const onFinish = (fieldsValue) => {
+    const formData = form.getFieldsValue();
+    console.log(formData);
+    props.next();
+  };
+
   function onChange(e) {
     console.log(`radio checked:${e.target.value}`);
+    setValue(e.target.value);
+    props.onChange({
+      ...props.welfarepack,
+      welfarepack: e.target.value,
+    })
   }
-  const [form] = Form.useForm();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    form.validateFields(["welfarepack"], (err, values) => {
-      if (!err) {
-        props.next();
-      }
-    });
-  };
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form onFinish={onFinish} form={form}>
         <Form.Item
           name="welfarepack"
           rules={[
@@ -42,37 +57,49 @@ const WelfarePackSelection = (props) => {
                   title={data.welfarePack}
                   hoverable={true}
                   style={{ textAlign: "center", margin: "5%" }}
-                  onClick={() => props.onSelectPack(data.welfarePack)}
+                  
                   class="h-72"
                 >
                   <div>
-                    <Radio
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please select a Welfare Pack",
-                        },
-                      ]}
-                    >
-                      <p class="font-bold text-center text-blue-800">
-                        Package Content
-                      </p>
+                    <Radio.Group 
+                    onChange={onChange} 
+                    value={value}
+                    // onClick={() => 
+                    // props.onChange({
+                    //   ...props.welfarepack,
+                    //   welfarepack: {value},
+                    // })}
+                    // clicking more than once will add letters to fields object as seperate arrays lol, will take a look again after styling
+                  >
+                      <Radio
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please select a Welfare Pack",
+                          },
+                        ]}
+                        value={data.welfarePack}
+                      >
+                        <p class="font-bold text-center text-blue-800">
+                          Package Content
+                        </p>
 
-                      {data.packContent.map((item) => (
-                        <div>
-                          <p>{item.item1}</p>
-                          <p>{item.item2}</p>
-                          <p>{item.item3}</p>
-                        </div>
-                      ))}
-                      <p class="font-bold text-center text-blue-800">
-                        {data.dispatchedDay}
-                      </p>
+                        {data.packContent.map((item) => (
+                          <div>
+                            <p>{item.item1}</p>
+                            <p>{item.item2}</p>
+                            <p>{item.item3}</p>
+                          </div>
+                        ))}
+                        <p class="font-bold text-center text-blue-800">
+                          {data.dispatchedDay}
+                        </p>
 
-                      <p class="font-semibold text-center ">
-                        Credits Required {data.credits}
-                      </p>
-                    </Radio>
+                        <p class="font-semibold text-center ">
+                          Credits Required {data.credits}
+                        </p>
+                      </Radio>  
+                    </Radio.Group>
                   </div>
                 </Card>
               );
@@ -87,7 +114,7 @@ const WelfarePackSelection = (props) => {
           }}
           class="text-center"
         >
-          <Button type="primary" htmlType="submit" onClick={props.next}>
+          <Button type="primary" htmlType="submit">
             Next
           </Button>
         </Form.Item>

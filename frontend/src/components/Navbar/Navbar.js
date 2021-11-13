@@ -23,7 +23,7 @@ import {
 import { MenuItem } from "rc-menu";
 
 import "./navbar.css";
-import TopNavbar from "./TopNavBar.js";
+import TopNavbar from "../Navbar/TopNavBar.js";
 import Card from "../Shared/Card";
 import users from "../../data/employees.json";
 
@@ -34,6 +34,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const Navbar = (props) => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
+
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -42,23 +43,8 @@ const Navbar = (props) => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+
   const user = JSON.parse(sessionStorage.getItem("user"));
-
-  const getName = (usersData) => {
-    for (let i = 0; i < usersData.length; i++) {
-      if (user?.username === usersData[i].username) {
-        return <p>{usersData[i].employeeName}</p>;
-      }
-    }
-  };
-
-  const getPosition = (usersData) => {
-    for (let i = 0; i < usersData.length; i++) {
-      if (user?.username === usersData[i].username) {
-        return <p>{usersData[i].position}</p>;
-      }
-    }
-  };
 
   return (
     <div class="h-screen">
@@ -80,8 +66,13 @@ const Navbar = (props) => {
             >
               <div class="p-6 ">
                 <div>
-                  <h3 className="font-bold  text-lg">{getName(users)} </h3>
-                  <p class="font-semibold pt-2"> {getPosition(users)}</p>
+                  <h3 className="font-bold  text-lg">
+                    {sessionStorage.getItem("name")}{" "}
+                  </h3>
+                  <p class="font-semibold pt-2">
+                    {" "}
+                    {sessionStorage.getItem("position")}
+                  </p>
                 </div>
               </div>
               <Menu.Item key="home" icon={<HomeOutlined />}>
@@ -102,12 +93,13 @@ const Navbar = (props) => {
               </Menu.Item>
               <Menu.Item key="history" icon={<HistoryOutlined />}>
                 Welfare History
-                <Link to="history" />
+                <Link to="/history" />
               </Menu.Item>
-              {getPosition(users).props.children === "HR Manager" ? (
+              {sessionStorage.getItem("position") === "HR Manager" ? (
                 <SubMenu
                   title="Manage(FOR HR VIEW)"
                   icon={<AppstoreOutlined />}
+                  key="hrmanage"
                 >
                   <Menu.Item
                     key="welfareinventory"
