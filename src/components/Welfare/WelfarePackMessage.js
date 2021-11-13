@@ -58,6 +58,7 @@ const WelfareMessage = (props) => {
       }}
       // onSubmit={handleSubmit}
       form={form}
+      onFinish={onFinish}
     >
       <Form.Item
         wrapperCol={{
@@ -201,12 +202,10 @@ const WelfareMessage = (props) => {
         />
       </Form.Item>
       <Form.Item class="text-center">
-        <Button type="primary" onClick={props.next}>
-          Clear
-        </Button>
+        <Button type="primary">Clear</Button>
       </Form.Item>
       <Form.Item class="text-center">
-        <Button type="primary" onClick={props.next}>
+        <Button type="primary" htmlType="submit">
           Next
         </Button>
       </Form.Item>
