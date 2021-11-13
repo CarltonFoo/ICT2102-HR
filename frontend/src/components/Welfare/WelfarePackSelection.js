@@ -65,24 +65,21 @@ const WelfarePackSelection = (props) => {
             },
           ]}
         >
-          <div
-            id="welfarecard"
-            class="flex rounded shadow-md  place-content-center"
-          >
+          <div id="welfarecard" class="flex place-content-center">
             {WelfarePack.map((data) => {
               return (
                 <div class="p-8">
                   <Radio.Group onChange={onChange} value={value} class="">
                     <Radio.Button value={data.welfarePack} class="h-72">
                       <Card
-                        bordered={false}
+                        bordered={true}
                         id={data.id}
                         title={
                           <Title level={2} class="cardtitle">
                             {data.welfarePack}
                           </Title>
                         }
-                        hoverable={true}
+                        hoverable={false}
                         style={{ textAlign: "center", margin: "5%" }}
                         // onClick={() => props.onSelectPack(data.welfarePack)}
                         class="h-72 bg-transparent "
