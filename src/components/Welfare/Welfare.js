@@ -7,7 +7,7 @@ import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Tooltip, Button, Steps } from "antd";
 import { InfoCircleTwoTone, SmileTwoTone } from "@ant-design/icons";
 import WelfareForm from "./WelfarePackForm";
-import WelfarePackConfirmation from "./WelfarePackComfirmation";
+import WelfarePackConfirmation from "./WelfarePackConfirmation";
 import "./welfare.css";
 
 const { Step } = Steps;
@@ -36,7 +36,7 @@ const Welfare = () => {
         Hello there! Spread some love to your fellow peers by gifting them
         welfare packs
       </div>
-      <div>
+      <div class="welfareformh">
         <WelfareForm />
       </div>
     </div>

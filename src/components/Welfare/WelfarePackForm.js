@@ -9,25 +9,22 @@ import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
 import { StepPanel } from "./StepPanel";
 import WelfarePackSelection from "./WelfarePackSelection";
 import WelfarePackMessage from "./WelfarePackMessage";
-import WelfarePackConfirmation from "./WelfarePackComfirmation";
+import WelfarePackConfirmation from "./WelfarePackConfirmation";
 const { Option } = Select;
 const { TextArea } = Input;
 const { Step } = Steps;
 
-const onSelectPack = (packName) => {
-  alert("welfare pack name" + packName);
-};
-const WelfarePackForm = () => {
-  const [welfarePack, setWelfarePack] = useState("");
-  const [current, setCurrent] = useState(0);
-  const [summary, setSummary] = useState({});
+const WelfarePackForm = (props) => {
 
-  const [welfareData, setWelfareData] = useState({
-     welfarePackName:"",
-     department: "",
-     receiverName: "",
-     message: "",
-   });
+  const [fields, setFields] = useState({
+    welfarepack: "",
+    department: "",
+    receiver: "",
+    message: "",
+  });
+  
+  const [current, setCurrent] = useState(0);
+
   const steps = [
     {
       title: "Pack Selection",
@@ -40,11 +37,6 @@ const WelfarePackForm = () => {
     },
   ];
 
-  const onWelfarePackChange = (e) => {
-    e.preventDefault();
-    console.log(welfarePack);
-    
-  }
   //go prev step
   function prev() {
     const newCurrent = current - 1;
@@ -55,23 +47,24 @@ const WelfarePackForm = () => {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
   }
-  // const handleFormChange = (changedFields) => {
-  //   setFields({
-  //     ...fields,
-  //     ...changedFields,
-  //   });
-  // };
-  // const fieldsFlattener = () => {
-  //   var flattened = {};
-  //   Object.keys(fields).map(
-  //     (fieldName) => (flattened[fieldName] = fields[fieldName].value)
-  //   );
-  //   setSummary({ ...summary, flattened });
-  //   next();
-  // };
+
+  const handleFormChange = (changedFields) => {
+    setFields({
+      ...fields,
+      ...changedFields,
+    });
+    
+    console.log("changedFields", changedFields)
+    console.log("fields", fields)
+  };
+
+  
+  const onSelectPack = (packName) => {
+    alert("welfare pack name" + packName);
+  };
 
   return (
-    <div>
+    <div class="p-12">
       {/* step panel */}
       <Steps current={current} type="navigation">
         {steps.map((item, index) => (
@@ -81,23 +74,27 @@ const WelfarePackForm = () => {
 
       {current === 0 && (
         <WelfarePackSelection
-          // {...fields}
+          {...fields}
           next={next}
           // onChange={setWelfarePack(e.target.value)}
+          onChange={handleFormChange}
           onSelectPack={onSelectPack}
         />
       )}
 
       {current === 1 && (
         <WelfarePackMessage
-          // {...fields}
+          {...fields}
           next={next}
           prev={prev}
-          // onChange={handleFormChange}
+          onChange={handleFormChange}
         />
       )}
+
       {current === 2 && (
-        <WelfarePackConfirmation summary={summary} prev={prev} />
+        <WelfarePackConfirmation
+          {...fields} 
+          prev={prev} />
       )}
     </div>
   );

@@ -6,41 +6,20 @@ import Modal from "react-modal";
 import Card from "../Shared/Card.js";
 import { Col, Row, Form, Select, Button, Input, message } from "antd";
 import Employees from "../../data/employees.json";
-import { _ } from "numeral";
+// import { _ } from "numeral";
 
 const { Option } = Select;
 const { TextArea } = Input;
 
 const WelfareMessage = (props) => {
-  // const [form] = Form.useForm();
-
-  const handleSubmit = (e) => {
-    console.log("hi");
-    e.preventDefault();
-    console.log("Success:", e.target.value);
-  };
-
+  
   const handleNext = () => {
     console.log("handleNext");
-    console.log(welfareData.department);
-    console.log(welfareData.receiverName);
-    console.log(welfareData.message);
+    if (props.department && props.receiver && props.message) {
+      props.next();
+    }
   };
-
-  const [welfareData, setWelfareData] = useState({
-    department: "",
-    receiverName: "",
-    message: "",
-  });
-
-  const clear = () => {
-    setWelfareData({
-      department: "",
-      receiverName: "",
-      message: "",
-    });
-  };
-
+  
   return (
     <Form
       name="basic"
@@ -53,8 +32,6 @@ const WelfareMessage = (props) => {
       initialValues={{
         remember: true,
       }}
-      onSubmit={handleSubmit}
-      // form={form}
     >
       <Form.Item
         wrapperCol={{
@@ -84,8 +61,8 @@ const WelfareMessage = (props) => {
                   0
                 }
                 onChange={(e) =>
-                  setWelfareData({
-                    ...welfareData,
+                  props.onChange({
+                    ...props.department,
                     department: e,
                   })
                 }
@@ -119,9 +96,9 @@ const WelfareMessage = (props) => {
                   0
                 }
                 onChange={(e) =>
-                  setWelfareData({
-                    ...welfareData,
-                    receiverName: e,
+                  props.onChange({
+                    ...props.receiver,
+                    receiver: e,
                   })
                 }
               >
@@ -155,10 +132,11 @@ const WelfareMessage = (props) => {
           allowClear
           autoSize={{ minRows: 3, maxRows: 5 }}
           style={{ width: 465 }}
+          
           onChange={(e) =>
-            setWelfareData({
-              ...welfareData,
-              message: e.target.value,
+            props.onChange({
+              ...props.message,
+              message: e.target,
             })
           }
         />

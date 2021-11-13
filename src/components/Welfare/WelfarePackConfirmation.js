@@ -7,8 +7,21 @@ import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Button } from "antd";
 import { StepPanel } from "./StepPanel";
 
-const WelfarePackConfirmation = () => {
-  return <div>Confirmation</div>;
+const WelfarePackConfirmation = (props) => {
+  console.log("cfm", props)
+  return (
+    <div>Confirmation
+      
+    <div>{props.receiver}</div>
+    
+    <div>{props.message.value}</div>
+    
+    <div>{props.department}</div>
+
+    <div>{props.welfarepack}</div>
+    
+    </div>
+  );
 };
 
 export default WelfarePackConfirmation;
