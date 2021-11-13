@@ -1,62 +1,36 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "ict2102-hr",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
   "dependencies": {
-    "@ant-design/charts": "^1.2.14",
-    "@ant-design/pro-card": "^1.17.0",
-    "@ant-design/pro-form": "^1.46.0",
     "@craco/craco": "^6.4.0",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "ant-design-pro": "^2.3.2",
-    "antd": "^4.16.13",
-    "jsonfile": "^6.1.0",
-    "jwt-decode": "^3.1.2",
-    "md5": "^2.3.0",
-    "numeral": "^2.0.6",
-    "rc-tween-one": "^3.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "autoprefixer": "^10.4.0",
+    "concurrently": "^6.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "postcss": "^8.3.11",
     "react-highlight-words": "^0.17.0",
-    "react-modal": "^3.14.3",
-    "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
-    "react-tooltip": "^4.2.21",
-    "sunflower-antd": "^1.0.0-beta.3",
-    "tailwind": "^4.0.0",
-    "web-vitals": "^1.1.2"
-  },
-  "main": "index.js",
-  "scripts": {
-    "dev": "craco start",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "react-scripts": "^4.0.3",
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
-  }
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "cd frontend && npm start",
+    "backend": "nodemon -L server.js",
+    "start": "concurrently -n 'backend,frontend' -c 'blue,green' \"npm run backend\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarltonFoo/ICT2102-HR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarltonFoo/ICT2102-HR/issues"
+  },
+  "homepage": "https://github.com/CarltonFoo/ICT2102-HR#readme"
 }
