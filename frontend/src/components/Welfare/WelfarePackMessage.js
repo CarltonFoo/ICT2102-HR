@@ -18,7 +18,7 @@ const WelfareMessage = (props) => {
     localStorage.setItem("department", props.department);
     localStorage.setItem("receiver", props.receiver);
     localStorage.setItem("message", props.message.value);
-  
+
   };
 
   return (
@@ -70,6 +70,7 @@ const WelfareMessage = (props) => {
                       department: e,
                     })
                   }
+                  defaultValue={localStorage.getItem("department")}
                 >
                   {Employees.map((employee) => (
                     <Option value={employee.department}>
@@ -86,7 +87,7 @@ const WelfareMessage = (props) => {
                 rules={[
                   {
                     required: true,
-                    message: "Please select am Empolyee",
+                    message: "Please select an Employee",
                   },
                 ]}
               >
@@ -106,6 +107,7 @@ const WelfareMessage = (props) => {
                       receiver: e,
                     })
                   }
+                  defaultValue={localStorage.getItem("receiver")}
                 >
                   {Employees.map((employee) => (
                     <Option value={employee.employeeName}>
@@ -143,6 +145,7 @@ const WelfareMessage = (props) => {
                 message: e.target,
               })
             }
+            defaultValue={localStorage.getItem("message")}
           />
         </Form.Item>
 
