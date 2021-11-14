@@ -26,17 +26,6 @@ class Availability extends Component {
     });
   };
 
-  clearFilters = () => {
-    this.setState({ filteredInfo: null });
-  };
-
-  clearAll = () => {
-    this.setState({
-      filteredInfo: null,
-      sortedInfo: null,
-    });
-  };
-
   render() {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -65,11 +54,21 @@ class Availability extends Component {
             text: "Process Manager",
             value: "Process Manager",
           },
+          {
+            text: "Business Analytics Manager",
+            value: "Business Analytics Manager",
+          },
+          {
+            text: "Software Engineer",
+            value: "Software Engineer",
+          },
+          {
+            text: "HR Manager",
+            value: "HR Manager",
+          },
         ],
 
         onFilter: (value, record) => record.position.indexOf(value) === 0,
-
-        // filters: Filter(StaffAvailability)((employee) => employee.position),
       },
       {
         title: "Leave Start Date",

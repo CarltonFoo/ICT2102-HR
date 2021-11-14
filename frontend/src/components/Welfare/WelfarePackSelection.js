@@ -4,20 +4,7 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import {
-  Card,
-  Col,
-  Row,
-  Image,
-  Button,
-  Form,
-  Select,
-  Radio,
-  Typography,
-  Divider,
-} from "antd";
-import SharedCard from "../Shared/Card";
-import { DollarCircleFilled } from "@ant-design/icons";
+import { Card, Button, Form, Radio, Typography, Divider } from "antd";
 
 const { Title } = Typography;
 const WelfarePackSelection = (props) => {
@@ -39,6 +26,9 @@ const WelfarePackSelection = (props) => {
       welfarepack: e.target.value,
       credits: e.target.credits,
     });
+
+    localStorage.setItem("welfarePack", e.target.value);
+    localStorage.setItem("credits", credits);
   }
 
   return (
@@ -53,14 +43,13 @@ const WelfarePackSelection = (props) => {
             },
           ]}
         >
-          <div id="welfarecard" class="flex place-content-center">
+          <div id="welfarecard" class="flex justify-center">
             {WelfarePack.map((data) => {
               return (
-                <div class="p-8">
+                <div class="p-8 text-center">
                   <Radio.Group
                     onChange={(e) => onChange(e, data.credits)}
                     value={value}
-                    class=""
                   >
                     <Radio.Button
                       value={data.welfarePack}
@@ -69,41 +58,41 @@ const WelfarePackSelection = (props) => {
                     >
                       <Card
                         bordered={true}
-                        id={data.id}
+                        // id={data.id}
                         title={
-                          <Title level={2} class="cardtitle">
-                            {data.welfarePack}
-                          </Title>
+                          <Title class="cardtitle">{data.welfarePack}</Title>
                         }
                         hoverable={true}
-                        style={{ textAlign: "center", margin: "2%" }}
+                        style={{ margin: "2%" }}
                         class="h-72 "
                       >
                         <div>
-                          <div class="h-10">
-                            <p class="font-bold text-center text-blue-800">
-                              Package Content
-                            </p>
+                          <div class=" text-semibold text-center text-blue-800 flex justify-center">
+                            <p class="mr-2">📦</p>
+                            <p>Package Content</p>
                           </div>
 
                           {data.packContent.map((item) => (
-                            <div class="h-33  font-sans text-xs ">
-                              <p class="h-11 m-1 py-1 ">{item.item1}</p>
-                              <p class="h-11 m-1 py-1 ">{item.item2}</p>
-                              <p class="h-11 m-1 py-1 ">{item.item3}</p>
+                            <div class="h-33  font-sans  ">
+                              <p>{item.item1}</p>
+                              <p>{item.item2}</p>
+                              <p>{item.item3}</p>
                             </div>
                           ))}
-
-                          <Divider />
-
-                          <p class="font-bold text-center text-blue-800">
+                          <div class=" text-semibold text-center text-blue-800 flex justify-center">
+                            <p class="mr-2">🚚</p>
+                            <p>Delivery Details</p>
+                          </div>
+                          <p class=" font-lg font-sans ">
                             {data.dispatchedDay}
                           </p>
                           <Divider />
-                          <p class="font-semibold text-center  ">
-                            <DollarCircleFilled class="inline-flex text-xl text-yellow-500" />{" "}
-                            {data.credits} Credits
-                          </p>
+
+                          <div class=" ">
+                            <p class="mr-2 text-gray-600">You need to pay</p>
+                            <p class="text-xl"> {data.credits} Credits </p>
+                          </div>
+                          <Divider />
                         </div>
                       </Card>
                     </Radio.Button>
@@ -114,16 +103,12 @@ const WelfarePackSelection = (props) => {
           </div>
         </Form.Item>
 
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-          class="text-center"
-        >
-          <Button type="primary" htmlType="submit">
-            Next
-          </Button>
+        <Form.Item>
+          <div class="text-center">
+            <Button type="primary" htmlType="submit">
+              Next
+            </Button>
+          </div>
         </Form.Item>
       </Form>
     </div>

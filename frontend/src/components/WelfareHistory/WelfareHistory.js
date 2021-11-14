@@ -100,7 +100,15 @@ class WelfareHistory extends React.Component {
               <Popover
                 content={
                   <>
-                    <a onClick={() => this.handleDelete(record.key)}>Cancel Order</a>
+                    <Popconfirm
+                      title="Are you sure to delete this order?"
+                      onConfirm={()=>this.handleDelete(record.key)}
+                      okText="Yes"
+                      cancelText="No"
+                    >
+                      <a>Cancel Order</a>
+                    </Popconfirm>
+                    {/* <a onClick={() => this.handleDelete(record.key)}>Cancel Order</a> */}
                     <br></br>
                     <a onClick={() => this.show(record)}>View Details</a>
                     <br></br>

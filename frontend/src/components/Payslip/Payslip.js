@@ -105,8 +105,9 @@ function getPayslipData(start, end) {
     },
     interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
   };
-
 }
+
+getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
 
 function disabledDate(current) {
   return current && current > moment().startOf('month');
@@ -118,8 +119,6 @@ function useForceUpdate(){
 }
 
 const Payslip = () => {
-    
-getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
 
   const onChange = (value, dateString) => {
     rangeStart = value[0]?.format('YYYY-MM')
