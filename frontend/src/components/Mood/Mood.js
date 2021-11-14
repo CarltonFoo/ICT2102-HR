@@ -6,13 +6,16 @@ import ReactTooltip from 'react-tooltip';
 import { updateMood } from "../../api/index.js";
 import EmployeesJSON from "../../data/employees.json";
 
+// unselected icons
 const customIcons = [
   <FrownOutlined style={{ fontSize: 40 }} />,
   <MehOutlined style={{ fontSize: 40 }} />,
   <SmileOutlined style={{ fontSize: 40 }} />,
 ]
 
+// selected icons
 const customIconsFilled = [
+  <SmileOutlined style={{ fontSize: 40 }} />,
   <FrownFilled style={{ fontSize: 40 }} />,
   <MehFilled style={{ fontSize: 40 }} />,
   <SmileFilled style={{ fontSize: 40 }} />,
@@ -27,21 +30,27 @@ const customMessage = [
 var userSess, userData;
 
 class Mood extends React.Component {
+
   componentDidMount() {
-    userSess = sessionStorage.getItem("user")
-    userData = EmployeesJSON[userSess.username]
+    userSess = JSON.parse(sessionStorage.getItem("user"))
+    userData = EmployeesJSON[0][userSess.username]
+    this.setState({smileyFace: EmployeesJSON[0][userSess.username].mood})
+    console.log(this.state.smileyFace)
   }
 
-  state = {
-    isActive: false,
-    smileyFace: customIcons[2],
-    selectedUsernameKey: []
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: EmployeesJSON,
+      isActive: false,
+      smileyFace: 0,
+      selectedMood: []
+    };
+  }
+  
   handleShow = () => {
     this.setState({ isActive: true });
-    console.log(userData, userSess);
-    console.log(EmployeesJSON);
+    console.log("test" + EmployeesJSON[0][userSess.username].mood)
   };
 
   handleHide = () => {
@@ -49,19 +58,6 @@ class Mood extends React.Component {
   };
 
   handleSelect = async(i) => {
-    const selectedKey = [...this.state.selectedMood];
-    console.log("selectedMood: ", i);
-    const res1 = await updateMood(selectedKey);
-    console.log("line 45");
-    console.log("res1", res1);
-    if (res1.status === 200) {
-      console.log("status 200");
-  }
-  else {
-    // if no items selected
-    return "Please select items to approve.";
-  }
-
     this.setState({ isActive: false, smileyFace: customIconsFilled[i] });
     this.setState({ selectedMood: i })
     message.open({
@@ -75,6 +71,19 @@ class Mood extends React.Component {
         color: '#f9a825'
       },
     });
+
+    const selectedKey = [i+1, userSess.username];
+    console.log("selectedMood: ", i);
+    const res1 = await updateMood(selectedKey);
+    console.log("res1", res1);
+    if (res1.status === 200) {
+      console.log("status 200");
+    }
+    else {
+      // if no items selected
+      return "Please select items to approve.";
+    }
+
   };
 
   // handleSelect = (i) => {
@@ -135,7 +144,7 @@ class Mood extends React.Component {
             <button class="bg-yellow-300 hover:bg-yellow-500 text-black text-center rounded-full h-14 w-14 items-center shadow"
               style={{ cursor: 'select', position: 'absolute', bottom: 20, right: 42, zIndex: 1, color: '#000000' }}
               onClick={this.handleShow} data-tip data-for="moodPrompt">
-              {this.state.smileyFace}
+              {customIconsFilled[this.state.smileyFace]}
             </button>
           </div>
         )}

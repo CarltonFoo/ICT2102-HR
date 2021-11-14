@@ -1,19 +1,14 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from "react-router-dom";
-import ReactTooltip from 'react-tooltip';
-import Modal from 'react-modal';
-import { Space, Popconfirm, Form, Input, Tooltip, Popover, Tag, Table, Button } from "antd";
+import React from 'react';
+import { Space, Form, Input, Popconfirm, Popover, Tag, Table, Button } from "antd";
 import historydata from "../../data/gifthistory.json";
-import { getComponentController } from "@antv/g2/lib/chart/controller";
-import { InfoCircleOutlined, EyeFilled } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
-import { thisExpression } from '@babel/types';
+import { InfoCircleTwoTone } from "@ant-design/icons";
+import ReactTooltip from "react-tooltip";
+
 const { TextArea } = Input;
 /*Library*/
 const EditableContext = React.createContext(null);
-
 
 class WelfareHistory extends React.Component {
   constructor(props) {
@@ -28,7 +23,6 @@ class WelfareHistory extends React.Component {
       recordData: null,
       recordMsg: null,
     };
-
 
     this.columns = [
       {
@@ -55,30 +49,16 @@ class WelfareHistory extends React.Component {
       },
       {
         // title: "Status",
-        //tooltip
+        // tooltip
         title: () => {
-          const text = (
-            <>
-              <p>"Pending Approval" - Waiting on HR approval</p>
-              <p>“Approved” - HR approved, preparing to send out</p>
-              <p>“Sent out” - Welfare Package had been dispatched</p>
-            </>
-          );
           return (
             <>
               Status
-              <Tooltip placement="top" title={text}>
-                <InfoCircleOutlined
-                  style={{
-                    fontSize: "16px",
-                    position: "relative",
-                    left: "3px",
-                    bottom: "",
-                  }}
-                >
-                  Top
-                </InfoCircleOutlined>
-              </Tooltip>
+              <div data-html="true" data-tip=" &#34;Pending Approval&#34; - Waiting on HR approval <br />
+              &#34;Approved&#34; - HR approved, preparing to send out <br />
+              &#34;Sent out&#34; - Welfare Package had been dispatched" class="inline">
+                <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+              </div>
             </>
           );
         },
@@ -317,7 +297,13 @@ class WelfareHistory extends React.Component {
     });
     return (
       <div class="m-auto w-11/12">
-        <p class="text-2xl font-bold my-6">Welfare History</p>
+        <div class="text-2xl font-bold my-6">
+          Welfare History
+          <div data-tip="View all the welfare package(s) you had sent" class="inline">
+            <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+          </div>
+          <ReactTooltip place="right" effect="solid" />
+        </div>
         <Table
           pagination={{ pageSize: 5 }}
           components={components}
@@ -398,8 +384,6 @@ class WelfareHistory extends React.Component {
                   </Button>
                 </Form.Item>
               </Form>
-
-
             </>
           }
           title={<b>Edit Message</b>}

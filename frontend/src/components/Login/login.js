@@ -50,14 +50,11 @@ class FormDataComponent extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.userData = JSON.parse(sessionStorage.getItem("user"));
-    console.log(users[0])
 
     if (
       this.userData.password === users[0][this.userData.username].password
     ) {
       // Correct user credentials
-      console.log("match")
-
       this.setState({
         username: users[0][this.userData.username].username,
         password: users[0][this.userData.username].password,
