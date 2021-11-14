@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Redirect } from "react";
 // import Modal from "react-modal";
 import { Button, Divider, Modal, Image } from "antd";
 
@@ -10,7 +10,10 @@ import {
 } from "@ant-design/icons";
 import AirplaneImg from "../../assets/images/airplane.png";
 
-const handleBack = () => {};
+const handleSubmit = () => {
+  localStorage.clear();
+  return <Redirect to="/" />;
+};
 
 const WelfarePackConfirmation = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);

@@ -1,92 +1,93 @@
 [
   {
-    "username": "joyng",
-    "employeeName": "Joy Ng",
-    "position": "UXUI Designer",
-    "password": "joyng",
-    "role": "employee",
-    "department": "Team A",
-    "mood": 0
-  },
-  {
-    "username": "celinefoo",
-    "employeeName": "Celine Foo",
-    "position": "Process Manager",
-    "password": "celinefoo",
-    "role": "employee",
-    "department": "Team B",
-    "mood": 0
-  },
-  {
-    "username": "jennychan",
-    "employeeName": "Jenny Chan",
-    "position": "Process Manager",
-    "password": "jennychan",
-    "role": "employee",
-    "department": "Team C",
-    "mood": 0
-  },
-  {
-    "username": "mohammadfauzi",
-    "employeeName": "Mohammad Fauzi",
-    "position": "UXUI Designer",
-    "password": "mohammadfauzi",
-    "role": "employee",
-    "department": "Team D",
-    "mood": 0
-  },
-  {
-    "username": "celineang",
-    "employeeName": "Celine Ang",
-    "position": "Process Manager",
-    "password": "celinefoo",
-    "role": "employee",
-    "department": "Team E",
-    "mood": 0
-  },
-  {
-    "username": "savvipragi",
-    "employeeName": "Savvi Pragi",
-    "position": "Business Analytics Manager",
-    "password": "celinefoo",
-    "role": "employee",
-    "department": "Team F",
-    "mood": 0
-  },
-  {
-    "username": "joeychua",
-    "employeeName": "Joey Chua",
-    "position": "UXUI Designer",
-    "password": "joeychua",
-    "role": "employee",
-    "department": "Team G",
-    "mood": 0
-  },
-  {
-    "username": "junkiat",
-    "employeeName": "Junkiat",
-    "position": "Software Engineer",
-    "password": "junkiat",
-    "role": "employee",
-    "department": "Team H",
-    "mood": 0
-  },
-  {
-    "username": "carltonfoo",
-    "employeeName": "Carlton Foo",
-    "position": "Software Engineer",
-    "password": "foofoo",
-    "role": "employee",
-    "department": "Team I",
-    "mood": 0
-  },
-  {
-    "username": "bellesim",
-    "employeeName": "Belle Sim",
-    "position": "HR Manager",
-    "password": "beierbeier",
-    "role": "manager",
-    "department": "Team J",
-    "mood": 0
+    "joyng": {
+      "username": "joyng",
+      "employeeName": "Joy Ng",
+      "position": "UXUI Designer",
+      "password": "joyng",
+      "role": "employee",
+      "department": "Team A",
+      "mood": 0
+    },
+    "celinefoo": {
+      "username": "celinefoo",
+      "employeeName": "Celine Foo",
+      "position": "Process Manager",
+      "password": "celinefoo",
+      "role": "employee",
+      "department": "Team B",
+      "mood": 0
+    },
+    "jennychan": {
+      "username": "jennychan",
+      "employeeName": "Product Manager",
+      "password": "jennychan",
+      "role": "employee",
+      "department": "Team C",
+      "mood": 0
+    },
+    "mohammadfauzi": {
+      "username": "mohammadfauzi",
+      "employeeName": "Mohammad Fauzi",
+      "position": "UXUI Designer",
+      "password": "mohammadfauzi",
+      "role": "employee",
+      "department": "Team D",
+      "mood": 0
+    },
+    "celineang": {
+      "username": "celineang",
+      "employeeName": "Celine Ang",
+      "position": "Process Manager",
+      "password": "celinefoo",
+      "role": "employee",
+      "department": "Team E",
+      "mood": 0
+    },
+    "savvipragi": {
+      "username": "savvipragi",
+      "employeeName": "Savvi Pragi",
+      "position": "Business Analytics Manager",
+      "password": "celinefoo",
+      "role": "employee",
+      "department": "Team F",
+      "mood": 0
+    },
+    "joeychua": {
+      "username": "joeychua",
+      "employeeName": "Joey Chua",
+      "position": "UXUI Designer",
+      "password": "joeychua",
+      "role": "employee",
+      "department": "Team G",
+      "mood": 0
+    },
+    "junkiat": {
+      "username": "junkiat",
+      "employeeName": "Junkiat",
+      "position": "Software Engineer",
+      "password": "junkiat",
+      "role": "employee",
+      "department": "Team H",
+      "mood": 0
+    },
+    "carltonfoo": {
+      "username": "carltonfoo",
+      "employeeName": "Carlton Foo",
+      "position": "Software Engineer",
+      "password": "foofoo",
+      "role": "employee",
+      "department": "Team I",
+      "mood": 0
+    },
+    "bellesim": {
+      "username": "bellesim",
+      "employeeName": "Belle Sim",
+      "position": "HR Manager",
+      "password": "beierbeier",
+      "role": "manager",
+      "department": "Team J",
+      "mood": 0
+    }
   }
 ]

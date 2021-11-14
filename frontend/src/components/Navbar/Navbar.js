@@ -93,10 +93,20 @@ const Navbar = (props) => {
                 Dashboard
                 <Link to="/" />
               </Menu.Item>
-              <Menu.Item key="welfare" icon={<GiftOutlined />}>
-                Welfare
-                <Link to="/welfare" />
-              </Menu.Item>
+              <SubMenu title="Welfare" key="welfare" icon={<GiftOutlined />}>
+                <Menu.Item
+                  key="welfare"
+                  icon={<GiftOutlined />}
+                >
+                  Request Welfare Gift
+                  <Link to="/welfare" />
+                </Menu.Item>
+                <Menu.Item key="history" icon={<HistoryOutlined />}>
+                  Welfare History
+                  <Link to="/history" />
+                </Menu.Item>
+
+              </SubMenu>
               <Menu.Item key="payslip" icon={<DollarOutlined />}>
                 Payslip
                 <Link to="payslip" />
@@ -105,13 +115,10 @@ const Navbar = (props) => {
                 Availability
                 <Link to="/availability" />
               </Menu.Item>
-              <Menu.Item key="history" icon={<HistoryOutlined />}>
-                Welfare History
-                <Link to="/history" />
-              </Menu.Item>
+
               {sessionStorage.getItem("position") === "HR Manager" ? (
                 <SubMenu
-                  title="Manage(FOR HR VIEW)"
+                  title="Manage Orders"
                   icon={<AppstoreOutlined />}
                   key="hrmanage"
                 >

@@ -29,3 +29,16 @@ export const updateMood = (key) => {
   return API.put("/employeeMood", key, config);
 };
 
+export const updateWelfareRequest = (key) => {
+  console.log("key", key);
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  return API.put("/welfareRequest", key, config);
+};
+
+
+

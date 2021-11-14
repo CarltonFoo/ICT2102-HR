@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 const approvalRoute = require("./routers/approval");
 const employeeRoute = require("./routers/employees");
+const requestRoute = require("./routers/employees");
 
 app.use(express.json());
 app.use(cors());
@@ -13,6 +14,8 @@ app.get("/", (req, res) => res.send("API running..."));
 //custom route
 app.use("/api/welfareApproval", approvalRoute);
 app.use("/api/employeeMood", employeeRoute);
+app.use("/api/welfareRequest", requestRoute);
+
 
 const PORT = process.env.PORT || 5000;
 

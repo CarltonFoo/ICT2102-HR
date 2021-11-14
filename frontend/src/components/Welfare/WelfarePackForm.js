@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import Card from "../Shared/Card.js";
-import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
+import { Steps } from "antd";
 import WelfarePackSelection from "./WelfarePackSelection";
 import WelfarePackMessage from "./WelfarePackMessage";
 import WelfarePackConfirmation from "./WelfarePackConfirmation";
-const { Option } = Select;
-const { TextArea } = Input;
+
 const { Step } = Steps;
 
 const WelfarePackForm = (props) => {
@@ -40,8 +38,6 @@ const WelfarePackForm = (props) => {
   function prev() {
     const newCurrent = current - 1;
     setCurrent(newCurrent);
-
-   
   }
   //go next step
   function next() {
@@ -56,9 +52,9 @@ const WelfarePackForm = (props) => {
     });
   };
 
-  const onSelectPack = (packName) => {
-    alert("welfare pack name" + packName);
-  };
+  // const onSelectPack = (packName) => {
+  //   localStorage.getItem("welfarepack", props.welfarepack);
+  // };
 
   return (
     <div>
@@ -73,7 +69,6 @@ const WelfarePackForm = (props) => {
           {...fields}
           next={next}
           onChange={handleFormChange}
-          onSelectPack={onSelectPack}
         />
       )}
 
@@ -89,6 +84,6 @@ const WelfarePackForm = (props) => {
       {current === 2 && <WelfarePackConfirmation {...fields} prev={prev} />}
     </div>
   );
-};;
+};
 
 export default WelfarePackForm;
