@@ -18,12 +18,9 @@
 
 
 .ant-radio-button-wrapper:first-child:last-child{
-  border-radius: 10px;
   height: 100%;
   width: auto;
-  margin: 5px;
   padding: 0%;
-  align-items: center;
   border: none;
   /* background-color:rgb(218, 225, 232); */
   
