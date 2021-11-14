@@ -9,7 +9,7 @@ import { Card, Button, Form, Radio, Typography, Divider } from "antd";
 const { Title } = Typography;
 const WelfarePackSelection = (props) => {
   const [form] = Form.useForm();
-  const [value, setValue, packdata] = React.useState(0);
+  const [value, setValue] = React.useState(0);
 
   const onFinish = (fieldsValue) => {
     const formData = form.getFieldsValue(true);
@@ -29,7 +29,6 @@ const WelfarePackSelection = (props) => {
 
     localStorage.setItem("welfarePack", e.target.value);
     localStorage.setItem("credits", credits);
-
   }
 
   return (

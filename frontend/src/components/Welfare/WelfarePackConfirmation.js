@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
-import ReactTooltip from "react-tooltip";
+import React, { useState } from "react";
 // import Modal from "react-modal";
-import WelfarePack from "../../data/welfare.json";
-import { Button, Divider } from "antd";
-import Table from "rc-table/lib/Table";
+import { Button, Divider, Modal, Image } from "antd";
 
-import { GiftOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
+import {
+  GiftOutlined,
+  UserOutlined,
+  HomeOutlined,
+  MailOutlined,
+} from "@ant-design/icons";
+import AirplaneImg from "../../assets/images/airplane.png";
 
 const handleBack = () => {};
 
@@ -67,9 +68,16 @@ const WelfarePackConfirmation = (props) => {
         </div>
       </div>
       <div>
-        <div class="text-center  pt-12  ">
-          <h3 class="text-gray-400">Message </h3>
-          <p class="">{props.message.value} </p>
+        <div class="flex justify-evenly pr-16">
+          <div class="text-center  pt-12 flex  ">
+            <div class="w-12 h-12 bg-blue-200 rounded-full text-center text-2xl text-blue-800">
+              <MailOutlined />
+            </div>
+            <div class="pl-8">
+              <h3 class="text-gray-400">Message </h3>
+              <p class="">{props.message.value} </p>
+            </div>
+          </div>
         </div>
       </div>
       <div>
@@ -77,9 +85,24 @@ const WelfarePackConfirmation = (props) => {
           <Button type="primary" onClick={props.prev}>
             Back
           </Button>
-          <Button type="primary" htmlType="submit">
-            Confirm
+          <Button type="primary" htmlType="submit" onClick={showModal}>
+            Send
           </Button>
+
+          <Modal
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <p class="text-center text-2xl font-semibold mt-10 pt-2">
+              Preparing to send out the welfare pack
+            </p>
+            <Image class="content-center w-20 h-20" src={AirplaneImg} />
+            <p class="text-center text-blue-800 text-xl font-semibold mt-12 pt-1">
+              We're glad you've sent a welfare pack out your peers! It will be
+              reviewed by the HR first
+            </p>
+          </Modal>
         </div>
       </div>
     </div>
