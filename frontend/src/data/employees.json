@@ -5,7 +5,8 @@
     "position": "UXUI Designer",
     "password": "joyng",
     "role": "employee",
-    "department": "Team A"
+    "department": "Team A",
+    "mood": 0
   },
   {
     "username": "celinefoo",
@@ -13,14 +14,16 @@
     "position": "Process Manager",
     "password": "celinefoo",
     "role": "employee",
-    "department": "Team B"
+    "department": "Team B",
+    "mood": 0
   },
   {
     "username": "jennychan",
     "employeeName": "Product Manager",
     "password": "jennychan",
     "role": "employee",
-    "department": "Team C"
+    "department": "Team C",
+    "mood": 0
   },
   {
     "username": "mohammadfauzi",
@@ -28,7 +31,8 @@
     "position": "UXUI Designer",
     "password": "mohammadfauzi",
     "role": "employee",
-    "department": "Team D"
+    "department": "Team D",
+    "mood": 0
   },
   {
     "username": "celineang",
@@ -36,7 +40,8 @@
     "position": "Process Manager",
     "password": "celinefoo",
     "role": "employee",
-    "department": "Team E"
+    "department": "Team E",
+    "mood": 0
   },
   {
     "username": "savvipragi",
@@ -44,7 +49,8 @@
     "position": "Business Process Manager",
     "password": "celinefoo",
     "role": "employee",
-    "department": "Team F"
+    "department": "Team F",
+    "mood": 0
   },
   {
     "username": "joeychua",
@@ -52,7 +58,8 @@
     "position": "UXUI Designer",
     "password": "joeychua",
     "role": "employee",
-    "department": "Team G"
+    "department": "Team G",
+    "mood": 0
   },
   {
     "username": "junkiat",
@@ -60,7 +67,8 @@
     "position": "Software Engineer",
     "password": "junkiat",
     "role": "employee",
-    "department": "Team H"
+    "department": "Team H",
+    "mood": 0
   },
   {
     "username": "carltonfoo",
@@ -68,7 +76,8 @@
     "position": "Software Engineer",
     "password": "foofoo",
     "role": "employee",
-    "department": "Team I"
+    "department": "Team I",
+    "mood": 0
   },
   {
     "username": "bellesim",
@@ -76,6 +85,7 @@
     "position": "HR Manager",
     "password": "beierbeier",
     "role": "manager",
-    "department": "Team J"
+    "department": "Team J",
+    "mood": 0
   }
 ]
