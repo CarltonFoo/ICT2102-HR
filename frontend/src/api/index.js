@@ -17,15 +17,15 @@ export const removeWelfareRequest = (arr) => {
   return API.put("/welfareApproval", arr, config);
 };
 
-// export const updateStock = (giftCountArr) => {
-//   // const body = JSON.stringify({ key });
-//   //managed to get the key
-//   console.log("@giftCountArrupdateStock()",giftCountArr);
-//   const config = {
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   };
 
-//   return API.put("/welfareApproval", giftCountArr, config);
-// };
+export const updateMood = (key) => {
+  console.log("key", key);
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  return API.put("/employeeMood", key, config);
+};
+

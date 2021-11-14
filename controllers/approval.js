@@ -17,6 +17,7 @@ exports.removeWelfareRequest = async (req, res) => {
 
     // const parsedData = JSON.parse(data);
     // console.log("parsedJSON", parsedData);
+
     // console.log("=====data====,",data);
     // console.log("=====enddata=====");
     var reqBody = Object.values(req.body)
@@ -27,6 +28,8 @@ exports.removeWelfareRequest = async (req, res) => {
     // console.log("reqBody@controller", req.body.selectedKeys);
     // console.log("=====req.body.selectedKeysEnd====,");
     // console.log("body", typeof reqBody);
+
+
     // console.log("params", req.params);
     const updatedData = data.filter(
       (e) => (!req.body.selectedKeys.includes(e.key))

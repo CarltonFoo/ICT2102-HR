@@ -24,18 +24,20 @@
   margin: 5px;
   padding: 0%;
   align-items: center;
-  background-color:rgb(218, 225, 232);
+  border: none;
+  /* background-color:rgb(218, 225, 232); */
   
 }
 .ant-radio-button-wrapper-checked:not([class*=' ant-radio-button-wrapper-disabled']).ant-radio-button-wrapper:first-child{
-  /* background-color:rgb(135, 196, 253); */
+  /* background-color:#1E40AF; */
   /* background-color:rgb(79, 110, 182); */
   border-color: rgb(100, 148, 252);
   border-right-color: rgba(100, 148, 252);
-  border-width: 0px;
+  border: none;
+  background: linear-gradient(0deg, rgba(41,192,244,0.9920343137254902) 11%, rgba(49,133,255,1) 63%);
   /* background-image: linear-gradient(to bottom right, rgb(194, 37, 37), yellow); */
-  background: linear-gradient(0deg, rgba(244,197,41,1) 2%, rgba(97,232,192,1) 68%);
-  
+  /* background: linear-gradient(0deg, rgba(244,197,41,1) 2%, rgba(97,232,192,1) 68%); */
+  background: linear-gradient(0deg, rgba(41,192,244,0.9920343137254902) 0%, rgba(44,172,248,1) 22%, rgba(49,133,255,1) 56%, rgba(43,181,246,1) 92%);
 
 }
 
@@ -60,11 +62,11 @@
 } */
 
 #mondays-blue .ant-card-head {
-    background-color: rgba(178, 224, 255, 1);
+    /* background-color: rgba(178, 224, 255, 1); */
   }
 
   #mondays-blue .ant-card-body {
-    background-color: rgba(218, 225, 232, 0.65);
+    /* background-color: rgba(218, 225, 232, 0.65); */
   }
 
 
