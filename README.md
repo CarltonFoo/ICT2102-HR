@@ -4,6 +4,7 @@ HR Management System for ICT2102. This web application allows users to view sala
 # Tech Stack 
 **Frontend:** ReactJS  
 **Backend:** NodeJS  
+**Libraries:** Ant Design, Tailwind CSS  
 
 ## Project Setup
 Install packages in both client and server folders. Run `npm install` in root folder.
