@@ -3,7 +3,8 @@ import Tween from 'rc-tween-one';
 import { message, Button, Tooltip } from 'antd';
 import { FrownOutlined, FrownFilled, MehOutlined, MehFilled, SmileOutlined, SmileFilled, CloseOutlined } from '@ant-design/icons';
 import ReactTooltip from 'react-tooltip';
-
+import { updateMood } from "../../api/index.js";
+import EmployeesJSON from "../../data/employees.json";
 
 const customIcons = [
   <FrownOutlined style={{ fontSize: 40 }} />,
@@ -23,40 +24,91 @@ const customMessage = [
   "happy!"
 ]
 
+var userSess, userData;
+
+
+
 class Mood extends React.Component {
+  componentDidMount() {
+    userSess = sessionStorage.getItem("user")
+    userData = EmployeesJSON[userSess.username]
+  }
+
   state = {
     isActive: false,
-    smileyFace: customIcons[2]
+    smileyFace: customIcons[2],
+    selectedUsernameKey: []
   };
 
   handleShow = () => {
     this.setState({ isActive: true });
+    console.log(userData, userSess);
+    console.log(EmployeesJSON);
   };
 
   handleHide = () => {
     this.setState({ isActive: false });
   };
 
-  handleSelect = (i) => {
+  handleSelect = async(i) => {
+    const selectedKey = [...this.state.selectedMood];
+    console.log("selectedMood: ", i);
+    const res1 = await updateMood(selectedKey);
+    console.log("line 45");
+    console.log("res1", res1);
+    if (res1.status === 200) {
+      console.log("status 200");
+  }
+  else {
+    // if no items selected
+    return "Please select items to approve.";
+  }
+
     this.setState({ isActive: false, smileyFace: customIconsFilled[i] });
+    this.setState({ selectedMood: i })
     message.open({
       content: 'Feeling ' + customMessage[i],
       duration: 3,
       icon: customIcons[i],
       className: "text-l font-bold my-4",
       style: {
-        marginTop: '10vh',
+        marginTop: '10vh', 
         alignContent: 'center',
         color: '#f9a825'
       },
     });
   };
 
+  // handleSelect = (i) => {
+  //   this.setState({ isActive: false, smileyFace: customIconsFilled[i] });
+  //   this.setState({ selectedMood: i })
+  //   message.open({
+  //     content: 'Feeling ' + customMessage[i],
+  //     duration: 3,
+  //     icon: customIcons[i],
+  //     className: "text-l font-bold my-4",
+  //     style: {
+  //       marginTop: '10vh',
+  //       alignContent: 'center',
+  //       color: '#f9a825'
+  //     },
+  //   });
+  // };
+
+  // getSelectedMood = async () => {
+  //     const selectedKey = [...this.state.selectedMood];
+  //     console.log("selectedMood: ", selectedKey);
+  //     const res1 = await updateMood(selectedKey);
+  //     console.log("res1", res1);
+  //     if (res1.status === 200) {
+  //       console.log("status 200");
+  //   }
+  // };
+
   render() {
     return (
       <div>
           <div>
-            {/* // ask what tailwind color */}
             <button class="bg-yellow-300 hover:bg-yellow-500 text-black text-center rounded-full h-14 w-14 items-center shadow-xl"
               style={{ cursor: 'pointer', position: 'absolute', bottom: 20, right: 42, zIndex: 1 }}
               onClick={this.handleHide}  data-tip data-for="close"><CloseOutlined style={{ fontSize: 28 }}></CloseOutlined></button>
@@ -88,7 +140,6 @@ class Mood extends React.Component {
               {this.state.smileyFace}
             </button>
           </div>
-
         )}
       </div >);
   }

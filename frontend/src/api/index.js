@@ -15,3 +15,13 @@ export const removeWelfareRequest = (key) => {
   return API.put("/welfareApproval", key, config);
 };
 
+export const updateMood = (key) => {
+  console.log("key", key);
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  return API.put("/mood", key, config);
+};
