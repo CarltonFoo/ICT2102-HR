@@ -13,7 +13,7 @@ exports.removeWelfareRequest = async (req, res) => {
     // const parsedData = JSON.parse(data);
     // console.log("parsedJSON", parsedData);
     console.log("body", req.body);
-    var reqBody = Object.values(req.body)
+    var reqBody = Object.values(req.body);
     console.log("body", typeof reqBody);
     // console.log("params", req.params);
     const updatedData = data.filter(
