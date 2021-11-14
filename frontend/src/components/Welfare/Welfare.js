@@ -22,7 +22,7 @@ const Welfare = () => {
       <div>
       <div class="text-2xl font-bold my-6">
       Send a Welfare Pack          
-          <div data-tip="You will have 200 credits each quarter. It will be deducted automatically." class="inline">
+          <div data-tip="You will have 200 credits each quarter &amp; it will be deducted automatically" class="inline">
             <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
           </div>
           <ReactTooltip place="right" effect="solid" />

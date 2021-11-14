@@ -1,11 +1,8 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import { Link } from "react-router-dom";
-import ReactTooltip from 'react-tooltip';
-import Modal from 'react-modal';
-import {Tag, Table, Button, Card, Col, Row } from "antd";
+import {Tag, Table, Card, Col, Row } from "antd";
 import inventoryData from "../../data/inventory.json";
-import { getComponentController } from "@antv/g2/lib/chart/controller";
+import ReactTooltip from "react-tooltip";
+import { InfoCircleTwoTone } from "@ant-design/icons";
 
 const columns = [
   {
@@ -78,7 +75,13 @@ const WelfareInventory = () => {
         </Row>
       </div>
       <div class="m-auto w-11/12">
-        <p class="text-2xl font-bold my-6">Welfare Inventory</p>
+      <div class="text-2xl font-bold my-6">
+          Welfare Inventory
+          <div data-tip="View each welfare pack in stock &amp; quantity" class="inline">
+            <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+          </div>
+          <ReactTooltip place="right" effect="solid" />
+          </div>
         <Table columns={columns} dataSource={inventoryData} pagination={{pageSize:5}}/>
       </div>
     </div>

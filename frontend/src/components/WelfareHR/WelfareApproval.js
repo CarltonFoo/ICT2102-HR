@@ -1,9 +1,7 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
-import Modal from 'react-modal';
-import { Popover,Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
+import { InfoCircleTwoTone } from "@ant-design/icons";
+import { Popover, Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
 import approvalData from "../../data/approval.json";
 import inventoryData from "../../data/inventory.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
@@ -65,19 +63,19 @@ class WelfareApproval extends React.Component {
       var _ = require('underscore')
       var countArr = _.countBy(temp, function (temp) { return temp.gifttype });
       countArr.selectedKeys = selectedKey;
-      console.log("countArr",countArr);
+      console.log("countArr", countArr);
       removeWelfareRequest(countArr);
     } else {
       // if no items selected
       return "Please select items to approve.";
     }
   };
-  getSelectedPackages = (key) =>{
+  getSelectedPackages = (key) => {
     const dataSource = [...this.state.dataSource];
     var temp = [];
-    
+
     //if items are selected 
-    if (typeof this.state.selectedRowKeys !== 'undefined'){
+    if (typeof this.state.selectedRowKeys !== 'undefined') {
       temp = dataSource.filter(item => this.state.selectedRowKeys.includes(item.key));
       // console.log("selectedPackagesArr: ",temp);
       var giftText = ""
@@ -86,18 +84,18 @@ class WelfareApproval extends React.Component {
       //   giftText = giftText + "Gift type no: "+ i + " , "+ temp[i].gifttype + '\n';
       // }
       var _ = require('underscore')
-      var countArr = _.countBy(temp, function(temp) { return temp.gifttype });
+      var countArr = _.countBy(temp, function (temp) { return temp.gifttype });
 
-      for(var giftname in countArr){
+      for (var giftname in countArr) {
         giftText = giftText + countArr[giftname] + " x " + giftname + "\n";
       }
 
       if (giftText == "") return "Please select items to approve."
       return giftText;
     }
-    else{
+    else {
       // if no items selected
-    return "Please select items to approve."
+      return "Please select items to approve."
     }
   }
   handleDelete = () => {
@@ -106,7 +104,7 @@ class WelfareApproval extends React.Component {
     // console.log("datasource:", dataSource);
     // console.log("selectedRows", this.state.selectedRowKeys);
     //error check ensure selectedkeys initialized
-    
+
     if (typeof this.state.selectedRowKeys !== 'undefined') {
 
       const selectedKey = [...this.state.selectedRowKeys];
@@ -114,24 +112,24 @@ class WelfareApproval extends React.Component {
       // storing gift type+ count 
       var _ = require('underscore')
       var countArr = _.countBy(temp, function (temp) { return temp.gifttype });
-      
+
       //  ensure sufficient in stock.
       const inventory = inventoryData;
-      for (var giftname in countArr){
-          //iterate through inventoryJSON objs
-          for(var item in inventory){
-            // console.log("gift type "+key+ " count: "+req.body[key])
-            if(inventory[item].name == giftname){
+      for (var giftname in countArr) {
+        //iterate through inventoryJSON objs
+        for (var item in inventory) {
+          // console.log("gift type "+key+ " count: "+req.body[key])
+          if (inventory[item].name == giftname) {
 
-              var updatedCount = inventory[item].instock - countArr[giftname];
-              if (updatedCount < 0){
-                alert("Ensure sufficient stock for : " + giftname);
-                //end flow if error, should work on ui
-                return;
-              }
+            var updatedCount = inventory[item].instock - countArr[giftname];
+            if (updatedCount < 0) {
+              alert("Ensure sufficient stock for : " + giftname);
+              //end flow if error, should work on ui
+              return;
             }
           }
-        
+        }
+
       }
       // - error check end
       this.setState({
@@ -139,8 +137,8 @@ class WelfareApproval extends React.Component {
           !this.state.selectedRowKeys.includes(item.key)
         ),
       });
-    //update backend json file
-    this.updateJSONdata();
+      //update backend json file
+      this.updateJSONdata();
     }
     this.hide()
   };
@@ -205,34 +203,40 @@ class WelfareApproval extends React.Component {
       ],
     };
 
-    
+
     return (
       <div class="m-auto w-11/12">
-        <p class="text-2xl font-bold my-6">Welfare Approval</p>
+        <div class="text-2xl font-bold my-6">
+          Welfare Approval
+          <div data-tip="Manage all welfare pack requests" class="inline">
+            <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+          </div>
+          <ReactTooltip place="right" effect="solid" />
+        </div>
         <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         <Popover
-        overlayInnerStyle={{textAlign:"center",whiteSpace: "pre-line",width:'60vw',height:'20vw'}}
-        content={
-        <>
-        <p class="font-bold text-center text-blue-800">Selected Gifts to approve</p>
-        <p>{this.getSelectedPackages()}</p>
-        <Button type="primary" onClick={()=>this.hide()} style={{position:"absolute",bottom:"3vw",left:"15vw"}}>Back</Button>
-        <Button type="primary"onClick={()=>this.handleDelete()}  style={{position:"absolute",bottom:"3vw",right:"15vw"}}>Approve</Button>
-        {/* <a onClick={this.handleDelete}>Approve</a> */}
-        </>
-        }
-        title={<b>Confirm Approval</b>}
-        trigger="click"
-        visible={this.state.visible}
-        onVisibleChange={this.handleVisibleChange}
-       >
-        <Button
-          style={{ margin: "0 30vw" }}
-          type="primary"
-          onClick={()=>this.getSelectedPackages()}
+          overlayInnerStyle={{ textAlign: "center", whiteSpace: "pre-line", width: '60vw', height: '20vw' }}
+          content={
+            <>
+              <p class="font-bold text-center text-blue-800">Selected Gifts to approve</p>
+              <p>{this.getSelectedPackages()}</p>
+              <Button type="primary" onClick={() => this.hide()} style={{ position: "absolute", bottom: "3vw", left: "15vw" }}>Back</Button>
+              <Button type="primary" onClick={() => this.handleDelete()} style={{ position: "absolute", bottom: "3vw", right: "15vw" }}>Approve</Button>
+              {/* <a onClick={this.handleDelete}>Approve</a> */}
+            </>
+          }
+          title={<b>Confirm Approval</b>}
+          trigger="click"
+          visible={this.state.visible}
+          onVisibleChange={this.handleVisibleChange}
         >
-          Approve
-        </Button>
+          <Button
+            style={{ margin: "0 30vw" }}
+            type="primary"
+            onClick={() => this.getSelectedPackages()}
+          >
+            Approve
+          </Button>
         </Popover>
         {/* </Popconfirm> */}
       </div>

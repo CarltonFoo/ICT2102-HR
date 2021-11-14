@@ -292,7 +292,7 @@ class WelfareHistory extends React.Component {
       <div class="m-auto w-11/12">
         <div class="text-2xl font-bold my-6">
           Welfare History
-          <div data-tip="View all the welfare package(s) you had sent." class="inline">
+          <div data-tip="View all the welfare package(s) you had sent" class="inline">
             <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
           </div>
           <ReactTooltip place="right" effect="solid" />
