@@ -122,10 +122,8 @@ class Availability extends Component {
     ];
     const sortableColumns = columns.map((column) => {
       const { sorter, dataIndex, ...otherColumnProps } = column;
-
       if (sorter) {
         const { compare, ...otherSorterProps } = sorter;
-
         return {
           ...otherColumnProps,
           dataIndex,
@@ -135,18 +133,17 @@ class Availability extends Component {
           },
         };
       }
-
       return { ...otherColumnProps, dataIndex };
     });
     return (
       <div>
         <div class="m-auto w-11/12">
-                <div class="text-2xl font-bold my-6">
-          Staff Availability          
-          <div data-tip="Check your team" class="inline">
-            <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
-          </div>
-          <ReactTooltip place="right" effect="solid" />
+          <div class="text-2xl font-bold my-6">
+            Staff Availability
+            <div data-tip="Check your fellow staff availability" class="inline">
+              <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+            </div>
+            <ReactTooltip place="right" effect="solid" />
           </div>
           <Space style={{ marginBottom: 16 }}>
             <Button onClick={this.clearFilters}>Clear filters</Button>

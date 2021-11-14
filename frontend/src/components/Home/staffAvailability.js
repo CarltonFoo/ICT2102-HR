@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-import ReactTooltip from "react-tooltip";
-import Modal from "react-modal";
 import StaffAvailability from "../../data/staffAvailability.json";
-import Sort, { Sorter } from "../utils/sorter";
+import { Sorter } from "../utils/sorter";
 import { Table, Card, Row, Layout } from "antd";
-
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -14,7 +10,7 @@ var linkStyle = {
     position: 'absolute',
     bottom: 10,
     right: 10
-  }
+}
 
 class Availability extends Component {
     state = {
@@ -45,10 +41,7 @@ class Availability extends Component {
             {
                 title: "Position",
                 dataIndex: "position",
-                // filters: Filter({
-                //   StaffAvailability.map((employee) => (
-                //    employee.position
-                // ))}),
+
                 filters: [
                     {
                         text: "UXUI Designer",
@@ -61,8 +54,6 @@ class Availability extends Component {
                 ],
 
                 onFilter: (value, record) => record.position.indexOf(value) === 0,
-
-                // filters: Filter(StaffAvailability)((employee) => employee.position),
             },
             {
                 title: "Leave Start Date",
@@ -115,10 +106,8 @@ class Availability extends Component {
         ];
         const sortableColumns = columns.map((column) => {
             const { sorter, dataIndex, ...otherColumnProps } = column;
-
             if (sorter) {
                 const { compare, ...otherSorterProps } = sorter;
-
                 return {
                     ...otherColumnProps,
                     dataIndex,
@@ -128,7 +117,6 @@ class Availability extends Component {
                     },
                 };
             }
-
             return { ...otherColumnProps, dataIndex };
         });
         return (

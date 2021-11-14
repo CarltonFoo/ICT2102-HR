@@ -1,12 +1,9 @@
-import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React from "react";
 import ReactTooltip from "react-tooltip";
-import { Table, Card, Col, Row, Typography, Statistic } from "antd";
+import { Card, Col, Row, Typography, Statistic } from "antd";
 import Mood from "../Mood/Mood";
-import ReactDOM from "react-dom";
 import { InfoCircleTwoTone } from "@ant-design/icons";
 import "../../assets/css/home.css";
-import StaffAvailability from "../../data/staffAvailability.json";
 import PayslipJSON from "../../data/payslip.json";
 import SalaryBreakdown from "../Home/salaryBreakdown"
 import Availability from "./staffAvailability";
@@ -22,42 +19,12 @@ var year = currentDate.getFullYear();
 const deadline = new Date(year, month, lastday(year, month) + 1).getTime();
 //#endregion
 
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-  },
-  {
-    title: "Position",
-    dataIndex: "position",
-  },
-  {
-    title: "Leave Start Date",
-    dataIndex: "leaveStartDate",
-  },
-  {
-    title: "Leave End Date",
-    dataIndex: "leaveEndDate",
-  },
-  {
-    title: "Leave Type",
-    dataIndex: "leaveType",
-  },
-  {
-    title: "Covering Person",
-    dataIndex: "coveringPerson",
-  },
-];
-
-
-
 var cardStyle = {
   bordered: true,
   fontSize: 16,
   textAlign: 'center',
   fontWeight: 'bold',
 }
-// END Payslip
 
 const Home = () => {
   var userSess = JSON.parse(sessionStorage.getItem("user"))
@@ -73,13 +40,13 @@ const Home = () => {
     <div>
       <Mood></Mood>
       <div class="m-auto w-11/12">
-      <div class="text-2xl font-bold my-6">
-          Dashboard          
+        <div class="text-2xl font-bold my-6">
+          Dashboard
           <div data-tip="Quick overview of staff availability &amp; salary" class="inline">
             <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
           </div>
           <ReactTooltip place="right" effect="solid" />
-          </div>
+        </div>
         <div className="site-card-wrapper">
           <Row gutter={16}>
             <Col span={8}>
@@ -113,19 +80,7 @@ const Home = () => {
         <div className="site-card-wrapper">
           <Row gutter={16}>
             <Col span={16}>
-              {/* <Card
-                style={{ marginTop: 16 }}
-                type="inner"
-                title="Staff Availability"
-              > */}
-                {/* <Table
-                  style={{ marginBottom: 20 }}
-                  pagination={false}
-                  columns={columns}
-                  dataSource={StaffAvailability.slice(5, 10)}
-                /> */}
-
-<Availability></Availability>
+              <Availability></Availability>
             </Col>
             <Col span={8}>
               <SalaryBreakdown></SalaryBreakdown>
