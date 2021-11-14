@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
 import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
-import { Popover,Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
+import { Popover, Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
 import approvalData from "../../data/approval.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
 import "./approvalstyle.css";
 import { fixedBase } from "@antv/util";
-import { removeWelfareRequest } from "../../api";
+import { removeWelfareRequest, updateStock } from "../../api";
+// import { updateWelfareInventory } from "../../api";
 
 class WelfareApproval extends React.Component {
   tablerecords = [];
@@ -65,11 +66,38 @@ class WelfareApproval extends React.Component {
       // console.log("GIFT TEXT:\n", giftText);
       // if (giftText == "") return "Please select items to approve.";
       // return giftText;
-      const res1 = await removeWelfareRequest(selectedKey);
+      var temp = this.state.dataSource.filter((item) => selectedKey.includes(item.key));
+      // console.log("temp data getting approved rows",tempdata);
+      // storing gift type+ count 
+      var _ = require('underscore')
+      var countArr = _.countBy(temp, function (temp) { return temp.gifttype });
+      countArr.selectedKeys = selectedKey;
+      console.log("countArr",countArr);
+      const res1 = await removeWelfareRequest(countArr);
       console.log("res1", res1);
       if (res1.status === 200) {
         console.log("status 200");
       }
+      // Tell the browser that this function is asynchronous
+      // async function myFunc() {
+      //   // Await for the promise to resolve
+      //   await new Promise((resolve) => {
+      //     setTimeout(() => {
+      //       // Resolve the promise
+      //       resolve(removeWelfareRequest(selectedKey));
+      //     }, 3000);
+      //   });
+      //   // Once the promise gets resolved continue on
+      // }
+      // // Call the function
+      // myFunc();
+      // updateStock(countArr);
+
+      // const res2 = await updateStock(countArr);
+      // console.log("res2", res2);
+      // if (res2.status === 200) {
+      //   console.log("status 200");
+      // }
     } else {
       // if no items selected
       return "Please select items to approve.";
