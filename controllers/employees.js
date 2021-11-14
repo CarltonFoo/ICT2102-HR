@@ -1,46 +1,31 @@
-// const { Console } = require("console");
-// const fs = require("fs");
-// const Employees = require("../frontend/src/data/employees.json");
+const { Console } = require("console");
+const fs = require("fs");
+const Employees = require("../frontend/src/data/employees.json");
 
-
-
-// exports.updateMood = async (req, res) => {
-//   try {
-//     const update = {
-//       mood: req.body.mood,
-//     };
-
-//     console.log("U R IN CONTROLLER");
-//     const data = await Employees;
-//     console.log(data);
-//     update.mood = data.mood;
-//     await unlinkFile(data.path)
-
-//     const updatedMood = await Employees.findByIdAndUpdate(
-//       req.params.id,
-//       update
-//     );
-
-//     res.json({
-//       updatedData: updatedMood,
-//       message: "Successfully updated mood.",
-//     });
+exports.updateMood = async (req, res) => {
+  try {
+    console.log("----------------------------------- EMPLOYEES CONTROLLER");
+    const data = await Employees;
+    console.log(data);
+    console.log("body", req.body);
+    var reqBody = Object.values(req.body)
+    // console.log("body", typeof reqBody);
+    // const updatedData = data.filter(
+    //   (e) => (!reqBody.includes(e.key))
+    // );
 
     
-    
+  // console.log("updated data", updatedData);
 
-//     const parsedData = JSON.parse(data);
-//     console.log("parsedJSON", parsedData);
-//     console.log(req.body);
-//     console.log("params", req.params);
-//     const updatedData = approvalJSON.filter(
-//       (item) => (item.key = req.params.id)
-//     );
-//     console.log("updated data", updatedData);
-//     res.status(200).json(updatedData);
-//     return;
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Server error");
-//   }
-// };
+  // fs.writeFile('../ICT2102-HR/frontend/src/data/employees.json', JSON.stringify(updatedData), function(err, result) {
+  //   if(err) console.log('error', err);
+  // });
+
+  res.status(200);
+    return;
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
+};

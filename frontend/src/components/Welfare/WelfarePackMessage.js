@@ -13,7 +13,6 @@ const WelfareMessage = (props) => {
     localStorage.setItem("department", props.department);
     localStorage.setItem("receiver", props.receiver);
     localStorage.setItem("message", props.message.value);
-
   };
 
   return (
@@ -67,10 +66,8 @@ const WelfareMessage = (props) => {
                     })
                   }
                 >
-                  {Employees.map((employee) => (
-                    <Option value={employee.department}>
-                      {employee.department}
-                    </Option>
+                  {Object.keys(Employees).map((employee) => (
+                    <Option value={Employees[employee].department}></Option>
                   ))}
                 </Select>
               </Form.Item>
@@ -104,10 +101,8 @@ const WelfareMessage = (props) => {
                     })
                   }
                 >
-                  {Employees.map((employee) => (
-                    <Option value={employee.employeeName}>
-                      {employee.employeeName}
-                    </Option>
+                  {Object.keys(Employees).map((employee) => (
+                    <Option value={Employees[employee].employeeName}></Option>
                   ))}
                 </Select>
               </Form.Item>
