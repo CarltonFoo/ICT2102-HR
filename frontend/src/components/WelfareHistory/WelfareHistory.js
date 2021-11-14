@@ -1,7 +1,6 @@
 import React from 'react';
-import { Space, Form, Input, Tooltip, Popover, Tag, Table, Button } from "antd";
+import { Space, Form, Input, Popconfirm, Popover, Tag, Table, Button } from "antd";
 import historydata from "../../data/gifthistory.json";
-import { InfoCircleOutlined } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import { InfoCircleTwoTone } from "@ant-design/icons";
