@@ -21,6 +21,20 @@ Run both client and server applications concurrently. Run `npm run dev` in root 
 npm start dev
 ```
 
+Use the following credentials
+```
+//HR
+Username: bellesim
+Password: beierbeier
+
+//Employee
+Username: joyng 
+Password: joyng 
+
+In root folder
+npm start dev
+```
+
 ## Frontend Folder Structure
 api - api function calls
 
