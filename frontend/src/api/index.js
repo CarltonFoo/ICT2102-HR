@@ -23,5 +23,5 @@ export const updateMood = (key) => {
     },
   };
 
-  return API.put("/mood", key, config);
+  return API.put("/employeeMood", key, config);
 };

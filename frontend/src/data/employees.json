@@ -8,9 +8,7 @@
       "role": "employee",
       "department": "Team A",
       "mood": 0
-    }
-  },
-  {
+    },
     "celinefoo": {
       "username": "celinefoo",
       "employeeName": "Celine Foo",
@@ -19,9 +17,7 @@
       "role": "employee",
       "department": "Team B",
       "mood": 0
-    }
-  },
-  {
+    },
     "jennychan": {
       "username": "jennychan",
       "employeeName": "Product Manager",
@@ -29,9 +25,7 @@
       "role": "employee",
       "department": "Team C",
       "mood": 0
-    }
-  },
-  {
+    },
     "mohammadfauzi": {
       "username": "mohammadfauzi",
       "employeeName": "Mohammad Fauzi",
@@ -40,9 +34,7 @@
       "role": "employee",
       "department": "Team D",
       "mood": 0
-    }
-  },
-  {
+    },
     "celineang": {
       "username": "celineang",
       "employeeName": "Celine Ang",
@@ -51,9 +43,7 @@
       "role": "employee",
       "department": "Team E",
       "mood": 0
-    }
-  },
-  {
+    },
     "savvipragi": {
       "username": "savvipragi",
       "employeeName": "Savvi Pragi",
@@ -62,9 +52,7 @@
       "role": "employee",
       "department": "Team F",
       "mood": 0
-    }
-  },
-  {
+    },
     "joeychua": {
       "username": "joeychua",
       "employeeName": "Joey Chua",
@@ -73,9 +61,7 @@
       "role": "employee",
       "department": "Team G",
       "mood": 0
-    }
-  },
-  {
+    },
     "junkiat": {
       "username": "junkiat",
       "employeeName": "Junkiat",
@@ -84,9 +70,7 @@
       "role": "employee",
       "department": "Team H",
       "mood": 0
-    }
-  },
-  {
+    },
     "carltonfoo": {
       "username": "carltonfoo",
       "employeeName": "Carlton Foo",
@@ -95,9 +79,7 @@
       "role": "employee",
       "department": "Team I",
       "mood": 0
-    }
-  },
-  {
+    },
     "bellesim": {
       "username": "bellesim",
       "employeeName": "Belle Sim",
