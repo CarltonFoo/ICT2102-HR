@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 import { Descriptions, DatePicker, Space } from 'antd';
 import { Pie } from '@ant-design/charts';
 import moment from 'moment';
+import { InfoCircleTwoTone } from "@ant-design/icons";
 
 import "./payslip.css";
 import PayslipJSON from "../../data/payslip.json";
@@ -132,6 +133,10 @@ getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtrac
     <div class="payslipcard">
       <div class="m-auto pb-12 w-11/12">
           <p class="text-2xl font-bold my-6">Payslip</p>
+          <div data-tip="Check your payslip based on the selected month" class="inline">
+            <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+          </div>
+          <ReactTooltip place="right" effect="solid" />
           <div class="my-8">
             <Descriptions title="" bordered column={{ xxl: 3, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}>
               <Descriptions.Item label="Name" className="userinfo">{userData.user.name}</Descriptions.Item>
