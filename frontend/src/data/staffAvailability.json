@@ -2,72 +2,71 @@
   {
     "name": "Jenny Chan",
     "position": "Product Manager",
-    "leaveStartDate": "N/A",
-    "leaveEndDate": "N/A",
-    "leaveType": "N/A",
+    "leaveStartDate": "2021-11-16",
+    "leaveEndDate": "2021-11-24",
+    "leaveType": "Sick",
     "coveringPerson": "N/A"
   },
   {
     "name": "Belle Sim",
     "position": "HR Manager",
-    "leaveStartDate": "N/A",
-    "leaveEndDate": "N/A",
-    "leaveType": "N/A",
+    "leaveStartDate": "2021-12-19",
+    "leaveEndDate": "2021-12-21",
+    "leaveType": "Unpaid",
     "coveringPerson": "N/A"
   },
   {
     "name": "Carlton Foo",
     "position": "Software Engineer",
-
-    "leaveStartDate": "N/A",
-    "leaveEndDate": "N/A",
-    "leaveType": "N/A",
+    "leaveStartDate": "2021-11-19",
+    "leaveEndDate": "2021-11-20",
+    "leaveType": "Unpaid",
     "coveringPerson": "N/A"
   },
   {
     "name": "Celine Ang",
     "position": "Process Manager",
-    "leaveStartDate": "N/A",
-    "leaveEndDate": "N/A",
-    "leaveType": "N/A",
-    "coveringPerson": "N/A"
+    "leaveStartDate": "2021-12-18",
+    "leaveEndDate": "2021-12-24",
+    "leaveType": "Annual",
+    "coveringPerson": "Jeannie Ng"
   },
   {
     "name": "Mohammad Fauzi",
     "position": "UXUI Designer",
-    "leaveStartDate": "N/A",
-    "leaveEndDate": "N/A",
-    "leaveType": "N/A",
+    "leaveStartDate": "2021-12-18",
+    "leaveEndDate": "2021-12-24",
+    "leaveType": "Annual",
     "coveringPerson": "N/A"
   },
   {
     "name": "Celine Foo",
     "position": "Process Manager",
-    "leaveStartDate": "N/A",
-    "leaveEndDate": "N/A",
-    "leaveType": "N/A",
-    "coveringPerson": "N/A"
+    "leaveStartDate": "2021-12-18",
+    "leaveEndDate": "2022-06-18",
+    "leaveType": "Maternity",
+    "coveringPerson": "Carlton Ng"
   },
   {
-    "name": "Junkiat",
+    "name": "Ng Jun Kiat",
     "position": "Software Engineer",
-    "leaveStartDate": "2021-10-22",
-    "leaveEndDate": "2021-10-28",
+    "leaveStartDate": "2021-12-18",
+    "leaveEndDate": "2021-12-28",
     "leaveType": "Annual",
     "coveringPerson": "Jenny Chan"
   },
   {
     "name": "Joy Ng",
     "position": "UXUI Designer",
-    "leaveStartDate": "2021-10-25",
-    "leaveEndDate": "2021-11-01",
+    "leaveStartDate": "2021-11-25",
+    "leaveEndDate": "2021-12-24",
     "leaveType": "Annual",
     "coveringPerson": "Belle Sim"
   },
   {
     "name": "Savvi Pragi",
     "position": "Business Process Manager",
-    "leaveStartDate": "2021-10-15",
+    "leaveStartDate": "2021-11-18",
     "leaveEndDate": "2021-11-24",
     "leaveType": "Annual",
     "coveringPerson": "Celine Ang"
@@ -75,8 +74,8 @@
   {
     "name": "Joey Chua",
     "position": "UXUI Designer",
-    "leaveStartDate": "2021-10-20",
-    "leaveEndDate": "2021-11-01",
+    "leaveStartDate": "2021-11-25",
+    "leaveEndDate": "2021-12-01",
     "leaveType": "Annual",
     "coveringPerson": "Mohammad Fauzi"
   }

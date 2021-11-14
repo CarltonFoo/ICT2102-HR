@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import Card from "../Shared/Card.js";
-import { Col, Row, Avatar, Steps, Form, Select, Button, Input } from "antd";
+import { Steps } from "antd";
 import WelfarePackSelection from "./WelfarePackSelection";
 import WelfarePackMessage from "./WelfarePackMessage";
 import WelfarePackConfirmation from "./WelfarePackConfirmation";
-const { Option } = Select;
-const { TextArea } = Input;
+
 const { Step } = Steps;
 
 const WelfarePackForm = (props) => {
@@ -41,7 +39,7 @@ const WelfarePackForm = (props) => {
     const newCurrent = current - 1;
     setCurrent(newCurrent);
   }
-  //go next setp
+  //go next step
   function next() {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
@@ -52,18 +50,14 @@ const WelfarePackForm = (props) => {
       ...fields,
       ...changedFields,
     });
-
-    console.log("changedFields", changedFields);
-    console.log("fields", fields);
   };
 
-  const onSelectPack = (packName) => {
-    alert("welfare pack name" + packName);
-  };
+  // const onSelectPack = (packName) => {
+  //   localStorage.getItem("welfarepack", props.welfarepack);
+  // };
 
   return (
-    <div class="p-12">
-      {/* step panel */}
+    <div>
       <Steps current={current} type="navigation">
         {steps.map((item, index) => (
           <Step key={index} title={item.title} description={item.description} />
@@ -74,9 +68,7 @@ const WelfarePackForm = (props) => {
         <WelfarePackSelection
           {...fields}
           next={next}
-          // onChange={setWelfarePack(e.target.value)}
           onChange={handleFormChange}
-          onSelectPack={onSelectPack}
         />
       )}
 

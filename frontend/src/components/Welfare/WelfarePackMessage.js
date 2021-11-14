@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
-import ReactTooltip from "react-tooltip";
-import Modal from "react-modal";
-import Card from "../Shared/Card.js";
-import { Col, Row, Form, Select, Button, Input, message } from "antd";
+import React from "react";
+import { Col, Row, Form, Select, Button, Input } from "antd";
 import Employees from "../../data/employees.json";
 
 const { Option } = Select;
@@ -12,11 +7,14 @@ const { TextArea } = Input;
 
 const WelfareMessage = (props) => {
   const handleNext = () => {
-    console.log("handleNext");
     if (props.department && props.receiver && props.message) {
       props.next();
     }
+    localStorage.setItem("department", props.department);
+    localStorage.setItem("receiver", props.receiver);
+    localStorage.setItem("message", props.message.value);
   };
+
 
   return (
     <div class="py-8">
@@ -49,6 +47,7 @@ const WelfareMessage = (props) => {
                     message: "Please select a Department",
                   },
                 ]}
+                initialValue={localStorage.getItem("department")}
               >
                 <Select
                   trigger={["hover"]}
@@ -68,9 +67,9 @@ const WelfareMessage = (props) => {
                     })
                   }
                 >
-                  {Employees.map((employee) => (
-                    <Option value={employee.department}>
-                      {employee.department}
+                  {Object.keys(Employees[0]).map((employee) => (
+                    <Option value={Employees[0][employee].department}>
+                      {Employees[0][employee].department}
                     </Option>
                   ))}
                 </Select>
@@ -83,9 +82,10 @@ const WelfareMessage = (props) => {
                 rules={[
                   {
                     required: true,
-                    message: "Please select am Empolyee",
+                    message: "Please select an Employee",
                   },
                 ]}
+                initialValue={localStorage.getItem("receiver")}
               >
                 <Select
                   showSearch
@@ -104,9 +104,9 @@ const WelfareMessage = (props) => {
                     })
                   }
                 >
-                  {Employees.map((employee) => (
-                    <Option value={employee.employeeName}>
-                      {employee.employeeName}
+                  {Object.keys(Employees[0]).map((employee) => (
+                    <Option value={Employees[0][employee].employeeName}>
+                      {Employees[0][employee].employeeName}
                     </Option>
                   ))}
                 </Select>
@@ -128,6 +128,7 @@ const WelfareMessage = (props) => {
               message: "Please enter a message",
             },
           ]}
+          initialValue={localStorage.getItem("message")}
         >
           <TextArea
             placeholder="Enter Message"

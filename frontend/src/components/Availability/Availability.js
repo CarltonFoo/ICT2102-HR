@@ -25,17 +25,6 @@ class Availability extends Component {
     });
   };
 
-  clearFilters = () => {
-    this.setState({ filteredInfo: null });
-  };
-
-  clearAll = () => {
-    this.setState({
-      filteredInfo: null,
-      sortedInfo: null,
-    });
-  };
-
   render() {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -64,11 +53,21 @@ class Availability extends Component {
             text: "Process Manager",
             value: "Process Manager",
           },
+          {
+            text: "Business Analytics Manager",
+            value: "Business Analytics Manager",
+          },
+          {
+            text: "Software Engineer",
+            value: "Software Engineer",
+          },
+          {
+            text: "HR Manager",
+            value: "HR Manager",
+          },
         ],
 
         onFilter: (value, record) => record.position.indexOf(value) === 0,
-
-        // filters: Filter(StaffAvailability)((employee) => employee.position),
       },
       {
         title: "Leave Start Date",
@@ -141,10 +140,7 @@ class Availability extends Component {
       <div>
         <div class="m-auto w-11/12">
           <p class="text-2xl font-bold my-6">Staff Availability</p>
-          <Space style={{ marginBottom: 16 }}>
-            <Button onClick={this.clearFilters}>Clear filters</Button>
-            <Button onClick={this.clearAll}>Clear filters and sorters</Button>
-          </Space>
+
           <Table
             columns={sortableColumns}
             dataSource={StaffAvailability}
