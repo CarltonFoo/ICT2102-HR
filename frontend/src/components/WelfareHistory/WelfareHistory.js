@@ -309,6 +309,7 @@ class WelfareHistory extends React.Component {
     });
     return (
       <div class="m-auto w-11/12">
+        <p class="text-2xl font-bold my-6">Welfare History</p>
         <Table
           pagination={{ pageSize: 5 }}
           components={components}
