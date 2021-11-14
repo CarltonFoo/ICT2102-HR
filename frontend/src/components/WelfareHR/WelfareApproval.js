@@ -5,6 +5,7 @@ import ReactTooltip from 'react-tooltip';
 import Modal from 'react-modal';
 import { Popover,Popconfirm, Tag, Table, Button, Card, Col, Row } from "antd";
 import approvalData from "../../data/approval.json";
+import inventoryData from "../../data/inventory.json";
 import { getComponentController } from "@antv/g2/lib/chart/controller";
 import "./approvalstyle.css";
 import { fixedBase } from "@antv/util";
@@ -100,17 +101,44 @@ class WelfareApproval extends React.Component {
     }
   }
   handleDelete = () => {
-    console.log("handle delete");
+    // console.log("handle delete");
     const dataSource = [...this.state.dataSource];
-    console.log("datasource:", dataSource);
-    console.log("selectedRows", this.state.selectedRowKeys);
+    // console.log("datasource:", dataSource);
+    // console.log("selectedRows", this.state.selectedRowKeys);
     //error check ensure selectedkeys initialized
-    if (typeof this.state.selectedRowKeys !== 'undefined'){
-    this.setState({
-      dataSource: dataSource.filter(item =>
-        !this.state.selectedRowKeys.includes(item.key)
-      ),
-    });
+    
+    if (typeof this.state.selectedRowKeys !== 'undefined') {
+
+      const selectedKey = [...this.state.selectedRowKeys];
+      var temp = this.state.dataSource.filter((item) => selectedKey.includes(item.key));
+      // storing gift type+ count 
+      var _ = require('underscore')
+      var countArr = _.countBy(temp, function (temp) { return temp.gifttype });
+      
+      //  ensure sufficient in stock.
+      const inventory = inventoryData;
+      for (var giftname in countArr){
+          //iterate through inventoryJSON objs
+          for(var item in inventory){
+            // console.log("gift type "+key+ " count: "+req.body[key])
+            if(inventory[item].name == giftname){
+
+              var updatedCount = inventory[item].instock - countArr[giftname];
+              if (updatedCount < 0){
+                alert("Ensure sufficient stock for : " + giftname);
+                //end flow if error, should work on ui
+                return;
+              }
+            }
+          }
+        
+      }
+      // - error check end
+      this.setState({
+        dataSource: dataSource.filter(item =>
+          !this.state.selectedRowKeys.includes(item.key)
+        ),
+      });
     //update backend json file
     this.updateJSONdata();
     }
