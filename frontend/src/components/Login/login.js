@@ -50,27 +50,25 @@ class FormDataComponent extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.userData = JSON.parse(sessionStorage.getItem("user"));
+    console.log(users[0])
 
-    for (let i = 0; i < users.length; i++) {
-      if (
-        this.userData.username === users[i].username &&
-        this.userData.password === users[i].password
-      ) {
-        // Correct user credentials
-        console.log("match")
+    if (
+      this.userData.password === users[0][this.userData.username].password
+    ) {
+      // Correct user credentials
+      console.log("match")
 
-        this.setState({
-          username: users[i].username,
-          password: users[i].password,
-        });
+      this.setState({
+        username: users[0][this.userData.username].username,
+        password: users[0][this.userData.username].password,
+      });
 
-        // setHasError(false);
-        sessionStorage.setItem("isAuthenticated", true);
-        sessionStorage.setItem("position", users[i].position);
-        sessionStorage.setItem("name", users[i].employeeName);
+      // setHasError(false);
+      sessionStorage.setItem("isAuthenticated", true);
+      sessionStorage.setItem("position", users[0][this.userData.username].position);
+      sessionStorage.setItem("name", users[0][this.userData.username].employeeName);
 
-        return this.props.history.push("/");
-      }
+      return this.props.history.push("/");
     }
     // setHasError(true);
   }
