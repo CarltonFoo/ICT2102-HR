@@ -118,7 +118,7 @@ const Navbar = (props) => {
 
               {sessionStorage.getItem("position") === "HR Manager" ? (
                 <SubMenu
-                  title="Manage(FOR HR VIEW)"
+                  title="Manage Orders"
                   icon={<AppstoreOutlined />}
                   key="hrmanage"
                 >
