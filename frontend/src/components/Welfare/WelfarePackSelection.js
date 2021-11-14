@@ -26,6 +26,10 @@ const WelfarePackSelection = (props) => {
       welfarepack: e.target.value,
       credits: e.target.credits,
     });
+
+    localStorage.setItem("welfarePack", e.target.value);
+    localStorage.setItem("credits", credits);
+
   }
 
   return (

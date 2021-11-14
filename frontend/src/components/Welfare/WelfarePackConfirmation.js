@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import { Card, Col, Row, Image, Button, Form, Divider } from "antd";
+import { Button, Divider } from "antd";
 import Table from "rc-table/lib/Table";
-import LoginImg from "../../assets/images/login.png";
 
 import { GiftOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
 
+const handleBack = () => {};
+
 const WelfarePackConfirmation = (props) => {
-  console.log("cfm", props);
   return (
     <div>
       <div>
@@ -68,50 +68,6 @@ const WelfarePackConfirmation = (props) => {
           </Button>
         </div>
       </div>
-      {/* 
-        <div class=" text-blue-800 text-lg">
-          <p>Department </p>
-        </div> */}
-      {/* <table class="table-auto  border border-collapse border-green-800 block">
-        <thead>
-          <tr>
-            <td colspan="2" class="text-center">
-              Confirmation
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-blue-300">
-            <td>You have chosen: </td>
-            <td>{props.welfarepack} </td>
-          </tr>
-          <tr class="bg-blue-200">
-            <td>Total credits to be deducted: </td>
-            <td>{props.credits}</td>
-          </tr>
-          <tr class="bg-blue-300">
-            <td>Sendiing to: </td>
-            <td>
-              {" "}
-              {props.receiver} from {props.department}
-            </td>
-          </tr>
-          <td colspan="2" class="w-full bg-blue-200">
-            Message:
-          </td>
-          <tr>{props.message.value}</tr>
-        </tbody>
-      </table> */}
-      {/* <div>
-        <div class="flex">
-          <Button type="primary" onClick={props.prev}>
-            Back
-          </Button>
-          <Button type="primary" htmlType="submit">
-            Next
-          </Button>
-        </div>
-      </div> */}
     </div>
   );
 };

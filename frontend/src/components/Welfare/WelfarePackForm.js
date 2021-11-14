@@ -40,8 +40,10 @@ const WelfarePackForm = (props) => {
   function prev() {
     const newCurrent = current - 1;
     setCurrent(newCurrent);
+
+   
   }
-  //go next setp
+  //go next step
   function next() {
     const newCurrent = current + 1;
     setCurrent(newCurrent);
@@ -52,9 +54,6 @@ const WelfarePackForm = (props) => {
       ...fields,
       ...changedFields,
     });
-
-    console.log("changedFields", changedFields);
-    console.log("fields", fields);
   };
 
   const onSelectPack = (packName) => {
@@ -90,6 +89,6 @@ const WelfarePackForm = (props) => {
       {current === 2 && <WelfarePackConfirmation {...fields} prev={prev} />}
     </div>
   );
-};
+};;
 
 export default WelfarePackForm;
