@@ -31,8 +31,6 @@ Password: beierbeier
 Username: joyng 
 Password: joyng 
 
-In root folder
-npm start dev
 ```
 
 ## Frontend Folder Structure
