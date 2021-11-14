@@ -1,8 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
-import ReactTooltip from "react-tooltip";
-import Modal from "react-modal";
+import React from "react";
 import { Col, Row, Form, Select, Button, Input } from "antd";
 import Employees from "../../data/employees.json";
 
@@ -17,6 +13,7 @@ const WelfareMessage = (props) => {
     localStorage.setItem("department", props.department);
     localStorage.setItem("receiver", props.receiver);
     localStorage.setItem("message", props.message.value);
+
   };
 
   return (
@@ -50,6 +47,7 @@ const WelfareMessage = (props) => {
                     message: "Please select a Department",
                   },
                 ]}
+                initialValue={localStorage.getItem("department")}
               >
                 <Select
                   trigger={["hover"]}
@@ -68,7 +66,6 @@ const WelfareMessage = (props) => {
                       department: e,
                     })
                   }
-                  defaultValue={localStorage.getItem("department")}
                 >
                   {Employees.map((employee) => (
                     <Option value={employee.department}>
@@ -88,6 +85,7 @@ const WelfareMessage = (props) => {
                     message: "Please select an Employee",
                   },
                 ]}
+                initialValue={localStorage.getItem("receiver")}
               >
                 <Select
                   showSearch
@@ -105,7 +103,6 @@ const WelfareMessage = (props) => {
                       receiver: e,
                     })
                   }
-                  defaultValue={localStorage.getItem("receiver")}
                 >
                   {Employees.map((employee) => (
                     <Option value={employee.employeeName}>
@@ -131,6 +128,7 @@ const WelfareMessage = (props) => {
               message: "Please enter a message",
             },
           ]}
+          initialValue={localStorage.getItem("message")}
         >
           <TextArea
             placeholder="Enter Message"
@@ -143,7 +141,6 @@ const WelfareMessage = (props) => {
                 message: e.target,
               })
             }
-            defaultValue={localStorage.getItem("message")}
           />
         </Form.Item>
 
