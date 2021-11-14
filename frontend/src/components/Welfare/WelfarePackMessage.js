@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import Card from "../Shared/Card.js";
-import { Col, Row, Form, Select, Button, Input, message } from "antd";
+import { Col, Row, Form, Select, Button, Input } from "antd";
 import Employees from "../../data/employees.json";
 
 const { Option } = Select;
@@ -12,9 +12,11 @@ const { TextArea } = Input;
 
 const WelfareMessage = (props) => {
   const handleNext = () => {
-    console.log("handleNext");
     if (props.department && props.receiver && props.message) {
       props.next();
+      localStorage.setItem("department", props.department);
+      localStorage.setItem("credits", props.receiver);
+      localStorage.setItem("credits", props.message);
     }
   };
 

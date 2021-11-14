@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 // import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import { Card, Col, Row, Image, Button, Form, Divider } from "antd";
+import { Button, Divider } from "antd";
 import Table from "rc-table/lib/Table";
+
 import { GiftOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
 
+const handleBack = () => {};
+
 const WelfarePackConfirmation = (props) => {
-  console.log("cfm", props);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -25,10 +27,10 @@ const WelfarePackConfirmation = (props) => {
   };
 
   return (
-    <div class=" ">
+    <div>
       <div>
-        <h2 class="text-center text-xl font-semibold mt-12 pt-6">
-          Please check through the details before request confirmation
+        <h2 class="text-center text-3xl font-semibold mt-12 pt-6">
+          Great! Everything is ready.
         </h2>
         <p class="text-center  text-blue-800 ">
           Thank you for spreading some love!
@@ -42,7 +44,7 @@ const WelfarePackConfirmation = (props) => {
           </div>
           <div class="pl-8">
             <h3 class="text-gray-400">Package Name </h3>
-            <h3>{props.welfarepack} </h3>
+            <p>{props.welfarepack} </p>
           </div>
         </div>
         <div class="flex">
@@ -51,7 +53,7 @@ const WelfarePackConfirmation = (props) => {
           </div>
           <div class="pl-8">
             <h3 class="text-gray-400">Receiver </h3>
-            <h3>{props.receiver} </h3>
+            <p>{props.receiver} </p>
           </div>
         </div>
         <div class="flex">
@@ -60,71 +62,26 @@ const WelfarePackConfirmation = (props) => {
           </div>
           <div class="pl-8">
             <h3 class="text-gray-400">Receiver Department</h3>
-            <h3>{props.department} </h3>
+            <p>{props.department} </p>
           </div>
         </div>
       </div>
-      {/* 
-        <div class=" text-blue-800 text-lg">
-          <p>Department </p>
-        </div> */}
-      {/* <table class="table-auto  border border-collapse border-green-800 block">
-        <thead>
-          <tr>
-            <td colspan="2" class="text-center">
-              Confirmation
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-blue-300">
-            <td>You have chosen: </td>
-            <td>{props.welfarepack} </td>
-          </tr>
-          <tr class="bg-blue-200">
-            <td>Total credits to be deducted: </td>
-            <td>{props.credits}</td>
-          </tr>
-          <tr class="bg-blue-300">
-            <td>Sending to: </td>
-            <td>
-              {" "}
-              {props.receiver} from {props.department}
-            </td>
-          </tr>
-          <td colspan="2" class="w-full bg-blue-200">
-            Message:
-          </td>
-          <tr>{props.message.value}</tr>
-        </tbody>
-      </table>
-      <Form class="">
-        <div class="py-8">
-          <div class="flex">
-            <Form.Item class="text-center mx-8">
-              <Button type="primary" onClick={props.prev}>
-                Back
-              </Button>
-            </Form.Item>
-
-            <Form.Item class="text-center pr-30 mx-348">
-              <Button type="primary" htmlType="submit" onClick={showModal}>
-                Submit
-              </Button>
-              <Modal
-                title="Basic Modal"
-                visible={isModalVisible}
-                onOk={handleOk}
-                onCancel={handleCancel}
-              >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-              </Modal>
-            </Form.Item>
-          </div>
+      <div>
+        <div class="text-center  pt-12  ">
+          <h3 class="text-gray-400">Message </h3>
+          <p class="">{props.message.value} </p>
         </div>
-      </div> */}
+      </div>
+      <div>
+        <div class="flex justify-evenly mt-48">
+          <Button type="primary" onClick={props.prev}>
+            Back
+          </Button>
+          <Button type="primary" htmlType="submit">
+            Confirm
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
