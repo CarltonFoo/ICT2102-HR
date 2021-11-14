@@ -25,17 +25,6 @@ class Availability extends Component {
     });
   };
 
-  clearFilters = () => {
-    this.setState({ filteredInfo: null });
-  };
-
-  clearAll = () => {
-    this.setState({
-      filteredInfo: null,
-      sortedInfo: null,
-    });
-  };
-
   render() {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -151,10 +140,7 @@ class Availability extends Component {
       <div>
         <div class="m-auto w-11/12">
           <p class="text-2xl font-bold my-6">Staff Availability</p>
-          <Space style={{ marginBottom: 16 }}>
-            <Button onClick={this.clearFilters}>Clear filters</Button>
-            <Button onClick={this.clearAll}>Clear filters and sorters</Button>
-          </Space>
+
           <Table
             columns={sortableColumns}
             dataSource={StaffAvailability}

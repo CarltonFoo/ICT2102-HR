@@ -15,6 +15,7 @@ const WelfareMessage = (props) => {
     localStorage.setItem("message", props.message.value);
   };
 
+
   return (
     <div class="py-8">
       <Form
@@ -66,8 +67,10 @@ const WelfareMessage = (props) => {
                     })
                   }
                 >
-                  {Object.keys(Employees).map((employee) => (
-                    <Option value={Employees[employee].department}></Option>
+                  {Object.keys(Employees[0]).map((employee) => (
+                    <Option value={Employees[0][employee].department}>
+                      {Employees[0][employee].department}
+                    </Option>
                   ))}
                 </Select>
               </Form.Item>
@@ -101,8 +104,10 @@ const WelfareMessage = (props) => {
                     })
                   }
                 >
-                  {Object.keys(Employees).map((employee) => (
-                    <Option value={Employees[employee].employeeName}></Option>
+                  {Object.keys(Employees[0]).map((employee) => (
+                    <Option value={Employees[0][employee].employeeName}>
+                      {Employees[0][employee].employeeName}
+                    </Option>
                   ))}
                 </Select>
               </Form.Item>
