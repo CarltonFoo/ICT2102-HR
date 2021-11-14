@@ -8,6 +8,7 @@ import PayslipJSON from "../../data/payslip.json";
 import { Pie } from '@ant-design/charts';
 import moment from 'moment';
 
+
 var linkStyle = {
     position: 'absolute',
     bottom: 10,

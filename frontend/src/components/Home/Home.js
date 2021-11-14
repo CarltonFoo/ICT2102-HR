@@ -9,7 +9,7 @@ import "../../assets/css/home.css";
 import StaffAvailability from "../../data/staffAvailability.json";
 import PayslipJSON from "../../data/payslip.json";
 import SalaryBreakdown from "../Home/salaryBreakdown"
-import Availability from "../Availability/Availability";
+import Availability from "./staffAvailability";
 
 //#region CountdownTimer
 const { Countdown } = Statistic;
@@ -49,11 +49,7 @@ const columns = [
   },
 ];
 
-var linkStyle = {
-  position: 'absolute',
-  bottom: 10,
-  right: 10
-}
+
 
 var cardStyle = {
   bordered: true,
@@ -77,12 +73,13 @@ const Home = () => {
     <div>
       <Mood></Mood>
       <div class="m-auto w-11/12">
-      <p class="text-2xl font-bold my-6">Dashboard</p>
-          {/* Need to add hover styling and tooltip*/}
-          <div data-tip="Quick overview of team availability, salary" class="inline">
+      <div class="text-2xl font-bold my-6">
+          Dashboard          
+          <div data-tip="Quick overview of staff availability &amp; salary" class="inline">
             <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
           </div>
           <ReactTooltip place="right" effect="solid" />
+          </div>
         <div className="site-card-wrapper">
           <Row gutter={16}>
             <Col span={8}>
@@ -116,23 +113,19 @@ const Home = () => {
         <div className="site-card-wrapper">
           <Row gutter={16}>
             <Col span={16}>
-              <Card
+              {/* <Card
                 style={{ marginTop: 16 }}
                 type="inner"
                 title="Staff Availability"
-              >
-                <Table
+              > */}
+                {/* <Table
                   style={{ marginBottom: 20 }}
                   pagination={false}
                   columns={columns}
                   dataSource={StaffAvailability.slice(5, 10)}
-                />
-                <Row>
-                  <Link to="/availability" style={linkStyle}>
-                    View All Staff Availability &#62;
-                  </Link>
-                </Row>
-              </Card>
+                /> */}
+
+<Availability></Availability>
             </Col>
             <Col span={8}>
               <SalaryBreakdown></SalaryBreakdown>

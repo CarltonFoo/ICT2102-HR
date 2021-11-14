@@ -6,12 +6,14 @@ import ReactTooltip from 'react-tooltip';
 import { updateMood } from "../../api/index.js";
 import EmployeesJSON from "../../data/employees.json";
 
+// unselected icons
 const customIcons = [
   <FrownOutlined style={{ fontSize: 40 }} />,
   <MehOutlined style={{ fontSize: 40 }} />,
   <SmileOutlined style={{ fontSize: 40 }} />,
 ]
 
+// selected icons
 const customIconsFilled = [
   <FrownFilled style={{ fontSize: 40 }} />,
   <MehFilled style={{ fontSize: 40 }} />,
@@ -28,6 +30,12 @@ var userSess, userData;
 
 class Mood extends React.Component {
 
+  componentDidMount() {
+    userSess = JSON.parse(sessionStorage.getItem("user"))
+    userData = EmployeesJSON[0][userSess.username]
+    this.state.smileyFace= customIcons[EmployeesJSON[0][userSess.username].mood]
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -37,14 +45,10 @@ class Mood extends React.Component {
       selectedMood: []
     };
   }
-
-  componentDidMount() {
-    userSess = JSON.parse(sessionStorage.getItem("user"))
-    userData = EmployeesJSON[0][userSess.username]
-  }
   
   handleShow = () => {
     this.setState({ isActive: true });
+    console.log("test" + EmployeesJSON[0][userSess.username].mood)
   };
 
   handleHide = () => {
@@ -52,18 +56,6 @@ class Mood extends React.Component {
   };
 
   handleSelect = async(i) => {
-    const selectedKey = [i+1, userSess.username];
-    console.log("selectedMood: ", i);
-    const res1 = await updateMood(selectedKey);
-    console.log("res1", res1);
-    if (res1.status === 200) {
-      console.log("status 200");
-    }
-    else {
-      // if no items selected
-      return "Please select items to approve.";
-    }
-
     this.setState({ isActive: false, smileyFace: customIconsFilled[i] });
     this.setState({ selectedMood: i })
     message.open({
@@ -77,6 +69,19 @@ class Mood extends React.Component {
         color: '#f9a825'
       },
     });
+
+    const selectedKey = [i+1, userSess.username];
+    console.log("selectedMood: ", i);
+    const res1 = await updateMood(selectedKey);
+    console.log("res1", res1);
+    if (res1.status === 200) {
+      console.log("status 200");
+    }
+    else {
+      // if no items selected
+      return "Please select items to approve.";
+    }
+
   };
 
   // handleSelect = (i) => {

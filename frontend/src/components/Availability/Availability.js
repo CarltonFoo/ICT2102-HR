@@ -8,6 +8,7 @@ import { Table, Button, Space } from "antd";
 import StaffAvailability from "../../data/staffAvailability.json";
 import Sort, { Sorter } from "../utils/sorter";
 import Filter from "../utils/filter";
+import { InfoCircleTwoTone } from "@ant-design/icons";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -140,7 +141,13 @@ class Availability extends Component {
     return (
       <div>
         <div class="m-auto w-11/12">
-          <p class="text-2xl font-bold my-6">Staff Availability</p>
+                <div class="text-2xl font-bold my-6">
+          Staff Availability          
+          <div data-tip="Check your team" class="inline">
+            <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+          </div>
+          <ReactTooltip place="right" effect="solid" />
+          </div>
           <Space style={{ marginBottom: 16 }}>
             <Button onClick={this.clearFilters}>Clear filters</Button>
             <Button onClick={this.clearAll}>Clear filters and sorters</Button>

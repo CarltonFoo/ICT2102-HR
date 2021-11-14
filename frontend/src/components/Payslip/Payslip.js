@@ -132,11 +132,13 @@ getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtrac
   return (
     <div class="payslipcard">
       <div class="m-auto pb-12 w-11/12">
-          <p class="text-2xl font-bold my-6">Payslip</p>
-          <div data-tip="Check your payslip based on the selected month" class="inline">
+      <div class="text-2xl font-bold my-6">
+          Payslip          
+          <div data-tip="Check your payslip based on the month(s) selected" class="inline">
             <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
           </div>
           <ReactTooltip place="right" effect="solid" />
+          </div>
           <div class="my-8">
             <Descriptions title="" bordered column={{ xxl: 3, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}>
               <Descriptions.Item label="Name" className="userinfo">{userData.user.name}</Descriptions.Item>
