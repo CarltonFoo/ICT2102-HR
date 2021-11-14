@@ -14,10 +14,11 @@ const WelfareMessage = (props) => {
   const handleNext = () => {
     if (props.department && props.receiver && props.message) {
       props.next();
-      localStorage.setItem("department", props.department);
-      localStorage.setItem("credits", props.receiver);
-      localStorage.setItem("credits", props.message);
     }
+    localStorage.setItem("department", props.department);
+    localStorage.setItem("receiver", props.receiver);
+    localStorage.setItem("message", props.message.value);
+  
   };
 
   return (
