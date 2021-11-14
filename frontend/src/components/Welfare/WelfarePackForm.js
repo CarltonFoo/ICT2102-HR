@@ -62,8 +62,7 @@ const WelfarePackForm = (props) => {
   };
 
   return (
-    <div class="p-12">
-      {/* step panel */}
+    <div>
       <Steps current={current} type="navigation">
         {steps.map((item, index) => (
           <Step key={index} title={item.title} description={item.description} />
@@ -74,7 +73,6 @@ const WelfarePackForm = (props) => {
         <WelfarePackSelection
           {...fields}
           next={next}
-          // onChange={setWelfarePack(e.target.value)}
           onChange={handleFormChange}
           onSelectPack={onSelectPack}
         />

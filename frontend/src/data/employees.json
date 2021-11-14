@@ -19,7 +19,8 @@
   },
   {
     "username": "jennychan",
-    "employeeName": "Product Manager",
+    "employeeName": "Jenny Chan",
+    "position": "Process Manager",
     "password": "jennychan",
     "role": "employee",
     "department": "Team C",
@@ -46,7 +47,7 @@
   {
     "username": "savvipragi",
     "employeeName": "Savvi Pragi",
-    "position": "Business Process Manager",
+    "position": "Business Analytics Manager",
     "password": "celinefoo",
     "role": "employee",
     "department": "Team F",
