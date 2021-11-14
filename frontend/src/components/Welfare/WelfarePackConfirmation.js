@@ -6,15 +6,17 @@ import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Button, Form, Divider } from "antd";
 import Table from "rc-table/lib/Table";
+import LoginImg from "../../assets/images/login.png";
+
 import { GiftOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
 
 const WelfarePackConfirmation = (props) => {
   console.log("cfm", props);
   return (
-    <div class=" ">
+    <div>
       <div>
-        <h2 class="text-center text-xl font-semibold mt-12 pt-6">
-          Please check through the details before request confirmation
+        <h2 class="text-center text-3xl font-semibold mt-12 pt-6">
+          Great! Everything is ready.
         </h2>
         <p class="text-center  text-blue-800 ">
           Thank you for spreading some love!
@@ -28,7 +30,7 @@ const WelfarePackConfirmation = (props) => {
           </div>
           <div class="pl-8">
             <h3 class="text-gray-400">Package Name </h3>
-            <h3>{props.welfarepack} </h3>
+            <p>{props.welfarepack} </p>
           </div>
         </div>
         <div class="flex">
@@ -37,7 +39,7 @@ const WelfarePackConfirmation = (props) => {
           </div>
           <div class="pl-8">
             <h3 class="text-gray-400">Receiver </h3>
-            <h3>{props.receiver} </h3>
+            <p>{props.receiver} </p>
           </div>
         </div>
         <div class="flex">
@@ -46,8 +48,24 @@ const WelfarePackConfirmation = (props) => {
           </div>
           <div class="pl-8">
             <h3 class="text-gray-400">Receiver Department</h3>
-            <h3>{props.department} </h3>
+            <p>{props.department} </p>
           </div>
+        </div>
+      </div>
+      <div>
+        <div class="text-center  pt-12  ">
+          <h3 class="text-gray-400">Message </h3>
+          <p class="">{props.message.value} </p>
+        </div>
+      </div>
+      <div>
+        <div class="flex justify-evenly mt-48">
+          <Button type="primary" onClick={props.prev}>
+            Back
+          </Button>
+          <Button type="primary" htmlType="submit">
+            Confirm
+          </Button>
         </div>
       </div>
       {/* 

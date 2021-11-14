@@ -4,20 +4,7 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import {
-  Card,
-  Col,
-  Row,
-  Image,
-  Button,
-  Form,
-  Select,
-  Radio,
-  Typography,
-  Divider,
-} from "antd";
-import SharedCard from "../Shared/Card";
-import { DollarCircleFilled } from "@ant-design/icons";
+import { Card, Button, Form, Radio, Typography, Divider } from "antd";
 
 const { Title } = Typography;
 const WelfarePackSelection = (props) => {
