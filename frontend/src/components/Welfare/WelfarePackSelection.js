@@ -22,7 +22,7 @@ import { DollarCircleFilled } from "@ant-design/icons";
 const { Title } = Typography;
 const WelfarePackSelection = (props) => {
   const [form] = Form.useForm();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue, packdata] = React.useState(0);
 
   const onFinish = (fieldsValue) => {
     const formData = form.getFieldsValue(true);

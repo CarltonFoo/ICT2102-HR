@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
-import Modal from "react-modal";
+// import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
 import { Card, Col, Row, Image, Button, Form, Divider } from "antd";
 import Table from "rc-table/lib/Table";
@@ -10,6 +10,20 @@ import { GiftOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
 
 const WelfarePackConfirmation = (props) => {
   console.log("cfm", props);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div class=" ">
       <div>
@@ -72,7 +86,7 @@ const WelfarePackConfirmation = (props) => {
             <td>{props.credits}</td>
           </tr>
           <tr class="bg-blue-300">
-            <td>Sendiing to: </td>
+            <td>Sending to: </td>
             <td>
               {" "}
               {props.receiver} from {props.department}
@@ -83,15 +97,32 @@ const WelfarePackConfirmation = (props) => {
           </td>
           <tr>{props.message.value}</tr>
         </tbody>
-      </table> */}
-      {/* <div>
-        <div class="flex">
-          <Button type="primary" onClick={props.prev}>
-            Back
-          </Button>
-          <Button type="primary" htmlType="submit">
-            Next
-          </Button>
+      </table>
+      <Form class="">
+        <div class="py-8">
+          <div class="flex">
+            <Form.Item class="text-center mx-8">
+              <Button type="primary" onClick={props.prev}>
+                Back
+              </Button>
+            </Form.Item>
+
+            <Form.Item class="text-center pr-30 mx-348">
+              <Button type="primary" htmlType="submit" onClick={showModal}>
+                Submit
+              </Button>
+              <Modal
+                title="Basic Modal"
+                visible={isModalVisible}
+                onOk={handleOk}
+                onCancel={handleCancel}
+              >
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+              </Modal>
+            </Form.Item>
+          </div>
         </div>
       </div> */}
     </div>
