@@ -26,8 +26,6 @@ const customMessage = [
 
 var userSess, userData;
 
-
-
 class Mood extends React.Component {
   componentDidMount() {
     userSess = sessionStorage.getItem("user")

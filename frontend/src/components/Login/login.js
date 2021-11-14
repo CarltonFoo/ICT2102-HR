@@ -85,13 +85,13 @@ class FormDataComponent extends Component {
     return (
       <div class=" h-screen  ">
         <div class="m-auto w-8/12">
-          <p class="text-6xl font-bold p-16 text-center text-blue-700 ">
+          <p class="text-6xl font-bold p-5 mb-0 mt-8 text-center text-blue-700 ">
             WorkLarh
           </p>
           <Card>
             <div class="flex">
               <div class="w-8/12 text-center">
-                <h1 class="text-4xl font-bold  p-12 text-blue-700">
+                <h1 class="text-4xl font-bold p-12 text-blue-700">
                   Login to Your Account!
                 </h1>
                 <p class="text-2xl font-medium">Your all in one workspace</p>
