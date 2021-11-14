@@ -27,21 +27,24 @@ const customMessage = [
 var userSess, userData;
 
 class Mood extends React.Component {
-  componentDidMount() {
-    userSess = sessionStorage.getItem("user")
-    userData = EmployeesJSON[userSess.username]
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: EmployeesJSON,
+      isActive: false,
+      smileyFace: customIcons[2],
+      selectedMood: []
+    };
   }
 
-  state = {
-    isActive: false,
-    smileyFace: customIcons[2],
-    selectedUsernameKey: []
-  };
-
+  componentDidMount() {
+    userSess = JSON.parse(sessionStorage.getItem("user"))
+    userData = EmployeesJSON[0][userSess.username]
+  }
+  
   handleShow = () => {
     this.setState({ isActive: true });
-    console.log(userData, userSess);
-    console.log(EmployeesJSON);
   };
 
   handleHide = () => {
@@ -49,18 +52,17 @@ class Mood extends React.Component {
   };
 
   handleSelect = async(i) => {
-    const selectedKey = [...this.state.selectedMood];
+    const selectedKey = [i+1, userSess.username];
     console.log("selectedMood: ", i);
     const res1 = await updateMood(selectedKey);
-    console.log("line 45");
     console.log("res1", res1);
     if (res1.status === 200) {
       console.log("status 200");
-  }
-  else {
-    // if no items selected
-    return "Please select items to approve.";
-  }
+    }
+    else {
+      // if no items selected
+      return "Please select items to approve.";
+    }
 
     this.setState({ isActive: false, smileyFace: customIconsFilled[i] });
     this.setState({ selectedMood: i })

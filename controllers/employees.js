@@ -6,22 +6,13 @@ exports.updateMood = async (req, res) => {
   try {
     console.log("----------------------------------- EMPLOYEES CONTROLLER");
     const data = await Employees;
-    console.log(data);
-    console.log("body", req.body);
-    var reqBody = Object.values(req.body)
-    // console.log("body", typeof reqBody);
-    // const updatedData = data.filter(
-    //   (e) => (!reqBody.includes(e.key))
-    // );
+    data[0][req.body[1]].mood = req.body[0]
 
-    
-  // console.log("updated data", updatedData);
+    fs.writeFile('../ICT2102-HR/frontend/src/data/employees.json', JSON.stringify(data), function(err, result) {
+      if(err) console.log('error', err);
+    });
 
-  // fs.writeFile('../ICT2102-HR/frontend/src/data/employees.json', JSON.stringify(updatedData), function(err, result) {
-  //   if(err) console.log('error', err);
-  // });
-
-  res.status(200);
+    res.status(200);
     return;
     
   } catch (error) {
