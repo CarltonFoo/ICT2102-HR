@@ -15,6 +15,7 @@ const customIcons = [
 
 // selected icons
 const customIconsFilled = [
+  <SmileOutlined style={{ fontSize: 40 }} />,
   <FrownFilled style={{ fontSize: 40 }} />,
   <MehFilled style={{ fontSize: 40 }} />,
   <SmileFilled style={{ fontSize: 40 }} />,
@@ -33,7 +34,8 @@ class Mood extends React.Component {
   componentDidMount() {
     userSess = JSON.parse(sessionStorage.getItem("user"))
     userData = EmployeesJSON[0][userSess.username]
-    this.state.smileyFace= customIcons[EmployeesJSON[0][userSess.username].mood]
+    this.setState({smileyFace: EmployeesJSON[0][userSess.username].mood})
+    console.log(this.state.smileyFace)
   }
 
   constructor(props) {
@@ -41,7 +43,7 @@ class Mood extends React.Component {
     this.state = {
       dataSource: EmployeesJSON,
       isActive: false,
-      smileyFace: customIcons[2],
+      smileyFace: 0,
       selectedMood: []
     };
   }
@@ -142,7 +144,7 @@ class Mood extends React.Component {
             <button class="bg-yellow-300 hover:bg-yellow-500 text-black text-center rounded-full h-14 w-14 items-center shadow"
               style={{ cursor: 'select', position: 'absolute', bottom: 20, right: 42, zIndex: 1, color: '#000000' }}
               onClick={this.handleShow} data-tip data-for="moodPrompt">
-              {this.state.smileyFace}
+              {customIconsFilled[this.state.smileyFace]}
             </button>
           </div>
         )}
