@@ -119,7 +119,15 @@ class WelfareHistory extends React.Component {
               <Popover
                 content={
                   <>
-                    <a onClick={() => this.handleDelete(record.key)}>Cancel Order</a>
+                    <Popconfirm
+                      title="Are you sure to delete this order?"
+                      onConfirm={()=>this.handleDelete(record.key)}
+                      okText="Yes"
+                      cancelText="No"
+                    >
+                      <a>Cancel Order</a>
+                    </Popconfirm>
+                    {/* <a onClick={() => this.handleDelete(record.key)}>Cancel Order</a> */}
                     <br></br>
                     <a onClick={() => this.show(record)}>View Details</a>
                     <br></br>
@@ -194,13 +202,13 @@ class WelfareHistory extends React.Component {
   getPackageInfo = (dataName) => {
     if (this.state.recordData !== null) {
 
-      if (dataName == "mainInfo"){
-        
+      if (dataName == "mainInfo") {
+
         const recordData = this.state.recordData;
-        return ""+ recordData.productname + " for " + recordData.receiver +
-          " (" + recordData.department + ")" + '\n' ;
+        return "" + recordData.productname + " for " + recordData.receiver +
+          " (" + recordData.department + ")" + '\n';
       }
-    
+
       const recordData = this.state.recordData;
       // console.log(recordData);
       // const dataSource = [...this.state.dataSource];
@@ -225,7 +233,7 @@ class WelfareHistory extends React.Component {
     // console.log("handlemsgchange,recMSG", this.state.recordMsg)
     // console.log("updateJSON recordData \n",this.state.recordData);
     for (var i = 0; i < dataSource.length; i++) {
-      if(this.state.recordData === dataSource[i]){
+      if (this.state.recordData === dataSource[i]) {
         // console.log("FOUND,gift message:",dataSource[i].message);
         dataSource[i].message = this.state.recordMsg;
         this.setState({
@@ -332,7 +340,7 @@ class WelfareHistory extends React.Component {
               <Button
                 type="primary"
                 onClick={() => this.hide()}
-                // style={{ top: "3vw" }}
+              // style={{ top: "3vw" }}
               >
                 Close
               </Button>
@@ -384,7 +392,7 @@ class WelfareHistory extends React.Component {
                     type="primary"
                     htmlType="submit"
                     onClick={() => this.hide()}
-                    // style={{ top: "3vw" }}
+                  // style={{ top: "3vw" }}
                   >
                     Confirm
                   </Button>
