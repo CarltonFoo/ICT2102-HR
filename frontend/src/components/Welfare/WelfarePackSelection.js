@@ -24,32 +24,20 @@ const WelfarePackSelection = (props) => {
   const [form] = Form.useForm();
   const [value, setValue] = React.useState(0);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // console.log(`radio checked: ${JSON.stringify(e)}`);
-  //   form.validateFields(["welfarepack"], (err, values) => {
-  //     if (!err) {
-  //       props.next();
-  //     }
-  //   });
-  // };
-
   const onFinish = (fieldsValue) => {
-    const formData = form.getFieldsValue();
+    const formData = form.getFieldsValue(true);
     console.log(formData);
     props.next();
   };
 
-  function onChange(e) {
-    console.log(`radio checked:${e.target.value}`);
-    setValue(e.target.value);
+  function onChange(e, credits) {
+    console.log(`radio checked:${e.target.value},credits: ${credits}`);
+    setValue(e.target.value, credits);
     props.onChange({
       ...props.welfarepack,
-      welfarepack: e.target.value,
-    });
-    props.onChange({
       ...props.credits,
       welfarepack: e.target.value,
+      credits: e.target.credits,
     });
   }
 
@@ -69,8 +57,16 @@ const WelfarePackSelection = (props) => {
             {WelfarePack.map((data) => {
               return (
                 <div class="p-8">
-                  <Radio.Group onChange={onChange} value={value} class="">
-                    <Radio.Button value={data.welfarePack} class="h-72">
+                  <Radio.Group
+                    onChange={(e) => onChange(e, data.credits)}
+                    value={value}
+                    class=""
+                  >
+                    <Radio.Button
+                      value={data.welfarePack}
+                      credits={data.credits}
+                      class="h-72"
+                    >
                       <Card
                         bordered={true}
                         id={data.id}
@@ -79,10 +75,9 @@ const WelfarePackSelection = (props) => {
                             {data.welfarePack}
                           </Title>
                         }
-                        hoverable={false}
-                        style={{ textAlign: "center", margin: "5%" }}
-                        // onClick={() => props.onSelectPack(data.welfarePack)}
-                        class="h-72 bg-transparent "
+                        hoverable={true}
+                        style={{ textAlign: "center", margin: "2%" }}
+                        class="h-72 "
                       >
                         <div>
                           <div class="h-10">

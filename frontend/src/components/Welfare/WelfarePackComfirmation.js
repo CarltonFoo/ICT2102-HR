@@ -11,17 +11,17 @@ const WelfarePackConfirmation = (props) => {
   return (
     <div>
       <p>Confirmation</p>
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid grid-cols-2  gap-4">
         <p>You have chosen: </p>
         <div>{props.welfarepack}</div>
-        <div> Total credits to be deducted: </div>
-        <div> 50 </div>
-        <div> Sending to:</div>
-        <div>{props.receiver}</div>
-
+        <p> Total credits to be deducted: </p>
+        <div>{props.credits} </div>
+        <p> Sending to:</p>
+        <div>
+          {props.receiver} from {props.department}
+        </div>
+        <p> Message: </p>
         <div>{props.message.value}</div>
-        <div>{props.department}</div>
-        <div>{props.credits}</div>
       </div>
     </div>
   );
