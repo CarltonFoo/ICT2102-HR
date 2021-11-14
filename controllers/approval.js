@@ -2,14 +2,17 @@ const { Console } = require("console");
 const fs = require("fs");
 const WelfareApproval = require("../frontend/src/data/approval.json");
 const InventoryData = require("../frontend/src/data/inventory.json");
-
+const data =  WelfareApproval;
+const inventoryJSON =  InventoryData;
 
 exports.removeWelfareRequest = async (req, res) => {
   try {
+    
     console.log("-----------------------------------U R IN CONTROLLER");
-    // const data = await ;
-    const data = await WelfareApproval;
+    console.log("FILE RUN START2 check:");
+    const data =  await WelfareApproval;
     const inventoryJSON = await InventoryData;
+    
     // console.log("controllerdata", data);
 
     // const parsedData = JSON.parse(data);
@@ -42,18 +45,21 @@ exports.removeWelfareRequest = async (req, res) => {
         }
       }
     }
-    console.log("FILE RUN")
+    
     // console.log("updated data", updatedData);
 
-    //DELETE WELFARE GIFT REQUEST @ Welfare approval HR
-    // fs.writeFile('../ICT2102-HR/frontend/src/data/approval.json', JSON.stringify(updatedData), function (err, result) {
-    //   if (err) console.log('error', err);
-    // });
+    // DELETE WELFARE GIFT REQUEST @ Welfare approval HR
+    fs.writeFile('../ICT2102-HR/frontend/src/data/approval.json', JSON.stringify(updatedData), function (err, result) {
+      console.log("writecomplete");
+      console.log(req.body);
+      if (err) console.log('error', err);
+    });
     // UPDATE WELFARE INVENTORY stock count
     fs.writeFile('../ICT2102-HR/frontend/src/data/inventory.json', JSON.stringify(tempData), function (err, result) {
       if (err) console.log('error', err);
     });
-
+    console.log("FILE RUN END6")
+    res.end();
     res.status(200);
     return;
   } catch (error) {

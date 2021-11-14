@@ -11,7 +11,9 @@ export const removeWelfareRequest = (arr) => {
       "Content-Type": "application/json",
     },
   };
-
+  // API.put('https://reqres.in/api/articles/1', article)
+  //       .then(response => this.setState({ updatedAt: response.data.updatedAt }));
+  // }
   return API.put("/welfareApproval", arr, config);
 };
 

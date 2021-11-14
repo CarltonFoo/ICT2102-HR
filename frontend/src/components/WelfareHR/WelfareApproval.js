@@ -73,11 +73,12 @@ class WelfareApproval extends React.Component {
       var countArr = _.countBy(temp, function (temp) { return temp.gifttype });
       countArr.selectedKeys = selectedKey;
       console.log("countArr",countArr);
-      const res1 = await removeWelfareRequest(countArr);
-      console.log("res1", res1);
-      if (res1.status === 200) {
-        console.log("status 200");
-      }
+      removeWelfareRequest(countArr);
+      // const res1 = await removeWelfareRequest(countArr);
+      // console.log("res1", res1);
+      // if (res1.status === 200) {
+      //   console.log("status 200");
+      // }
       // Tell the browser that this function is asynchronous
       // async function myFunc() {
       //   // Await for the promise to resolve
