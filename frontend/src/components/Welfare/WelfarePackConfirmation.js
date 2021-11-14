@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
@@ -11,6 +11,7 @@ import { GiftOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
 
 const handleSubmit = () => {
   localStorage.clear();
+  return <Redirect to="/" />;
 };
 
 const WelfarePackConfirmation = (props) => {
