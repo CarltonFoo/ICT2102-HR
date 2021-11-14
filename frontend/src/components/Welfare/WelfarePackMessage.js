@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
-import Card from "../Shared/Card.js";
 import { Col, Row, Form, Select, Button, Input } from "antd";
 import Employees from "../../data/employees.json";
 
@@ -69,6 +68,7 @@ const WelfareMessage = (props) => {
                       department: e,
                     })
                   }
+                  defaultValue={localStorage.getItem("department")}
                 >
                   {Employees.map((employee) => (
                     <Option value={employee.department}>
@@ -85,7 +85,7 @@ const WelfareMessage = (props) => {
                 rules={[
                   {
                     required: true,
-                    message: "Please select am Empolyee",
+                    message: "Please select an Employee",
                   },
                 ]}
               >
@@ -105,6 +105,7 @@ const WelfareMessage = (props) => {
                       receiver: e,
                     })
                   }
+                  defaultValue={localStorage.getItem("receiver")}
                 >
                   {Employees.map((employee) => (
                     <Option value={employee.employeeName}>
@@ -142,6 +143,7 @@ const WelfareMessage = (props) => {
                 message: e.target,
               })
             }
+            defaultValue={localStorage.getItem("message")}
           />
         </Form.Item>
 

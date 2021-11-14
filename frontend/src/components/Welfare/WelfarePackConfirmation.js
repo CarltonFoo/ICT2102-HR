@@ -9,7 +9,9 @@ import Table from "rc-table/lib/Table";
 
 import { GiftOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons";
 
-const handleBack = () => {};
+const handleSubmit = () => {
+  localStorage.clear();
+};
 
 const WelfarePackConfirmation = (props) => {
   return (
@@ -63,7 +65,7 @@ const WelfarePackConfirmation = (props) => {
           <Button type="primary" onClick={props.prev}>
             Back
           </Button>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
             Confirm
           </Button>
         </div>
