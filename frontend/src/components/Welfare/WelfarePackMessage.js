@@ -18,7 +18,6 @@ const WelfareMessage = (props) => {
     localStorage.setItem("department", props.department);
     localStorage.setItem("receiver", props.receiver);
     localStorage.setItem("message", props.message.value);
-  
   };
 
   return (

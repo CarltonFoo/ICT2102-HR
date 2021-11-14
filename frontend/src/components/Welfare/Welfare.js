@@ -4,13 +4,7 @@ import { Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import WelfarePack from "../../data/welfare.json";
-import { Card, Col, Row, Image, Tooltip, Button, Steps } from "antd";
-import {
-  InfoCircleTwoTone,
-  SmileTwoTone,
-  DollarCircleFilled,
-  HistoryOutlined,
-} from "@ant-design/icons";
+import { InfoCircleTwoTone } from "@ant-design/icons";
 import WelfareForm from "./WelfarePackForm";
 import WelfarePackConfirmation from "./WelfarePackConfirmation";
 import "./welfare.css";
