@@ -107,107 +107,183 @@ function getPayslipData(start, end) {
   };
 }
 
-getPayslipData(moment().subtract(1, 'month').format('YYYY-MM'), moment().subtract(1, 'month').format('YYYY-MM'))
 
 function disabledDate(current) {
-  return current && current > moment().startOf('month');
+  return current && current > moment().startOf("month");
 }
 
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
+function useForceUpdate() {
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue((value) => value + 1); // update the state to force render
 }
 
 const Payslip = () => {
+  getPayslipData(
+    moment().subtract(1, "month").format("YYYY-MM"),
+    moment().subtract(1, "month").format("YYYY-MM")
+  );
 
   const onChange = (value, dateString) => {
-    rangeStart = value[0]?.format('YYYY-MM')
-    rangeEnd = value[1]?.format('YYYY-MM')
-    getPayslipData(rangeStart, rangeEnd)
-  }
+    rangeStart = value[0]?.format("YYYY-MM");
+    rangeEnd = value[1]?.format("YYYY-MM");
+    getPayslipData(rangeStart, rangeEnd);
+  };
 
-  const forceUpdate = useForceUpdate()
+  const forceUpdate = useForceUpdate();
 
   return (
     <div class="payslipcard">
       <div class="m-auto pb-12 w-11/12">
-      <div class="text-2xl font-bold my-6">
-          Payslip          
-          <div data-tip="Check your payslip based on the month(s) selected" class="inline">
-            <InfoCircleTwoTone style={{ fontSize: '18px' }} twoToneColor="#A3A989" class="inline-block" className={"px-4"} />
+        <div class="text-2xl font-bold my-6">
+          Payslip
+          <div
+            data-tip="Check your payslip based on the month(s) selected"
+            class="inline"
+          >
+            <InfoCircleTwoTone
+              style={{ fontSize: "18px" }}
+              twoToneColor="#A3A989"
+              class="inline-block"
+              className={"px-4"}
+            />
           </div>
           <ReactTooltip place="right" effect="solid" />
-          </div>
-          <div class="my-8">
-            <Descriptions title="" bordered column={{ xxl: 3, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}>
-              <Descriptions.Item label="Name" className="userinfo">{userData.user.name}</Descriptions.Item>
-              <Descriptions.Item label="Total Hours Worked" className="userinfo">{userData.user.totalHoursWorked}</Descriptions.Item>
-              <Descriptions.Item label="Remaining Annual Leave" className="userinfo">{userData.user.remainingAnnualLeave}</Descriptions.Item>
-              <Descriptions.Item label="Total OT Hours" className="userinfo">
-                {userData.user.totalOTHours}
-              </Descriptions.Item>
+        </div>
+        <div class="my-8">
+          <Descriptions
+            title=""
+            bordered
+            column={{ xxl: 3, xl: 3, lg: 2, md: 1, sm: 1, xs: 1 }}
+          >
+            <Descriptions.Item label="Name" className="userinfo">
+              {userData.user.name}
+            </Descriptions.Item>
+            <Descriptions.Item label="Total Hours Worked" className="userinfo">
+              {userData.user.totalHoursWorked}
+            </Descriptions.Item>
+            <Descriptions.Item
+              label="Remaining Annual Leave"
+              className="userinfo"
+            >
+              {userData.user.remainingAnnualLeave}
+            </Descriptions.Item>
+            <Descriptions.Item label="Total OT Hours" className="userinfo">
+              {userData.user.totalOTHours}
+            </Descriptions.Item>
 
-              <Descriptions.Item label="Month Range" className="userinfo">
-                <Space direction="vertical" size={12}>
-                  <DatePicker.RangePicker 
+            <Descriptions.Item label="Month Range" className="userinfo">
+              <Space direction="vertical" size={12}>
+                <DatePicker.RangePicker
                   picker="month"
                   format="YYYY-MM"
-                  disabledDate={disabledDate} 
+                  disabledDate={disabledDate}
                   onCalendarChange={onChange}
-                  onChange={forceUpdate}/>
-                </Space>
-              </Descriptions.Item>
+                  onChange={forceUpdate}
+                />
+              </Space>
+            </Descriptions.Item>
+          </Descriptions>
+        </div>
 
+        <div class="flex flex-wrap overflow-hidden border">
+          <div class="w-7/12 overflow-hidden">
+            <Descriptions title="" layout="vertical" bordered labelStyle="">
+              <Descriptions.Item
+                label="Earnings"
+                span={3}
+                className="headerrow"
+              ></Descriptions.Item>
+            </Descriptions>
+            <Descriptions title="" bordered>
+              <Descriptions.Item
+                label="Basic Pay"
+                span={3}
+                className="alignright"
+              >
+                ${totalBasicPay.toFixed(2)}
+              </Descriptions.Item>
+              <Descriptions.Item label="Bonus" span={3} className="alignright">
+                ${totalBonus.toFixed(2)}
+              </Descriptions.Item>
+              <Descriptions.Item label="OT Pay" span={3} className="alignright">
+                ${totalOTpay.toFixed(2)}
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Total"
+                span={3}
+                className="alignright total"
+              >
+                ${totalEarnings.toFixed(2)}
+              </Descriptions.Item>
             </Descriptions>
 
+            <Descriptions title="" layout="vertical" bordered>
+              <Descriptions.Item
+                label="Claims"
+                span={3}
+                className="headerrow"
+              ></Descriptions.Item>
+            </Descriptions>
+
+            <Descriptions title="" bordered>
+              {Object.keys(claimsData).map((claim) => (
+                <Descriptions.Item
+                  label={claimsData[claim].claimDescription}
+                  span={3}
+                  className="alignright"
+                >
+                  ${claimsData[claim].claimAmt.toFixed(2)}
+                </Descriptions.Item>
+              ))}
+              <Descriptions.Item
+                label="Total"
+                span={3}
+                className="alignright total"
+              >
+                ${totalClaims.toFixed(2)}
+              </Descriptions.Item>
+            </Descriptions>
+
+            <Descriptions title="" layout="vertical" bordered>
+              <Descriptions.Item
+                label="Deductions"
+                span={3}
+                className="headerrow"
+              ></Descriptions.Item>
+            </Descriptions>
+            <Descriptions title="" bordered>
+              <Descriptions.Item
+                label="CPF Contribution"
+                span={3}
+                className="alignright"
+              >
+                -${totalCPF.toFixed(2)}
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Tax Deductions"
+                span={3}
+                className="alignright"
+              >
+                -${totalTax.toFixed(2)}
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Total"
+                span={3}
+                className="alignright total"
+              >
+                -${totalDeductions.toFixed(2)}
+              </Descriptions.Item>
+            </Descriptions>
           </div>
 
-          <div class="flex flex-wrap overflow-hidden border">
-
-            <div class="w-7/12 overflow-hidden">
-              <Descriptions title="" layout="vertical" bordered labelStyle="">
-                <Descriptions.Item label="Earnings" span={3} className="headerrow"></Descriptions.Item>
-              </Descriptions>
-              <Descriptions title="" bordered>
-                <Descriptions.Item label="Basic Pay" span={3} className="alignright">${totalBasicPay.toFixed(2)}</Descriptions.Item>
-                <Descriptions.Item label="Bonus" span={3} className="alignright">${totalBonus.toFixed(2)}</Descriptions.Item>
-                <Descriptions.Item label="OT Pay" span={3} className="alignright">${totalOTpay.toFixed(2)}</Descriptions.Item>
-                <Descriptions.Item label="Total" span={3} className="alignright total">${totalEarnings.toFixed(2)}</Descriptions.Item>
-              </Descriptions>
-
-              <Descriptions title="" layout="vertical" bordered>
-                <Descriptions.Item label="Claims" span={3} className="headerrow"></Descriptions.Item>
-              </Descriptions>
-
-              <Descriptions title="" bordered>
-                 {Object.keys(claimsData).map((claim) =>
-                  <Descriptions.Item label={claimsData[claim].claimDescription} span={3} className="alignright">
-                    ${claimsData[claim].claimAmt.toFixed(2)}
-                  </Descriptions.Item>
-                  )}  
-                <Descriptions.Item label="Total" span={3} className="alignright total">${totalClaims.toFixed(2)}</Descriptions.Item>
-              </Descriptions>
-
-              <Descriptions title="" layout="vertical" bordered>
-                <Descriptions.Item label="Deductions" span={3} className="headerrow"></Descriptions.Item>
-              </Descriptions>            
-              <Descriptions title="" bordered>
-                <Descriptions.Item label="CPF Contribution" span={3} className="alignright">-${totalCPF.toFixed(2)}</Descriptions.Item>
-                <Descriptions.Item label="Tax Deductions" span={3} className="alignright">-${totalTax.toFixed(2)}</Descriptions.Item>
-                <Descriptions.Item label="Total" span={3} className="alignright total">-${totalDeductions.toFixed(2)}</Descriptions.Item>
-              </Descriptions>
+          <div class="my-2 px-2 w-5/12 overflow-hidden">
+            <Pie {...config} />
+            <div class="p-12 font-bold text-center">
+              Total: ${totalOverall.toFixed(2)}
             </div>
-
-            <div class="my-2 px-2 w-5/12 overflow-hidden">
-              <Pie {...config} />
-              <div class="p-12 font-bold text-center">
-                  Total: ${totalOverall.toFixed(2)}
-              </div>
-            </div>
-
           </div>
-
         </div>
+      </div>
     </div>
   );
 };
